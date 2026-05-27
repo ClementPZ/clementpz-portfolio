@@ -1,26 +1,155 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================================================
+   TOKENS DE THÈME
+   Chaque [data-theme="xxx"] définit son set de variables CSS.
+   Tous les composants utilisent var(--xxx), jamais de couleurs hardcodées.
+   ============================================================================ */
+
+:root,
+[data-theme="spotify"] {
+  --bg: #121212;
+  --bg-elev: #1f1f1f;
+  --bg-card: #181818;
+  --text: #ffffff;
+  --text-muted: #b3b3b3;
+  --accent: #1db954;
+  --accent-text: #000000;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --radius: 8px;
+  --radius-lg: 16px;
+  --letter-tight: -0.04em;
+  color-scheme: dark;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+[data-theme="wise"] {
+  --bg: #fafafa;
+  --bg-elev: #ffffff;
+  --bg-card: #ffffff;
+  --text: #163300;
+  --text-muted: #5c6452;
+  --accent: #9fe870;
+  --accent-text: #163300;
+  --border: rgba(22, 51, 0, 0.1);
+  --border-strong: rgba(22, 51, 0, 0.2);
+  --shadow: 0 4px 16px rgba(22, 51, 0, 0.08);
+  --radius: 12px;
+  --radius-lg: 24px;
+  --letter-tight: -0.035em;
+  color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+[data-theme="apple"] {
+  --bg: #ffffff;
+  --bg-elev: #fbfbfd;
+  --bg-card: #ffffff;
+  --text: #1d1d1f;
+  --text-muted: #6e6e73;
+  --accent: #0071e3;
+  --accent-text: #ffffff;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.15);
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  --radius: 14px;
+  --radius-lg: 20px;
+  --letter-tight: -0.025em;
+  color-scheme: light;
+}
+
+/* ============================================================================
+   BASE
+   ============================================================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  min-height: 100dvh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+/* Utilitaires custom pour les composants */
+.font-display {
+  font-family: var(--font-sora), var(--font-dm-sans), sans-serif;
+  letter-spacing: var(--letter-tight);
+}
+
+.surface {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text);
+  transition: border-color 0.2s ease;
+}
+
+.pill:hover {
+  border-color: var(--border-strong);
+}
+
+.btn-accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: var(--accent);
+  color: var(--accent-text);
+  border-radius: 999px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.btn-accent:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  color: var(--text);
+  transition: background-color 0.2s ease;
+}
+
+.btn-ghost:hover {
+  background: var(--bg-elev);
 }
