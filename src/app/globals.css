@@ -58,6 +58,23 @@
   color-scheme: light;
 }
 
+[data-theme="airbnb"] {
+  --bg: #fff8f3;
+  --bg-elev: #ffffff;
+  --bg-card: #ffffff;
+  --text: #222222;
+  --text-muted: #717171;
+  --accent: #ff5a5f;
+  --accent-text: #ffffff;
+  --border: rgba(34, 34, 34, 0.1);
+  --border-strong: rgba(34, 34, 34, 0.2);
+  --shadow: 0 4px 16px rgba(255, 90, 95, 0.1);
+  --radius: 12px;
+  --radius-lg: 24px;
+  --letter-tight: -0.03em;
+  color-scheme: light;
+}
+
 /* ============================================================================
    BASE
    ============================================================================ */

@@ -137,12 +137,13 @@ export const recommendations: Reco[] = [
 // Pour ajouter un thème : ajouter une entrée ici + un bloc CSS dans globals.css.
 // ============================================================================
 
-export type ThemeId = "spotify" | "wise" | "apple";
+export type ThemeId = "spotify" | "wise" | "apple" | "airbnb";
 
 export const themes: { id: ThemeId; label: string; vibe: string }[] = [
   { id: "spotify", label: "Spotify", vibe: "Dark, bold, contrasté" },
   { id: "wise", label: "Wise", vibe: "Light, vert citron, fintech" },
   { id: "apple", label: "Apple", vibe: "Minimal, spacieux, blanc" },
+  { id: "airbnb", label: "Airbnb", vibe: "Corail, chaleureux, hospitality" },
 ];
 
 export const defaultTheme: ThemeId = "spotify";
