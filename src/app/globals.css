@@ -15,6 +15,11 @@
   --text-muted: #b3b3b3;
   --accent: #1db954;
   --accent-text: #000000;
+  --accent-subtle: rgba(29, 185, 84, 0.12);
+  --card-feature: #1db954;
+  --card-feature-text: #000000;
+  --tag-bg: rgba(29, 185, 84, 0.14);
+  --tag-text: #1db954;
   --border: rgba(255, 255, 255, 0.08);
   --border-strong: rgba(255, 255, 255, 0.16);
   --shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
@@ -25,20 +30,44 @@
 }
 
 [data-theme="wise"] {
-  --bg: #fafafa;
+  /* Couleurs primaires — Bright Green + Forest Green (palette officielle Wise) */
+  --bg: #f0f7e8;
   --bg-elev: #ffffff;
   --bg-card: #ffffff;
   --text: #163300;
-  --text-muted: #5c6452;
+  --text-muted: #4a6741;
   --accent: #9fe870;
+  --accent-mid: #2ed06e;
   --accent-text: #163300;
-  --border: rgba(22, 51, 0, 0.1);
-  --border-strong: rgba(22, 51, 0, 0.2);
-  --shadow: 0 4px 16px rgba(22, 51, 0, 0.08);
-  --radius: 12px;
-  --radius-lg: 24px;
-  --letter-tight: -0.035em;
+  --accent-subtle: #e2f5c8;
+
+  /* Carte Forest Green (variante dark card Wise — fond #163300 + texte Bright Green) */
+  --card-feature: #163300;
+  --card-feature-text: #9fe870;
+
+  /* Tags / pills — fond vert pâle */
+  --tag-bg: #dff5c4;
+  --tag-text: #1f4800;
+
+  --border: rgba(22, 51, 0, 0.12);
+  --border-strong: rgba(22, 51, 0, 0.28);
+  --shadow: 0 4px 20px rgba(22, 51, 0, 0.1), 0 1px 3px rgba(22, 51, 0, 0.06);
+
+  /* Radius expressif — signature Wise */
+  --radius: 16px;
+  --radius-lg: 28px;
+  --letter-tight: -0.04em;
   color-scheme: light;
+}
+
+/* Fonts Wise : Inter (body) + Syne Bold (display, approx. Wise Sans) */
+[data-theme="wise"] body {
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+[data-theme="wise"] .font-display {
+  font-family: var(--font-syne), sans-serif;
+  font-weight: 800;
 }
 
 [data-theme="apple"] {
@@ -49,6 +78,11 @@
   --text-muted: #6e6e73;
   --accent: #0071e3;
   --accent-text: #ffffff;
+  --accent-subtle: rgba(0, 113, 227, 0.08);
+  --card-feature: #1d1d1f;
+  --card-feature-text: #f5f5f7;
+  --tag-bg: #f2f2f7;
+  --tag-text: #6e6e73;
   --border: rgba(0, 0, 0, 0.08);
   --border-strong: rgba(0, 0, 0, 0.15);
   --shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
@@ -66,6 +100,11 @@
   --text-muted: #717171;
   --accent: #ff5a5f;
   --accent-text: #ffffff;
+  --accent-subtle: rgba(255, 90, 95, 0.08);
+  --card-feature: #ff5a5f;
+  --card-feature-text: #ffffff;
+  --tag-bg: rgba(255, 90, 95, 0.08);
+  --tag-text: #484848;
   --border: rgba(34, 34, 34, 0.1);
   --border-strong: rgba(34, 34, 34, 0.2);
   --shadow: 0 4px 16px rgba(255, 90, 95, 0.1);
@@ -169,4 +208,21 @@ a {
 
 .btn-ghost:hover {
   background: var(--bg-elev);
+}
+
+/* ============================================================================
+   CARTE FEATURED
+   Redefine les variables CSS localement → tous les enfants s'adaptent
+   automatiquement sans toucher au markup (--accent, --text-muted, --tag-bg…)
+   ============================================================================ */
+
+.card-featured {
+  --bg-card: var(--card-feature);
+  --text: var(--card-feature-text);
+  --accent: color-mix(in oklab, var(--card-feature-text) 90%, transparent);
+  --text-muted: color-mix(in oklab, var(--card-feature-text) 62%, transparent);
+  --tag-bg: color-mix(in oklab, var(--card-feature-text) 18%, var(--card-feature));
+  --tag-text: var(--card-feature-text);
+  --border: color-mix(in oklab, var(--card-feature-text) 22%, transparent);
+  color: var(--card-feature-text);
 }

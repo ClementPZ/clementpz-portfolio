@@ -15,10 +15,10 @@ export function Work() {
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
-        {work.map((w) => (
+        {work.map((w, index) => (
           <article
             key={w.company + w.period}
-            className="surface p-6 sm:p-7 flex flex-col"
+            className={`surface p-6 sm:p-7 flex flex-col${index === 0 ? " card-featured" : ""}`}
             style={{ boxShadow: "var(--shadow)" }}
           >
             <header className="flex items-baseline justify-between gap-4 mb-3">
@@ -52,8 +52,8 @@ export function Work() {
                   key={t}
                   className="text-[10px] uppercase tracking-wider px-2 py-1 rounded"
                   style={{
-                    background: "var(--bg-elev)",
-                    color: "var(--text-muted)",
+                    background: "var(--tag-bg)",
+                    color: "var(--tag-text)",
                   }}
                 >
                   {t}

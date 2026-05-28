@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Sora, DM_Sans } from "next/font/google";
+import { Sora, DM_Sans, Inter, Syne } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
 import { profile, defaultTheme } from "../data/content";
@@ -15,6 +15,21 @@ const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
+  display: "swap",
+});
+
+// Wise theme fonts — Inter (body) + Syne (display, approx. Wise Sans)
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
+
+const syne = Syne({
+  variable: "--font-syne",
+  subsets: ["latin"],
+  weight: ["700", "800"],
   display: "swap",
 });
 
@@ -40,7 +55,7 @@ export default function RootLayout({
     <html
       lang="fr"
       data-theme={defaultTheme}
-      className={`${sora.variable} ${dmSans.variable}`}
+      className={`${sora.variable} ${dmSans.variable} ${inter.variable} ${syne.variable}`}
       suppressHydrationWarning
     >
       <head>
