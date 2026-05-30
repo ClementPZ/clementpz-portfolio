@@ -140,10 +140,10 @@ export const recommendations: Reco[] = [
 export type ThemeId = "spotify" | "wise" | "apple" | "airbnb";
 
 export const themes: { id: ThemeId; label: string; vibe: string }[] = [
-  { id: "spotify", label: "Spotify", vibe: "Dark, bold, contrasté" },
-  { id: "wise", label: "Wise", vibe: "Light, vert citron, fintech" },
-  { id: "apple", label: "Apple", vibe: "Minimal, spacieux, blanc" },
-  { id: "airbnb", label: "Airbnb", vibe: "Corail, chaleureux, hospitality" },
+  { id: "spotify", label: "Spotify", vibe: "Dark canvas, vert Encore, gradient pochette" },
+  { id: "wise", label: "Wise", vibe: "Bright Green, Forest Green, Inter + Syne" },
+  { id: "apple", label: "Apple", vibe: "Liquid Glass, SF Pro, System Blue" },
+  { id: "airbnb", label: "Airbnb", vibe: "Blanc pur, Rausch, search pill" },
 ];
 
 export const defaultTheme: ThemeId = "spotify";

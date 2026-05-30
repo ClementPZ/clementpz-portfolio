@@ -2,10 +2,11 @@
 
 /* ============================================================================
    TOKENS DE THÈME
-   Chaque [data-theme="xxx"] définit son set de variables CSS.
-   Tous les composants utilisent var(--xxx), jamais de couleurs hardcodées.
+   Chaque [data-theme="xxx"] définit son set complet de variables CSS.
+   Aucune couleur hardcodée dans les composants — tout passe par ces vars.
    ============================================================================ */
 
+/* SPOTIFY — dark canvas, vert signature, gradient façon pochette */
 :root,
 [data-theme="spotify"] {
   --bg: #121212;
@@ -17,22 +18,25 @@
   --accent-text: #000000;
   --accent-subtle: rgba(29, 185, 84, 0.12);
   --card-feature: #1db954;
-  --card-feature-text: #000000;
+  --card-feature-text: #ffffff;
   --tag-bg: rgba(29, 185, 84, 0.14);
   --tag-text: #1db954;
+  --btn-accent-bg: #1db954;
+  --btn-accent-text: #000000;
   --border: rgba(255, 255, 255, 0.08);
   --border-strong: rgba(255, 255, 255, 0.16);
   --shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
   --radius: 8px;
   --radius-lg: 16px;
+  --radius-btn: 999px;
   --letter-tight: -0.04em;
   color-scheme: dark;
 }
 
+/* WISE — Bright Green #9FE870 + Forest Green #163300, Inter + Syne 800 */
 [data-theme="wise"] {
-  /* Couleurs primaires — Bright Green + Forest Green (palette officielle Wise) */
   --bg: #f0f7e8;
-  --bg-elev: #ffffff;
+  --bg-elev: #f0f7e8;
   --bg-card: #ffffff;
   --text: #163300;
   --text-muted: #4a6741;
@@ -40,78 +44,159 @@
   --accent-mid: #2ed06e;
   --accent-text: #163300;
   --accent-subtle: #e2f5c8;
-
-  /* Carte Forest Green (variante dark card Wise — fond #163300 + texte Bright Green) */
   --card-feature: #163300;
   --card-feature-text: #9fe870;
-
-  /* Tags / pills — fond vert pâle */
   --tag-bg: #dff5c4;
   --tag-text: #1f4800;
-
+  --btn-accent-bg: #9fe870;
+  --btn-accent-text: #163300;
   --border: rgba(22, 51, 0, 0.12);
   --border-strong: rgba(22, 51, 0, 0.28);
   --shadow: 0 4px 20px rgba(22, 51, 0, 0.1), 0 1px 3px rgba(22, 51, 0, 0.06);
-
-  /* Radius expressif — signature Wise */
   --radius: 16px;
   --radius-lg: 28px;
+  --radius-btn: 999px;
   --letter-tight: -0.04em;
   color-scheme: light;
 }
 
-/* Fonts Wise : Inter (body) + Syne Bold (display, approx. Wise Sans) */
-[data-theme="wise"] body {
-  font-family: var(--font-inter), system-ui, sans-serif;
-}
-
-[data-theme="wise"] .font-display {
-  font-family: var(--font-syne), sans-serif;
-  font-weight: 800;
-}
-
+/* APPLE — Liquid Glass (iOS 26), SF Pro via stack système, System Blue */
 [data-theme="apple"] {
-  --bg: #ffffff;
-  --bg-elev: #fbfbfd;
-  --bg-card: #ffffff;
+  --bg: linear-gradient(160deg, #e8f2ff 0%, #f5f5f7 45%, #faf5ff 100%);
+  --bg-elev: #f5f5f7;
+  --bg-card: rgba(255, 255, 255, 0.72);
   --text: #1d1d1f;
   --text-muted: #6e6e73;
-  --accent: #0071e3;
+  --accent: #007aff;
   --accent-text: #ffffff;
-  --accent-subtle: rgba(0, 113, 227, 0.08);
+  --accent-subtle: rgba(0, 122, 255, 0.08);
   --card-feature: #1d1d1f;
   --card-feature-text: #f5f5f7;
   --tag-bg: #f2f2f7;
   --tag-text: #6e6e73;
+  --btn-accent-bg: #007aff;
+  --btn-accent-text: #ffffff;
   --border: rgba(0, 0, 0, 0.08);
   --border-strong: rgba(0, 0, 0, 0.15);
   --shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
   --radius: 14px;
   --radius-lg: 20px;
+  --radius-btn: 999px;
   --letter-tight: -0.025em;
   color-scheme: light;
 }
 
+/* AIRBNB — Canvas blanc, Rausch #FF385C, CTA charbon #222, Cereal → Jakarta */
 [data-theme="airbnb"] {
-  --bg: #fff8f3;
-  --bg-elev: #ffffff;
+  --bg: #ffffff;
+  --bg-elev: #f7f7f7;
   --bg-card: #ffffff;
   --text: #222222;
-  --text-muted: #717171;
-  --accent: #ff5a5f;
+  --text-muted: #767676;
+  --accent: #ff385c;
   --accent-text: #ffffff;
-  --accent-subtle: rgba(255, 90, 95, 0.08);
-  --card-feature: #ff5a5f;
+  --accent-subtle: rgba(255, 56, 92, 0.08);
+  --card-feature: #222222;
   --card-feature-text: #ffffff;
-  --tag-bg: rgba(255, 90, 95, 0.08);
+  --tag-bg: rgba(34, 34, 34, 0.06);
   --tag-text: #484848;
-  --border: rgba(34, 34, 34, 0.1);
-  --border-strong: rgba(34, 34, 34, 0.2);
-  --shadow: 0 4px 16px rgba(255, 90, 95, 0.1);
-  --radius: 12px;
-  --radius-lg: 24px;
-  --letter-tight: -0.03em;
+  --btn-accent-bg: #222222;
+  --btn-accent-text: #ffffff;
+  --border: rgba(34, 34, 34, 0.12);
+  --border-strong: #dddddd;
+  --shadow: rgba(0, 0, 0, 0.02) 0 0 0 1px, rgba(0, 0, 0, 0.04) 0 2px 6px,
+    rgba(0, 0, 0, 0.1) 0 4px 8px;
+  --radius: 14px;
+  --radius-lg: 14px;
+  --radius-btn: 8px;
+  --letter-tight: -0.02em;
   color-scheme: light;
+}
+
+/* ============================================================================
+   POLICES PAR THÈME
+   ============================================================================ */
+
+/* Wise — Inter (body) + Syne 800 (display, approx. Wise Sans par Ragged Edge) */
+[data-theme="wise"] body {
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+[data-theme="wise"] .font-display {
+  font-family: var(--font-syne), sans-serif;
+  font-weight: 800;
+}
+
+/* Apple — -apple-system donne SF Pro natif sur Mac/iOS ; Inter en fallback */
+[data-theme="apple"] body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", var(--font-inter),
+    system-ui, sans-serif;
+}
+[data-theme="apple"] .font-display {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", var(--font-inter),
+    system-ui, sans-serif;
+  font-weight: 600;
+}
+
+/* Airbnb — Plus Jakarta Sans (approx. Airbnb Cereal — même ADN géométrique humaniste) */
+[data-theme="airbnb"] body {
+  font-family: var(--font-jakarta), var(--font-dm-sans), system-ui, sans-serif;
+}
+[data-theme="airbnb"] .font-display {
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.44px;
+}
+
+/* ============================================================================
+   EFFETS DE MARQUE DISTINCTIFS
+   ============================================================================ */
+
+/* SPOTIFY — gradient "extracted album color" en haut de page */
+[data-theme="spotify"] body {
+  background: linear-gradient(180deg, rgba(29, 185, 84, 0.16) 0%, transparent 380px),
+    #121212;
+}
+
+/* SPOTIFY — card featured = gradient pochette d'album (vert → near-black) */
+[data-theme="spotify"] .card-featured {
+  background: linear-gradient(135deg, #1db954 0%, #181818 100%);
+  border-color: transparent;
+  color: #ffffff;
+  --text: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.65);
+  --accent: rgba(255, 255, 255, 0.9);
+  --tag-bg: rgba(255, 255, 255, 0.1);
+  --tag-text: #ffffff;
+  --border: rgba(255, 255, 255, 0.12);
+}
+
+/* WISE — h1 hero reçoit un bloc Bright Green (signature "bold brand statement") */
+[data-theme="wise"] .hero-tagline {
+  background: var(--accent);
+  color: var(--accent-text);
+  display: inline;
+  padding: 2px 10px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  border-radius: 6px;
+  line-height: 1.15;
+}
+
+/* APPLE — Liquid Glass sur toutes les surfaces (iOS 26 / macOS Tahoe) */
+[data-theme="apple"] .surface {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* APPLE — Liquid Glass sur la nav */
+[data-theme="apple"] .nav-bar {
+  background: rgba(245, 245, 247, 0.72);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
 }
 
 /* ============================================================================
@@ -129,7 +214,7 @@ body {
   font-family: var(--font-dm-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 body {
@@ -147,10 +232,21 @@ a {
   color: var(--accent-text);
 }
 
-/* Utilitaires custom pour les composants */
+/* ============================================================================
+   UTILITAIRES
+   ============================================================================ */
+
 .font-display {
   font-family: var(--font-sora), var(--font-dm-sans), sans-serif;
   letter-spacing: var(--letter-tight);
+}
+
+/* Nav — styles de base ; les thèmes peuvent surcharger sans !important */
+.nav-bar {
+  background: color-mix(in oklab, var(--bg-elev) 85%, transparent);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
 }
 
 .surface {
@@ -175,6 +271,7 @@ a {
   border-color: var(--border-strong);
 }
 
+/* btn-accent — radius et couleur pilotés par les tokens du thème actif */
 .btn-accent {
   display: inline-flex;
   align-items: center;
@@ -182,9 +279,9 @@ a {
   padding: 12px 22px;
   font-size: 0.95rem;
   font-weight: 600;
-  background: var(--accent);
-  color: var(--accent-text);
-  border-radius: 999px;
+  background: var(--btn-accent-bg, var(--accent));
+  color: var(--btn-accent-text, var(--accent-text));
+  border-radius: var(--radius-btn, 999px);
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
@@ -201,7 +298,7 @@ a {
   font-size: 0.9rem;
   background: transparent;
   border: 1px solid var(--border-strong);
-  border-radius: 999px;
+  border-radius: var(--radius-btn, 999px);
   color: var(--text);
   transition: background-color 0.2s ease;
 }
@@ -211,9 +308,70 @@ a {
 }
 
 /* ============================================================================
+   AIRBNB — Search pill (signature UI la plus copiée du secteur)
+   Visible uniquement en thème Airbnb via [data-theme="airbnb"]
+   ============================================================================ */
+
+.nav-search-pill {
+  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0 1px 2px, rgba(0, 0, 0, 0.06) 0 4px 12px;
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-search-pill:hover {
+  box-shadow: rgba(0, 0, 0, 0.12) 0 2px 4px, rgba(0, 0, 0, 0.08) 0 8px 20px;
+}
+
+.nav-search-segment {
+  padding: 10px 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.nav-search-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--border-strong);
+  flex-shrink: 0;
+}
+
+.nav-search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: var(--accent);
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 0.8rem;
+  margin: 0 6px;
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+@media (min-width: 640px) {
+  [data-theme="airbnb"] .nav-search-pill {
+    display: flex;
+  }
+}
+
+/* ============================================================================
    CARTE FEATURED
-   Redefine les variables CSS localement → tous les enfants s'adaptent
-   automatiquement sans toucher au markup (--accent, --text-muted, --tag-bg…)
+   Redéfinit les vars CSS localement → tous les enfants s'adaptent
+   via cascade (var(--accent), var(--text-muted), var(--tag-bg)…)
    ============================================================================ */
 
 .card-featured {

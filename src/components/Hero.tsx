@@ -3,7 +3,11 @@ import { profile } from "../data/content";
 export function Hero() {
   return (
     <section id="top" className="max-w-6xl mx-auto px-6 pt-20 pb-24 sm:pt-32 sm:pb-32">
-      <h1 className="font-display font-extrabold text-5xl sm:text-7xl md:text-8xl leading-[0.95]">
+      {/*
+        hero-tagline : reçoit un fond Bright Green en thème Wise (bold brand statement)
+        Les autres thèmes ignorent cette classe — aucun effet visuel.
+      */}
+      <h1 className="font-display font-extrabold text-5xl sm:text-7xl md:text-8xl hero-tagline">
         {profile.tagline}
       </h1>
       <p
