@@ -5,14 +5,14 @@
 // ============================================================================
 
 export const profile = {
-  name: "Clément Pellerin-Zaffino",
+  name: "Clément Picard-Zivy",
   shortName: "Clément PZ",
   tagline: "Product Design × Code × AI",
   intro:
-    "Product Design Lead, je conçois des produits SaaS healthcare et fintech. Basé à Paris, après 6 ans Remote/Mexico. J'aime construire des design systems qui scalent, mixer code et design, et faire bouger les équipes avec l'IA.",
-  email: "clement.pellerin.zaffino@gmail.com",
+    "Product Design Lead, 10 ans entre produit, design systems et innovation. J'ai construit la fonction design de NRC Health from scratch et je pilote une équipe de trois sur des SaaS Patient & Employee Experience. Je travaille à la jonction design, engineering et IA : design tokens en production, outillage AI pour les non-engineers, décisions design ancrées dans l'analytics.",
+  email: "clementpicardzivy@gmail.com",
   links: {
-    linkedin: "https://www.linkedin.com/in/clementpellerinzaffino/",
+    linkedin: "https://www.linkedin.com/in/clementpz/",
     github: "https://github.com/ClementPZ",
   },
   languages: ["FR (natif)", "EN (courant)", "ES (courant)"],
@@ -58,52 +58,71 @@ export const work: WorkItem[] = [
   {
     company: "NRC Health",
     role: "Product Design Lead",
-    period: "2024 — Aujourd'hui",
-    location: "Paris",
+    period: "2024 — Présent",
+    location: "Lincoln, USA · Paris",
     summary:
-      "Lead design sur les produits Experience patient. Construction du design system, alignement des équipes produit & engineering, intégration IA dans les workflows.",
-    tags: ["Healthcare", "SaaS", "Design System", "Lead"],
+      "Recruté et construit la première équipe design de NRC (2 designers + senior UX/data researcher) sur quatre suites produits (Consumer, Patient, Market Insight, Employee Experience). Créé un design system multi-produits sur base Flowbite avec design tokens et outillage AI-to-code pour les non-engineers. Piloté les features IA : assistant Huey et outil d'écoute ambiante qui a fait passer la documentation infirmière de 55% à 90%. Lancé la première pratique analytics de l'équipe, A/B testing validé en prod.",
+    impact: [
+      "55% → 90% documentation infirmière (ambient-listening)",
+      "+24% CTR emails outreach (A/B testing)",
+      "Première équipe design NRC — built from scratch",
+    ],
+    tags: ["Healthcare", "SaaS", "Design System", "Lead", "AI"],
   },
   {
-    company: "Optum / Episource",
-    role: "Lead Product Designer & Design System",
+    company: "Episource · Optum (UnitedHealth Group)",
+    role: "Senior → Lead Product Designer · Design System",
     period: "2021 — 2024",
-    location: "Remote (Los Angeles)",
+    location: "Los Angeles, Remote",
     summary:
-      "Conception de Smart Chart, plateforme de codage médical assisté par IA pour 3000+ coders. Création et gouvernance du design system multi-produits.",
+      "Promu Lead Product Designer en 12 mois pour communication cross-fonctionnelle et leadership design sur 6+ produits. Contribué au design system Click to Code (alpha → production) avec un redesign V2.0 validé sur 897 utilisateurs. Piloté la recherche cross-produits et la bibliothèque Figma. Led design de l'interface NLP de codage médical assisté par IA et du Provider Direct Messaging (intégration EHR bidirectionnelle avec UHC).",
     impact: [
-      "+40% productivité coders mesurée",
-      "Design system adopté sur 5 produits",
+      "88% acceptance · 80% satisfaction (897 users, design system V2)",
+      "500–750k charts/an ciblés par la stratégie autocoding",
+      "6+ produits couverts par le design system",
     ],
-    tags: ["Healthcare", "AI", "Design System", "Enterprise"],
+    tags: ["Healthcare", "AI", "Design System", "Enterprise", "NLP"],
   },
   {
     company: "SEIF",
-    role: "Product Designer, UX & UI",
+    role: "Product Designer · Design System · Project Manager",
     period: "2020 — 2021",
-    location: "Mexico",
+    location: "Mexico City",
     summary:
-      "Conception d'une app de microfinance pour les populations non bancarisées au Mexique. Recherche terrain, prototypes, tests utilisateur.",
-    tags: ["Fintech", "Mobile", "Research", "Emerging markets"],
+      "Défini et positionné les produits blockchain/fintech avec le CEO et CTO. Conçu des interfaces conversationnelles PWA : KYC, système de paiement, blockchain explorer, dashboards. Construit l'UI kit et le design system from scratch.",
+    tags: ["Fintech", "Blockchain", "Mobile", "Design System"],
   },
   {
-    company: "Le Wagon Mexico",
-    role: "Fondateur & UX/UI Teacher",
+    company: "Le Wagon",
+    role: "Fondateur · Product Design Teacher · Business Development",
     period: "2017 — 2021",
-    location: "Mexico",
+    location: "Mexico City",
     summary:
-      "Lancement de la première école de code Le Wagon en Amérique Latine. Direction opérationnelle, business dev, enseignement du Product Design.",
-    impact: ["200+ alumni formés", "Première école Le Wagon LATAM"],
-    tags: ["Founder", "Education", "Teaching"],
+      "Lancé le campus Le Wagon Mexico, sécurisé 15 partenaires commerciaux (ITAM, Start-Up Mexico, Numa) et enseigné les fondamentaux UI/UX. 4 cohorts, 40 alumni, 15 web products livrés.",
+    impact: [
+      "15 partenaires commerciaux",
+      "4 cohorts · 40 alumni · 15 web products",
+      "Premier campus Le Wagon Amérique Latine",
+    ],
+    tags: ["Founder", "Education", "Teaching", "LATAM"],
+  },
+  {
+    company: "Welcomhere",
+    role: "Co-fondateur · Product & Business Development",
+    period: "2015 — 2017",
+    location: "Paris",
+    summary:
+      "Co-fondé une plateforme de relocation pour migrants : définition produit, pitches, levée de fonds, partenariats et développement produit itératif.",
+    tags: ["Founder", "Social Impact", "Product", "NGO"],
   },
   {
     company: "Devialet",
-    role: "Project Manager — Retail Europe & Flagship",
+    role: "Project Manager — Retail & Flagship Europe",
     period: "2011 — 2015",
-    location: "Paris",
+    location: "Paris · Europe",
     summary:
-      "Déploiement retail Europe et lancement du flagship store parisien. Project management, opérations, expérience client premium.",
-    tags: ["Retail", "Luxury", "Operations"],
+      "Lancement du flagship store parisien et déploiement des concept stores en Europe. Project management, opérations retail, expérience client premium.",
+    tags: ["Retail", "Luxury", "Operations", "Europe"],
   },
 ];
 
@@ -118,6 +137,12 @@ export type Reco = {
 };
 
 export const recommendations: Reco[] = [
+  {
+    author: "C. Louvion",
+    title: "CTO @ NRC Health",
+    quote:
+      "Clement brings the full design package: deep user research, journey maps, personas, quick prototyping, with amazing collaboration with users, product, and engineers, and presents results clearly to sr leadership.",
+  },
   {
     author: "Vinitha Ramnathan",
     title: "ex-CPO @ NRC Health",
