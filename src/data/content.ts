@@ -158,6 +158,98 @@ export const recommendations: Reco[] = [
 ];
 
 // ============================================================================
+// Recent projects — "The past 6 months". Side projects en cours, affichés en
+// carousel. status = état d'avancement. accent/accent2 = couleurs d'identité
+// PROPRES au projet (volontairement hardcodées, pas des tokens de thème).
+// ============================================================================
+
+export type ProjectStatus = "live" | "en cours" | "concept";
+
+export type RecentProject = {
+  name: string;
+  tagline: string;
+  description: string;
+  status: ProjectStatus;
+  tags: string[];
+  accent: string; // couleur d'identité projet (fond de carte)
+  accent2: string; // 2e couleur pour le gradient
+  link?: string;
+};
+
+export const recentProjects: RecentProject[] = [
+  {
+    name: "Paris Conferences",
+    tagline: "Agrégateur d'events culturels parisiens",
+    description:
+      "App qui agrège conférences et events culturels de Paris depuis les open data de la ville et du ministère de la Culture. Filtres, vue semaine, export iCal.",
+    status: "en cours",
+    tags: ["Next.js", "Open Data", "TypeScript"],
+    accent: "#2563eb",
+    accent2: "#0f172a",
+  },
+  {
+    name: "Builder Flow",
+    tagline: "Front-end editing pour non-engineers",
+    description:
+      "Skill Claude Code qui laisse un PM ou designer modifier le front-end d'une app en langage naturel, avec enforcement du design system. Code production-ready et compliant, reviewé par les engineers avant merge.",
+    status: "en cours",
+    tags: ["Claude Code", "Design System", "AI"],
+    accent: "#7c3aed",
+    accent2: "#1e1b4b",
+  },
+  {
+    name: "Classification énergie DJ",
+    tagline: "Scorer l'énergie d'un set par analyse audio",
+    description:
+      "Système maison qui classe les tracks en warm-up / mid / peak par analyse audio (librosa), en percentile intra-genre. Alternative open-source à Mixed In Key, focalisée sur l'énergie plutôt que la tonalité.",
+    status: "en cours",
+    tags: ["Python", "librosa", "Audio ML"],
+    accent: "#db2777",
+    accent2: "#18181b",
+  },
+  {
+    name: "Music pipeline légal",
+    tagline: "Sourcer et upgrader une bibliothèque musicale",
+    description:
+      "Pipeline qui source et upgrade en lossless les morceaux d'une bibliothèque existante via plateformes légales, avec conversion et import automatiques.",
+    status: "concept",
+    tags: ["Automation", "Audio", "Pipeline"],
+    accent: "#059669",
+    accent2: "#022c22",
+  },
+  {
+    name: "Recherche emploi",
+    tagline: "Interface France Travail simplifiée",
+    description:
+      "Interface épurée par-dessus l'API France Travail : recherche par commune, filtres, cartes d'offres. Proxy Cloudflare Worker pour l'OAuth et le cache.",
+    status: "concept",
+    tags: ["API", "Cloudflare Worker", "UX"],
+    accent: "#0891b2",
+    accent2: "#083344",
+  },
+  {
+    name: "Jeu de cartes couple",
+    tagline: "Mécanique de révélation asymétrique",
+    description:
+      "Jeu de cartes pour couples basé sur une mécanique de révélation simultanée sur un spectre. 5 piliers, système de couleurs par intensité, cartes spéciales. Phase de design des cartes.",
+    status: "concept",
+    tags: ["Flutter", "Game Design", "Product"],
+    accent: "#ea580c",
+    accent2: "#1c1917",
+  },
+  {
+    name: "Frise histoire du graphisme",
+    tagline: "Visualisation chronologique des mouvements",
+    description:
+      "Frise interactive de l'histoire du graphisme : typographes, moments fondateurs et affiches emblématiques, de l'Art Nouveau à l'école suisse et américaine.",
+    status: "concept",
+    tags: ["Data Viz", "Design", "History"],
+    accent: "#ca8a04",
+    accent2: "#1c1917",
+  },
+];
+
+// ============================================================================
 // Themes — chaque thème = un set de tokens CSS injecté via data-theme.
 // Pour ajouter un thème : ajouter une entrée ici + un bloc CSS dans globals.css.
 // ============================================================================
