@@ -158,7 +158,13 @@ export const recommendations: Reco[] = [
 // PROPRES au projet (volontairement hardcodées, pas des tokens de thème).
 // ============================================================================
 
-export type ProjectStatus = "live" | "in progress" | "concept";
+export type ProjectStatus =
+  | "live"
+  | "in progress"
+  | "concept"
+  | "concept-wip"
+  | "fail"
+  | "private-live";
 
 export type RecentProject = {
   name: string;
@@ -177,7 +183,7 @@ export const recentProjects: RecentProject[] = [
     tagline: "Front-end editing for non-engineers",
     description:
       "A Claude Code skill that lets a PM or designer edit an app's front-end in plain language, with design-system enforcement. Production-ready, compliant code, reviewed by engineers before merge.",
-    status: "in progress",
+    status: "concept-wip",
     tags: ["Claude Code", "Design System", "AI"],
     accent: "#7c3aed",
     accent2: "#1e1b4b",
@@ -187,7 +193,7 @@ export const recentProjects: RecentProject[] = [
     tagline: "An asymmetric reveal mechanic",
     description:
       "A card game for couples built on a simultaneous reveal on a spectrum. 5 pillars, an intensity-based color system, special cards. Currently in card-design phase.",
-    status: "concept",
+    status: "concept-wip",
     tags: ["Flutter", "Game Design", "Product"],
     accent: "#ea580c",
     accent2: "#1c1917",
@@ -197,7 +203,7 @@ export const recentProjects: RecentProject[] = [
     tagline: "Source and upgrade a music library",
     description:
       "A pipeline that sources and upgrades an existing music library to lossless through legal platforms, with automatic conversion and import.",
-    status: "concept",
+    status: "private-live",
     tags: ["Automation", "Audio", "Pipeline"],
     accent: "#059669",
     accent2: "#022c22",
@@ -227,7 +233,7 @@ export const recentProjects: RecentProject[] = [
     tagline: "Cultural events aggregator for Paris",
     description:
       "App aggregating conferences and cultural events in Paris from the city's and the Ministry of Culture's open data. Filters, week view, iCal export.",
-    status: "in progress",
+    status: "concept",
     tags: ["Next.js", "Open Data", "TypeScript"],
     accent: "#2563eb",
     accent2: "#0f172a",
@@ -237,7 +243,7 @@ export const recentProjects: RecentProject[] = [
     tagline: "Scoring set energy through audio analysis",
     description:
       "A homegrown system that scores tracks as warm-up / mid / peak through audio analysis (librosa), on an intra-genre percentile. An open-source alternative to Mixed In Key, focused on energy rather than key.",
-    status: "in progress",
+    status: "fail",
     tags: ["Python", "librosa", "Audio ML"],
     accent: "#db2777",
     accent2: "#18181b",

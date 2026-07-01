@@ -381,6 +381,13 @@
   animation: overlay-card-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
 }
 
+/* Sur mobile : inverser langue (droite) et indicateur V1 (gauche) */
+@media (max-width: 640px) {
+  .overlay-top {
+    flex-direction: row-reverse;
+  }
+}
+
 /* Indicateur V1 — même système de couleur que l'indicateur de langue */
 .overlay-badge {
   display: inline-flex;

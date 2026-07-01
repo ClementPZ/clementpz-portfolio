@@ -93,8 +93,9 @@ export function DisclaimerOverlay() {
       aria-label="Portfolio in progress"
     >
       <div className="overlay-glass">
-        {/* Haut : langue à gauche (pré-réglée sur l'appareil), indicateur V1 à droite */}
+        {/* Haut : langue à gauche, V1 à droite (inversés sur mobile via CSS) */}
         <div
+          className="overlay-top"
           style={{
             display: "flex",
             justifyContent: "space-between",

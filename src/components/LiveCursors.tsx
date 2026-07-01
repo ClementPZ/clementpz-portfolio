@@ -35,21 +35,23 @@ function Cursor({
 }
 
 export function LiveCursors() {
-  const [enabled, setEnabled] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [finePointer, setFinePointer] = useState(false);
   const youRef = useRef<HTMLDivElement>(null);
   const stefanRef = useRef<HTMLDivElement>(null);
   const carolinoRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-    setEnabled(true);
+    setMounted(true);
+    // "You" (qui suit la souris) seulement sur desktop ; Stefan + Carol partout.
+    setFinePointer(window.matchMedia("(hover: hover) and (pointer: fine)").matches);
   }, []);
 
   // Curseur du visiteur "You" (vert Figma) : n'apparaît qu'APRÈS la séquence
   // Stefan + Carol (~7,5s), suit la souris en masquant le curseur natif, puis
   // disparaît au premier clic (curseur natif restauré).
   useEffect(() => {
-    if (!enabled) return;
+    if (!finePointer) return;
     const you = youRef.current;
     if (!you) return;
 
@@ -80,11 +82,12 @@ export function LiveCursors() {
       window.removeEventListener("click", dismiss);
       document.body.classList.remove("cursor-hidden");
     };
-  }, [enabled]);
+  }, [finePointer]);
 
   // Faux curseurs : traversent l'écran jusqu'à une cible, la "pokent", puis fade.
+  // Actifs partout, y compris mobile.
   useEffect(() => {
-    if (!enabled) return;
+    if (!mounted) return;
     const rafs: number[] = [];
     const timers: number[] = [];
 
@@ -149,13 +152,13 @@ export function LiveCursors() {
       rafs.forEach(cancelAnimationFrame);
       timers.forEach(clearTimeout);
     };
-  }, [enabled]);
+  }, [mounted]);
 
-  if (!enabled) return null;
+  if (!mounted) return null;
 
   return (
     <>
-      <Cursor label="You" color={GREEN} cursorRef={youRef} />
+      {finePointer && <Cursor label="You" color={GREEN} cursorRef={youRef} />}
       <Cursor label="Stefan" color={BLUE} cursorRef={stefanRef} />
       <Cursor label="Carolino" color={ORANGE} cursorRef={carolinoRef} />
     </>

@@ -442,8 +442,37 @@ export const projectText: Record<Locale, { tagline: string; description: string 
 };
 
 // Statuts projets traduits.
-export const statusText: Record<Locale, Record<"live" | "in progress" | "concept", string>> = {
-  en: { live: "● Live", "in progress": "● In progress", concept: "○ Concept" },
-  fr: { live: "● En ligne", "in progress": "● En cours", concept: "○ Concept" },
-  es: { live: "● En vivo", "in progress": "● En curso", concept: "○ Concepto" },
+type StatusKey =
+  | "live"
+  | "in progress"
+  | "concept"
+  | "concept-wip"
+  | "fail"
+  | "private-live";
+
+export const statusText: Record<Locale, Record<StatusKey, string>> = {
+  en: {
+    live: "● Live",
+    "in progress": "● In progress",
+    concept: "○ Concept",
+    "concept-wip": "○ Concept · WIP",
+    fail: "● Fail",
+    "private-live": "● Private · Live",
+  },
+  fr: {
+    live: "● En ligne",
+    "in progress": "● En cours",
+    concept: "○ Concept",
+    "concept-wip": "○ Concept · WIP",
+    fail: "● Échec",
+    "private-live": "● Privé · Live",
+  },
+  es: {
+    live: "● En vivo",
+    "in progress": "● En curso",
+    concept: "○ Concepto",
+    "concept-wip": "○ Concepto · WIP",
+    fail: "● Fallido",
+    "private-live": "● Privado · Live",
+  },
 };
