@@ -15,14 +15,29 @@ export function Footer() {
       <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row gap-6 sm:items-end sm:justify-between">
         <div>
           <p className="font-display text-lg font-bold">{profile.name}</p>
-          <p className="text-sm mt-1" style={{ color: "var(--text-muted)" }}>
+
+          {/* Mobile : signature "handcrafted" en sous-titre, rien d'autre */}
+          <p className="text-sm mt-1 sm:hidden" style={{ color: "var(--text-muted)" }}>
+            Handcrafted with ❤️ by ClémentPZ and Claude.ai
+          </p>
+
+          {/* Desktop : tagline + langues */}
+          <p
+            className="hidden sm:block text-sm mt-1"
+            style={{ color: "var(--text-muted)" }}
+          >
             {profile.tagline}
           </p>
-          <p className="text-xs mt-3" style={{ color: "var(--text-muted)" }}>
+          <p
+            className="hidden sm:block text-xs mt-3"
+            style={{ color: "var(--text-muted)" }}
+          >
             {languagesText[locale].join(" · ")}
           </p>
         </div>
-        <div className="flex flex-col sm:items-end gap-2 text-sm">
+
+        {/* Desktop uniquement : mail + liens */}
+        <div className="hidden sm:flex flex-col sm:items-end gap-2 text-sm">
           <a href={`mailto:${profile.email}`} className="hover:underline">
             {profile.email}
           </a>

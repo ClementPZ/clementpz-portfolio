@@ -16,7 +16,9 @@ export function Recommendations() {
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
-        {recommendations.map((r) => (
+        {recommendations
+          .filter((r) => r.quote)
+          .map((r) => (
           <blockquote
             key={r.author}
             className="surface p-6 sm:p-7"

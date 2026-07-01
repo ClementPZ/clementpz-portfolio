@@ -30,6 +30,19 @@ export function RecentProjects() {
     });
   }, []);
 
+  // Au mount : ouvrir le carousel centré sur la carte du milieu (Builder Flow).
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const cards = track.querySelectorAll<HTMLElement>("[data-card]");
+    const mid = cards[Math.floor(cards.length / 2)];
+    if (mid) {
+      track.scrollLeft = mid.offsetLeft + mid.offsetWidth / 2 - track.clientWidth / 2;
+      applyMagnify();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;

@@ -7,6 +7,9 @@ const GREEN = "#0FA958"; // You
 const BLUE = "#0D99FF"; // Stefan
 const ORANGE = "#FF8A00"; // Carolino
 
+// You + Stefan parqués pour l'instant (trop de bruit) → passer à true pour réactiver.
+const SHOW_EXTRA_CURSORS = false;
+
 function Cursor({
   label,
   color,
@@ -146,10 +149,9 @@ export function LiveCursors() {
       rafs.push(requestAnimationFrame(step));
     };
 
-    // Stefan : part à 600ms, met 3,5s à rejoindre "Get in touch".
-    // Carol : n'apparaît (part) qu'à 5s.
-    // "You" prend le relais à 7,5s (géré dans l'autre effet).
-    animateTo(stefanRef.current, "cta-getintouch", { x: 0.12, y: 0.26 }, 600, 3500);
+    if (SHOW_EXTRA_CURSORS) {
+      animateTo(stefanRef.current, "cta-getintouch", { x: 0.12, y: 0.26 }, 600, 3500);
+    }
     animateTo(carolinoRef.current, "mode-toggle", { x: 0.5, y: 0.5 }, 5000, 2000);
 
     return () => {
@@ -162,8 +164,10 @@ export function LiveCursors() {
 
   return (
     <>
-      {finePointer && <Cursor label="You" color={GREEN} cursorRef={youRef} />}
-      <Cursor label="Stefan" color={BLUE} cursorRef={stefanRef} />
+      {SHOW_EXTRA_CURSORS && finePointer && (
+        <Cursor label="You" color={GREEN} cursorRef={youRef} />
+      )}
+      {SHOW_EXTRA_CURSORS && <Cursor label="Stefan" color={BLUE} cursorRef={stefanRef} />}
       <Cursor label="Carolino" color={ORANGE} cursorRef={carolinoRef} labelLeft />
     </>
   );

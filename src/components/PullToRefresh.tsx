@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 const MESSAGES = [
   "Hello You",
   "You look great today",
-  "Page is charged you can stop doing this 🫂",
+  "Page is charged you can stop doing this 😊",
 ];
 
 const MAX_PULL = 92;
@@ -42,7 +42,8 @@ export function PullToRefresh() {
         localStorage.setItem("ptr-count", String(readCount() + 1));
       } catch {}
     };
-    const msgFor = (count: number) => Math.min(count, MESSAGES.length - 1);
+    // Boucle infinie : après le 3e message, on recommence au 1er.
+    const msgFor = (count: number) => count % MESSAGES.length;
 
     let startY = 0;
     let pulling = false;

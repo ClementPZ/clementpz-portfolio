@@ -13,7 +13,7 @@ export const profile = {
     "Product Design Leader, 10+ years across product design, design systems, and AI. I built NRC Health's design function from the ground up and now lead a team of three, from research to production to analytics. Founding a coding campus in Mexico City, then leading design at a NASDAQ-listed US healthcare company: a business-first instinct still drives how I lead.",
   email: "clementpicardzivy@gmail.com",
   links: {
-    linkedin: "https://www.linkedin.com/in/clementpz/",
+    linkedin: "https://www.linkedin.com/in/clément-picard-zivy-b6930155/",
     github: "https://github.com/ClementPZ",
   },
 };
@@ -108,8 +108,7 @@ export const recommendations: Reco[] = [
   {
     author: "C. Louvion",
     title: "CTO @ NRC Health",
-    quote:
-      "Clément brings the full design package: deep user research, journey maps, personas, and fast prototyping, in close collaboration with users, product, and engineering, presenting results clearly to sr leadership.",
+    quote: "",
     linkedin: "",
   },
   {
@@ -145,31 +144,9 @@ export type RecentProject = {
   link?: string;
 };
 
+// Ordre : concepts à gauche, Builder Flow au CENTRE (le carousel s'ouvre centré
+// dessus), les autres (WIP / live / fail) à droite.
 export const recentProjects: RecentProject[] = [
-  {
-    id: "builder-flow",
-    name: "Builder Flow",
-    status: "concept-wip",
-    tags: ["Claude Code", "Design System", "AI"],
-    accent: "#7c3aed",
-    accent2: "#1e1b4b",
-  },
-  {
-    id: "couples-card",
-    name: "Couples Card Game",
-    status: "concept-wip",
-    tags: ["Flutter", "Game Design", "Product"],
-    accent: "#ea580c",
-    accent2: "#1c1917",
-  },
-  {
-    id: "legal-music",
-    name: "Legal Music Pipeline",
-    status: "private-live",
-    tags: ["Automation", "Audio", "Pipeline"],
-    accent: "#059669",
-    accent2: "#022c22",
-  },
   {
     id: "job-search",
     name: "Job Search",
@@ -193,6 +170,30 @@ export const recentProjects: RecentProject[] = [
     tags: ["Next.js", "Open Data", "TypeScript"],
     accent: "#2563eb",
     accent2: "#0f172a",
+  },
+  {
+    id: "builder-flow",
+    name: "Builder Flow",
+    status: "concept-wip",
+    tags: ["Claude Code", "Design System", "AI"],
+    accent: "#7c3aed",
+    accent2: "#1e1b4b",
+  },
+  {
+    id: "couples-card",
+    name: "Couples Card Game",
+    status: "concept-wip",
+    tags: ["Flutter", "Game Design", "Product"],
+    accent: "#ea580c",
+    accent2: "#1c1917",
+  },
+  {
+    id: "legal-music",
+    name: "Legal Music Pipeline",
+    status: "private-live",
+    tags: ["Automation", "Audio", "Pipeline"],
+    accent: "#059669",
+    accent2: "#022c22",
   },
   {
     id: "dj-energy",
