@@ -16,18 +16,12 @@ export function Footer() {
         <div>
           <p className="font-display text-lg font-bold">{profile.name}</p>
 
-          {/* Mobile : signature "handcrafted" en sous-titre, rien d'autre */}
-          <p className="text-sm mt-1 sm:hidden" style={{ color: "var(--text-muted)" }}>
-            Handcrafted with ❤️ by ClémentPZ and Claude.ai
+          {/* Signature "handcrafted" — sous-titre, mobile + desktop */}
+          <p className="text-sm mt-1" style={{ color: "var(--text-muted)" }}>
+            Handcrafted with ❤️ by Clément and Claude.ai
           </p>
 
-          {/* Desktop : tagline + langues */}
-          <p
-            className="hidden sm:block text-sm mt-1"
-            style={{ color: "var(--text-muted)" }}
-          >
-            {profile.tagline}
-          </p>
+          {/* Desktop : langues */}
           <p
             className="hidden sm:block text-xs mt-3"
             style={{ color: "var(--text-muted)" }}
