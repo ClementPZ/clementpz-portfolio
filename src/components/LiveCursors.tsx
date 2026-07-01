@@ -152,7 +152,7 @@ export function LiveCursors() {
     if (SHOW_EXTRA_CURSORS) {
       animateTo(stefanRef.current, "cta-getintouch", { x: 0.12, y: 0.26 }, 600, 3500);
     }
-    animateTo(carolinoRef.current, "mode-toggle", { x: 0.5, y: 0.5 }, 5000, 2000);
+    animateTo(carolinoRef.current, "mode-toggle", { x: 0.5, y: 0.5 }, 1000, 2000);
 
     return () => {
       rafs.forEach(cancelAnimationFrame);
