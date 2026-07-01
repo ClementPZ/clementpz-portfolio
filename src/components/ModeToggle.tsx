@@ -19,7 +19,7 @@ export function ModeToggle() {
     // ︎ force le rendu TEXTE (monochrome) → la couleur s'applique
     // (sinon le glyphe est rendu en emoji couleur, soleil jaune).
     const glyph = goingLight ? "☀︎" : "☾︎";
-    const color = goingLight ? "#54255a" : "#ece0f0"; // soleil aubergine / lune claire
+    const color = goingLight ? "#54255a" : "#ffffff"; // soleil aubergine / lune blanche
     const shape = confetti.shapeFromText({ text: glyph, scalar: 2.4, color });
     confetti({
       shapes: [shape],

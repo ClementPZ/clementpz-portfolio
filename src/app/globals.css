@@ -381,19 +381,19 @@
   animation: overlay-card-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
 }
 
+/* Indicateur V1 — même système de couleur que l'indicateur de langue */
 .overlay-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  margin-bottom: 24px;
+  gap: 7px;
+  padding: 7px 12px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(245, 239, 246, 0.14);
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-muted);
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--text);
 }
 
 .pulse-dot {
@@ -425,11 +425,6 @@
   border: 1px solid rgba(84, 37, 90, 0.14);
   box-shadow: 0 30px 90px rgba(84, 37, 90, 0.22),
     inset 0 1px 0 rgba(255, 255, 255, 0.7);
-}
-
-[data-theme="signature-light"] .overlay-badge {
-  background: rgba(84, 37, 90, 0.06);
-  border-color: rgba(84, 37, 90, 0.14);
 }
 
 /* Sélecteur de langue dans l'overlay */
