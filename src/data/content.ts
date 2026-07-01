@@ -141,19 +141,7 @@ export const recommendations: Reco[] = [
     author: "C. Louvion",
     title: "CTO @ NRC Health",
     quote:
-      "Clement brings the full design package: deep user research, journey maps, personas, quick prototyping, with amazing collaboration with users, product, and engineers, and presents results clearly to sr leadership.",
-  },
-  {
-    author: "Vinitha Ramnathan",
-    title: "ex-CPO @ NRC Health",
-    quote:
-      "Placeholder — à remplacer avec la vraie citation LinkedIn de Vinitha.",
-  },
-  {
-    author: "Susan Morgan",
-    title: "Senior PM @ Episource (Optum)",
-    quote:
-      "Placeholder — à remplacer avec la vraie citation LinkedIn de Susan.",
+      "Clément brings the full design package: deep user research, journey maps, personas, quick prototyping, with amazing collaboration with users, product, and engineers, and presents results clearly to sr leadership.",
   },
 ];
 
@@ -254,13 +242,17 @@ export const recentProjects: RecentProject[] = [
 // Pour ajouter un thème : ajouter une entrée ici + un bloc CSS dans globals.css.
 // ============================================================================
 
-export type ThemeId = "spotify" | "wise" | "apple" | "airbnb";
+export type ThemeId = "signature" | "spotify" | "wise" | "apple" | "airbnb";
 
+// Thème actif V1 = "signature" (aubergine). Les 4 autres sont PARQUÉS :
+// conservés en code (CSS + entrées ci-dessous) mais le switcher est retiré
+// de la nav pour l'instant. Réactivables plus tard sans réécriture.
 export const themes: { id: ThemeId; label: string; vibe: string }[] = [
+  { id: "signature", label: "Signature", vibe: "Aubergine #54255A, gradient dérivé" },
   { id: "spotify", label: "Spotify", vibe: "Dark canvas, vert Encore, gradient pochette" },
   { id: "wise", label: "Wise", vibe: "Bright Green, Forest Green, Inter + Syne" },
   { id: "apple", label: "Apple", vibe: "Liquid Glass, SF Pro, System Blue" },
   { id: "airbnb", label: "Airbnb", vibe: "Blanc pur, Rausch, search pill" },
 ];
 
-export const defaultTheme: ThemeId = "spotify";
+export const defaultTheme: ThemeId = "signature";

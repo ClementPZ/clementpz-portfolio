@@ -1,3 +1,4 @@
+import { DisclaimerOverlay } from "../components/DisclaimerOverlay";
 import { Nav } from "../components/Nav";
 import { Hero } from "../components/Hero";
 import { Stack } from "../components/Stack";
@@ -9,6 +10,7 @@ import { Footer } from "../components/Footer";
 export default function Home() {
   return (
     <>
+      <DisclaimerOverlay />
       <Nav />
       <main>
         <Hero />

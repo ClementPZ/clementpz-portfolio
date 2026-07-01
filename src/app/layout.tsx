@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Sora, DM_Sans, Inter, Syne, Plus_Jakarta_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
 import { profile, defaultTheme } from "../data/content";
@@ -44,11 +45,18 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: `${profile.name} — ${profile.tagline}`,
   description: profile.intro,
-  metadataBase: new URL("https://clementpz.vercel.app"),
+  metadataBase: new URL("https://portfoliomai2026.vercel.app"),
   openGraph: {
     title: `${profile.name} — ${profile.tagline}`,
     description: profile.intro,
     type: "website",
+    locale: "fr_FR",
+    siteName: profile.name,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${profile.name} — ${profile.tagline}`,
+    description: profile.intro,
   },
 };
 
@@ -66,16 +74,9 @@ export default function RootLayout({
       className={`${sora.variable} ${dmSans.variable} ${inter.variable} ${syne.variable} ${jakarta.variable}`}
       suppressHydrationWarning
     >
-      <head>
-        {/* Hydrate le thème depuis localStorage AVANT le render pour éviter le flash */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`,
-          }}
-        />
-      </head>
       <body>
         <ThemeProvider>{children}</ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

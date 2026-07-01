@@ -1,5 +1,6 @@
 import { profile } from "../data/content";
-import { ThemeSwitcher } from "./ThemeSwitcher";
+// ThemeSwitcher parqué pour la V1 (identité unique "signature").
+// import { ThemeSwitcher } from "./ThemeSwitcher";
 
 export function Nav() {
   return (
@@ -24,12 +25,11 @@ export function Nav() {
         <div className="flex items-center gap-4">
           <a
             href={`mailto:${profile.email}`}
-            className="hidden sm:inline text-sm"
+            className="text-sm"
             style={{ color: "var(--text-muted)" }}
           >
             Contact
           </a>
-          <ThemeSwitcher />
         </div>
       </div>
     </nav>

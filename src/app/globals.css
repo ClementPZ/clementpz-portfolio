@@ -6,8 +6,7 @@
    Aucune couleur hardcodée dans les composants — tout passe par ces vars.
    ============================================================================ */
 
-/* SPOTIFY — dark canvas, vert signature, gradient façon pochette */
-:root,
+/* SPOTIFY — dark canvas, vert signature, gradient façon pochette (parqué) */
 [data-theme="spotify"] {
   --bg: #121212;
   --bg-elev: #1f1f1f;
@@ -86,6 +85,35 @@
   color-scheme: light;
 }
 
+/* SIGNATURE — identité perso Clément. Aubergine #54255A, gradient dérivé,
+   blancs et transparences micro-teintés aubergine. Thème par défaut V1. */
+:root,
+[data-theme="signature"] {
+  --brand: #54255a;
+  --bg: #130a15;
+  --bg-elev: #1d1020;
+  --bg-card: #1a0e1c;
+  --text: #f5eff6; /* blanc micro-teinté aubergine */
+  --text-muted: #a897ac; /* mauve-gris désaturé */
+  --accent: #b370c0; /* orchidée dérivée du brand, contraste sur dark */
+  --accent-text: #14060f;
+  --accent-subtle: rgba(84, 37, 90, 0.22);
+  --card-feature: #54255a;
+  --card-feature-text: #ffffff;
+  --tag-bg: rgba(179, 112, 192, 0.14);
+  --tag-text: #d3a6dd;
+  --btn-accent-bg: #b370c0;
+  --btn-accent-text: #14060f;
+  --border: rgba(245, 239, 246, 0.09);
+  --border-strong: rgba(245, 239, 246, 0.2);
+  --shadow: 0 10px 30px rgba(15, 4, 18, 0.6);
+  --radius: 10px;
+  --radius-lg: 18px;
+  --radius-btn: 999px;
+  --letter-tight: -0.035em;
+  color-scheme: dark;
+}
+
 /* AIRBNB — Canvas blanc, Rausch #FF385C, CTA charbon #222, Cereal → Jakarta */
 [data-theme="airbnb"] {
   --bg: #ffffff;
@@ -151,6 +179,30 @@
    EFFETS DE MARQUE DISTINCTIFS
    ============================================================================ */
 
+/* SIGNATURE — gradient aubergine : halo radial en haut + fondu vers near-black */
+[data-theme="signature"] body {
+  background: radial-gradient(
+      1100px 560px at 72% -12%,
+      rgba(84, 37, 90, 0.55) 0%,
+      rgba(84, 37, 90, 0.12) 42%,
+      transparent 68%
+    ),
+    linear-gradient(180deg, #180b1b 0%, #100710 100%);
+  background-attachment: fixed;
+}
+
+/* SIGNATURE — card featured = gradient aubergine profond */
+[data-theme="signature"] .card-featured {
+  background: linear-gradient(140deg, #54255a 0%, #1a0e1c 100%);
+  border-color: transparent;
+  --text: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.68);
+  --accent: rgba(255, 255, 255, 0.92);
+  --tag-bg: rgba(255, 255, 255, 0.12);
+  --tag-text: #ffffff;
+  --border: rgba(255, 255, 255, 0.14);
+}
+
 /* SPOTIFY — gradient "extracted album color" en haut de page */
 [data-theme="spotify"] body {
   background: linear-gradient(180deg, rgba(29, 185, 84, 0.16) 0%, transparent 380px),
@@ -197,6 +249,100 @@
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================================================
+   DISCLAIMER OVERLAY — animations "V1 in progress"
+   ============================================================================ */
+
+@keyframes overlay-fade-in {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(14px);
+  }
+}
+
+@keyframes overlay-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes overlay-fade-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.75);
+  }
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.overlay-root {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: radial-gradient(
+      900px 500px at 50% 0%,
+      rgba(84, 37, 90, 0.5) 0%,
+      rgba(19, 10, 21, 0.9) 55%
+    ),
+    rgba(16, 7, 16, 0.82);
+  animation: overlay-fade-in 0.5s ease forwards;
+}
+
+.overlay-root[data-closing="true"] {
+  animation: overlay-fade-out 0.4s ease forwards;
+}
+
+.overlay-card {
+  animation: overlay-card-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.pulse-dot {
+  animation: pulse-dot 1.4s ease-in-out infinite;
+}
+
+.count-shimmer {
+  background: linear-gradient(
+    100deg,
+    var(--accent) 20%,
+    #ffffff 50%,
+    var(--accent) 80%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
 }
 
 /* ============================================================================

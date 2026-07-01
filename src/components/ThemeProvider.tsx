@@ -13,12 +13,10 @@ const ThemeCtx = createContext<Ctx | null>(null);
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<ThemeId>(defaultTheme);
 
-  // Au mount : lit le thème depuis localStorage (post-hydration)
+  // Switcher parqué (V1 identité unique "signature") : on force le thème par
+  // défaut et on ignore tout thème parqué éventuellement stocké en localStorage.
   useEffect(() => {
-    const stored = (typeof window !== "undefined" && window.localStorage.getItem("theme")) as ThemeId | null;
-    if (stored && stored !== theme) {
-      setThemeState(stored);
-    }
+    document.documentElement.setAttribute("data-theme", defaultTheme);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
