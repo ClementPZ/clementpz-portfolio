@@ -3,6 +3,7 @@ import { Sora, DM_Sans, Inter, Syne, Plus_Jakarta_Sans } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
+import { LocaleProvider } from "../components/LocaleProvider";
 import { profile, defaultTheme } from "../data/content";
 
 const sora = Sora({
@@ -83,7 +84,9 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <LocaleProvider>{children}</LocaleProvider>
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>

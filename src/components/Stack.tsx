@@ -1,6 +1,10 @@
+"use client";
+
 import { stack } from "../data/content";
+import { useLocale } from "./LocaleProvider";
 
 export function Stack() {
+  const { t } = useLocale();
   return (
     <section
       id="stack"
@@ -8,9 +12,9 @@ export function Stack() {
       style={{ borderTop: "1px solid var(--border)" }}
     >
       <div className="flex items-baseline justify-between mb-8">
-        <h2 className="font-display text-2xl sm:text-3xl font-bold">My 2026 stack</h2>
+        <h2 className="font-display text-2xl sm:text-3xl font-bold">{t.stackTitle}</h2>
         <span className="text-xs uppercase tracking-wider" style={{ color: "var(--text-muted)" }}>
-          daily tools
+          {t.stackSub}
         </span>
       </div>
       <div className="flex flex-wrap gap-2">

@@ -1,9 +1,13 @@
+"use client";
+
 import { profile } from "../data/content";
 import { ModeToggle } from "./ModeToggle";
+import { useLocale } from "./LocaleProvider";
 // ThemeSwitcher parqué pour la V1 (identité unique "signature").
 // import { ThemeSwitcher } from "./ThemeSwitcher";
 
 export function Nav() {
+  const { t } = useLocale();
   return (
     <nav className="sticky top-0 z-50 nav-bar">
       <div className="max-w-6xl mx-auto px-6 py-4 relative flex items-center justify-between">
@@ -29,7 +33,7 @@ export function Nav() {
             className="text-sm"
             style={{ color: "var(--text-muted)" }}
           >
-            Contact
+            {t.contact}
           </a>
           <ModeToggle />
         </div>

@@ -1,6 +1,11 @@
+"use client";
+
 import { profile } from "../data/content";
+import { languagesText } from "../data/i18n";
+import { useLocale } from "./LocaleProvider";
 
 export function Footer() {
+  const { locale } = useLocale();
   const year = new Date().getFullYear();
   return (
     <footer
@@ -14,7 +19,7 @@ export function Footer() {
             {profile.tagline}
           </p>
           <p className="text-xs mt-3" style={{ color: "var(--text-muted)" }}>
-            {profile.languages.join(" · ")}
+            {languagesText[locale].join(" · ")}
           </p>
         </div>
         <div className="flex flex-col sm:items-end gap-2 text-sm">

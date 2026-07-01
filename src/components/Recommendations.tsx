@@ -1,6 +1,10 @@
+"use client";
+
 import { recommendations } from "../data/content";
+import { useLocale } from "./LocaleProvider";
 
 export function Recommendations() {
+  const { t } = useLocale();
   return (
     <section
       id="recommendations"
@@ -8,9 +12,9 @@ export function Recommendations() {
       style={{ borderTop: "1px solid var(--border)" }}
     >
       <div className="flex items-baseline justify-between mb-10">
-        <h2 className="font-display text-2xl sm:text-3xl font-bold">Recommendations</h2>
+        <h2 className="font-display text-2xl sm:text-3xl font-bold">{t.recoTitle}</h2>
         <span className="text-xs uppercase tracking-wider" style={{ color: "var(--text-muted)" }}>
-          from LinkedIn
+          {t.recoSub}
         </span>
       </div>
 

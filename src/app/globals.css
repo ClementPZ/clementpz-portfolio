@@ -432,6 +432,32 @@
   border-color: rgba(84, 37, 90, 0.14);
 }
 
+/* Sélecteur de langue dans l'overlay */
+.lang-select {
+  display: inline-flex;
+  gap: 6px;
+  padding: 4px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--text) 6%, transparent);
+  border: 1px solid var(--border);
+}
+
+.lang-chip {
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  background: transparent;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.lang-chip[data-active="true"] {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
 /* ============================================================================
    BACK TO TOP — bouton Apple translucide, apparition discrète
    ============================================================================ */

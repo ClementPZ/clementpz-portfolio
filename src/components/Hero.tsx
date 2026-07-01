@@ -1,12 +1,13 @@
+"use client";
+
 import { profile } from "../data/content";
+import { introText } from "../data/i18n";
+import { useLocale } from "./LocaleProvider";
 
 export function Hero() {
+  const { locale, t } = useLocale();
   return (
     <section id="top" className="max-w-6xl mx-auto px-6 pt-20 pb-24 sm:pt-32 sm:pb-32">
-      {/*
-        hero-tagline : reçoit un fond Bright Green en thème Wise (bold brand statement)
-        Les autres thèmes ignorent cette classe — aucun effet visuel.
-      */}
       <h1 className="font-display font-extrabold text-5xl sm:text-7xl md:text-8xl hero-tagline">
         {profile.tagline}
       </h1>
@@ -14,11 +15,11 @@ export function Hero() {
         className="mt-8 max-w-2xl text-lg sm:text-xl leading-relaxed"
         style={{ color: "var(--text-muted)" }}
       >
-        {profile.intro}
+        {introText[locale]}
       </p>
       <div className="mt-10 flex flex-wrap gap-3">
         <a href={`mailto:${profile.email}`} className="btn-accent">
-          Get in touch
+          {t.getInTouch}
         </a>
         <a
           href={profile.links.linkedin}
