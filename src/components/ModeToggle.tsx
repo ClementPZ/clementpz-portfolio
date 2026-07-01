@@ -10,21 +10,24 @@ export function ModeToggle() {
   const ref = useRef<HTMLButtonElement>(null);
 
   const onClick = () => {
-    // Explosion d'icônes : soleil quand on passe en clair, lune quand on passe
-    // en sombre. Émis depuis le bouton.
+    // Explosion d'icônes vers le BAS (le bouton est en haut de page).
+    // Soleil aubergine quand on passe en clair ; lune claire quand on passe en sombre.
     const rect = ref.current?.getBoundingClientRect();
     const x = rect ? (rect.left + rect.width / 2) / window.innerWidth : 0.9;
-    const y = rect ? (rect.top + rect.height / 2) / window.innerHeight : 0.05;
-    const goingLight = isDark; // on part de dark → light
-    const shape = confetti.shapeFromText({ text: goingLight ? "☀️" : "🌙", scalar: 2.2 });
+    const y = rect ? (rect.bottom / window.innerHeight) : 0.06;
+    const goingLight = isDark; // dark → light
+    const glyph = goingLight ? "☀" : "☾";
+    const color = goingLight ? "#54255a" : "#ece0f0"; // soleil aubergine / lune claire
+    const shape = confetti.shapeFromText({ text: glyph, scalar: 2.4, color });
     confetti({
       shapes: [shape],
-      scalar: 2.2,
-      particleCount: 18,
-      spread: 80,
-      startVelocity: 26,
-      gravity: 0.8,
-      ticks: 120,
+      scalar: 2.4,
+      particleCount: 16,
+      spread: 65,
+      angle: 270, // vers le bas
+      startVelocity: 32,
+      gravity: 1.2,
+      ticks: 130,
       origin: { x, y },
     });
     toggleMode();
@@ -33,6 +36,7 @@ export function ModeToggle() {
   return (
     <button
       ref={ref}
+      id="mode-toggle"
       type="button"
       onClick={onClick}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}

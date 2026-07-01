@@ -592,7 +592,6 @@
    ============================================================================ */
 
 .live-cursor {
-  --cursor-fill: #b370c0;
   position: fixed;
   top: 0;
   left: 0;
@@ -614,16 +613,11 @@
   margin-top: 14px;
   padding: 3px 9px;
   border-radius: 999px;
-  background: #b370c0;
-  color: #1a0713;
+  color: #ffffff;
   font-size: 0.72rem;
   font-weight: 700;
   white-space: nowrap;
-  box-shadow: 0 4px 12px rgba(84, 37, 90, 0.35);
-}
-
-.live-cursor-poke {
-  transition: transform 0.12s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
 /* Curseur natif masqué quand les live cursors sont actifs */
@@ -632,12 +626,13 @@ body.cursor-hidden * {
   cursor: none !important;
 }
 
-/* Petit "pop" du CTA quand le faux curseur le touche */
-#cta-getintouch {
+/* Petit "pop" d'une cible quand un faux curseur la touche */
+#cta-getintouch,
+#mode-toggle {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-#cta-getintouch.cta-poked {
-  transform: translateY(-2px) scale(1.05);
+.cursor-poked {
+  transform: translateY(-2px) scale(1.08);
   box-shadow: 0 10px 26px rgba(84, 37, 90, 0.4);
 }
 
