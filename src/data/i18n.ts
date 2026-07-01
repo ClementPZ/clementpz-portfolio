@@ -332,6 +332,11 @@ export const projectText: Record<
       description:
         "App aggregating conferences and cultural events in Paris from the city's and the Ministry of Culture's open data. Filters, week view, iCal export.",
     },
+    "interior-design": {
+      tagline: "My apartment, designed in public",
+      description:
+        "The ongoing interior design of my apartment — inspirations from Verner Panton, Tadao Ando and Jean-Pierre Garrauld. A dedicated page where visitors upvote the photos, bumping the best ones to the top.",
+    },
     "dj-energy": {
       tagline: "Scoring set energy through audio analysis",
       description:
@@ -369,6 +374,11 @@ export const projectText: Record<
       description:
         "App qui agrège conférences et événements culturels de Paris depuis les open data de la ville et du ministère de la Culture. Filtres, vue semaine, export iCal.",
     },
+    "interior-design": {
+      tagline: "Mon appartement, designé en public",
+      description:
+        "Le design d'intérieur en cours de mon appartement — inspirations Verner Panton, Tadao Ando et Jean-Pierre Garrauld. Une page dédiée où les visiteurs upvotent les photos, faisant remonter les meilleures.",
+    },
     "dj-energy": {
       tagline: "Scorer l'énergie d'un set par analyse audio",
       description:
@@ -405,6 +415,11 @@ export const projectText: Record<
       tagline: "Agregador de eventos culturales de París",
       description:
         "App que agrega conferencias y eventos culturales de París desde los open data de la ciudad y del ministerio de Cultura. Filtros, vista semanal, exportación iCal.",
+    },
+    "interior-design": {
+      tagline: "Mi apartamento, diseñado en público",
+      description:
+        "El diseño interior en curso de mi apartamento — inspiraciones de Verner Panton, Tadao Ando y Jean-Pierre Garrauld. Una página dedicada donde los visitantes votan las fotos, subiendo las mejores.",
     },
     "dj-energy": {
       tagline: "Puntuar la energía de un set por análisis de audio",

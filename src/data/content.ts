@@ -197,6 +197,14 @@ export const recentProjects: RecentProject[] = [
     accent2: "#022c22",
   },
   {
+    id: "interior-design",
+    name: "Apartment Interior Design",
+    status: "live",
+    tags: ["Interior", "Community", "Design"],
+    accent: "#9a3412",
+    accent2: "#1c1917",
+  },
+  {
     id: "dj-energy",
     name: "DJ Energy Classifier",
     status: "fail",

@@ -30,14 +30,15 @@ export function RecentProjects() {
     });
   }, []);
 
-  // Au mount : ouvrir le carousel centré sur la carte du milieu (Builder Flow).
+  // Au mount : ouvrir le carousel centré sur la carte Builder Flow (par id).
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
     const cards = track.querySelectorAll<HTMLElement>("[data-card]");
-    const mid = cards[Math.floor(cards.length / 2)];
-    if (mid) {
-      track.scrollLeft = mid.offsetLeft + mid.offsetWidth / 2 - track.clientWidth / 2;
+    const idx = recentProjects.findIndex((p) => p.id === "builder-flow");
+    const target = cards[idx >= 0 ? idx : Math.floor(cards.length / 2)];
+    if (target) {
+      track.scrollLeft = target.offsetLeft + target.offsetWidth / 2 - track.clientWidth / 2;
       applyMagnify();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
