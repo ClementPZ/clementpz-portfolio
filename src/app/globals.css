@@ -659,6 +659,14 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
+/* Label à gauche du curseur (ex: Carol qui atterrit en haut à droite) */
+.live-cursor.label-left .live-cursor-label {
+  position: absolute;
+  right: 100%;
+  margin-right: 5px;
+  margin-top: 12px;
+}
+
 /* Curseur natif masqué quand les live cursors sont actifs */
 body.cursor-hidden,
 body.cursor-hidden * {

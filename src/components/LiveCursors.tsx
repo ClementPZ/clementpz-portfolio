@@ -11,13 +11,15 @@ function Cursor({
   label,
   color,
   cursorRef,
+  labelLeft = false,
 }: {
   label: string;
   color: string;
   cursorRef: React.Ref<HTMLDivElement>;
+  labelLeft?: boolean;
 }) {
   return (
-    <div ref={cursorRef} className="live-cursor" aria-hidden>
+    <div ref={cursorRef} className={`live-cursor${labelLeft ? " label-left" : ""}`} aria-hidden>
       <svg width="22" height="22" viewBox="0 0 24 24" className="live-cursor-arrow">
         <path
           d="M5 2.5 L5 19.5 L9.2 15.6 L12 21.5 L14.4 20.4 L11.7 14.7 L17.5 14.7 Z"
@@ -160,7 +162,7 @@ export function LiveCursors() {
     <>
       {finePointer && <Cursor label="You" color={GREEN} cursorRef={youRef} />}
       <Cursor label="Stefan" color={BLUE} cursorRef={stefanRef} />
-      <Cursor label="Carolino" color={ORANGE} cursorRef={carolinoRef} />
+      <Cursor label="Carolino" color={ORANGE} cursorRef={carolinoRef} labelLeft />
     </>
   );
 }
