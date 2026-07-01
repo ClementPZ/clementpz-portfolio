@@ -23,6 +23,9 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
     } catch {
       next = detectLocale();
     }
+    // Lecture client-only (langue stockée ou navigateur) au mount : setState
+    // intentionnel post-hydratation.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLocaleState(next);
     document.documentElement.setAttribute("lang", next);
   }, []);

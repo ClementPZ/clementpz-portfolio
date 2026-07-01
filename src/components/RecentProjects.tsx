@@ -95,8 +95,8 @@ export function RecentProjects() {
         className="flex gap-5 overflow-x-auto px-6 snap-x snap-mandatory"
         style={{ scrollbarWidth: "none", paddingTop: 18, paddingBottom: 34, position: "relative" }}
       >
-        {recentProjects.map((p, index) => {
-          const lx = localized[index];
+        {recentProjects.map((p) => {
+          const lx = localized[p.id];
           return (
             <article
               key={p.name}
@@ -127,10 +127,10 @@ export function RecentProjects() {
               <div className="relative">
                 <h3 className="font-display text-2xl font-bold mb-2 leading-tight">{p.name}</h3>
                 <p className="text-sm font-medium mb-3" style={{ color: "rgba(255,255,255,0.9)" }}>
-                  {lx?.tagline ?? p.tagline}
+                  {lx?.tagline}
                 </p>
                 <p className="text-xs leading-relaxed mb-4" style={{ color: "rgba(255,255,255,0.72)" }}>
-                  {lx?.description ?? p.description}
+                  {lx?.description}
                 </p>
                 <div className="flex flex-wrap gap-1.5">
                   {p.tags.map((tag) => (

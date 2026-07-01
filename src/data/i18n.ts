@@ -1,8 +1,8 @@
 // ============================================================================
 // i18n — textes localisés (EN / FR / ES).
 // Le contenu STRUCTUREL (couleurs, tags, noms d'entreprise, périodes, liens,
-// stack) reste dans content.ts et n'est PAS traduit. Ici on ne stocke que le
-// TEXTE traduisible, mergé par index sur les tableaux `work` et `recentProjects`.
+// stack) reste dans content.ts. Ici : le TEXTE traduisible, clé par `id`
+// (workText[locale][id], projectText[locale][id]) — plus de merge par index.
 // ============================================================================
 
 export type Locale = "en" | "fr" | "es";
@@ -31,94 +31,66 @@ export function detectLocale(): Locale {
 type UI = {
   getInTouch: string;
   stackTitle: string;
-  stackSub: string;
   workTitle: string;
-  workCount: string; // "{n} experiences" — {n} remplacé côté composant
   impactLabel: string;
   recentTitle: string;
   recentSub: string;
   recoTitle: string;
-  recoSub: string;
-  contact: string;
-  overlayBadge: string;
   overlayTitle: string;
   overlayBodyPre: string; // avant le numéro
   overlayBodyPost: string; // après le numéro
   overlayCta: string;
   overlayFoot: string;
-  overlayLang: string;
-  backToTop: string;
 };
 
 export const ui: Record<Locale, UI> = {
   en: {
     getInTouch: "Get in touch",
     stackTitle: "My day-to-day stack",
-    stackSub: "the toolkit",
     workTitle: "Selected work",
-    workCount: "{n} experiences",
     impactLabel: "Business impact",
     recentTitle: "Past 6 months side projects",
     recentSub:
       "Side projects in flight. The goal: push each one to a solid first version.",
     recoTitle: "Recommendations",
-    recoSub: "from LinkedIn",
-    contact: "Contact",
-    overlayBadge: "V1 — shipping in public",
     overlayTitle: "This portfolio is under construction, but already online.",
     overlayBodyPre: "You're the",
     overlayBodyPost:
       "person to visit. Have a tour, and don't hesitate to reach out for anything. Design, code, and AI — all done by hand.",
     overlayCta: "Visit",
     overlayFoot: "No pay wall, no sign-up.",
-    overlayLang: "Language",
-    backToTop: "Back to top",
   },
   fr: {
     getInTouch: "Me contacter",
     stackTitle: "Ma stack au quotidien",
-    stackSub: "la boîte à outils",
     workTitle: "Sélection de projets",
-    workCount: "{n} expériences",
     impactLabel: "Impact business",
     recentTitle: "Side projects des 6 derniers mois",
     recentSub:
       "Side projects en cours. L'objectif : pousser chacun jusqu'à une première version solide.",
     recoTitle: "Recommandations",
-    recoSub: "extraits LinkedIn",
-    contact: "Contact",
-    overlayBadge: "V1 — en construction, en public",
     overlayTitle: "Ce portfolio est en construction, mais déjà en ligne.",
     overlayBodyPre: "Vous êtes la",
     overlayBodyPost:
       "personne à le visiter. Faites le tour, et n'hésitez pas à me contacter pour quoi que ce soit. Design, code et IA — tout est fait main.",
     overlayCta: "Visiter",
     overlayFoot: "Pas de paywall, pas d'inscription.",
-    overlayLang: "Langue",
-    backToTop: "Haut de page",
   },
   es: {
     getInTouch: "Contactarme",
     stackTitle: "Mi stack del día a día",
-    stackSub: "las herramientas",
     workTitle: "Trabajo seleccionado",
-    workCount: "{n} experiencias",
     impactLabel: "Impacto de negocio",
     recentTitle: "Side projects de los últimos 6 meses",
     recentSub:
       "Proyectos en marcha. El objetivo: llevar cada uno a una primera versión sólida.",
     recoTitle: "Recomendaciones",
-    recoSub: "de LinkedIn",
-    contact: "Contacto",
-    overlayBadge: "V1 — construyéndose en público",
     overlayTitle: "Este portafolio está en construcción, pero ya en línea.",
     overlayBodyPre: "Eres la",
     overlayBodyPost:
       "persona en visitarlo. Date una vuelta, y no dudes en contactarme para lo que sea. Design, código e IA — todo hecho a mano.",
     overlayCta: "Visitar",
     overlayFoot: "Sin muro de pago, sin registro.",
-    overlayLang: "Idioma",
-    backToTop: "Volver arriba",
   },
 };
 
@@ -140,10 +112,10 @@ export const languagesText: Record<Locale, string[]> = {
 // 0 NRC · 1 Episource · 2 SEIF · 3 Le Wagon · 4 Welcomhere · 5 Devialet
 export const workText: Record<
   Locale,
-  { role: string; bullets: string[]; impact?: string[] }[]
+  Record<string, { role: string; bullets: string[]; impact?: string[] }>
 > = {
-  en: [
-    {
+  en: {
+    nrc: {
       role: "Product Design Lead",
       bullets: [
         "Built NRC's first product design team from scratch (two designers + a senior UX/data researcher) across all four product suites.",
@@ -156,7 +128,7 @@ export const workText: Record<
         "+24% outreach-email CTR (research-led A/B testing)",
       ],
     },
-    {
+    episource: {
       role: "Senior → Lead Product Designer · Design System",
       bullets: [
         "Led design of the AI-assisted NLP coding interface (Click to Code) from alpha to full production, including a V2.0 redesign.",
@@ -169,7 +141,7 @@ export const workText: Record<
         "Core enabler of autocoding targeting 500–750k charts/year",
       ],
     },
-    {
+    seif: {
       role: "Product Designer · Design System · Project Manager",
       bullets: [
         "Defined and positioned blockchain/fintech products with the CEO and CTO.",
@@ -177,7 +149,7 @@ export const workText: Record<
         "Built the UI kit and design system from scratch.",
       ],
     },
-    {
+    lewagon: {
       role: "Founder · Product Design Teacher · Business Development",
       bullets: [
         "Launched Le Wagon's Mexico City campus, the first in Latin America.",
@@ -186,14 +158,14 @@ export const workText: Record<
       ],
       impact: ["4 cohorts · 40 students · 15 web products shipped"],
     },
-    {
+    welcomhere: {
       role: "Co-founder · Product & Business Development",
       bullets: [
         "Co-founded a relocation platform for migrants.",
         "Led product definition, pitches, fundraising, and partnerships.",
       ],
     },
-    {
+    devialet: {
       role: "Project Manager — Retail & Flagship Europe",
       bullets: [
         "Launched the Paris flagship store.",
@@ -201,9 +173,9 @@ export const workText: Record<
         "Owned retail operations and premium customer experience.",
       ],
     },
-  ],
-  fr: [
-    {
+  },
+  fr: {
+    nrc: {
       role: "Product Design Lead",
       bullets: [
         "Construit la première équipe design produit de NRC, de zéro (deux designers + un senior UX/data researcher) sur les quatre suites produits.",
@@ -216,7 +188,7 @@ export const workText: Record<
         "+24% de CTR sur les emails outreach (A/B testing par la recherche)",
       ],
     },
-    {
+    episource: {
       role: "Senior → Lead Product Designer · Design System",
       bullets: [
         "Piloté le design de l'interface de codage NLP assistée par IA (Click to Code), de l'alpha à la production, dont une refonte V2.0.",
@@ -229,7 +201,7 @@ export const workText: Record<
         "Catalyseur d'un autocoding visant 500–750k dossiers/an",
       ],
     },
-    {
+    seif: {
       role: "Product Designer · Design System · Chef de projet",
       bullets: [
         "Défini et positionné les produits blockchain/fintech avec le CEO et le CTO.",
@@ -237,7 +209,7 @@ export const workText: Record<
         "Construit l'UI kit et le design system de zéro.",
       ],
     },
-    {
+    lewagon: {
       role: "Fondateur · Enseignant Product Design · Business Development",
       bullets: [
         "Lancé le campus Le Wagon de Mexico, le premier d'Amérique latine.",
@@ -246,14 +218,14 @@ export const workText: Record<
       ],
       impact: ["4 promotions · 40 étudiants · 15 produits web livrés"],
     },
-    {
+    welcomhere: {
       role: "Co-fondateur · Product & Business Development",
       bullets: [
         "Co-fondé une plateforme de relocation pour migrants.",
         "Porté la définition produit, les pitchs, la levée de fonds et les partenariats.",
       ],
     },
-    {
+    devialet: {
       role: "Chef de projet — Retail & Flagship Europe",
       bullets: [
         "Lancé le flagship store parisien.",
@@ -261,9 +233,9 @@ export const workText: Record<
         "Porté les opérations retail et l'expérience client premium.",
       ],
     },
-  ],
-  es: [
-    {
+  },
+  es: {
+    nrc: {
       role: "Product Design Lead",
       bullets: [
         "Construí el primer equipo de diseño de producto de NRC, desde cero (dos diseñadores + un senior UX/data researcher) en las cuatro suites de producto.",
@@ -276,7 +248,7 @@ export const workText: Record<
         "+24% de CTR en emails de outreach (A/B testing basado en investigación)",
       ],
     },
-    {
+    episource: {
       role: "Senior → Lead Product Designer · Design System",
       bullets: [
         "Lideré el diseño de la interfaz de codificación NLP asistida por IA (Click to Code), de alpha a producción, con un rediseño V2.0.",
@@ -289,7 +261,7 @@ export const workText: Record<
         "Habilitador clave de autocoding para 500–750k historiales/año",
       ],
     },
-    {
+    seif: {
       role: "Product Designer · Design System · Project Manager",
       bullets: [
         "Definí y posicioné productos de blockchain/fintech con el CEO y el CTO.",
@@ -297,7 +269,7 @@ export const workText: Record<
         "Construí el UI kit y el design system desde cero.",
       ],
     },
-    {
+    lewagon: {
       role: "Fundador · Profesor de Product Design · Business Development",
       bullets: [
         "Lancé el campus de Le Wagon en Ciudad de México, el primero de América Latina.",
@@ -306,14 +278,14 @@ export const workText: Record<
       ],
       impact: ["4 promociones · 40 estudiantes · 15 productos web entregados"],
     },
-    {
+    welcomhere: {
       role: "Cofundador · Product & Business Development",
       bullets: [
         "Cofundé una plataforma de relocation para migrantes.",
         "Dirigí la definición de producto, pitches, recaudación de fondos y alianzas.",
       ],
     },
-    {
+    devialet: {
       role: "Project Manager — Retail & Flagship Europa",
       bullets: [
         "Lancé la flagship store de París.",
@@ -321,124 +293,125 @@ export const workText: Record<
         "Dirigí las operaciones retail y la experiencia de cliente premium.",
       ],
     },
-  ],
+  },
 };
 
 // Texte localisé des projets — index aligné sur `recentProjects` :
-// 0 Builder Flow · 1 Couples Card Game · 2 Legal Music Pipeline · 3 Job Search
-// 4 History of Graphic Design · 5 Paris Conferences · 6 DJ Energy Classifier
-export const projectText: Record<Locale, { tagline: string; description: string }[]> = {
-  en: [
-    {
+export const projectText: Record<
+  Locale,
+  Record<string, { tagline: string; description: string }>
+> = {
+  en: {
+    "builder-flow": {
       tagline: "Front-end editing for non-engineers",
       description:
         "A Claude Code skill that lets a PM or designer edit an app's front-end in plain language, with design-system enforcement. Production-ready, compliant code, reviewed by engineers before merge.",
     },
-    {
+    "couples-card": {
       tagline: "An asymmetric reveal mechanic",
       description:
         "A card game for couples built on a simultaneous reveal on a spectrum. 5 pillars, an intensity-based color system, special cards. Currently in card-design phase.",
     },
-    {
+    "legal-music": {
       tagline: "Source and upgrade a music library",
       description:
         "A pipeline that sources and upgrades an existing music library to lossless through legal platforms, with automatic conversion and import.",
     },
-    {
+    "job-search": {
       tagline: "A cleaner France Travail interface",
       description:
         "A stripped-down interface over the France Travail API: search by city, filters, job cards. Cloudflare Worker proxy for OAuth and caching.",
     },
-    {
+    "graphic-history": {
       tagline: "A chronological view of the movements",
       description:
         "An interactive timeline of graphic design history: typographers, founding moments, and iconic posters, from Art Nouveau to the Swiss and American schools.",
     },
-    {
+    "paris-conf": {
       tagline: "Cultural events aggregator for Paris",
       description:
         "App aggregating conferences and cultural events in Paris from the city's and the Ministry of Culture's open data. Filters, week view, iCal export.",
     },
-    {
+    "dj-energy": {
       tagline: "Scoring set energy through audio analysis",
       description:
         "A homegrown system that scores tracks as warm-up / mid / peak through audio analysis (librosa), on an intra-genre percentile. An open-source alternative to Mixed In Key, focused on energy rather than key.",
     },
-  ],
-  fr: [
-    {
+  },
+  fr: {
+    "builder-flow": {
       tagline: "Édition front-end pour les non-engineers",
       description:
         "Un skill Claude Code qui permet à un PM ou un designer d'éditer le front-end d'une app en langage naturel, avec enforcement du design system. Code production-ready et compliant, relu par les engineers avant merge.",
     },
-    {
+    "couples-card": {
       tagline: "Une mécanique de révélation asymétrique",
       description:
         "Un jeu de cartes pour couples basé sur une révélation simultanée sur un spectre. 5 piliers, un système de couleurs par intensité, des cartes spéciales. Actuellement en phase de design des cartes.",
     },
-    {
+    "legal-music": {
       tagline: "Sourcer et upgrader une bibliothèque musicale",
       description:
         "Un pipeline qui source et upgrade une bibliothèque musicale existante en lossless via des plateformes légales, avec conversion et import automatiques.",
     },
-    {
+    "job-search": {
       tagline: "Une interface France Travail épurée",
       description:
         "Une interface épurée par-dessus l'API France Travail : recherche par commune, filtres, cartes d'offres. Proxy Cloudflare Worker pour l'OAuth et le cache.",
     },
-    {
+    "graphic-history": {
       tagline: "Une vue chronologique des mouvements",
       description:
         "Une frise interactive de l'histoire du graphisme : typographes, moments fondateurs et affiches emblématiques, de l'Art Nouveau aux écoles suisse et américaine.",
     },
-    {
+    "paris-conf": {
       tagline: "Agrégateur d'événements culturels parisiens",
       description:
         "App qui agrège conférences et événements culturels de Paris depuis les open data de la ville et du ministère de la Culture. Filtres, vue semaine, export iCal.",
     },
-    {
+    "dj-energy": {
       tagline: "Scorer l'énergie d'un set par analyse audio",
       description:
         "Un système maison qui classe les tracks en warm-up / mid / peak par analyse audio (librosa), en percentile intra-genre. Une alternative open-source à Mixed In Key, focalisée sur l'énergie plutôt que la tonalité.",
     },
-  ],
-  es: [
-    {
+  },
+  es: {
+    "builder-flow": {
       tagline: "Edición front-end para non-engineers",
       description:
         "Un skill de Claude Code que permite a un PM o diseñador editar el front-end de una app en lenguaje natural, con enforcement del design system. Código production-ready y compliant, revisado por engineers antes del merge.",
     },
-    {
+    "couples-card": {
       tagline: "Una mecánica de revelación asimétrica",
       description:
         "Un juego de cartas para parejas basado en una revelación simultánea sobre un espectro. 5 pilares, un sistema de colores por intensidad, cartas especiales. Actualmente en fase de diseño de cartas.",
     },
-    {
+    "legal-music": {
       tagline: "Buscar y mejorar una biblioteca musical",
       description:
         "Un pipeline que busca y mejora una biblioteca musical existente a lossless mediante plataformas legales, con conversión e importación automáticas.",
     },
-    {
+    "job-search": {
       tagline: "Una interfaz de France Travail más limpia",
       description:
         "Una interfaz depurada sobre la API de France Travail: búsqueda por ciudad, filtros, tarjetas de ofertas. Proxy Cloudflare Worker para OAuth y caché.",
     },
-    {
+    "graphic-history": {
       tagline: "Una vista cronológica de los movimientos",
       description:
         "Una línea de tiempo interactiva de la historia del diseño gráfico: tipógrafos, momentos fundadores y carteles emblemáticos, del Art Nouveau a las escuelas suiza y americana.",
     },
-    {
+    "paris-conf": {
       tagline: "Agregador de eventos culturales de París",
       description:
         "App que agrega conferencias y eventos culturales de París desde los open data de la ciudad y del ministerio de Cultura. Filtros, vista semanal, exportación iCal.",
     },
-    {
+    "dj-energy": {
       tagline: "Puntuar la energía de un set por análisis de audio",
       description:
         "Un sistema propio que clasifica los tracks en warm-up / mid / peak mediante análisis de audio (librosa), en percentil intra-género. Una alternativa open-source a Mixed In Key, centrada en la energía más que en la tonalidad.",
     },
-  ],
+  },
 };
 
 // Statuts projets traduits.

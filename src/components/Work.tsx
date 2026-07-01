@@ -19,9 +19,9 @@ export function Work() {
 
       <div className="grid gap-5 sm:grid-cols-2">
         {work.map((w, index) => {
-          const lx = localized[index];
-          const bullets = lx?.bullets ?? (w.summary ? [w.summary] : []);
-          const impact = lx?.impact ?? w.impact;
+          const lx = localized[w.id];
+          const bullets = lx?.bullets ?? [];
+          const impact = lx?.impact;
           return (
             <article
               key={w.company + w.period}
@@ -35,7 +35,7 @@ export function Work() {
                 </span>
               </header>
               <p className="text-sm font-medium mb-1" style={{ color: "var(--accent)" }}>
-                {lx?.role ?? w.role}
+                {lx?.role}
               </p>
               <p className="text-xs mb-4" style={{ color: "var(--text-muted)" }}>
                 {w.location}

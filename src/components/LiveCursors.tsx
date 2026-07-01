@@ -44,6 +44,8 @@ export function LiveCursors() {
   const carolinoRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Activation client-only au mount (fine pointer + rendu curseurs).
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     // "You" (qui suit la souris) seulement sur desktop ; Stefan + Carol partout.
     setFinePointer(window.matchMedia("(hover: hover) and (pointer: fine)").matches);

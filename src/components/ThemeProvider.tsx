@@ -27,6 +27,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     try {
       next = window.localStorage.getItem("mode") === "light" ? LIGHT : DARK;
     } catch {}
+    // Lecture client-only de localStorage au mount (post-hydratation) : le
+    // setState ici est intentionnel et sûr, pas une cascade de renders.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setThemeState(next);
     document.documentElement.setAttribute("data-theme", next);
   }, []);
