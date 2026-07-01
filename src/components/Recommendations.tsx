@@ -48,7 +48,7 @@ export function Recommendations() {
                   border: "1px solid var(--border)",
                 }}
               >
-                in · Contact
+                LinkedIn
               </a>
             </footer>
           </blockquote>

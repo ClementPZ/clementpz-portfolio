@@ -108,15 +108,16 @@ export const recommendations: Reco[] = [
   {
     author: "C. Louvion",
     title: "CTO @ NRC Health",
-    quote: "",
-    linkedin: "",
+    quote:
+      "Clément brings the full design package: deep user research, journey maps, personas, and fast prototyping, in close collaboration with users, product, and engineering, presenting results clearly to sr leadership.",
+    linkedin: "https://www.linkedin.com/in/chrislouvion/",
   },
   {
     author: "V. Ramnathan",
     title: "CPO @ NRC Health",
     quote:
       "Clément built our design function from nothing, hired the team, and set the bar for how design worked across all four product lines. He was as comfortable in C-suite product strategy conversations as he was shipping production design and AI tooling. I'd hire him again.",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/vinithacramnathan/",
   },
 ];
 
