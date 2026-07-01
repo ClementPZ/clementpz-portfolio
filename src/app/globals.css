@@ -395,12 +395,12 @@
 }
 
 .count-shimmer {
-  /* Stops latéraux éclaircis de ~25% vers le blanc → chiffre plus visible */
+  /* Blanc très lumineux, à peine teinté aubergine en shimmer */
   background: linear-gradient(
     100deg,
-    color-mix(in oklab, var(--accent) 75%, #ffffff) 18%,
+    color-mix(in oklab, var(--accent) 18%, #ffffff) 15%,
     #ffffff 50%,
-    color-mix(in oklab, var(--accent) 75%, #ffffff) 82%
+    color-mix(in oklab, var(--accent) 18%, #ffffff) 85%
   );
   background-size: 200% auto;
   background-clip: text;

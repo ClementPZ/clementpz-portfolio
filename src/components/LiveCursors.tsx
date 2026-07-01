@@ -149,12 +149,31 @@ export function LiveCursors() {
       rafs.push(requestAnimationFrame(step));
     };
 
-    if (SHOW_EXTRA_CURSORS) {
-      animateTo(stefanRef.current, "cta-getintouch", { x: 0.12, y: 0.26 }, 600, 3500);
+    // Carol n'entre qu'APRÈS le clic "Visit" du disclaimer. Si le disclaimer a
+    // déjà été vu cette session (il ne réapparaît pas), elle entre directement.
+    let started = false;
+    const startCarol = () => {
+      if (started) return;
+      started = true;
+      if (SHOW_EXTRA_CURSORS) {
+        animateTo(stefanRef.current, "cta-getintouch", { x: 0.12, y: 0.26 }, 600, 3500);
+      }
+      animateTo(carolinoRef.current, "mode-toggle", { x: 0.5, y: 0.5 }, 200, 2000);
+    };
+
+    let alreadySeen = false;
+    try {
+      alreadySeen = !!sessionStorage.getItem("disclaimer-seen");
+    } catch {}
+
+    if (alreadySeen) {
+      timers.push(window.setTimeout(startCarol, 800));
+    } else {
+      window.addEventListener("disclaimer-dismissed", startCarol, { once: true });
     }
-    animateTo(carolinoRef.current, "mode-toggle", { x: 0.5, y: 0.5 }, 1000, 2000);
 
     return () => {
+      window.removeEventListener("disclaimer-dismissed", startCarol);
       rafs.forEach(cancelAnimationFrame);
       timers.forEach(clearTimeout);
     };

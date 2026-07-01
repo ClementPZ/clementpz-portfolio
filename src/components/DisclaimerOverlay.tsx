@@ -18,24 +18,19 @@ export function DisclaimerOverlay() {
   const rafRef = useRef<number | null>(null);
   const btnRef = useRef<HTMLButtonElement>(null);
 
-  // Show once per session, ~1s after the first scroll (best practice: let the
-  // visitor see the real work first). Fallback if they never scroll.
+  // Show once per session, ~1s after the first scroll UNIQUEMENT (jamais sur un
+  // timer). Si le visiteur ne scrolle pas, l'overlay n'apparaît pas.
   useEffect(() => {
     if (sessionStorage.getItem("disclaimer-seen")) return;
     let fired = false;
-    const trigger = () => {
+    const onScroll = () => {
       if (fired) return;
       fired = true;
       window.removeEventListener("scroll", onScroll);
       setTimeout(() => setVisible(true), 1000);
     };
-    const onScroll = () => trigger();
     window.addEventListener("scroll", onScroll, { passive: true });
-    const fallback = window.setTimeout(trigger, 12000);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      clearTimeout(fallback);
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
@@ -76,6 +71,8 @@ export function DisclaimerOverlay() {
   const dismiss = () => {
     burst();
     sessionStorage.setItem("disclaimer-seen", "1");
+    // Signale aux live cursors que "Visit" a été cliqué → Carol peut entrer.
+    window.dispatchEvent(new Event("disclaimer-dismissed"));
     setTimeout(() => setClosing(true), 260);
     setTimeout(() => setVisible(false), 260 + 420);
   };
