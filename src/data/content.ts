@@ -204,7 +204,7 @@ export const recentProjects: RecentProject[] = [
     tags: ["Interior", "Community", "Design"],
     accent: "#9a3412",
     accent2: "#1c1917",
-    image: "/interior/carroussel.jpg",
+    image: "/interior/carroussel.JPG",
   },
   {
     id: "dj-energy",
