@@ -1,4 +1,5 @@
 import { DisclaimerOverlay } from "../components/DisclaimerOverlay";
+import { BackToTop } from "../components/BackToTop";
 import { Nav } from "../components/Nav";
 import { Hero } from "../components/Hero";
 import { Stack } from "../components/Stack";
@@ -20,6 +21,7 @@ export default function Home() {
         <Recommendations />
       </main>
       <Footer />
+      <BackToTop />
     </>
   );
 }

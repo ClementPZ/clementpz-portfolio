@@ -172,16 +172,6 @@ export type RecentProject = {
 
 export const recentProjects: RecentProject[] = [
   {
-    name: "Paris Conferences",
-    tagline: "Cultural events aggregator for Paris",
-    description:
-      "App aggregating conferences and cultural events in Paris from the city's and the Ministry of Culture's open data. Filters, week view, iCal export.",
-    status: "in progress",
-    tags: ["Next.js", "Open Data", "TypeScript"],
-    accent: "#2563eb",
-    accent2: "#0f172a",
-  },
-  {
     name: "Builder Flow",
     tagline: "Front-end editing for non-engineers",
     description:
@@ -192,14 +182,14 @@ export const recentProjects: RecentProject[] = [
     accent2: "#1e1b4b",
   },
   {
-    name: "DJ Energy Classifier",
-    tagline: "Scoring set energy through audio analysis",
+    name: "Couples Card Game",
+    tagline: "An asymmetric reveal mechanic",
     description:
-      "A homegrown system that scores tracks as warm-up / mid / peak through audio analysis (librosa), on an intra-genre percentile. An open-source alternative to Mixed In Key, focused on energy rather than key.",
-    status: "in progress",
-    tags: ["Python", "librosa", "Audio ML"],
-    accent: "#db2777",
-    accent2: "#18181b",
+      "A card game for couples built on a simultaneous reveal on a spectrum. 5 pillars, an intensity-based color system, special cards. Currently in card-design phase.",
+    status: "concept",
+    tags: ["Flutter", "Game Design", "Product"],
+    accent: "#ea580c",
+    accent2: "#1c1917",
   },
   {
     name: "Legal Music Pipeline",
@@ -222,16 +212,6 @@ export const recentProjects: RecentProject[] = [
     accent2: "#083344",
   },
   {
-    name: "Couples Card Game",
-    tagline: "An asymmetric reveal mechanic",
-    description:
-      "A card game for couples built on a simultaneous reveal on a spectrum. 5 pillars, an intensity-based color system, special cards. Currently in card-design phase.",
-    status: "concept",
-    tags: ["Flutter", "Game Design", "Product"],
-    accent: "#ea580c",
-    accent2: "#1c1917",
-  },
-  {
     name: "History of Graphic Design",
     tagline: "A chronological view of the movements",
     description:
@@ -240,6 +220,26 @@ export const recentProjects: RecentProject[] = [
     tags: ["Data Viz", "Design", "History"],
     accent: "#ca8a04",
     accent2: "#1c1917",
+  },
+  {
+    name: "Paris Conferences",
+    tagline: "Cultural events aggregator for Paris",
+    description:
+      "App aggregating conferences and cultural events in Paris from the city's and the Ministry of Culture's open data. Filters, week view, iCal export.",
+    status: "in progress",
+    tags: ["Next.js", "Open Data", "TypeScript"],
+    accent: "#2563eb",
+    accent2: "#0f172a",
+  },
+  {
+    name: "DJ Energy Classifier",
+    tagline: "Scoring set energy through audio analysis",
+    description:
+      "A homegrown system that scores tracks as warm-up / mid / peak through audio analysis (librosa), on an intra-genre percentile. An open-source alternative to Mixed In Key, focused on energy rather than key.",
+    status: "in progress",
+    tags: ["Python", "librosa", "Audio ML"],
+    accent: "#db2777",
+    accent2: "#18181b",
   },
 ];
 
