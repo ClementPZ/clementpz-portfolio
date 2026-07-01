@@ -53,7 +53,7 @@ type UI = {
 export const ui: Record<Locale, UI> = {
   en: {
     getInTouch: "Get in touch",
-    stackTitle: "My 2026 stack",
+    stackTitle: "My day-to-day stack",
     stackSub: "the toolkit",
     workTitle: "Selected work",
     workCount: "{n} experiences",
@@ -76,7 +76,7 @@ export const ui: Record<Locale, UI> = {
   },
   fr: {
     getInTouch: "Me contacter",
-    stackTitle: "Ma stack 2026",
+    stackTitle: "Ma stack au quotidien",
     stackSub: "la boîte à outils",
     workTitle: "Sélection de projets",
     workCount: "{n} expériences",
@@ -99,7 +99,7 @@ export const ui: Record<Locale, UI> = {
   },
   es: {
     getInTouch: "Contactarme",
-    stackTitle: "Mi stack 2026",
+    stackTitle: "Mi stack del día a día",
     stackSub: "las herramientas",
     workTitle: "Trabajo seleccionado",
     workCount: "{n} experiencias",
