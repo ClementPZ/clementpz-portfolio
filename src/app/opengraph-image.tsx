@@ -29,18 +29,15 @@ export default async function OpengraphImage() {
           fontFamily: "sans-serif",
         }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={photoSrc}
-          alt=""
-          width={230}
-          height={230}
+        <div
           style={{
             width: 230,
             height: 230,
             borderRadius: 999,
-            objectFit: "cover",
-            objectPosition: "center 28%",
+            backgroundImage: `url(${photoSrc})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center 28%",
+            boxShadow: "0 20px 60px rgba(84,37,90,0.18)",
           }}
         />
 
@@ -50,7 +47,7 @@ export default async function OpengraphImage() {
             fontWeight: 800,
             letterSpacing: -3,
             lineHeight: 1,
-            backgroundImage: "linear-gradient(100deg, #54255a 0%, #b370c0 45%, #e0728f 100%)",
+            backgroundImage: "linear-gradient(100deg, #2c1030 0%, #54255a 45%, #7a3a70 100%)",
             backgroundClip: "text",
             color: "transparent",
           }}
