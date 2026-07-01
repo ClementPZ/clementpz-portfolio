@@ -18,7 +18,7 @@ export function Hero() {
       </p>
       <div className="mt-10 flex flex-wrap gap-3">
         <a href={`mailto:${profile.email}`} className="btn-accent">
-          M&apos;écrire
+          Get in touch
         </a>
         <a
           href={profile.links.linkedin}

@@ -74,6 +74,14 @@ export default function RootLayout({
       className={`${sora.variable} ${dmSans.variable} ${inter.variable} ${syne.variable} ${jakarta.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        {/* Applique le mode (dark|light) AVANT le render pour éviter le flash */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var m=localStorage.getItem('mode');document.documentElement.setAttribute('data-theme',m==='light'?'signature-light':'signature');}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body>
         <ThemeProvider>{children}</ThemeProvider>
         <Analytics />

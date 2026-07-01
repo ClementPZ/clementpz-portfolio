@@ -1,4 +1,5 @@
 import { profile } from "../data/content";
+import { ModeToggle } from "./ModeToggle";
 // ThemeSwitcher parqué pour la V1 (identité unique "signature").
 // import { ThemeSwitcher } from "./ThemeSwitcher";
 
@@ -30,6 +31,7 @@ export function Nav() {
           >
             Contact
           </a>
+          <ModeToggle />
         </div>
       </div>
     </nav>

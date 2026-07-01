@@ -8,9 +8,9 @@ export function Recommendations() {
       style={{ borderTop: "1px solid var(--border)" }}
     >
       <div className="flex items-baseline justify-between mb-10">
-        <h2 className="font-display text-2xl sm:text-3xl font-bold">Recommandations</h2>
+        <h2 className="font-display text-2xl sm:text-3xl font-bold">Recommendations</h2>
         <span className="text-xs uppercase tracking-wider" style={{ color: "var(--text-muted)" }}>
-          extraits LinkedIn
+          from LinkedIn
         </span>
       </div>
 

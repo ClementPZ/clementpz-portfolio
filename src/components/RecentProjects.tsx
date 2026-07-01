@@ -4,8 +4,8 @@ import { useRef } from "react";
 import { recentProjects, type ProjectStatus } from "../data/content";
 
 const statusLabel: Record<ProjectStatus, string> = {
-  live: "● En ligne",
-  "en cours": "● En cours",
+  live: "● Live",
+  "in progress": "● In progress",
   concept: "○ Concept",
 };
 
@@ -32,8 +32,8 @@ export function RecentProjects() {
             The past 6 months
           </h2>
           <p className="text-sm mt-2" style={{ color: "var(--text-muted)" }}>
-            Side projects en cours. L&apos;objectif : les pousser jusqu&apos;à une
-            première version solide.
+            Side projects in flight. The goal: push each one to a solid first
+            version.
           </p>
         </div>
         <div className="hidden sm:flex gap-2">

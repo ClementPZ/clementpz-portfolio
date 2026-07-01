@@ -8,9 +8,9 @@ export function Stack() {
       style={{ borderTop: "1px solid var(--border)" }}
     >
       <div className="flex items-baseline justify-between mb-8">
-        <h2 className="font-display text-2xl sm:text-3xl font-bold">Ma stack 2026</h2>
+        <h2 className="font-display text-2xl sm:text-3xl font-bold">My 2026 stack</h2>
         <span className="text-xs uppercase tracking-wider" style={{ color: "var(--text-muted)" }}>
-          outils quotidiens
+          daily tools
         </span>
       </div>
       <div className="flex flex-wrap gap-2">

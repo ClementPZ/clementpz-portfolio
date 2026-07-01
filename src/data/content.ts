@@ -9,13 +9,13 @@ export const profile = {
   shortName: "Clément PZ",
   tagline: "Product Design × Code × AI",
   intro:
-    "Product Design Lead, 10 ans entre produit, design systems et innovation. J'ai construit la fonction design de NRC Health from scratch et je pilote une équipe de trois sur des SaaS Patient & Employee Experience. Je travaille à la jonction design, engineering et IA : design tokens en production, outillage AI pour les non-engineers, décisions design ancrées dans l'analytics.",
+    "Product Design Leader, 10+ years across product design, design systems, and AI. I built NRC Health's design function from the ground up and now lead a team of three, from research to production to analytics. From founding a coding campus in Mexico City to design leadership at a NASDAQ-listed US healthcare company, a business-first instinct still drives how I lead.",
   email: "clementpicardzivy@gmail.com",
   links: {
     linkedin: "https://www.linkedin.com/in/clementpz/",
     github: "https://github.com/ClementPZ",
   },
-  languages: ["FR (natif)", "EN (courant)", "ES (courant)"],
+  languages: ["French (native)", "English (proficient)", "Spanish (proficient)"],
 };
 
 // ============================================================================
@@ -58,14 +58,14 @@ export const work: WorkItem[] = [
   {
     company: "NRC Health",
     role: "Product Design Lead",
-    period: "2024 — Présent",
+    period: "2024 — Present",
     location: "Lincoln, USA · Paris",
     summary:
-      "Recruté et construit la première équipe design de NRC (2 designers + senior UX/data researcher) sur quatre suites produits (Consumer, Patient, Market Insight, Employee Experience). Créé un design system multi-produits sur base Flowbite avec design tokens et outillage AI-to-code pour les non-engineers. Piloté les features IA : assistant Huey et outil d'écoute ambiante qui a fait passer la documentation infirmière de 55% à 90%. Lancé la première pratique analytics de l'équipe, A/B testing validé en prod.",
+      "Recruited and built NRC's first product design team (two designers and a senior UX/data researcher) serving all four product suites. Created a multi-product design system with tokens on a Flowbite foundation, bridging design to a multi-stack production environment, extended with AI-assisted design-to-code tooling for non-engineers. Led AI features including the Huey in-app assistant and an ambient-listening tool. Owned the design roadmap and stood up the team's first analytics practice.",
     impact: [
-      "55% → 90% documentation infirmière (ambient-listening)",
-      "+24% CTR emails outreach (A/B testing)",
-      "Première équipe design NRC — built from scratch",
+      "Nurse-rounding documentation raised from 55% to 90% (ambient-listening)",
+      "+24% outreach-email CTR (research-led A/B testing)",
+      "NRC's first design team — built from scratch",
     ],
     tags: ["Healthcare", "SaaS", "Design System", "Lead", "AI"],
   },
@@ -75,11 +75,11 @@ export const work: WorkItem[] = [
     period: "2021 — 2024",
     location: "Los Angeles, Remote",
     summary:
-      "Promu Lead Product Designer en 12 mois pour communication cross-fonctionnelle et leadership design sur 6+ produits. Contribué au design system Click to Code (alpha → production) avec un redesign V2.0 validé sur 897 utilisateurs. Piloté la recherche cross-produits et la bibliothèque Figma. Led design de l'interface NLP de codage médical assisté par IA et du Provider Direct Messaging (intégration EHR bidirectionnelle avec UHC).",
+      "Promoted to Lead Product Designer after 12 months, cited for cross-functional communication and design leadership across 6+ products. Led design of the AI-assisted NLP coding interface (Click to Code) from alpha through full production, including a V2.0 redesign validated with 897 users. Established Figma component libraries and integrated design tokens to React/TypeScript production. Led Provider Direct Messaging, a bi-directional EHR integration piloted with UHC.",
     impact: [
       "88% acceptance · 80% satisfaction (897 users, design system V2)",
-      "500–750k charts/an ciblés par la stratégie autocoding",
-      "6+ produits couverts par le design system",
+      "Core enabler of an autocoding strategy targeting 500–750k charts/year",
+      "6+ products covered by the design system",
     ],
     tags: ["Healthcare", "AI", "Design System", "Enterprise", "NLP"],
   },
@@ -87,32 +87,32 @@ export const work: WorkItem[] = [
     company: "SEIF",
     role: "Product Designer · Design System · Project Manager",
     period: "2020 — 2021",
-    location: "Mexico City",
+    location: "Mexico City, Remote",
     summary:
-      "Défini et positionné les produits blockchain/fintech avec le CEO et CTO. Conçu des interfaces conversationnelles PWA : KYC, système de paiement, blockchain explorer, dashboards. Construit l'UI kit et le design system from scratch.",
+      "Defined and positioned blockchain/fintech products alongside the CEO and CTO. Designed conversational PWA interfaces (KYC, payment system, blockchain explorer, dashboards) and built the UI kit and design system from scratch.",
     tags: ["Fintech", "Blockchain", "Mobile", "Design System"],
   },
   {
     company: "Le Wagon",
-    role: "Fondateur · Product Design Teacher · Business Development",
+    role: "Founder · Product Design Teacher · Business Development",
     period: "2017 — 2021",
     location: "Mexico City",
     summary:
-      "Lancé le campus Le Wagon Mexico, sécurisé 15 partenaires commerciaux (ITAM, Start-Up Mexico, Numa) et enseigné les fondamentaux UI/UX. 4 cohorts, 40 alumni, 15 web products livrés.",
+      "Launched Le Wagon's Mexico City campus, secured 15 commercial partners (ITAM, Start-Up Mexico, Numa) and taught UI/UX fundamentals. Ran 4 cohorts producing 40 students and 15 web products.",
     impact: [
-      "15 partenaires commerciaux",
-      "4 cohorts · 40 alumni · 15 web products",
-      "Premier campus Le Wagon Amérique Latine",
+      "15 commercial partners secured",
+      "4 cohorts · 40 students · 15 web products",
+      "First Le Wagon campus in Latin America",
     ],
     tags: ["Founder", "Education", "Teaching", "LATAM"],
   },
   {
     company: "Welcomhere",
-    role: "Co-fondateur · Product & Business Development",
+    role: "Co-founder · Product & Business Development",
     period: "2015 — 2017",
     location: "Paris",
     summary:
-      "Co-fondé une plateforme de relocation pour migrants : définition produit, pitches, levée de fonds, partenariats et développement produit itératif.",
+      "Co-founded a relocation platform for migrants: product definition, pitches, fundraising, partnerships, and iterative product development.",
     tags: ["Founder", "Social Impact", "Product", "NGO"],
   },
   {
@@ -121,7 +121,7 @@ export const work: WorkItem[] = [
     period: "2011 — 2015",
     location: "Paris · Europe",
     summary:
-      "Lancement du flagship store parisien et déploiement des concept stores en Europe. Project management, opérations retail, expérience client premium.",
+      "Launched the Paris flagship store and deployed concept stores across Europe. Project management, retail operations, and premium customer experience.",
     tags: ["Retail", "Luxury", "Operations", "Europe"],
   },
 ];
@@ -138,10 +138,16 @@ export type Reco = {
 
 export const recommendations: Reco[] = [
   {
+    author: "V. Ramnathan",
+    title: "CPO @ NRC Health",
+    quote:
+      "Clément built our design function from nothing, hired the team, and set the bar for how design worked across all four product lines. He was as comfortable in C-suite product strategy conversations as he was shipping production design and AI tooling. I'd hire him again.",
+  },
+  {
     author: "C. Louvion",
     title: "CTO @ NRC Health",
     quote:
-      "Clément brings the full design package: deep user research, journey maps, personas, quick prototyping, with amazing collaboration with users, product, and engineers, and presents results clearly to sr leadership.",
+      "Clément brings the full design package: deep user research, journey maps, personas, and fast prototyping, in close collaboration with users, product, and engineering, presenting results clearly to sr leadership.",
   },
 ];
 
@@ -151,7 +157,7 @@ export const recommendations: Reco[] = [
 // PROPRES au projet (volontairement hardcodées, pas des tokens de thème).
 // ============================================================================
 
-export type ProjectStatus = "live" | "en cours" | "concept";
+export type ProjectStatus = "live" | "in progress" | "concept";
 
 export type RecentProject = {
   name: string;
@@ -167,69 +173,69 @@ export type RecentProject = {
 export const recentProjects: RecentProject[] = [
   {
     name: "Paris Conferences",
-    tagline: "Agrégateur d'events culturels parisiens",
+    tagline: "Cultural events aggregator for Paris",
     description:
-      "App qui agrège conférences et events culturels de Paris depuis les open data de la ville et du ministère de la Culture. Filtres, vue semaine, export iCal.",
-    status: "en cours",
+      "App aggregating conferences and cultural events in Paris from the city's and the Ministry of Culture's open data. Filters, week view, iCal export.",
+    status: "in progress",
     tags: ["Next.js", "Open Data", "TypeScript"],
     accent: "#2563eb",
     accent2: "#0f172a",
   },
   {
     name: "Builder Flow",
-    tagline: "Front-end editing pour non-engineers",
+    tagline: "Front-end editing for non-engineers",
     description:
-      "Skill Claude Code qui laisse un PM ou designer modifier le front-end d'une app en langage naturel, avec enforcement du design system. Code production-ready et compliant, reviewé par les engineers avant merge.",
-    status: "en cours",
+      "A Claude Code skill that lets a PM or designer edit an app's front-end in plain language, with design-system enforcement. Production-ready, compliant code, reviewed by engineers before merge.",
+    status: "in progress",
     tags: ["Claude Code", "Design System", "AI"],
     accent: "#7c3aed",
     accent2: "#1e1b4b",
   },
   {
-    name: "Classification énergie DJ",
-    tagline: "Scorer l'énergie d'un set par analyse audio",
+    name: "DJ Energy Classifier",
+    tagline: "Scoring set energy through audio analysis",
     description:
-      "Système maison qui classe les tracks en warm-up / mid / peak par analyse audio (librosa), en percentile intra-genre. Alternative open-source à Mixed In Key, focalisée sur l'énergie plutôt que la tonalité.",
-    status: "en cours",
+      "A homegrown system that scores tracks as warm-up / mid / peak through audio analysis (librosa), on an intra-genre percentile. An open-source alternative to Mixed In Key, focused on energy rather than key.",
+    status: "in progress",
     tags: ["Python", "librosa", "Audio ML"],
     accent: "#db2777",
     accent2: "#18181b",
   },
   {
-    name: "Music pipeline légal",
-    tagline: "Sourcer et upgrader une bibliothèque musicale",
+    name: "Legal Music Pipeline",
+    tagline: "Source and upgrade a music library",
     description:
-      "Pipeline qui source et upgrade en lossless les morceaux d'une bibliothèque existante via plateformes légales, avec conversion et import automatiques.",
+      "A pipeline that sources and upgrades an existing music library to lossless through legal platforms, with automatic conversion and import.",
     status: "concept",
     tags: ["Automation", "Audio", "Pipeline"],
     accent: "#059669",
     accent2: "#022c22",
   },
   {
-    name: "Recherche emploi",
-    tagline: "Interface France Travail simplifiée",
+    name: "Job Search",
+    tagline: "A cleaner France Travail interface",
     description:
-      "Interface épurée par-dessus l'API France Travail : recherche par commune, filtres, cartes d'offres. Proxy Cloudflare Worker pour l'OAuth et le cache.",
+      "A stripped-down interface over the France Travail API: search by city, filters, job cards. Cloudflare Worker proxy for OAuth and caching.",
     status: "concept",
     tags: ["API", "Cloudflare Worker", "UX"],
     accent: "#0891b2",
     accent2: "#083344",
   },
   {
-    name: "Jeu de cartes couple",
-    tagline: "Mécanique de révélation asymétrique",
+    name: "Couples Card Game",
+    tagline: "An asymmetric reveal mechanic",
     description:
-      "Jeu de cartes pour couples basé sur une mécanique de révélation simultanée sur un spectre. 5 piliers, système de couleurs par intensité, cartes spéciales. Phase de design des cartes.",
+      "A card game for couples built on a simultaneous reveal on a spectrum. 5 pillars, an intensity-based color system, special cards. Currently in card-design phase.",
     status: "concept",
     tags: ["Flutter", "Game Design", "Product"],
     accent: "#ea580c",
     accent2: "#1c1917",
   },
   {
-    name: "Frise histoire du graphisme",
-    tagline: "Visualisation chronologique des mouvements",
+    name: "History of Graphic Design",
+    tagline: "A chronological view of the movements",
     description:
-      "Frise interactive de l'histoire du graphisme : typographes, moments fondateurs et affiches emblématiques, de l'Art Nouveau à l'école suisse et américaine.",
+      "An interactive timeline of graphic design history: typographers, founding moments, and iconic posters, from Art Nouveau to the Swiss and American schools.",
     status: "concept",
     tags: ["Data Viz", "Design", "History"],
     accent: "#ca8a04",
@@ -242,7 +248,13 @@ export const recentProjects: RecentProject[] = [
 // Pour ajouter un thème : ajouter une entrée ici + un bloc CSS dans globals.css.
 // ============================================================================
 
-export type ThemeId = "signature" | "spotify" | "wise" | "apple" | "airbnb";
+export type ThemeId =
+  | "signature"
+  | "signature-light"
+  | "spotify"
+  | "wise"
+  | "apple"
+  | "airbnb";
 
 // Thème actif V1 = "signature" (aubergine). Les 4 autres sont PARQUÉS :
 // conservés en code (CSS + entrées ci-dessous) mais le switcher est retiré

@@ -10,7 +10,7 @@ export function Work() {
       <div className="flex items-baseline justify-between mb-10">
         <h2 className="font-display text-2xl sm:text-3xl font-bold">Selected work</h2>
         <span className="text-xs uppercase tracking-wider" style={{ color: "var(--text-muted)" }}>
-          {work.length} expériences
+          {work.length} experiences
         </span>
       </div>
 

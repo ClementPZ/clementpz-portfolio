@@ -114,6 +114,33 @@
   color-scheme: dark;
 }
 
+/* SIGNATURE LIGHT — blanc très légèrement teinté aubergine (mode clair) */
+[data-theme="signature-light"] {
+  --brand: #54255a;
+  --bg: #faf6fb; /* blanc micro-teinté aubergine */
+  --bg-elev: #f3ecf4;
+  --bg-card: #ffffff;
+  --text: #241726; /* near-black teinté aubergine */
+  --text-muted: #6b5a6f;
+  --accent: #6a2d75;
+  --accent-text: #ffffff;
+  --accent-subtle: rgba(84, 37, 90, 0.08);
+  --card-feature: #54255a;
+  --card-feature-text: #ffffff;
+  --tag-bg: rgba(84, 37, 90, 0.08);
+  --tag-text: #54255a;
+  --btn-accent-bg: #54255a;
+  --btn-accent-text: #ffffff;
+  --border: rgba(84, 37, 90, 0.12);
+  --border-strong: rgba(84, 37, 90, 0.24);
+  --shadow: 0 8px 26px rgba(84, 37, 90, 0.1), 0 1px 3px rgba(84, 37, 90, 0.06);
+  --radius: 10px;
+  --radius-lg: 18px;
+  --radius-btn: 999px;
+  --letter-tight: -0.035em;
+  color-scheme: light;
+}
+
 /* AIRBNB — Canvas blanc, Rausch #FF385C, CTA charbon #222, Cereal → Jakarta */
 [data-theme="airbnb"] {
   --bg: #ffffff;
@@ -178,6 +205,17 @@
 /* ============================================================================
    EFFETS DE MARQUE DISTINCTIFS
    ============================================================================ */
+
+/* SIGNATURE LIGHT — halo aubergine très doux sur fond blanc teinté */
+[data-theme="signature-light"] body {
+  background: radial-gradient(
+      1000px 520px at 76% -10%,
+      rgba(84, 37, 90, 0.1) 0%,
+      transparent 62%
+    ),
+    #faf6fb;
+  background-attachment: fixed;
+}
 
 /* SIGNATURE — gradient aubergine : halo radial en haut + fondu vers near-black */
 [data-theme="signature"] body {
@@ -311,11 +349,11 @@
   justify-content: center;
   padding: 24px;
   background: radial-gradient(
-      900px 500px at 50% 0%,
-      rgba(84, 37, 90, 0.5) 0%,
-      rgba(19, 10, 21, 0.9) 55%
+      1000px 560px at 50% -5%,
+      rgba(84, 37, 90, 0.4) 0%,
+      transparent 60%
     ),
-    rgba(16, 7, 16, 0.82);
+    rgba(19, 10, 21, 0.42);
   animation: overlay-fade-in 0.5s ease forwards;
 }
 
@@ -323,11 +361,48 @@
   animation: overlay-fade-out 0.4s ease forwards;
 }
 
-.overlay-card {
+/* Apple "liquid glass" card, teinté aubergine */
+.overlay-glass {
+  max-width: 520px;
+  width: 100%;
+  padding: 40px 34px;
+  text-align: center;
+  border-radius: 26px;
+  background: linear-gradient(
+    160deg,
+    rgba(84, 37, 90, 0.32) 0%,
+    rgba(245, 239, 246, 0.08) 100%
+  );
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border: 1px solid rgba(245, 239, 246, 0.18);
+  box-shadow: 0 30px 90px rgba(10, 3, 12, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
   animation: overlay-card-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
 }
 
+.overlay-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  margin-bottom: 24px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(245, 239, 246, 0.14);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
 .pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+  flex-shrink: 0;
   animation: pulse-dot 1.4s ease-in-out infinite;
 }
 
