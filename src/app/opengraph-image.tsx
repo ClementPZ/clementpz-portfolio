@@ -1,13 +1,18 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { profile } from "../data/content";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const alt = `${profile.name} — ${profile.tagline}`;
 
-// Share card — minimal: light aubergine background (like the light theme),
-// just the name. Simple and clean.
-export default function OpengraphImage() {
+// Share card — Jégousse-style: circular photo centered, name below in a vibrant
+// aubergine gradient, on a light background. Minimal.
+export default async function OpengraphImage() {
+  const photo = await readFile(join(process.cwd(), "public/clement.jpg"));
+  const photoSrc = `data:image/jpeg;base64,${photo.toString("base64")}`;
+
   return new ImageResponse(
     (
       <div
@@ -18,6 +23,7 @@ export default function OpengraphImage() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
+          gap: 44,
           background:
             "radial-gradient(1000px 560px at 50% 0%, rgba(84,37,90,0.10) 0%, transparent 62%), #faf6fb",
           fontFamily: "sans-serif",
@@ -25,25 +31,37 @@ export default function OpengraphImage() {
       >
         <div
           style={{
-            fontSize: 96,
+            display: "flex",
+            width: 220,
+            height: 220,
+            borderRadius: 999,
+            overflow: "hidden",
+            border: "5px solid #ffffff",
+            boxShadow: "0 20px 60px rgba(84,37,90,0.22)",
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={photoSrc}
+            alt=""
+            width={220}
+            height={220}
+            style={{ width: 220, height: 220, objectFit: "cover", objectPosition: "center 30%" }}
+          />
+        </div>
+
+        <div
+          style={{
+            fontSize: 100,
             fontWeight: 800,
             letterSpacing: -3,
-            color: "#241726",
-            textAlign: "center",
+            lineHeight: 1,
+            backgroundImage: "linear-gradient(100deg, #54255a 0%, #b370c0 45%, #e0728f 100%)",
+            backgroundClip: "text",
+            color: "transparent",
           }}
         >
           {profile.name}
-        </div>
-        <div
-          style={{
-            fontSize: 34,
-            fontWeight: 500,
-            marginTop: 20,
-            color: "#6a2d75",
-            letterSpacing: 1,
-          }}
-        >
-          {profile.tagline}
         </div>
       </div>
     ),
