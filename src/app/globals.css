@@ -587,6 +587,61 @@
 }
 
 /* ============================================================================
+   LIVE CURSORS — façon Figma multiplayer (visiteur + faux Sagmeister)
+   Couleur : aubergine clair, contrasté sur dark comme sur light.
+   ============================================================================ */
+
+.live-cursor {
+  --cursor-fill: #b370c0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform;
+}
+
+.live-cursor-arrow {
+  filter: drop-shadow(0 2px 4px rgba(15, 4, 18, 0.35));
+  flex-shrink: 0;
+}
+
+.live-cursor-label {
+  margin-top: 14px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: #b370c0;
+  color: #1a0713;
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(84, 37, 90, 0.35);
+}
+
+.live-cursor-poke {
+  transition: transform 0.12s ease;
+}
+
+/* Curseur natif masqué quand les live cursors sont actifs */
+body.cursor-hidden,
+body.cursor-hidden * {
+  cursor: none !important;
+}
+
+/* Petit "pop" du CTA quand le faux curseur le touche */
+#cta-getintouch {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+#cta-getintouch.cta-poked {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 26px rgba(84, 37, 90, 0.4);
+}
+
+/* ============================================================================
    BASE
    ============================================================================ */
 

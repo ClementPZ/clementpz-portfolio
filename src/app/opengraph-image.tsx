@@ -55,18 +55,30 @@ export default async function OpengraphImage() {
           />
         </div>
 
-        <div
-          style={{
-            fontSize: 100,
-            fontWeight: 800,
-            letterSpacing: -3,
-            lineHeight: 1,
-            backgroundImage: "linear-gradient(100deg, #2c1030 0%, #54255a 45%, #7a3a70 100%)",
-            backgroundClip: "text",
-            color: "transparent",
-          }}
-        >
-          {profile.name}
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14 }}>
+          <div
+            style={{
+              fontSize: 100,
+              fontWeight: 800,
+              letterSpacing: -3,
+              lineHeight: 1,
+              backgroundImage: "linear-gradient(100deg, #2c1030 0%, #54255a 45%, #7a3a70 100%)",
+              backgroundClip: "text",
+              color: "transparent",
+            }}
+          >
+            {profile.name}
+          </div>
+          <div
+            style={{
+              fontSize: 34,
+              fontWeight: 500,
+              letterSpacing: 1,
+              color: "#8a5a90",
+            }}
+          >
+            {profile.tagline}
+          </div>
         </div>
       </div>
     ),

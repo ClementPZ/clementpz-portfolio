@@ -1,5 +1,6 @@
 import { DisclaimerOverlay } from "../components/DisclaimerOverlay";
 import { BackToTop } from "../components/BackToTop";
+import { LiveCursors } from "../components/LiveCursors";
 import { Nav } from "../components/Nav";
 import { Hero } from "../components/Hero";
 import { Stack } from "../components/Stack";
@@ -22,6 +23,7 @@ export default function Home() {
       </main>
       <Footer />
       <BackToTop />
+      <LiveCursors />
     </>
   );
 }

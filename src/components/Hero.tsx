@@ -18,7 +18,7 @@ export function Hero() {
         {introText[locale]}
       </p>
       <div className="mt-10 flex flex-wrap gap-3">
-        <a href={`mailto:${profile.email}`} className="btn-accent">
+        <a id="cta-getintouch" href={`mailto:${profile.email}`} className="btn-accent">
           {t.getInTouch}
         </a>
         <a
