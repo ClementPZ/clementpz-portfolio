@@ -8,9 +8,9 @@
 export type Locale = "en" | "fr" | "es";
 
 export const locales: { id: Locale; label: string; short: string }[] = [
-  { id: "en", label: "English", short: "UK" },
+  { id: "en", label: "English", short: "EN" },
   { id: "fr", label: "Français", short: "FR" },
-  { id: "es", label: "Español", short: "SP" },
+  { id: "es", label: "Español", short: "ES" },
 ];
 
 export const defaultLocale: Locale = "en";

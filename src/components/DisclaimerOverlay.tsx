@@ -93,14 +93,20 @@ export function DisclaimerOverlay() {
       aria-label="Portfolio in progress"
     >
       <div className="overlay-glass">
-        {/* Langue en haut — pré-réglée sur la langue de l'appareil, fallback EN */}
-        <div style={{ display: "flex", justifyContent: "center", marginBottom: 20 }}>
+        {/* Haut : langue à gauche (pré-réglée sur l'appareil), indicateur V1 à droite */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginBottom: 24,
+          }}
+        >
           <LanguageDropdown align="left" />
-        </div>
-
-        <div className="overlay-badge">
-          <span className="pulse-dot" />
-          {t.overlayBadge}
+          <div className="overlay-badge" style={{ margin: 0 }}>
+            <span className="pulse-dot" />
+            V1
+          </div>
         </div>
 
         <h2
