@@ -16,18 +16,20 @@ export function ModeToggle() {
     const x = rect ? (rect.left + rect.width / 2) / window.innerWidth : 0.9;
     const y = rect ? (rect.bottom / window.innerHeight) : 0.06;
     const goingLight = isDark; // dark → light
-    const glyph = goingLight ? "☀" : "☾";
+    // ︎ force le rendu TEXTE (monochrome) → la couleur s'applique
+    // (sinon le glyphe est rendu en emoji couleur, soleil jaune).
+    const glyph = goingLight ? "☀︎" : "☾︎";
     const color = goingLight ? "#54255a" : "#ece0f0"; // soleil aubergine / lune claire
     const shape = confetti.shapeFromText({ text: glyph, scalar: 2.4, color });
     confetti({
       shapes: [shape],
       scalar: 2.4,
       particleCount: 16,
-      spread: 65,
-      angle: 270, // vers le bas
-      startVelocity: 32,
-      gravity: 1.2,
-      ticks: 130,
+      spread: 60,
+      angle: 225, // diagonale 45° vers l'intérieur (bas-gauche depuis le coin haut-droit)
+      startVelocity: 34,
+      gravity: 1.1,
+      ticks: 140,
       origin: { x, y },
     });
     toggleMode();

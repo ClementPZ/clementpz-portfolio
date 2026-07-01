@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 // Couleurs officielles Figma multiplayer.
-const VIOLET = "#7B61FF"; // You
+const GREEN = "#0FA958"; // You
 const BLUE = "#0D99FF"; // Stefan
 const ORANGE = "#FF8A00"; // Carolino
 
@@ -45,19 +45,39 @@ export function LiveCursors() {
     setEnabled(true);
   }, []);
 
-  // Curseur du visiteur : suit la souris, masque le curseur natif.
+  // Curseur du visiteur "You" (vert Figma) : n'apparaît qu'APRÈS la séquence
+  // Stefan + Carol (~7,5s), suit la souris en masquant le curseur natif, puis
+  // disparaît au premier clic (curseur natif restauré).
   useEffect(() => {
     if (!enabled) return;
     const you = youRef.current;
     if (!you) return;
-    document.body.classList.add("cursor-hidden");
+
+    let active = false;
     const onMove = (e: MouseEvent) => {
+      if (!active) return;
       you.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
       you.style.opacity = "1";
     };
-    window.addEventListener("mousemove", onMove);
+    const dismiss = () => {
+      if (!active) return;
+      active = false;
+      you.style.transition = "opacity 0.4s ease";
+      you.style.opacity = "0";
+      document.body.classList.remove("cursor-hidden");
+    };
+
+    const activateAt = window.setTimeout(() => {
+      active = true;
+      document.body.classList.add("cursor-hidden");
+      window.addEventListener("mousemove", onMove);
+      window.addEventListener("click", dismiss, { once: true });
+    }, 7500);
+
     return () => {
+      clearTimeout(activateAt);
       window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("click", dismiss);
       document.body.classList.remove("cursor-hidden");
     };
   }, [enabled]);
@@ -72,7 +92,8 @@ export function LiveCursors() {
       el: HTMLDivElement | null,
       targetId: string,
       startFrac: { x: number; y: number },
-      delay: number
+      delay: number,
+      duration: number
     ) => {
       if (!el) return;
       const start = {
@@ -88,7 +109,6 @@ export function LiveCursors() {
       el.style.transform = `translate(${start.x}px, ${start.y}px)`;
       el.style.opacity = "0";
 
-      const duration = 2000;
       let t0 = 0;
       const step = (now: number) => {
         if (!t0) t0 = now;
@@ -119,8 +139,11 @@ export function LiveCursors() {
       rafs.push(requestAnimationFrame(step));
     };
 
-    animateTo(stefanRef.current, "cta-getintouch", { x: 0.12, y: 0.26 }, 900);
-    animateTo(carolinoRef.current, "mode-toggle", { x: 0.9, y: 0.6 }, 1700);
+    // Stefan : part à 600ms, met 3,5s à rejoindre "Get in touch".
+    // Carol : n'apparaît (part) qu'à 5s.
+    // "You" prend le relais à 7,5s (géré dans l'autre effet).
+    animateTo(stefanRef.current, "cta-getintouch", { x: 0.12, y: 0.26 }, 600, 3500);
+    animateTo(carolinoRef.current, "mode-toggle", { x: 0.9, y: 0.62 }, 5000, 2000);
 
     return () => {
       rafs.forEach(cancelAnimationFrame);
@@ -132,7 +155,7 @@ export function LiveCursors() {
 
   return (
     <>
-      <Cursor label="You" color={VIOLET} cursorRef={youRef} />
+      <Cursor label="You" color={GREEN} cursorRef={youRef} />
       <Cursor label="Stefan" color={BLUE} cursorRef={stefanRef} />
       <Cursor label="Carolino" color={ORANGE} cursorRef={carolinoRef} />
     </>

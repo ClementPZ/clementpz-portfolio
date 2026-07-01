@@ -12,19 +12,20 @@ export function RecentProjects() {
   const status = statusText[locale];
 
   // Effet "carrousel arrondi" : la carte la plus proche du centre est agrandie,
-  // les latérales rétrécies + décalées vers le bas + estompées.
+  // les latérales rétrécies + estompées. On calcule la distance via offsetLeft /
+  // scrollLeft (position de LAYOUT, indépendante du transform) pour éviter la
+  // boucle de rétroaction du scale — cause des glitches précédents.
   const applyMagnify = useCallback(() => {
     const track = trackRef.current;
     if (!track) return;
-    const mid = track.getBoundingClientRect().left + track.clientWidth / 2;
-    track.querySelectorAll<HTMLElement>("[data-card]").forEach((card) => {
-      const r = card.getBoundingClientRect();
-      const cardMid = r.left + r.width / 2;
-      const dist = Math.min(Math.abs(cardMid - mid) / (track.clientWidth / 2), 1);
+    const center = track.scrollLeft + track.clientWidth / 2;
+    const cards = track.querySelectorAll<HTMLElement>("[data-card]");
+    cards.forEach((card) => {
+      const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+      const dist = Math.min(Math.abs(cardCenter - center) / (track.clientWidth / 2), 1);
       const scale = 1.06 - dist * 0.16;
-      const translateY = dist * 14;
-      const opacity = 1 - dist * 0.38;
-      card.style.transform = `translateY(${translateY}px) scale(${scale})`;
+      const opacity = 1 - dist * 0.34;
+      card.style.transform = `translateY(${dist * 12}px) scale(${scale})`;
       card.style.opacity = String(opacity);
     });
   }, []);
@@ -32,12 +33,21 @@ export function RecentProjects() {
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        applyMagnify();
+        ticking = false;
+      });
+    };
     applyMagnify();
-    track.addEventListener("scroll", applyMagnify, { passive: true });
-    window.addEventListener("resize", applyMagnify);
+    track.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
     return () => {
-      track.removeEventListener("scroll", applyMagnify);
-      window.removeEventListener("resize", applyMagnify);
+      track.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
     };
   }, [applyMagnify, locale]);
 
@@ -83,7 +93,7 @@ export function RecentProjects() {
       <div
         ref={trackRef}
         className="flex gap-5 overflow-x-auto px-6 snap-x snap-mandatory"
-        style={{ scrollbarWidth: "none", paddingTop: 18, paddingBottom: 34 }}
+        style={{ scrollbarWidth: "none", paddingTop: 18, paddingBottom: 34, position: "relative" }}
       >
         {recentProjects.map((p, index) => {
           const lx = localized[index];
