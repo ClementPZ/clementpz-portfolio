@@ -15,15 +15,17 @@ export default function Home() {
     <>
       <DisclaimerOverlay />
       <PullToRefresh />
-      <Nav />
-      <main>
-        <Hero />
-        <Stack />
-        <RecentProjects />
-        <Work />
-        <Recommendations />
-      </main>
-      <Footer />
+      <div id="page-shift">
+        <Nav />
+        <main>
+          <Hero />
+          <Stack />
+          <RecentProjects />
+          <Work />
+          <Recommendations />
+        </main>
+        <Footer />
+      </div>
       <BackToTop />
       <LiveCursors />
     </>
