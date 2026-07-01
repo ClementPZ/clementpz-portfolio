@@ -46,7 +46,7 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: `${profile.name} — ${profile.tagline}`,
   description: profile.intro,
-  metadataBase: new URL("https://portfoliomai2026.vercel.app"),
+  metadataBase: new URL("https://clementpz.com"),
   openGraph: {
     title: `${profile.name} — ${profile.tagline}`,
     description: profile.intro,
