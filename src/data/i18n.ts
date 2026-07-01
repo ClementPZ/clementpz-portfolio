@@ -34,14 +34,14 @@ type UI = {
   stackSub: string;
   workTitle: string;
   workCount: string; // "{n} experiences" — {n} remplacé côté composant
+  impactLabel: string;
   recentTitle: string;
   recentSub: string;
   recoTitle: string;
   recoSub: string;
   contact: string;
   overlayBadge: string;
-  overlayTitle1: string;
-  overlayTitle2: string;
+  overlayTitle: string;
   overlayBodyPre: string; // avant le numéro
   overlayBodyPost: string; // après le numéro
   overlayCta: string;
@@ -54,9 +54,10 @@ export const ui: Record<Locale, UI> = {
   en: {
     getInTouch: "Get in touch",
     stackTitle: "My 2026 stack",
-    stackSub: "daily tools",
+    stackSub: "the toolkit",
     workTitle: "Selected work",
     workCount: "{n} experiences",
+    impactLabel: "Business impact",
     recentTitle: "The past 6 months",
     recentSub:
       "Side projects in flight. The goal: push each one to a solid first version.",
@@ -64,12 +65,11 @@ export const ui: Record<Locale, UI> = {
     recoSub: "from LinkedIn",
     contact: "Contact",
     overlayBadge: "V1 — shipping in public",
-    overlayTitle1: "This portfolio is under construction.",
-    overlayTitle2: "Live, and in public.",
-    overlayBodyPre: "You're visitor",
+    overlayTitle: "This portfolio is under construction, but already online.",
+    overlayBodyPre: "You're the",
     overlayBodyPost:
-      "dropping by while I build it. Product design, code, and AI — all done by hand. V1 is on its way, but the work is already here underneath.",
-    overlayCta: "Come in anyway →",
+      "person to visit. Have a tour, and don't hesitate to reach out for anything. Design, code, and AI — all done by hand.",
+    overlayCta: "Visit",
     overlayFoot: "No wall, no sign-up. Everything is accessible.",
     overlayLang: "Language",
     backToTop: "Back to top",
@@ -77,9 +77,10 @@ export const ui: Record<Locale, UI> = {
   fr: {
     getInTouch: "Me contacter",
     stackTitle: "Ma stack 2026",
-    stackSub: "outils du quotidien",
+    stackSub: "la boîte à outils",
     workTitle: "Sélection de projets",
     workCount: "{n} expériences",
+    impactLabel: "Impact business",
     recentTitle: "Les 6 derniers mois",
     recentSub:
       "Side projects en cours. L'objectif : pousser chacun jusqu'à une première version solide.",
@@ -87,12 +88,11 @@ export const ui: Record<Locale, UI> = {
     recoSub: "extraits LinkedIn",
     contact: "Contact",
     overlayBadge: "V1 — en construction, en public",
-    overlayTitle1: "Ce portfolio est en construction.",
-    overlayTitle2: "En direct, et en public.",
-    overlayBodyPre: "Vous êtes le visiteur",
+    overlayTitle: "Ce portfolio est en construction, mais déjà en ligne.",
+    overlayBodyPre: "Vous êtes la",
     overlayBodyPost:
-      "qui passe pendant que je le construis. Product design, code et IA — tout est fait main. La V1 arrive, mais le travail est déjà là, dessous.",
-    overlayCta: "Entrer quand même →",
+      "personne à le visiter. Faites le tour, et n'hésitez pas à me contacter pour quoi que ce soit. Design, code et IA — tout est fait main.",
+    overlayCta: "Visiter",
     overlayFoot: "Aucun mur, aucune inscription. Tout est accessible.",
     overlayLang: "Langue",
     backToTop: "Haut de page",
@@ -100,9 +100,10 @@ export const ui: Record<Locale, UI> = {
   es: {
     getInTouch: "Contactarme",
     stackTitle: "Mi stack 2026",
-    stackSub: "herramientas diarias",
+    stackSub: "las herramientas",
     workTitle: "Trabajo seleccionado",
     workCount: "{n} experiencias",
+    impactLabel: "Impacto de negocio",
     recentTitle: "Los últimos 6 meses",
     recentSub:
       "Proyectos en marcha. El objetivo: llevar cada uno a una primera versión sólida.",
@@ -110,12 +111,11 @@ export const ui: Record<Locale, UI> = {
     recoSub: "de LinkedIn",
     contact: "Contacto",
     overlayBadge: "V1 — construyéndose en público",
-    overlayTitle1: "Este portafolio está en construcción.",
-    overlayTitle2: "En vivo, y en público.",
-    overlayBodyPre: "Eres el visitante",
+    overlayTitle: "Este portafolio está en construcción, pero ya en línea.",
+    overlayBodyPre: "Eres la",
     overlayBodyPost:
-      "que pasa mientras lo construyo. Product design, código e IA — todo hecho a mano. La V1 está en camino, pero el trabajo ya está aquí debajo.",
-    overlayCta: "Entrar de todos modos →",
+      "persona en visitarlo. Date una vuelta, y no dudes en contactarme para lo que sea. Design, código e IA — todo hecho a mano.",
+    overlayCta: "Visitar",
     overlayFoot: "Sin muro, sin registro. Todo es accesible.",
     overlayLang: "Idioma",
     backToTop: "Volver arriba",
@@ -124,9 +124,9 @@ export const ui: Record<Locale, UI> = {
 
 // Intro localisée (profile.intro).
 export const introText: Record<Locale, string> = {
-  en: "Product Design Leader, 10+ years across product design, design systems, and AI. I built NRC Health's design function from the ground up and now lead a team of three, from research to production to analytics. From founding a coding campus in Mexico City to design leadership at a NASDAQ-listed US healthcare company, a business-first instinct still drives how I lead.",
-  fr: "Product Design Leader, 10+ ans entre product design, design systems et IA. J'ai construit la fonction design de NRC Health de zéro et je pilote aujourd'hui une équipe de trois, de la recherche à la production à l'analytics. De la création d'un campus de code à Mexico au design leadership dans une entreprise de santé américaine cotée au NASDAQ, un instinct business-first guide toujours ma façon de diriger.",
-  es: "Product Design Leader, más de 10 años entre product design, design systems e IA. Construí la función de diseño de NRC Health desde cero y hoy lidero un equipo de tres, desde la investigación hasta la producción y la analítica. Desde fundar un campus de código en Ciudad de México hasta el liderazgo de diseño en una empresa de salud estadounidense cotizada en NASDAQ, un instinto business-first sigue guiando mi forma de liderar.",
+  en: "Product Design Leader, 10+ years across product design, design systems, and AI. I built NRC Health's design function from the ground up and now lead a team of three, from research to production to analytics. Founding a coding campus in Mexico City, then leading design at a NASDAQ-listed US healthcare company: a business-first instinct still drives how I lead.",
+  fr: "Product Design Leader, 10+ ans entre product design, design systems et IA. J'ai construit la fonction design de NRC Health de zéro et je pilote aujourd'hui une équipe de trois, de la recherche à la production à l'analytics. Fonder un campus de code à Mexico, puis diriger le design dans une entreprise de santé américaine cotée au NASDAQ : un instinct business-first guide toujours ma façon de diriger.",
+  es: "Product Design Leader, más de 10 años entre product design, design systems e IA. Construí la función de diseño de NRC Health desde cero y hoy lidero un equipo de tres, desde la investigación hasta la producción y la analítica. Fundar un campus de código en Ciudad de México y luego liderar el diseño en una empresa de salud estadounidense cotizada en NASDAQ: un instinto business-first sigue guiando mi forma de liderar.",
 };
 
 // Langues parlées (footer).
@@ -138,146 +138,188 @@ export const languagesText: Record<Locale, string[]> = {
 
 // Texte localisé des expériences — index aligné sur `work` dans content.ts :
 // 0 NRC · 1 Episource · 2 SEIF · 3 Le Wagon · 4 Welcomhere · 5 Devialet
-export const workText: Record<Locale, { role: string; summary: string; impact?: string[] }[]> = {
+export const workText: Record<
+  Locale,
+  { role: string; bullets: string[]; impact?: string[] }[]
+> = {
   en: [
     {
       role: "Product Design Lead",
-      summary:
-        "Recruited and built NRC's first product design team (two designers and a senior UX/data researcher) serving all four product suites. Created a multi-product design system with tokens on a Flowbite foundation, bridging design to a multi-stack production environment, extended with AI-assisted design-to-code tooling for non-engineers. Led AI features including the Huey in-app assistant and an ambient-listening tool. Owned the design roadmap and stood up the team's first analytics practice.",
+      bullets: [
+        "Built NRC's first product design team from scratch (two designers + a senior UX/data researcher) across all four product suites.",
+        "Created a multi-product design system (tokens, NRC semantic layer on Flowbite) with AI-assisted design-to-code tooling for non-engineers.",
+        "Led the design of AI features: the Huey in-app assistant and an ambient-listening tool.",
+        "Owned the design roadmap and stood up the team's first analytics practice.",
+      ],
       impact: [
-        "Nurse-rounding documentation raised from 55% to 90% (ambient-listening)",
+        "Nurse-rounding documentation 55% → 90% (ambient-listening)",
         "+24% outreach-email CTR (research-led A/B testing)",
-        "NRC's first design team — built from scratch",
       ],
     },
     {
       role: "Senior → Lead Product Designer · Design System",
-      summary:
-        "Promoted to Lead Product Designer after 12 months, cited for cross-functional communication and design leadership across 6+ products. Led design of the AI-assisted NLP coding interface (Click to Code) from alpha through full production, including a V2.0 redesign validated with 897 users. Established Figma component libraries and integrated design tokens to React/TypeScript production. Led Provider Direct Messaging, a bi-directional EHR integration piloted with UHC.",
+      bullets: [
+        "Led design of the AI-assisted NLP coding interface (Click to Code) from alpha to full production, including a V2.0 redesign.",
+        "Established Figma component libraries and integrated design tokens to React/TypeScript production.",
+        "Led Provider Direct Messaging, a bi-directional EHR integration piloted with UHC.",
+        "Promoted to Lead after 12 months, across 6+ products.",
+      ],
       impact: [
-        "88% acceptance · 80% satisfaction (897 users, design system V2)",
-        "Core enabler of an autocoding strategy targeting 500–750k charts/year",
-        "6+ products covered by the design system",
+        "88% acceptance · 80% satisfaction (V2.0, 897 users)",
+        "Core enabler of autocoding targeting 500–750k charts/year",
       ],
     },
     {
       role: "Product Designer · Design System · Project Manager",
-      summary:
-        "Defined and positioned blockchain/fintech products alongside the CEO and CTO. Designed conversational PWA interfaces (KYC, payment system, blockchain explorer, dashboards) and built the UI kit and design system from scratch.",
-    },
-    {
-      role: "Founder · Product Design Teacher · Business Development",
-      summary:
-        "Launched Le Wagon's Mexico City campus, secured 15 commercial partners (ITAM, Start-Up Mexico, Numa) and taught UI/UX fundamentals. Ran 4 cohorts producing 40 students and 15 web products.",
-      impact: [
-        "15 commercial partners secured",
-        "4 cohorts · 40 students · 15 web products",
-        "First Le Wagon campus in Latin America",
+      bullets: [
+        "Defined and positioned blockchain/fintech products with the CEO and CTO.",
+        "Designed conversational PWA interfaces: KYC, payments, blockchain explorer, dashboards.",
+        "Built the UI kit and design system from scratch.",
       ],
     },
     {
+      role: "Founder · Product Design Teacher · Business Development",
+      bullets: [
+        "Launched Le Wagon's Mexico City campus, the first in Latin America.",
+        "Secured 15 commercial partners (ITAM, Start-Up Mexico, Numa).",
+        "Taught UI/UX fundamentals across 4 cohorts.",
+      ],
+      impact: ["4 cohorts · 40 students · 15 web products shipped"],
+    },
+    {
       role: "Co-founder · Product & Business Development",
-      summary:
-        "Co-founded a relocation platform for migrants: product definition, pitches, fundraising, partnerships, and iterative product development.",
+      bullets: [
+        "Co-founded a relocation platform for migrants.",
+        "Led product definition, pitches, fundraising, and partnerships.",
+      ],
     },
     {
       role: "Project Manager — Retail & Flagship Europe",
-      summary:
-        "Launched the Paris flagship store and deployed concept stores across Europe. Project management, retail operations, and premium customer experience.",
+      bullets: [
+        "Launched the Paris flagship store.",
+        "Deployed concept stores across Europe.",
+        "Owned retail operations and premium customer experience.",
+      ],
     },
   ],
   fr: [
     {
       role: "Product Design Lead",
-      summary:
-        "Recruté et construit la première équipe design produit de NRC (deux designers et un senior UX/data researcher) au service des quatre suites produits. Créé un design system multi-produits avec tokens sur base Flowbite, reliant le design à un environnement de production multi-stack, étendu par un outillage AI-to-code pour les non-engineers. Piloté les features IA dont l'assistant in-app Huey et un outil d'écoute ambiante. Porté la roadmap design et lancé la première pratique analytics de l'équipe.",
+      bullets: [
+        "Construit la première équipe design produit de NRC, de zéro (deux designers + un senior UX/data researcher) sur les quatre suites produits.",
+        "Créé un design system multi-produits (tokens, couche sémantique NRC sur Flowbite) avec un outillage AI-to-code pour les non-engineers.",
+        "Piloté le design des features IA : l'assistant in-app Huey et un outil d'écoute ambiante.",
+        "Porté la roadmap design et lancé la première pratique analytics de l'équipe.",
+      ],
       impact: [
-        "Documentation infirmière passée de 55% à 90% (écoute ambiante)",
+        "Documentation infirmière 55% → 90% (écoute ambiante)",
         "+24% de CTR sur les emails outreach (A/B testing par la recherche)",
-        "Première équipe design de NRC — construite de zéro",
       ],
     },
     {
       role: "Senior → Lead Product Designer · Design System",
-      summary:
-        "Promu Lead Product Designer après 12 mois, cité pour la communication cross-fonctionnelle et le leadership design sur 6+ produits. Piloté le design de l'interface de codage NLP assistée par IA (Click to Code) de l'alpha à la production complète, dont une refonte V2.0 validée avec 897 utilisateurs. Établi les bibliothèques de composants Figma et intégré les design tokens en production React/TypeScript. Dirigé Provider Direct Messaging, une intégration EHR bidirectionnelle pilotée avec UHC.",
+      bullets: [
+        "Piloté le design de l'interface de codage NLP assistée par IA (Click to Code), de l'alpha à la production, dont une refonte V2.0.",
+        "Établi les bibliothèques de composants Figma et intégré les design tokens en production React/TypeScript.",
+        "Dirigé Provider Direct Messaging, une intégration EHR bidirectionnelle pilotée avec UHC.",
+        "Promu Lead après 12 mois, sur 6+ produits.",
+      ],
       impact: [
-        "88% d'acceptation · 80% de satisfaction (897 users, design system V2)",
-        "Catalyseur d'une stratégie d'autocoding visant 500–750k dossiers/an",
-        "6+ produits couverts par le design system",
+        "88% d'acceptation · 80% de satisfaction (V2.0, 897 users)",
+        "Catalyseur d'un autocoding visant 500–750k dossiers/an",
       ],
     },
     {
       role: "Product Designer · Design System · Chef de projet",
-      summary:
-        "Défini et positionné les produits blockchain/fintech aux côtés du CEO et du CTO. Conçu des interfaces PWA conversationnelles (KYC, système de paiement, explorateur blockchain, dashboards) et construit l'UI kit et le design system de zéro.",
-    },
-    {
-      role: "Fondateur · Enseignant Product Design · Business Development",
-      summary:
-        "Lancé le campus Le Wagon de Mexico, sécurisé 15 partenaires commerciaux (ITAM, Start-Up Mexico, Numa) et enseigné les fondamentaux UI/UX. Mené 4 promotions produisant 40 étudiants et 15 produits web.",
-      impact: [
-        "15 partenaires commerciaux sécurisés",
-        "4 promotions · 40 étudiants · 15 produits web",
-        "Premier campus Le Wagon d'Amérique latine",
+      bullets: [
+        "Défini et positionné les produits blockchain/fintech avec le CEO et le CTO.",
+        "Conçu des interfaces PWA conversationnelles : KYC, paiements, explorateur blockchain, dashboards.",
+        "Construit l'UI kit et le design system de zéro.",
       ],
     },
     {
+      role: "Fondateur · Enseignant Product Design · Business Development",
+      bullets: [
+        "Lancé le campus Le Wagon de Mexico, le premier d'Amérique latine.",
+        "Sécurisé 15 partenaires commerciaux (ITAM, Start-Up Mexico, Numa).",
+        "Enseigné les fondamentaux UI/UX sur 4 promotions.",
+      ],
+      impact: ["4 promotions · 40 étudiants · 15 produits web livrés"],
+    },
+    {
       role: "Co-fondateur · Product & Business Development",
-      summary:
-        "Co-fondé une plateforme de relocation pour migrants : définition produit, pitchs, levée de fonds, partenariats et développement produit itératif.",
+      bullets: [
+        "Co-fondé une plateforme de relocation pour migrants.",
+        "Porté la définition produit, les pitchs, la levée de fonds et les partenariats.",
+      ],
     },
     {
       role: "Chef de projet — Retail & Flagship Europe",
-      summary:
-        "Lancé le flagship store parisien et déployé les concept stores à travers l'Europe. Gestion de projet, opérations retail et expérience client premium.",
+      bullets: [
+        "Lancé le flagship store parisien.",
+        "Déployé les concept stores à travers l'Europe.",
+        "Porté les opérations retail et l'expérience client premium.",
+      ],
     },
   ],
   es: [
     {
       role: "Product Design Lead",
-      summary:
-        "Recluté y construí el primer equipo de diseño de producto de NRC (dos diseñadores y un senior UX/data researcher) al servicio de las cuatro suites de producto. Creé un design system multi-producto con tokens sobre base Flowbite, conectando el diseño con un entorno de producción multi-stack, ampliado con herramientas AI-to-code para non-engineers. Lideré funciones de IA como el asistente in-app Huey y una herramienta de escucha ambiental. Dirigí la roadmap de diseño y lancé la primera práctica de analítica del equipo.",
+      bullets: [
+        "Construí el primer equipo de diseño de producto de NRC, desde cero (dos diseñadores + un senior UX/data researcher) en las cuatro suites de producto.",
+        "Creé un design system multi-producto (tokens, capa semántica NRC sobre Flowbite) con herramientas AI-to-code para non-engineers.",
+        "Lideré el diseño de funciones de IA: el asistente in-app Huey y una herramienta de escucha ambiental.",
+        "Dirigí la roadmap de diseño y lancé la primera práctica de analítica del equipo.",
+      ],
       impact: [
-        "Documentación de enfermería elevada del 55% al 90% (escucha ambiental)",
+        "Documentación de enfermería 55% → 90% (escucha ambiental)",
         "+24% de CTR en emails de outreach (A/B testing basado en investigación)",
-        "Primer equipo de diseño de NRC — construido desde cero",
       ],
     },
     {
       role: "Senior → Lead Product Designer · Design System",
-      summary:
-        "Promovido a Lead Product Designer tras 12 meses, citado por la comunicación transversal y el liderazgo de diseño en más de 6 productos. Lideré el diseño de la interfaz de codificación NLP asistida por IA (Click to Code) desde alpha hasta producción completa, incluyendo un rediseño V2.0 validado con 897 usuarios. Establecí las bibliotecas de componentes en Figma e integré design tokens en producción React/TypeScript. Dirigí Provider Direct Messaging, una integración EHR bidireccional piloteada con UHC.",
+      bullets: [
+        "Lideré el diseño de la interfaz de codificación NLP asistida por IA (Click to Code), de alpha a producción, con un rediseño V2.0.",
+        "Establecí las bibliotecas de componentes en Figma e integré design tokens en producción React/TypeScript.",
+        "Dirigí Provider Direct Messaging, una integración EHR bidireccional piloteada con UHC.",
+        "Promovido a Lead tras 12 meses, en más de 6 productos.",
+      ],
       impact: [
-        "88% de aceptación · 80% de satisfacción (897 usuarios, design system V2)",
-        "Habilitador clave de una estrategia de autocoding para 500–750k historiales/año",
-        "Más de 6 productos cubiertos por el design system",
+        "88% de aceptación · 80% de satisfacción (V2.0, 897 usuarios)",
+        "Habilitador clave de autocoding para 500–750k historiales/año",
       ],
     },
     {
       role: "Product Designer · Design System · Project Manager",
-      summary:
-        "Definí y posicioné productos de blockchain/fintech junto al CEO y el CTO. Diseñé interfaces PWA conversacionales (KYC, sistema de pago, explorador blockchain, dashboards) y construí el UI kit y el design system desde cero.",
-    },
-    {
-      role: "Fundador · Profesor de Product Design · Business Development",
-      summary:
-        "Lancé el campus de Le Wagon en Ciudad de México, aseguré 15 socios comerciales (ITAM, Start-Up Mexico, Numa) y enseñé fundamentos de UI/UX. Dirigí 4 promociones que produjeron 40 estudiantes y 15 productos web.",
-      impact: [
-        "15 socios comerciales asegurados",
-        "4 promociones · 40 estudiantes · 15 productos web",
-        "Primer campus de Le Wagon en América Latina",
+      bullets: [
+        "Definí y posicioné productos de blockchain/fintech con el CEO y el CTO.",
+        "Diseñé interfaces PWA conversacionales: KYC, pagos, explorador blockchain, dashboards.",
+        "Construí el UI kit y el design system desde cero.",
       ],
     },
     {
+      role: "Fundador · Profesor de Product Design · Business Development",
+      bullets: [
+        "Lancé el campus de Le Wagon en Ciudad de México, el primero de América Latina.",
+        "Aseguré 15 socios comerciales (ITAM, Start-Up Mexico, Numa).",
+        "Enseñé fundamentos de UI/UX en 4 promociones.",
+      ],
+      impact: ["4 promociones · 40 estudiantes · 15 productos web entregados"],
+    },
+    {
       role: "Cofundador · Product & Business Development",
-      summary:
-        "Cofundé una plataforma de relocation para migrantes: definición de producto, pitches, recaudación de fondos, alianzas y desarrollo iterativo de producto.",
+      bullets: [
+        "Cofundé una plataforma de relocation para migrantes.",
+        "Dirigí la definición de producto, pitches, recaudación de fondos y alianzas.",
+      ],
     },
     {
       role: "Project Manager — Retail & Flagship Europa",
-      summary:
-        "Lancé la flagship store de París y desplegué concept stores por toda Europa. Gestión de proyectos, operaciones retail y experiencia de cliente premium.",
+      bullets: [
+        "Lancé la flagship store de París.",
+        "Desplegué concept stores por toda Europa.",
+        "Dirigí las operaciones retail y la experiencia de cliente premium.",
+      ],
     },
   ],
 };

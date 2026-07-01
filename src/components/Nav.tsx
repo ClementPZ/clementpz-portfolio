@@ -2,12 +2,11 @@
 
 import { profile } from "../data/content";
 import { ModeToggle } from "./ModeToggle";
-import { useLocale } from "./LocaleProvider";
+import { LanguageDropdown } from "./LanguageDropdown";
 // ThemeSwitcher parqué pour la V1 (identité unique "signature").
 // import { ThemeSwitcher } from "./ThemeSwitcher";
 
 export function Nav() {
-  const { t } = useLocale();
   return (
     <nav className="sticky top-0 z-50 nav-bar">
       <div className="max-w-6xl mx-auto px-6 py-4 relative flex items-center justify-between">
@@ -27,14 +26,8 @@ export function Nav() {
           <span className="nav-search-btn">→</span>
         </div>
 
-        <div className="flex items-center gap-4">
-          <a
-            href={`mailto:${profile.email}`}
-            className="text-sm"
-            style={{ color: "var(--text-muted)" }}
-          >
-            {t.contact}
-          </a>
+        <div className="flex items-center gap-3">
+          <LanguageDropdown />
           <ModeToggle />
         </div>
       </div>

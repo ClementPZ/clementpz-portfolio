@@ -23,6 +23,7 @@ export function Work() {
       <div className="grid gap-5 sm:grid-cols-2">
         {work.map((w, index) => {
           const lx = localized[index];
+          const bullets = lx?.bullets ?? (w.summary ? [w.summary] : []);
           const impact = lx?.impact ?? w.impact;
           return (
             <article
@@ -42,17 +43,30 @@ export function Work() {
               <p className="text-xs mb-4" style={{ color: "var(--text-muted)" }}>
                 {w.location}
               </p>
-              <p className="text-sm leading-relaxed mb-4">{lx?.summary ?? w.summary}</p>
+
+              <ul className="text-sm leading-relaxed mb-4 space-y-2 pl-4" style={{ listStyle: "disc" }}>
+                {bullets.map((b) => (
+                  <li key={b}>{b}</li>
+                ))}
+              </ul>
 
               {impact && impact.length > 0 && (
-                <ul
-                  className="text-xs mb-4 space-y-1 pl-4"
-                  style={{ color: "var(--text-muted)", listStyle: "disc" }}
+                <div
+                  className="mb-4 rounded-lg p-3"
+                  style={{ background: "var(--accent-subtle)", border: "1px solid var(--border)" }}
                 >
-                  {impact.map((i) => (
-                    <li key={i}>{i}</li>
-                  ))}
-                </ul>
+                  <p
+                    className="text-[10px] uppercase tracking-wider mb-1.5 font-semibold"
+                    style={{ color: "var(--accent)" }}
+                  >
+                    {t.impactLabel}
+                  </p>
+                  <ul className="text-xs space-y-1" style={{ color: "var(--text)" }}>
+                    {impact.map((i) => (
+                      <li key={i}>{i}</li>
+                    ))}
+                  </ul>
+                </div>
               )}
 
               <div className="mt-auto flex flex-wrap gap-1.5 pt-2">

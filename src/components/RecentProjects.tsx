@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { recentProjects } from "../data/content";
 import { projectText, statusText } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
@@ -10,6 +10,36 @@ export function RecentProjects() {
   const trackRef = useRef<HTMLDivElement>(null);
   const localized = projectText[locale];
   const status = statusText[locale];
+
+  // Effet "carrousel arrondi" : la carte la plus proche du centre est agrandie,
+  // les latérales rétrécies + décalées vers le bas + estompées.
+  const applyMagnify = useCallback(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const mid = track.getBoundingClientRect().left + track.clientWidth / 2;
+    track.querySelectorAll<HTMLElement>("[data-card]").forEach((card) => {
+      const r = card.getBoundingClientRect();
+      const cardMid = r.left + r.width / 2;
+      const dist = Math.min(Math.abs(cardMid - mid) / (track.clientWidth / 2), 1);
+      const scale = 1.06 - dist * 0.16;
+      const translateY = dist * 14;
+      const opacity = 1 - dist * 0.38;
+      card.style.transform = `translateY(${translateY}px) scale(${scale})`;
+      card.style.opacity = String(opacity);
+    });
+  }, []);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    applyMagnify();
+    track.addEventListener("scroll", applyMagnify, { passive: true });
+    window.addEventListener("resize", applyMagnify);
+    return () => {
+      track.removeEventListener("scroll", applyMagnify);
+      window.removeEventListener("resize", applyMagnify);
+    };
+  }, [applyMagnify, locale]);
 
   const scrollBy = (dir: 1 | -1) => {
     const track = trackRef.current;
@@ -52,8 +82,8 @@ export function RecentProjects() {
 
       <div
         ref={trackRef}
-        className="flex gap-5 overflow-x-auto px-6 pb-4 snap-x snap-mandatory"
-        style={{ scrollbarWidth: "none" }}
+        className="flex gap-5 overflow-x-auto px-6 snap-x snap-mandatory"
+        style={{ scrollbarWidth: "none", paddingTop: 18, paddingBottom: 34 }}
       >
         {recentProjects.map((p, index) => {
           const lx = localized[index];
@@ -61,13 +91,16 @@ export function RecentProjects() {
             <article
               key={p.name}
               data-card
-              className="snap-start shrink-0 flex flex-col justify-end rounded-2xl p-6 relative overflow-hidden"
+              className="snap-center shrink-0 flex flex-col justify-end rounded-2xl p-6 relative overflow-hidden"
               style={{
                 width: "min(82vw, 320px)",
                 minHeight: 420,
                 background: `linear-gradient(150deg, ${p.accent} 0%, ${p.accent2} 100%)`,
                 color: "#ffffff",
                 boxShadow: "var(--shadow)",
+                transformOrigin: "center bottom",
+                transition: "transform 0.25s ease, opacity 0.25s ease",
+                willChange: "transform",
               }}
             >
               <span

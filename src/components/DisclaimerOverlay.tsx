@@ -2,15 +2,15 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import confetti from "canvas-confetti";
-import { locales } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
+import { LanguageDropdown } from "./LanguageDropdown";
 
 // Real visit counter via abacus (free, no auth, no backend). Each /hit call
 // increments and returns the running total. Personal namespace.
 const COUNTER_URL = "https://abacus.jasoncameron.dev/hit/clementpz/portfolio-v1";
 
 export function DisclaimerOverlay() {
-  const { locale, setLocale, t } = useLocale();
+  const { locale, t } = useLocale();
   const [visible, setVisible] = useState(false);
   const [closing, setClosing] = useState(false);
   const [count, setCount] = useState<number | null>(null);
@@ -93,6 +93,11 @@ export function DisclaimerOverlay() {
       aria-label="Portfolio in progress"
     >
       <div className="overlay-glass">
+        {/* Langue en haut — pré-réglée sur la langue de l'appareil, fallback EN */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: 20 }}>
+          <LanguageDropdown align="left" />
+        </div>
+
         <div className="overlay-badge">
           <span className="pulse-dot" />
           {t.overlayBadge}
@@ -100,53 +105,21 @@ export function DisclaimerOverlay() {
 
         <h2
           className="font-display font-bold"
-          style={{ fontSize: "1.7rem", lineHeight: 1.15, color: "var(--text)", marginBottom: 16 }}
+          style={{ fontSize: "1.55rem", lineHeight: 1.2, color: "var(--text)", marginBottom: 16 }}
         >
-          {t.overlayTitle1}
-          <br />
-          {t.overlayTitle2}
+          {t.overlayTitle}
         </h2>
 
-        <p style={{ fontSize: "0.95rem", lineHeight: 1.6, color: "var(--text-muted)", marginBottom: 24 }}>
+        <p style={{ fontSize: "0.95rem", lineHeight: 1.6, color: "var(--text-muted)", marginBottom: 26 }}>
           {t.overlayBodyPre}{" "}
           <span className="count-shimmer" style={{ fontWeight: 700 }}>
-            #{ordinal}
-          </span>{" "}
+            {ordinal}
+          </span>
+          <sup style={{ fontSize: "0.6em", color: "var(--accent)" }}>
+            {locale === "fr" ? "e" : locale === "es" ? "ª" : "th"}
+          </sup>{" "}
           {t.overlayBodyPost}
         </p>
-
-        {/* Sélecteur de langue — définit la langue de la page à l'entrée */}
-        <div style={{ marginBottom: 24 }}>
-          <p
-            style={{
-              fontSize: "0.68rem",
-              textTransform: "uppercase",
-              letterSpacing: "0.08em",
-              color: "var(--text-muted)",
-              marginBottom: 8,
-            }}
-          >
-            {t.overlayLang}
-          </p>
-          <div className="lang-select" role="radiogroup" aria-label={t.overlayLang}>
-            {locales.map((l) => {
-              const active = l.id === locale;
-              return (
-                <button
-                  key={l.id}
-                  type="button"
-                  role="radio"
-                  aria-checked={active}
-                  onClick={() => setLocale(l.id)}
-                  className="lang-chip"
-                  data-active={active}
-                >
-                  {l.short}
-                </button>
-              );
-            })}
-          </div>
-        </div>
 
         <button
           ref={btnRef}

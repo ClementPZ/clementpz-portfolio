@@ -28,11 +28,29 @@ export function Recommendations() {
             <p className="text-base sm:text-lg leading-relaxed italic">
               &ldquo;{r.quote}&rdquo;
             </p>
-            <footer className="mt-5 pt-4" style={{ borderTop: "1px solid var(--border)" }}>
-              <p className="font-display font-bold text-sm">{r.author}</p>
-              <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-                {r.title}
-              </p>
+            <footer
+              className="mt-5 pt-4 flex items-end justify-between gap-3"
+              style={{ borderTop: "1px solid var(--border)" }}
+            >
+              <div>
+                <p className="font-display font-bold text-sm">{r.author}</p>
+                <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+                  {r.title}
+                </p>
+              </div>
+              <a
+                href={r.linkedin || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs px-3 py-1.5 rounded-full whitespace-nowrap"
+                style={{
+                  background: "var(--tag-bg)",
+                  color: "var(--tag-text)",
+                  border: "1px solid var(--border)",
+                }}
+              >
+                in · Contact
+              </a>
             </footer>
           </blockquote>
         ))}

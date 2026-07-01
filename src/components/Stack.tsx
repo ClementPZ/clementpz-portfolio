@@ -2,6 +2,7 @@
 
 import { stack } from "../data/content";
 import { useLocale } from "./LocaleProvider";
+import { StackIcon } from "./StackIcon";
 
 export function Stack() {
   const { t } = useLocale();
@@ -19,7 +20,10 @@ export function Stack() {
       </div>
       <div className="flex flex-wrap gap-2">
         {stack.map((s) => (
-          <span key={s.label} className="pill">
+          <span key={s.label} className="pill" style={{ gap: 8 }}>
+            <span style={{ display: "inline-flex", color: "var(--accent)" }}>
+              <StackIcon icon={s.icon} />
+            </span>
             {s.label}
           </span>
         ))}

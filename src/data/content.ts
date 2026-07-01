@@ -9,7 +9,7 @@ export const profile = {
   shortName: "Clément PZ",
   tagline: "Product Design × Code × AI",
   intro:
-    "Product Design Leader, 10+ years across product design, design systems, and AI. I built NRC Health's design function from the ground up and now lead a team of three, from research to production to analytics. From founding a coding campus in Mexico City to design leadership at a NASDAQ-listed US healthcare company, a business-first instinct still drives how I lead.",
+    "Product Design Leader, 10+ years across product design, design systems, and AI. I built NRC Health's design function from the ground up and now lead a team of three, from research to production to analytics. Founding a coding campus in Mexico City, then leading design at a NASDAQ-listed US healthcare company: a business-first instinct still drives how I lead.",
   email: "clementpicardzivy@gmail.com",
   links: {
     linkedin: "https://www.linkedin.com/in/clementpz/",
@@ -22,20 +22,17 @@ export const profile = {
 // Stack — outils du quotidien, affichés en pills sous le hero.
 // ============================================================================
 
-export const stack: { label: string; category: string }[] = [
-  { label: "Figma", category: "design" },
-  { label: "Design Tokens", category: "design" },
-  { label: "FigJam", category: "design" },
-  { label: "Claude", category: "ai" },
-  { label: "Cursor", category: "ai" },
-  { label: "Claude Code", category: "ai" },
-  { label: "VS Code", category: "dev" },
-  { label: "Next.js", category: "dev" },
-  { label: "TypeScript", category: "dev" },
-  { label: "Tailwind", category: "dev" },
-  { label: "Notion", category: "ops" },
-  { label: "Linear", category: "ops" },
-  { label: "rekordbox", category: "perso" },
+// icon = clé d'icône rendue par le composant Stack (voir StackIcons).
+export const stack: { label: string; icon: string }[] = [
+  { label: "Figma", icon: "figma" },
+  { label: "Figma suite", icon: "figma" },
+  { label: "Claude suite", icon: "claude" },
+  { label: "GitHub", icon: "github" },
+  { label: "MCP", icon: "mcp" },
+  { label: "Plugins", icon: "plugins" },
+  { label: "Docker", icon: "docker" },
+  { label: "VS Code", icon: "vscode" },
+  { label: "Notion", icon: "notion" },
 ];
 
 // ============================================================================
@@ -50,6 +47,7 @@ export type WorkItem = {
   period: string;
   location: string;
   summary: string;
+  bullets?: string[];
   impact?: string[];
   tags: string[];
 };
@@ -134,20 +132,23 @@ export type Reco = {
   author: string;
   title: string;
   quote: string;
+  linkedin?: string; // href vide pour l'instant — à valider avec eux
 };
 
 export const recommendations: Reco[] = [
-  {
-    author: "V. Ramnathan",
-    title: "CPO @ NRC Health",
-    quote:
-      "Clément built our design function from nothing, hired the team, and set the bar for how design worked across all four product lines. He was as comfortable in C-suite product strategy conversations as he was shipping production design and AI tooling. I'd hire him again.",
-  },
   {
     author: "C. Louvion",
     title: "CTO @ NRC Health",
     quote:
       "Clément brings the full design package: deep user research, journey maps, personas, and fast prototyping, in close collaboration with users, product, and engineering, presenting results clearly to sr leadership.",
+    linkedin: "",
+  },
+  {
+    author: "V. Ramnathan",
+    title: "CPO @ NRC Health",
+    quote:
+      "Clément built our design function from nothing, hired the team, and set the bar for how design worked across all four product lines. He was as comfortable in C-suite product strategy conversations as he was shipping production design and AI tooling. I'd hire him again.",
+    linkedin: "",
   },
 ];
 
