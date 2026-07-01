@@ -31,15 +31,29 @@ export default async function OpengraphImage() {
       >
         <div
           style={{
+            display: "flex",
             width: 230,
             height: 230,
             borderRadius: 999,
-            backgroundImage: `url(${photoSrc})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center 28%",
+            overflow: "hidden",
             boxShadow: "0 20px 60px rgba(84,37,90,0.18)",
           }}
-        />
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={photoSrc}
+            alt=""
+            width={230}
+            height={230}
+            style={{
+              width: 230,
+              height: 230,
+              borderRadius: 999,
+              objectFit: "cover",
+              objectPosition: "32% 26%",
+            }}
+          />
+        </div>
 
         <div
           style={{
