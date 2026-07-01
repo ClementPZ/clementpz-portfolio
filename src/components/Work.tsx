@@ -13,11 +13,8 @@ export function Work() {
       className="max-w-6xl mx-auto px-6 py-16"
       style={{ borderTop: "1px solid var(--border)" }}
     >
-      <div className="flex items-baseline justify-between mb-10">
+      <div className="mb-10">
         <h2 className="font-display text-2xl sm:text-3xl font-bold">{t.workTitle}</h2>
-        <span className="text-xs uppercase tracking-wider" style={{ color: "var(--text-muted)" }}>
-          {t.workCount.replace("{n}", String(work.length))}
-        </span>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">

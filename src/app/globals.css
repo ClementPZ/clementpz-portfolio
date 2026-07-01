@@ -587,6 +587,36 @@
 }
 
 /* ============================================================================
+   PULL TO REFRESH — easter egg (messages dans le top bar)
+   ============================================================================ */
+
+.ptr {
+  position: fixed;
+  top: -6px;
+  left: 0;
+  right: 0;
+  z-index: 55;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.2s ease;
+}
+
+.ptr-pill {
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  background: color-mix(in oklab, var(--bg-elev) 78%, transparent);
+  border: 1px solid var(--border-strong);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  box-shadow: 0 8px 26px rgba(15, 4, 18, 0.28);
+  white-space: nowrap;
+}
+
+/* ============================================================================
    LIVE CURSORS — façon Figma multiplayer (visiteur + faux Sagmeister)
    Couleur : aubergine clair, contrasté sur dark comme sur light.
    ============================================================================ */
