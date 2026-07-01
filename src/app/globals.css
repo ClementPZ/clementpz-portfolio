@@ -403,6 +403,12 @@
   color: var(--text);
 }
 
+/* Dans le disclaimer : fond des indicateurs V1 + langue éclairci de 15% */
+.overlay-glass .overlay-badge,
+.overlay-glass .lang-dd-trigger {
+  background: color-mix(in oklab, var(--bg-elev) 85%, #ffffff);
+}
+
 .pulse-dot {
   width: 8px;
   height: 8px;
@@ -575,11 +581,12 @@
 }
 
 .count-shimmer {
+  /* Stops latéraux éclaircis de ~25% vers le blanc → chiffre plus visible */
   background: linear-gradient(
     100deg,
-    var(--accent) 20%,
+    color-mix(in oklab, var(--accent) 75%, #ffffff) 18%,
     #ffffff 50%,
-    var(--accent) 80%
+    color-mix(in oklab, var(--accent) 75%, #ffffff) 82%
   );
   background-size: 200% auto;
   background-clip: text;

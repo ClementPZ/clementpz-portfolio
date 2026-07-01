@@ -146,7 +146,7 @@ export function LiveCursors() {
     // Carol : n'apparaît (part) qu'à 5s.
     // "You" prend le relais à 7,5s (géré dans l'autre effet).
     animateTo(stefanRef.current, "cta-getintouch", { x: 0.12, y: 0.26 }, 600, 3500);
-    animateTo(carolinoRef.current, "mode-toggle", { x: 0.9, y: 0.62 }, 5000, 2000);
+    animateTo(carolinoRef.current, "mode-toggle", { x: 0.5, y: 0.5 }, 5000, 2000);
 
     return () => {
       rafs.forEach(cancelAnimationFrame);
