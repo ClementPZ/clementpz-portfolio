@@ -127,6 +127,14 @@ export function RecentProjects() {
                 willChange: "transform",
               }}
             >
+              {p.image && (
+                <>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={p.image} alt="" className="proj-img" />
+                  <div className="proj-overlay" />
+                </>
+              )}
+
               <span
                 className="absolute top-5 right-5 text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full"
                 style={{

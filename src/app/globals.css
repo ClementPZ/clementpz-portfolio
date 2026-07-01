@@ -409,6 +409,44 @@
   animation: shimmer 3s linear infinite;
 }
 
+/* Light mode : blanc invisible sur le glass clair → shimmer aubergine */
+[data-theme="signature-light"] .count-shimmer {
+  background-image: linear-gradient(100deg, #54255a 15%, #9d4edd 50%, #54255a 85%);
+}
+
+/* ============================================================================
+   CARTE PROJET AVEC PHOTO — image de fond + effet Ken Burns + overlay lisible
+   ============================================================================ */
+
+@keyframes kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.14);
+  }
+}
+
+.proj-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: kenburns 14s ease-in-out infinite alternate;
+}
+
+.proj-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.35) 52%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+}
+
 /* ============================================================================
    PULL TO REFRESH — easter egg (messages dans le top bar)
    ============================================================================ */
@@ -500,7 +538,12 @@ body.cursor-hidden * {
   box-sizing: border-box;
 }
 
-html,
+/* html reçoit la couleur du footer → l'overscroll (bas de page, sous le footer)
+   matche le footer, quel que soit le thème. */
+html {
+  background: var(--bg-elev);
+}
+
 body {
   background: var(--bg);
   color: var(--text);
@@ -508,9 +551,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: color 0.3s ease;
-}
-
-body {
   margin: 0;
   min-height: 100dvh;
 }

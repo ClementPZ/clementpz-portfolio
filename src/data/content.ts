@@ -143,6 +143,7 @@ export type RecentProject = {
   accent: string;
   accent2: string;
   link?: string;
+  image?: string; // photo de fond de carte (sinon gradient accent/accent2)
 };
 
 // Ordre : concepts à gauche, Builder Flow au CENTRE (le carousel s'ouvre centré
@@ -203,6 +204,7 @@ export const recentProjects: RecentProject[] = [
     tags: ["Interior", "Community", "Design"],
     accent: "#9a3412",
     accent2: "#1c1917",
+    image: "/interior/carroussel.jpg",
   },
   {
     id: "dj-energy",

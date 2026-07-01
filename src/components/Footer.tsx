@@ -9,7 +9,7 @@ export function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer
-      className="mt-16 py-10"
+      className="mt-16 py-6"
       style={{ borderTop: "1px solid var(--border)", background: "var(--bg-elev)" }}
     >
       <div className="max-w-6xl mx-auto px-6 flex items-start justify-between gap-6">
