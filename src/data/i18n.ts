@@ -58,7 +58,7 @@ export const ui: Record<Locale, UI> = {
     workTitle: "Selected work",
     workCount: "{n} experiences",
     impactLabel: "Business impact",
-    recentTitle: "The past 6 months",
+    recentTitle: "Past 6 months side projects",
     recentSub:
       "Side projects in flight. The goal: push each one to a solid first version.",
     recoTitle: "Recommendations",
@@ -81,7 +81,7 @@ export const ui: Record<Locale, UI> = {
     workTitle: "Sélection de projets",
     workCount: "{n} expériences",
     impactLabel: "Impact business",
-    recentTitle: "Les 6 derniers mois",
+    recentTitle: "Side projects des 6 derniers mois",
     recentSub:
       "Side projects en cours. L'objectif : pousser chacun jusqu'à une première version solide.",
     recoTitle: "Recommandations",
@@ -104,7 +104,7 @@ export const ui: Record<Locale, UI> = {
     workTitle: "Trabajo seleccionado",
     workCount: "{n} experiencias",
     impactLabel: "Impacto de negocio",
-    recentTitle: "Los últimos 6 meses",
+    recentTitle: "Side projects de los últimos 6 meses",
     recentSub:
       "Proyectos en marcha. El objetivo: llevar cada uno a una primera versión sólida.",
     recoTitle: "Recomendaciones",
