@@ -481,7 +481,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 90;
+  z-index: 40; /* sous la nav (z-50) : ne passe pas par-dessus la top bar au scroll */
   display: flex;
   align-items: flex-start;
   gap: 4px;

@@ -153,10 +153,19 @@ export function LiveCursors() {
             stick();
             window.addEventListener("scroll", stick, { passive: true });
             window.addEventListener("resize", stick);
-            cleanups.push(() => {
+            const unstick = () => {
               window.removeEventListener("scroll", stick);
               window.removeEventListener("resize", stick);
-            });
+            };
+            cleanups.push(unstick);
+            // Après 10s : Carol se détache et disparaît en fondu.
+            timers.push(
+              window.setTimeout(() => {
+                el.style.transition = "opacity 0.6s ease";
+                el.style.opacity = "0";
+                unstick();
+              }, 10000)
+            );
           } else {
             timers.push(
               window.setTimeout(() => {
