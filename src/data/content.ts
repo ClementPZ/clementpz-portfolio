@@ -24,7 +24,6 @@ export const profile = {
 // ============================================================================
 
 export const stack: { label: string; icon: string }[] = [
-  { label: "Figma", icon: "figma" },
   { label: "Figma suite", icon: "figma" },
   { label: "Claude suite", icon: "claude" },
   { label: "GitHub", icon: "github" },

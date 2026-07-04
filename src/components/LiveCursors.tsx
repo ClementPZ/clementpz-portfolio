@@ -97,13 +97,15 @@ export function LiveCursors() {
     if (!mounted) return;
     const rafs: number[] = [];
     const timers: number[] = [];
+    const cleanups: (() => void)[] = [];
 
     const animateTo = (
       el: HTMLDivElement | null,
       targetId: string,
       startFrac: { x: number; y: number },
       delay: number,
-      duration: number
+      duration: number,
+      anchor = false
     ) => {
       if (!el) return;
       const start = {
@@ -137,13 +139,32 @@ export function LiveCursors() {
           rafs.push(requestAnimationFrame(step));
         } else {
           target?.classList.add("cursor-poked");
-          timers.push(
-            window.setTimeout(() => {
-              el.style.transition = "opacity 0.6s ease";
-              el.style.opacity = "0";
-            }, 700)
-          );
           timers.push(window.setTimeout(() => target?.classList.remove("cursor-poked"), 900));
+          if (anchor && target) {
+            // Ancrage : on recalcule la position à chaque scroll/resize pour
+            // rester collé au CTA (getBoundingClientRect est relatif au viewport,
+            // il suit donc l'élément au scroll) au lieu de dériver en fixed.
+            const stick = () => {
+              const rr = target.getBoundingClientRect();
+              el.style.transform = `translate(${rr.left + rr.width * 0.5}px, ${
+                rr.top + rr.height * 0.5
+              }px)`;
+            };
+            stick();
+            window.addEventListener("scroll", stick, { passive: true });
+            window.addEventListener("resize", stick);
+            cleanups.push(() => {
+              window.removeEventListener("scroll", stick);
+              window.removeEventListener("resize", stick);
+            });
+          } else {
+            timers.push(
+              window.setTimeout(() => {
+                el.style.transition = "opacity 0.6s ease";
+                el.style.opacity = "0";
+              }, 700)
+            );
+          }
         }
       };
       rafs.push(requestAnimationFrame(step));
@@ -156,9 +177,11 @@ export function LiveCursors() {
       if (started) return;
       started = true;
       if (SHOW_EXTRA_CURSORS) {
-        animateTo(stefanRef.current, "cta-getintouch", { x: 0.12, y: 0.26 }, 600, 3500);
+        animateTo(stefanRef.current, "mode-toggle", { x: 0.12, y: 0.26 }, 600, 3500);
       }
-      animateTo(carolinoRef.current, "mode-toggle", { x: 0.5, y: 0.5 }, 200, 2000);
+      // Carol traverse jusqu'au CTA "Get in touch" et y reste ancrée (suit le
+      // bouton au scroll au lieu de disparaître).
+      animateTo(carolinoRef.current, "cta-getintouch", { x: 0.5, y: 0.55 }, 200, 2000, true);
     };
 
     let alreadySeen = false;
@@ -176,6 +199,7 @@ export function LiveCursors() {
       window.removeEventListener("disclaimer-dismissed", startCarol);
       rafs.forEach(cancelAnimationFrame);
       timers.forEach(clearTimeout);
+      cleanups.forEach((fn) => fn());
     };
   }, [mounted]);
 
