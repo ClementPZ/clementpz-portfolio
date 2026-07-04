@@ -25,9 +25,11 @@ export default function Home() {
           <Recommendations />
         </main>
         <Footer />
+        {/* Dans #page-shift (transformé → stacking context) pour que la nav
+            z-50 reste au-dessus du curseur z-40 au scroll. */}
+        <LiveCursors />
       </div>
       <BackToTop />
-      <LiveCursors />
     </>
   );
 }

@@ -58,7 +58,7 @@ export const ui: Record<Locale, UI> = {
     overlayBodyPost:
       "person to visit. Have a tour, and don't hesitate to reach out for anything. Design, code, and AI — all done by hand.",
     overlayCta: "Visit",
-    overlayFoot: "No pay wall, no sign-up.",
+    overlayFoot: "No wall, no sign up.",
   },
   fr: {
     getInTouch: "Me contacter",
@@ -74,7 +74,7 @@ export const ui: Record<Locale, UI> = {
     overlayBodyPost:
       "personne à le visiter. Faites le tour, et n'hésitez pas à me contacter pour quoi que ce soit. Design, code et IA — tout est fait main.",
     overlayCta: "Visiter",
-    overlayFoot: "Pas de paywall, pas d'inscription.",
+    overlayFoot: "Pas de mur, pas d'inscription.",
   },
   es: {
     getInTouch: "Contactarme",
@@ -90,7 +90,7 @@ export const ui: Record<Locale, UI> = {
     overlayBodyPost:
       "persona en visitarlo. Date una vuelta, y no dudes en contactarme para lo que sea. Design, código e IA — todo hecho a mano.",
     overlayCta: "Visitar",
-    overlayFoot: "Sin muro de pago, sin registro.",
+    overlayFoot: "Sin muro, sin registro.",
   },
 };
 
