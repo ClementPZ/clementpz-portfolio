@@ -129,7 +129,7 @@ export function DisclaimerOverlay() {
           ref={btnRef}
           type="button"
           onClick={dismiss}
-          className="btn-accent"
+          className="btn-ghost"
           style={{ width: "100%", justifyContent: "center" }}
         >
           {t.overlayCta}

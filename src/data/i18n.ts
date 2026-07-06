@@ -58,7 +58,7 @@ export const ui: Record<Locale, UI> = {
     overlayBodyPost:
       "person to visit. Have a tour, and don't hesitate to reach out for anything. Design, code, and AI, all done by hand.",
     overlayCta: "Visit",
-    overlayFoot: "No wall, no sign-up, and no AI slump.",
+    overlayFoot: "No wall, no sign-up, and no AI slop.",
   },
   fr: {
     getInTouch: "Me contacter",
@@ -74,7 +74,7 @@ export const ui: Record<Locale, UI> = {
     overlayBodyPost:
       "personne à le visiter. Faites le tour, et n'hésitez pas à me contacter pour quoi que ce soit. Design, code et IA, tout est fait main.",
     overlayCta: "Visiter",
-    overlayFoot: "Pas de mur, pas d'inscription, et pas d'AI slump.",
+    overlayFoot: "Pas de mur, pas d'inscription, et pas d'AI slop.",
   },
   es: {
     getInTouch: "Contactarme",
@@ -90,7 +90,7 @@ export const ui: Record<Locale, UI> = {
     overlayBodyPost:
       "persona en visitarlo. Date una vuelta, y no dudes en contactarme para lo que sea. Design, código e IA, todo hecho a mano.",
     overlayCta: "Visitar",
-    overlayFoot: "Sin muro, sin registro, y sin AI slump.",
+    overlayFoot: "Sin muro, sin registro, y sin AI slop.",
   },
 };
 
@@ -99,13 +99,6 @@ export const introText: Record<Locale, string> = {
   en: "Hello, I'm Clément. Product designer with 10+ years across product, design systems, and innovation. I built NRC Health's design function from scratch, now leading a team of three from research to production to analytics. A business and marketing role at Devialet, various entrepreneurial projects, and then founding a coding campus in Mexico City, shaped the business-first instinct that still drives how I lead design today.",
   fr: "Bonjour, moi c'est Clément. Product designer avec 10+ ans entre produit, design systems et innovation. J'ai construit la fonction design de NRC Health de zéro, et je pilote aujourd'hui une équipe de trois, de la recherche à la production à l'analytics. Un rôle business et marketing chez Devialet, divers projets entrepreneuriaux, puis la création d'un campus de code à Mexico ont forgé l'instinct business-first qui guide encore ma façon de diriger le design aujourd'hui.",
   es: "Hola, soy Clément. Product designer con más de 10 años entre producto, design systems e innovación. Construí la función de diseño de NRC Health desde cero, y hoy lidero un equipo de tres, desde la investigación hasta la producción y la analítica. Un rol de negocio y marketing en Devialet, varios proyectos emprendedores, y luego fundar un campus de código en Ciudad de México forjaron el instinto business-first que sigue guiando cómo lidero el diseño hoy.",
-};
-
-// Langues parlées (footer).
-export const languagesText: Record<Locale, string[]> = {
-  en: ["French (native)", "English (proficient)", "Spanish (proficient)"],
-  fr: ["Français (natif)", "Anglais (courant)", "Espagnol (courant)"],
-  es: ["Francés (nativo)", "Inglés (competente)", "Español (competente)"],
 };
 
 // Texte localisé des expériences — index aligné sur `work` dans content.ts :
@@ -337,6 +330,11 @@ export const projectText: Record<
       description:
         "The ongoing interior design of my apartment — inspirations from Verner Panton, Tadao Ando and Jean-Pierre Garrauld. A dedicated page where visitors upvote the photos, bumping the best ones to the top.",
     },
+    "making-of": {
+      tagline: "The portfolio, explained by itself",
+      description:
+        "My first portfolio in 10+ years of design. Built in hackathon mode to test how far design, code and AI can go in a single flow, from zero to deployed. The full story on a dedicated page.",
+    },
     "dj-energy": {
       tagline: "Scoring set energy through audio analysis",
       description:
@@ -378,6 +376,11 @@ export const projectText: Record<
       tagline: "Mon appartement, designé en public",
       description:
         "Le design d'intérieur en cours de mon appartement — inspirations Verner Panton, Tadao Ando et Jean-Pierre Garrauld. Une page dédiée où les visiteurs upvotent les photos, faisant remonter les meilleures.",
+    },
+    "making-of": {
+      tagline: "Le portfolio, expliqué par lui-même",
+      description:
+        "Mon premier portfolio en 10+ ans de design. Construit en mode hackathon pour tester jusqu'où design, code et IA peuvent aller dans un seul flow, de zéro au déploiement. L'histoire complète sur une page dédiée.",
     },
     "dj-energy": {
       tagline: "Scorer l'énergie d'un set par analyse audio",
@@ -421,6 +424,11 @@ export const projectText: Record<
       description:
         "El diseño interior en curso de mi apartamento — inspiraciones de Verner Panton, Tadao Ando y Jean-Pierre Garrauld. Una página dedicada donde los visitantes votan las fotos, subiendo las mejores.",
     },
+    "making-of": {
+      tagline: "El portafolio, explicado por sí mismo",
+      description:
+        "Mi primer portafolio en más de 10 años de diseño. Construido en modo hackathon para probar hasta dónde pueden llegar design, código e IA en un solo flow, de cero al deploy. La historia completa en una página dedicada.",
+    },
     "dj-energy": {
       tagline: "Puntuar la energía de un set por análisis de audio",
       description:
@@ -462,5 +470,96 @@ export const statusText: Record<Locale, Record<StatusKey, string>> = {
     "concept-wip": "○ Concepto · WIP",
     fail: "● Fallido",
     "private-live": "● Privado · Live",
+  },
+};
+
+// ============================================================================
+// Page /making-of — le portfolio expliqué comme projet du portfolio (méta).
+// ============================================================================
+
+export const makingOfText: Record<
+  Locale,
+  {
+    kicker: string;
+    title: string;
+    intro: string;
+    sections: { heading: string; body: string }[];
+    backHome: string;
+  }
+> = {
+  en: {
+    kicker: "Very meta",
+    title: "The making of this portfolio",
+    intro:
+      "The portfolio, explained as a portfolio piece. Why it exists, and how far design, code and AI can go in hackathon mode.",
+    sections: [
+      {
+        heading: "Why a portfolio, after 10 years without one",
+        body: "I have been a product designer for more than 10 years and never had a portfolio. I never needed one: opportunities came through people, referrals and shipped work. Two things changed. I wanted to explore new opportunities, and I wanted a real answer to a question: how far can one designer go today, alone, with design, code and AI in the same flow?",
+      },
+      {
+        heading: "The hackathon approach",
+        body: "The rule: treat it like a hackathon, not a monument. Ship a live V1 in days, keep it online while it improves, and let visitors watch the construction. Every decision favors momentum over polish: a single identity theme, one data file for all the content, and a disclaimer instead of a coming soon page.",
+      },
+      {
+        heading: "How it is built",
+        body: "Next.js 16, React 19, TypeScript, Tailwind v4, deployed on Vercel at every push. All colors live as CSS variable tokens in one theme, dark and light. Content in English, French and Spanish from a single source. Built hand in hand with Claude Code, from the first commit to the easter eggs: live cursors, pull to refresh, a real visitor counter.",
+      },
+      {
+        heading: "Still cooking",
+        body: "Dedicated pages per project, real use cases from NRC Health and Episource, an interior design page with community upvotes, and a Figma file generated from the code. This page will keep changing. That is the point.",
+      },
+    ],
+    backHome: "Back to the portfolio",
+  },
+  fr: {
+    kicker: "Très méta",
+    title: "Le making of de ce portfolio",
+    intro:
+      "Le portfolio, expliqué comme un projet du portfolio. Pourquoi il existe, et jusqu'où design, code et IA peuvent aller en mode hackathon.",
+    sections: [
+      {
+        heading: "Pourquoi un portfolio, après 10 ans sans",
+        body: "Product designer depuis plus de 10 ans, je n'ai jamais eu de portfolio. Je n'en ai jamais eu besoin : les opportunités sont venues par les gens, les recommandations et les produits livrés. Deux choses ont changé. Je voulais explorer de nouvelles opportunités, et je voulais une vraie réponse à une question : jusqu'où un designer peut-il aller aujourd'hui, seul, avec design, code et IA dans le même flow ?",
+      },
+      {
+        heading: "L'approche hackathon",
+        body: "La règle : le traiter comme un hackathon, pas comme un monument. Livrer une V1 en ligne en quelques jours, la garder en ligne pendant qu'elle s'améliore, et laisser les visiteurs regarder le chantier. Chaque décision privilégie l'élan plutôt que le poli : un seul thème d'identité, un seul fichier de données pour tout le contenu, et un disclaimer plutôt qu'une page coming soon.",
+      },
+      {
+        heading: "Comment c'est construit",
+        body: "Next.js 16, React 19, TypeScript, Tailwind v4, déployé sur Vercel à chaque push. Toutes les couleurs vivent en tokens CSS dans un thème unique, dark et light. Contenu en anglais, français et espagnol depuis une seule source. Construit main dans la main avec Claude Code, du premier commit aux easter eggs : curseurs live, pull to refresh, vrai compteur de visites.",
+      },
+      {
+        heading: "Encore en cuisine",
+        body: "Des pages dédiées par projet, de vrais use cases NRC Health et Episource, une page design d'intérieur avec upvotes, et un fichier Figma généré depuis le code. Cette page va continuer à changer. C'est le principe.",
+      },
+    ],
+    backHome: "Retour au portfolio",
+  },
+  es: {
+    kicker: "Muy meta",
+    title: "El making of de este portafolio",
+    intro:
+      "El portafolio, explicado como un proyecto del portafolio. Por qué existe, y hasta dónde pueden llegar design, código e IA en modo hackathon.",
+    sections: [
+      {
+        heading: "Por qué un portafolio, tras 10 años sin uno",
+        body: "Product designer desde hace más de 10 años, nunca tuve un portafolio. Nunca lo necesité: las oportunidades llegaron por las personas, las recomendaciones y los productos entregados. Dos cosas cambiaron. Quería explorar nuevas oportunidades, y quería una respuesta real a una pregunta: ¿hasta dónde puede llegar hoy un diseñador, solo, con design, código e IA en el mismo flow?",
+      },
+      {
+        heading: "El enfoque hackathon",
+        body: "La regla: tratarlo como un hackathon, no como un monumento. Lanzar una V1 en línea en días, mantenerla en línea mientras mejora, y dejar que los visitantes miren la obra. Cada decisión favorece el impulso sobre el pulido: un solo tema de identidad, un solo archivo de datos para todo el contenido, y un disclaimer en vez de una página de coming soon.",
+      },
+      {
+        heading: "Cómo está construido",
+        body: "Next.js 16, React 19, TypeScript, Tailwind v4, desplegado en Vercel con cada push. Todos los colores viven como tokens CSS en un tema único, dark y light. Contenido en inglés, francés y español desde una sola fuente. Construido mano a mano con Claude Code, del primer commit a los easter eggs: cursores live, pull to refresh, contador real de visitas.",
+      },
+      {
+        heading: "Aún en la cocina",
+        body: "Páginas dedicadas por proyecto, use cases reales de NRC Health y Episource, una página de diseño interior con upvotes, y un archivo Figma generado desde el código. Esta página seguirá cambiando. Ese es el punto.",
+      },
+    ],
+    backHome: "Volver al portafolio",
   },
 };

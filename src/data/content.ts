@@ -214,6 +214,17 @@ export const recentProjects: RecentProject[] = [
     accent: "#db2777",
     accent2: "#18181b",
   },
+  // Carte méta : le portfolio comme projet du portfolio. Seule carte aux
+  // couleurs de l'identité (aubergine signature) → visuellement "spéciale".
+  {
+    id: "making-of",
+    name: "This Very Portfolio",
+    status: "live",
+    tags: ["Meta", "Hackathon Mode", "Claude Code"],
+    accent: "#54255a",
+    accent2: "#1a0e1c",
+    link: "/making-of",
+  },
 ];
 
 // ============================================================================

@@ -1,11 +1,8 @@
 "use client";
 
 import { profile } from "../data/content";
-import { languagesText } from "../data/i18n";
-import { useLocale } from "./LocaleProvider";
 
 export function Footer() {
-  const { locale } = useLocale();
   const year = new Date().getFullYear();
   return (
     <footer
@@ -16,7 +13,7 @@ export function Footer() {
         {/* Bas gauche : signature + liens (+ langues sur desktop) */}
         <div>
           <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-            Handcrafted with ❤️ by Clément and Claude.ai
+            Handcrafted with ❤️ by Clément and Claude
           </p>
 
           <div
@@ -34,9 +31,6 @@ export function Footer() {
             </a>
           </div>
 
-          <p className="hidden sm:block text-xs mt-3" style={{ color: "var(--text-muted)" }}>
-            {languagesText[locale].join(" · ")}
-          </p>
         </div>
 
         {/* Haut droite : copyright */}
