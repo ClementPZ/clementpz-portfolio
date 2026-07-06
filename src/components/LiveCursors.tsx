@@ -141,13 +141,19 @@ export function LiveCursors() {
           target?.classList.add("cursor-poked");
           timers.push(window.setTimeout(() => target?.classList.remove("cursor-poked"), 900));
           if (anchor && target) {
-            // Ancrage : on recalcule la position à chaque scroll/resize pour
-            // rester collé au CTA (getBoundingClientRect est relatif au viewport,
-            // il suit donc l'élément au scroll) au lieu de dériver en fixed.
+            // Ancrage : le curseur vit DANS #page-shift (transformé), donc son
+            // position:fixed est relatif à ce conteneur et scrolle avec lui. On
+            // positionne donc Carol relativement à #page-shift (rect CTA − rect
+            // conteneur) : les deux bougent ensemble → collés au scroll, et sous
+            // la nav. On recalcule sur scroll/resize pour absorber les reflows.
+            const shift = document.getElementById("page-shift");
             const stick = () => {
               const rr = target.getBoundingClientRect();
-              el.style.transform = `translate(${rr.left + rr.width * 0.5}px, ${
-                rr.top + rr.height * 0.5
+              const sr = shift?.getBoundingClientRect();
+              const ox = sr ? sr.left : 0;
+              const oy = sr ? sr.top : 0;
+              el.style.transform = `translate(${rr.left - ox + rr.width * 0.5}px, ${
+                rr.top - oy + rr.height * 0.5
               }px)`;
             };
             stick();
