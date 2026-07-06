@@ -135,6 +135,11 @@ export function RecentProjects() {
                 </>
               )}
 
+              {/* Lien étiré : toute la carte devient cliquable (case study) */}
+              {p.link && (
+                <a href={p.link} aria-label={p.name} className="absolute inset-0 z-10" />
+              )}
+
               <span
                 className="absolute top-5 right-5 text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full"
                 style={{

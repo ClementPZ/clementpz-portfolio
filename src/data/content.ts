@@ -190,11 +190,12 @@ export const recentProjects: RecentProject[] = [
   },
   {
     id: "legal-music",
-    name: "Legal Music Pipeline",
+    name: "Music Downloader",
     status: "private-live",
     tags: ["Automation", "Audio", "Pipeline"],
     accent: "#059669",
     accent2: "#022c22",
+    link: "/music-downloader.html",
   },
   {
     id: "interior-design",

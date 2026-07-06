@@ -56,9 +56,9 @@ export const ui: Record<Locale, UI> = {
     overlayTitle: "This portfolio is under construction, but already online.",
     overlayBodyPre: "You're the",
     overlayBodyPost:
-      "person to visit. Have a tour, and don't hesitate to reach out for anything. Design, code, and AI — all done by hand.",
+      "person to visit. Have a tour, and don't hesitate to reach out for anything. Design, code, and AI, all done by hand.",
     overlayCta: "Visit",
-    overlayFoot: "No wall, no sign up.",
+    overlayFoot: "No wall, no sign-up, and no AI slump.",
   },
   fr: {
     getInTouch: "Me contacter",
@@ -72,9 +72,9 @@ export const ui: Record<Locale, UI> = {
     overlayTitle: "Ce portfolio est en construction, mais déjà en ligne.",
     overlayBodyPre: "Vous êtes la",
     overlayBodyPost:
-      "personne à le visiter. Faites le tour, et n'hésitez pas à me contacter pour quoi que ce soit. Design, code et IA — tout est fait main.",
+      "personne à le visiter. Faites le tour, et n'hésitez pas à me contacter pour quoi que ce soit. Design, code et IA, tout est fait main.",
     overlayCta: "Visiter",
-    overlayFoot: "Pas de mur, pas d'inscription.",
+    overlayFoot: "Pas de mur, pas d'inscription, et pas d'AI slump.",
   },
   es: {
     getInTouch: "Contactarme",
@@ -88,9 +88,9 @@ export const ui: Record<Locale, UI> = {
     overlayTitle: "Este portafolio está en construcción, pero ya en línea.",
     overlayBodyPre: "Eres la",
     overlayBodyPost:
-      "persona en visitarlo. Date una vuelta, y no dudes en contactarme para lo que sea. Design, código e IA — todo hecho a mano.",
+      "persona en visitarlo. Date una vuelta, y no dudes en contactarme para lo que sea. Design, código e IA, todo hecho a mano.",
     overlayCta: "Visitar",
-    overlayFoot: "Sin muro, sin registro.",
+    overlayFoot: "Sin muro, sin registro, y sin AI slump.",
   },
 };
 
@@ -313,9 +313,9 @@ export const projectText: Record<
         "A card game for couples built on a simultaneous reveal on a spectrum. 5 pillars, an intensity-based color system, special cards. Currently in card-design phase.",
     },
     "legal-music": {
-      tagline: "Source and upgrade a music library",
+      tagline: "One command, a deck-ready track",
       description:
-        "A pipeline that sources and upgrades an existing music library to lossless through legal platforms, with automatic conversion and import.",
+        "A pipeline that finds a track on a P2P network, downloads the best quality available, converts it to lossless and files it into my DJ library: genre, playlist, energy tag. One command, zero clicks.",
     },
     "job-search": {
       tagline: "A cleaner France Travail interface",
@@ -355,9 +355,9 @@ export const projectText: Record<
         "Un jeu de cartes pour couples basé sur une révélation simultanée sur un spectre. 5 piliers, un système de couleurs par intensité, des cartes spéciales. Actuellement en phase de design des cartes.",
     },
     "legal-music": {
-      tagline: "Sourcer et upgrader une bibliothèque musicale",
+      tagline: "Une commande, un track prêt à mixer",
       description:
-        "Un pipeline qui source et upgrade une bibliothèque musicale existante en lossless via des plateformes légales, avec conversion et import automatiques.",
+        "Un pipeline qui trouve un morceau sur un réseau P2P, le télécharge dans la meilleure qualité disponible, le convertit en lossless et le range dans ma bibliothèque DJ : genre, playlist, tag d'énergie. Une commande, zéro clic.",
     },
     "job-search": {
       tagline: "Une interface France Travail épurée",
@@ -397,9 +397,9 @@ export const projectText: Record<
         "Un juego de cartas para parejas basado en una revelación simultánea sobre un espectro. 5 pilares, un sistema de colores por intensidad, cartas especiales. Actualmente en fase de diseño de cartas.",
     },
     "legal-music": {
-      tagline: "Buscar y mejorar una biblioteca musical",
+      tagline: "Un comando, un track listo para pinchar",
       description:
-        "Un pipeline que busca y mejora una biblioteca musical existente a lossless mediante plataformas legales, con conversión e importación automáticas.",
+        "Un pipeline que encuentra un track en una red P2P, lo descarga en la mejor calidad disponible, lo convierte a lossless y lo archiva en mi biblioteca DJ: género, playlist, etiqueta de energía. Un comando, cero clics.",
     },
     "job-search": {
       tagline: "Una interfaz de France Travail más limpia",
