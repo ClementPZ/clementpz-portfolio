@@ -195,7 +195,7 @@ export const recentProjects: RecentProject[] = [
     tags: ["Automation", "Audio", "Pipeline"],
     accent: "#059669",
     accent2: "#022c22",
-    link: "/music-downloader.html",
+    link: "/music-downloader",
   },
   {
     id: "interior-design",

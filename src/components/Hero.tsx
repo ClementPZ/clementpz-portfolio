@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { profile } from "../data/content";
 import { introText } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
@@ -37,6 +38,17 @@ export function Hero() {
         >
           GitHub
         </a>
+      </div>
+
+      {/* Widget méta : mène au making of du portfolio */}
+      <div className="mt-8">
+        <Link href="/making-of" className="pill" style={{ gap: 8 }}>
+          <span className="pulse-dot" />
+          {t.makingOfWidget}
+          <span aria-hidden style={{ color: "var(--text-muted)" }}>
+            →
+          </span>
+        </Link>
       </div>
     </section>
   );

@@ -18,8 +18,8 @@ export function DisclaimerOverlay() {
   const rafRef = useRef<number | null>(null);
   const btnRef = useRef<HTMLButtonElement>(null);
 
-  // Show once per session, ~1s after the first scroll UNIQUEMENT (jamais sur un
-  // timer). Si le visiteur ne scrolle pas, l'overlay n'apparaît pas.
+  // Show once per session, instantanément au premier scroll UNIQUEMENT (jamais
+  // sur un timer). Si le visiteur ne scrolle pas, l'overlay n'apparaît pas.
   useEffect(() => {
     if (sessionStorage.getItem("disclaimer-seen")) return;
     let fired = false;
@@ -27,7 +27,7 @@ export function DisclaimerOverlay() {
       if (fired) return;
       fired = true;
       window.removeEventListener("scroll", onScroll);
-      setTimeout(() => setVisible(true), 1000);
+      setVisible(true);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);

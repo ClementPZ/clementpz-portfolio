@@ -41,6 +41,7 @@ type UI = {
   overlayBodyPost: string; // après le numéro
   overlayCta: string;
   overlayFoot: string;
+  makingOfWidget: string;
 };
 
 export const ui: Record<Locale, UI> = {
@@ -59,6 +60,7 @@ export const ui: Record<Locale, UI> = {
       "person to visit. Have a tour, and don't hesitate to reach out for anything. Design, code, and AI, all done by hand.",
     overlayCta: "Visit",
     overlayFoot: "No wall, no sign-up, and no AI slop.",
+    makingOfWidget: "How this portfolio was built",
   },
   fr: {
     getInTouch: "Me contacter",
@@ -75,6 +77,7 @@ export const ui: Record<Locale, UI> = {
       "personne à le visiter. Faites le tour, et n'hésitez pas à me contacter pour quoi que ce soit. Design, code et IA, tout est fait main.",
     overlayCta: "Visiter",
     overlayFoot: "Pas de mur, pas d'inscription, et pas d'AI slop.",
+    makingOfWidget: "Comment ce portfolio a été construit",
   },
   es: {
     getInTouch: "Contactarme",
@@ -91,6 +94,7 @@ export const ui: Record<Locale, UI> = {
       "persona en visitarlo. Date una vuelta, y no dudes en contactarme para lo que sea. Design, código e IA, todo hecho a mano.",
     overlayCta: "Visitar",
     overlayFoot: "Sin muro, sin registro, y sin AI slop.",
+    makingOfWidget: "Cómo se construyó este portafolio",
   },
 };
 

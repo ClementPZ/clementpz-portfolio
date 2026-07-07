@@ -13,7 +13,7 @@ export function Footer() {
         {/* Bas gauche : signature + liens (+ langues sur desktop) */}
         <div>
           <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-            Handcrafted with ❤️ by Clément and Claude
+            Handcrafted by Clément &amp; Claude
           </p>
 
           <div

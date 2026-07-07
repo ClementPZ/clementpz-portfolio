@@ -1,7 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      // Ancienne page statique (supprimée), remplacée par la route Next.
+      {
+        source: "/music-downloader.html",
+        destination: "/music-downloader",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

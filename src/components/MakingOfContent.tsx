@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
+import { BackHome } from "./BackHome";
 import { makingOfText } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
 
@@ -13,7 +14,10 @@ export function MakingOfContent() {
     // id="top" : cible du logo de la Nav (href="#top"), comme sur la home.
     <div id="top">
       <Nav />
-      <main className="max-w-3xl mx-auto px-6 pt-16 pb-24 sm:pt-24">
+      <main className="max-w-3xl mx-auto px-6 pt-10 pb-24 sm:pt-14">
+        <div className="mb-10">
+          <BackHome />
+        </div>
         <p
           className="text-xs uppercase tracking-widest font-semibold mb-4"
           style={{ color: "var(--accent)" }}
@@ -47,7 +51,7 @@ export function MakingOfContent() {
         </div>
 
         <div className="mt-16">
-          <Link href="/" className="btn-accent">
+          <Link href="/" className="btn-ghost">
             {t.backHome}
           </Link>
         </div>

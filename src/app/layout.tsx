@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Sora, DM_Sans, Inter, Syne, Plus_Jakarta_Sans } from "next/font/google";
+import { Sora, DM_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
@@ -21,28 +21,9 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-// Wise — Inter (body) + Syne (display, approx. Wise Sans)
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  display: "swap",
-});
-
-const syne = Syne({
-  variable: "--font-syne",
-  subsets: ["latin"],
-  weight: ["700", "800"],
-  display: "swap",
-});
-
-// Airbnb — Plus Jakarta Sans (approx. Airbnb Cereal — même ADN géométrique humaniste)
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
+// NB : les fonts des thèmes de marque archivés (Inter/Syne pour Wise, Plus
+// Jakarta Sans pour Airbnb) ont été retirées du bundle. Les réintroduire ici
+// si un thème est réactivé depuis /_archive.
 
 export const metadata: Metadata = {
   title: `${profile.name} — ${profile.tagline}`,
@@ -73,7 +54,7 @@ export default function RootLayout({
     <html
       lang="fr"
       data-theme={defaultTheme}
-      className={`${sora.variable} ${dmSans.variable} ${inter.variable} ${syne.variable} ${jakarta.variable}`}
+      className={`${sora.variable} ${dmSans.variable}`}
       suppressHydrationWarning
     >
       <head>
