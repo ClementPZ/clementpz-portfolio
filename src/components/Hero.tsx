@@ -38,12 +38,8 @@ export function Hero() {
         >
           GitHub
         </a>
-      </div>
-
-      {/* Widget méta : mène au making of du portfolio */}
-      <div className="mt-8">
-        <Link href="/making-of" className="pill" style={{ gap: 8 }}>
-          <span className="pulse-dot" />
+        {/* Widget méta : mène au making of, aligné sur les autres CTAs */}
+        <Link href="/making-of" className="btn-ghost">
           {t.makingOfWidget}
           <span aria-hidden style={{ color: "var(--text-muted)" }}>
             →
