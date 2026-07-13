@@ -495,23 +495,23 @@ export const makingOfText: Record<
     kicker: "Very meta",
     title: "The making of this portfolio",
     intro:
-      "The portfolio, explained as a portfolio piece. Why it exists, and how far design, code and AI can go in hackathon mode.",
+      "A first portfolio, built as a portfolio piece: why now, and how far one person can push design, code and AI in a single flow.",
     sections: [
       {
-        heading: "Why a portfolio, after 10 years without one",
-        body: "I have been a product designer for more than 10 years and never had a portfolio. I never needed one: opportunities came through people, referrals and shipped work. Two things changed. I wanted to explore new opportunities, and I wanted a real answer to a question: how far can one designer go today, alone, with design, code and AI in the same flow?",
+        heading: "Why now, after 10 years without one",
+        body: "Ten years of product design, no portfolio. Work and referrals did the job. Two things changed: I wanted to look around, and to test one idea, how far a designer gets solo when design, code and AI share the same flow.",
       },
       {
-        heading: "The hackathon approach",
-        body: "The rule: treat it like a hackathon, not a monument. Ship a live V1 in days, keep it online while it improves, and let visitors watch the construction. Every decision favors momentum over polish: a single identity theme, one data file for all the content, and a disclaimer instead of a coming soon page.",
+        heading: "Hackathon, not monument",
+        body: "Ship a live V1 in days, keep it public while it improves, let visitors watch it being built. One theme, one content file, a disclaimer instead of a coming-soon page. Momentum over polish, on purpose.",
       },
       {
         heading: "How it is built",
-        body: "Next.js 16, React 19, TypeScript, Tailwind v4, deployed on Vercel at every push. All colors live as CSS variable tokens in one theme, dark and light. Content in English, French and Spanish from a single source. Built hand in hand with Claude Code, from the first commit to the easter eggs: live cursors, pull to refresh, a real visitor counter.",
+        body: "Next.js, React, TypeScript and Tailwind, shipped to Vercel on every push. Colors are CSS tokens, dark and light. Three languages from one source. Written with Claude Code, down to the easter eggs: live cursors, pull-to-refresh, a real visitor counter.",
       },
       {
         heading: "Still cooking",
-        body: "Dedicated pages per project, real use cases from NRC Health and Episource, an interior design page with community upvotes, and a Figma file generated from the code. This page will keep changing. That is the point.",
+        body: "Per-project deep dives, real NRC and Episource cases, an interior page with community votes, a Figma file generated from the code. It keeps changing, that is the point.",
       },
     ],
     backHome: "Back to the portfolio",
@@ -520,23 +520,23 @@ export const makingOfText: Record<
     kicker: "Très méta",
     title: "Le making of de ce portfolio",
     intro:
-      "Le portfolio, expliqué comme un projet du portfolio. Pourquoi il existe, et jusqu'où design, code et IA peuvent aller en mode hackathon.",
+      "Un premier portfolio, conçu comme une pièce du portfolio : pourquoi maintenant, et jusqu'où une personne peut pousser design, code et IA dans un seul flow.",
     sections: [
       {
-        heading: "Pourquoi un portfolio, après 10 ans sans",
-        body: "Product designer depuis plus de 10 ans, je n'ai jamais eu de portfolio. Je n'en ai jamais eu besoin : les opportunités sont venues par les gens, les recommandations et les produits livrés. Deux choses ont changé. Je voulais explorer de nouvelles opportunités, et je voulais une vraie réponse à une question : jusqu'où un designer peut-il aller aujourd'hui, seul, avec design, code et IA dans le même flow ?",
+        heading: "Pourquoi maintenant, après 10 ans sans",
+        body: "Dix ans de product design, aucun portfolio. Le travail et les recommandations suffisaient. Deux choses ont changé : l'envie de regarder ailleurs, et de tester une idée, jusqu'où un designer va seul quand design, code et IA partagent le même flow.",
       },
       {
-        heading: "L'approche hackathon",
-        body: "La règle : le traiter comme un hackathon, pas comme un monument. Livrer une V1 en ligne en quelques jours, la garder en ligne pendant qu'elle s'améliore, et laisser les visiteurs regarder le chantier. Chaque décision privilégie l'élan plutôt que le poli : un seul thème d'identité, un seul fichier de données pour tout le contenu, et un disclaimer plutôt qu'une page coming soon.",
+        heading: "Hackathon, pas monument",
+        body: "Livrer une V1 en ligne en quelques jours, la garder publique pendant qu'elle progresse, laisser les visiteurs voir le chantier. Un thème, un fichier de contenu, un disclaimer plutôt qu'une page coming soon. L'élan avant le poli, volontairement.",
       },
       {
         heading: "Comment c'est construit",
-        body: "Next.js 16, React 19, TypeScript, Tailwind v4, déployé sur Vercel à chaque push. Toutes les couleurs vivent en tokens CSS dans un thème unique, dark et light. Contenu en anglais, français et espagnol depuis une seule source. Construit main dans la main avec Claude Code, du premier commit aux easter eggs : curseurs live, pull to refresh, vrai compteur de visites.",
+        body: "Next.js, React, TypeScript et Tailwind, déployé sur Vercel à chaque push. Les couleurs sont des tokens CSS, dark et light. Trois langues depuis une seule source. Écrit avec Claude Code, jusqu'aux easter eggs : curseurs live, pull-to-refresh, vrai compteur de visites.",
       },
       {
         heading: "Encore en cuisine",
-        body: "Des pages dédiées par projet, de vrais use cases NRC Health et Episource, une page design d'intérieur avec upvotes, et un fichier Figma généré depuis le code. Cette page va continuer à changer. C'est le principe.",
+        body: "Des pages dédiées par projet, de vrais cas NRC et Episource, une page d'intérieur avec votes, un fichier Figma généré depuis le code. Ça bouge encore, c'est le principe.",
       },
     ],
     backHome: "Retour au portfolio",
@@ -545,25 +545,264 @@ export const makingOfText: Record<
     kicker: "Muy meta",
     title: "El making of de este portafolio",
     intro:
-      "El portafolio, explicado como un proyecto del portafolio. Por qué existe, y hasta dónde pueden llegar design, código e IA en modo hackathon.",
+      "Un primer portafolio, hecho como una pieza del portafolio: por qué ahora, y hasta dónde puede llevar una persona el design, el código y la IA en un solo flow.",
     sections: [
       {
-        heading: "Por qué un portafolio, tras 10 años sin uno",
-        body: "Product designer desde hace más de 10 años, nunca tuve un portafolio. Nunca lo necesité: las oportunidades llegaron por las personas, las recomendaciones y los productos entregados. Dos cosas cambiaron. Quería explorar nuevas oportunidades, y quería una respuesta real a una pregunta: ¿hasta dónde puede llegar hoy un diseñador, solo, con design, código e IA en el mismo flow?",
+        heading: "Por qué ahora, tras 10 años sin uno",
+        body: "Diez años de product design, sin portafolio. El trabajo y las recomendaciones bastaban. Dos cosas cambiaron: quería mirar alrededor, y probar una idea, hasta dónde llega un diseñador solo cuando design, código e IA comparten el mismo flow.",
       },
       {
-        heading: "El enfoque hackathon",
-        body: "La regla: tratarlo como un hackathon, no como un monumento. Lanzar una V1 en línea en días, mantenerla en línea mientras mejora, y dejar que los visitantes miren la obra. Cada decisión favorece el impulso sobre el pulido: un solo tema de identidad, un solo archivo de datos para todo el contenido, y un disclaimer en vez de una página de coming soon.",
+        heading: "Hackathon, no monumento",
+        body: "Lanzar una V1 en línea en días, mantenerla pública mientras mejora, dejar que los visitantes vean la obra. Un tema, un archivo de contenido, un disclaimer en vez de una página de coming soon. Impulso antes que pulido, a propósito.",
       },
       {
         heading: "Cómo está construido",
-        body: "Next.js 16, React 19, TypeScript, Tailwind v4, desplegado en Vercel con cada push. Todos los colores viven como tokens CSS en un tema único, dark y light. Contenido en inglés, francés y español desde una sola fuente. Construido mano a mano con Claude Code, del primer commit a los easter eggs: cursores live, pull to refresh, contador real de visitas.",
+        body: "Next.js, React, TypeScript y Tailwind, desplegado en Vercel con cada push. Los colores son tokens CSS, dark y light. Tres idiomas desde una sola fuente. Escrito con Claude Code, hasta los easter eggs: cursores live, pull-to-refresh, contador real de visitas.",
       },
       {
         heading: "Aún en la cocina",
-        body: "Páginas dedicadas por proyecto, use cases reales de NRC Health y Episource, una página de diseño interior con upvotes, y un archivo Figma generado desde el código. Esta página seguirá cambiando. Ese es el punto.",
+        body: "Páginas dedicadas por proyecto, casos reales de NRC y Episource, una página de interior con votos, un archivo Figma generado desde el código. Sigue cambiando, ese es el punto.",
       },
     ],
     backHome: "Volver al portafolio",
+  },
+};
+
+// ============================================================================
+// Page /music-downloader — case study du pipeline musique (EN / FR / ES).
+// ============================================================================
+
+type MusicStep = { n: string; title: string; body: string; code?: string };
+type MusicRow = { name: string; role: string };
+type MusicMode = { title: string; body: string; cmd: string };
+type MusicVersion = { v: string; title: string; tags: string[] };
+type MusicRoad = { title: string; body: string };
+
+export const musicDownloaderText: Record<
+  Locale,
+  {
+    period: string;
+    title: string;
+    introPre: string;
+    introBold: string;
+    introPost: string;
+    stack: string[];
+    flow: {
+      title: string;
+      sub: string;
+      steps: MusicStep[];
+      asideBold: string;
+      aside: string;
+    };
+    tools: { title: string; sub: string; cols: [string, string]; rows: MusicRow[] };
+    modes: { title: string; sub: string; items: MusicMode[] };
+    versions: { title: string; sub: string; items: MusicVersion[] };
+    roadmap: { title: string; sub: string; items: MusicRoad[] };
+    legal: string;
+  }
+> = {
+  en: {
+    period: "2025 - 2026",
+    title: "Music Downloader",
+    introPre:
+      "I DJ, and I used to spend hours finding tracks, checking their quality, converting, tagging and filing them. This project cuts all of that to ",
+    introBold: "one command",
+    introPost:
+      ": the track is found on SoundMesh, a peer-to-peer network, downloaded at the best available quality, converted to lossless, imported into my library and filed by genre and energy level, ready for rekordbox.",
+    stack: ["Python", "Docker", "ffmpeg", "AppleScript", "librosa"],
+    flow: {
+      title: "The flow",
+      sub: "One command, seven steps, zero intervention. Each step was hardened against a problem hit in real use.",
+      steps: [
+        { n: "01", title: "One command", code: 'meshd track "Artist" "Title" "Genre"', body: " is the only input needed." },
+        { n: "02", title: "Library check", body: "Already lossless: it stops there. Only in MP3: it switches to the upgrade flow. No duplicates." },
+        { n: "03", title: "Escalating search", body: "A precise query first, then wider and wider until a valid source shows up. The network connection repairs itself if it drops." },
+        { n: "04", title: "Quality and error filter", body: "Lossless first, MP3 320 accepted, everything else rejected. A match check discards files that are not the right track (unwanted remix, another title by the same artist)." },
+        { n: "05", title: "Download with fallback", body: "If a source rejects or blocks, the next one takes over, up to five tries. Metadata (genre, artist, title) travels with the file." },
+        { n: "06", title: "Automatic conversion and import", body: "FLAC and WAV become AIFF (lossless, readable by the decks), MP3 320 is kept as is. The file lands in the Music app import folder, which ingests it on its own." },
+        { n: "07", title: "Filing", body: "Genre tagged, added to the matching playlist, energy tag (E1 warm-up, E2 mid, E3 peak): the track is ready to play." },
+      ],
+      asideBold: "What if the track can't be found?",
+      aside: " It joins a persistent queue. A nightly job retries the entries that are due: rarities eventually resolve as other peers come online.",
+    },
+    tools: {
+      title: "The tools",
+      sub: "The core flow only needs Docker and the Python standard library. Audio analysis is the only module with scientific dependencies.",
+      cols: ["Component", "Role"],
+      rows: [
+        { name: "meshd (CLI)", role: "A single-file Python orchestrator, around 3,000 lines. Drives the daemon's REST API and the Music app via AppleScript." },
+        { name: "P2P daemon", role: "Self-hosted SoundMesh client in Docker, local REST API for search and transfers." },
+        { name: "Conversion hook", role: "Shell script triggered on every finished download: ffmpeg transcode, real bitrate check, MIME check, metadata." },
+        { name: "Music app", role: "Watched folder for automatic import; reads and writes genres, playlists and tags via AppleScript." },
+        { name: "Energy engine", role: "librosa analysis of the full track, intra-genre percentile score, E1/E2/E3 buckets and vocal detection. A homegrown alternative to a paid tool." },
+        { name: "Queue", role: "Retry with a file lock, normalized keys (artist order, accents) and due dates: no duplicates, no network spam." },
+      ],
+    },
+    modes: {
+      title: "Three modes",
+      sub: "The same code serves three distinct uses.",
+      items: [
+        { title: "Download", body: "Acquire a new track, from search to filing.", cmd: 'meshd track "Artist" "Title" "Genre"' },
+        { title: "Upgrade", body: "Replace the library's MP3s with lossless, playlists preserved; the old file goes to a review list, never deleted blindly.", cmd: "meshd upgrade-batch --playlist=X --apply" },
+        { title: "Score energy", body: "Rate each track E1/E2/E3 to build sets, with cached analyses.", cmd: "meshd energy-analyze --genre=X --apply" },
+      ],
+    },
+    versions: {
+      title: "Three iterations",
+      sub: "Each version closed a family of problems seen in real use, no speculative features.",
+      items: [
+        { v: "v1", title: "Foundations", tags: ["API search and download", "quality filter", "session cache"] },
+        { v: "v2", title: "Automation", tags: ["conversion hook", "embedded metadata", "playlist by genre", "multi-source fallback", "lossless upgrade flow", "energy classification"] },
+        { v: "v3", title: "Robustness", tags: ["upstream de-duplication", "escalating search", "auto-reconnect", "bad-file guard", "normalized queue", "dated nightly retry", "secrets out of code"] },
+      ],
+    },
+    roadmap: {
+      title: "What's next",
+      sub: "The owned backlog: leads identified, noted, and deliberately left aside until the pain justifies them.",
+      items: [
+        { title: "Search by compilation", body: "When a single can't be found on its own, look for it through the artist's known albums and compilations already in the library." },
+        { title: "Validate energy by ear", body: "Build a reference set per genre (tracks whose bucket is certain) to measure the score's correlation cleanly, and improve the heterogeneous genres where the current model slips." },
+        { title: "Crowd-sourced signal", body: "Cross the energy score with track positions in public sets: a track played late by many DJs is probably a peak." },
+        { title: "Package and share", body: "Extract the personal config, document the install and publish the tool so another DJ can deploy it." },
+      ],
+    },
+    legal:
+      "SoundMesh is presented here as a generic peer-to-peer network for freely licensed, self-produced audio. The engineering described (self-hosted daemon, REST orchestration, conversion pipeline, library integration, energy classification) is independent of the source and applies to any catalog the user can legitimately access.",
+  },
+  fr: {
+    period: "2025 - 2026",
+    title: "Music Downloader",
+    introPre:
+      "Je mixe, et je passais des heures à chercher des tracks, vérifier leur qualité, les convertir, les taguer et les ranger. Ce projet réduit tout ça à ",
+    introBold: "une commande",
+    introPost:
+      " : le morceau est trouvé sur SoundMesh, un réseau peer-to-peer, téléchargé dans la meilleure qualité disponible, converti en lossless, importé dans ma bibliothèque et rangé par genre et niveau d'énergie, prêt pour rekordbox.",
+    stack: ["Python", "Docker", "ffmpeg", "AppleScript", "librosa"],
+    flow: {
+      title: "Le flow",
+      sub: "Une commande, sept étapes, zéro intervention. Chaque étape a été durcie contre un problème réellement rencontré à l'usage.",
+      steps: [
+        { n: "01", title: "Une commande", code: 'meshd track "Artiste" "Titre" "Genre"', body: " : c'est le seul input nécessaire." },
+        { n: "02", title: "Vérification de la bibliothèque", body: "Le morceau existe déjà en lossless : on s'arrête là. Il existe en MP3 : on bascule sur le flow upgrade. Pas de doublons." },
+        { n: "03", title: "Recherche en escalade", body: "Requête précise d'abord, puis de plus en plus large jusqu'à trouver une source valide. La connexion au réseau se répare toute seule si elle est tombée." },
+        { n: "04", title: "Filtre qualité et anti-erreur", body: "Lossless en priorité, MP3 320 accepté, tout le reste refusé. Un contrôle de correspondance écarte les fichiers qui ne sont pas le bon morceau (remix non demandé, autre titre du même artiste)." },
+        { n: "05", title: "Téléchargement avec repli", body: "Si une source rejette ou bloque, la suivante prend le relais, jusqu'à cinq tentatives. Les métadonnées (genre, artiste, titre) voyagent avec le fichier." },
+        { n: "06", title: "Conversion et import automatiques", body: "FLAC et WAV sont convertis en AIFF (lossless, lisible par les platines), le MP3 320 est gardé tel quel. Le fichier est déposé dans le dossier d'import de l'app Musique, qui l'ingère seule." },
+        { n: "07", title: "Rangement", body: "Genre tagué, ajout à la playlist correspondante, tag d'énergie (E1 warm-up, E2 mid, E3 peak) : le morceau est prêt à jouer." },
+      ],
+      asideBold: "Et si le morceau est introuvable ?",
+      aside: " Il rejoint une file d'attente persistante. Un job nocturne retente les entrées arrivées à échéance : les raretés finissent par se résoudre quand d'autres pairs se connectent.",
+    },
+    tools: {
+      title: "Les outils",
+      sub: "Le cœur du flow ne dépend que de Docker et de la bibliothèque standard Python. L'analyse audio est le seul module avec des dépendances scientifiques.",
+      cols: ["Composant", "Rôle"],
+      rows: [
+        { name: "meshd (CLI)", role: "Orchestrateur Python d'environ 3 000 lignes, un seul fichier. Pilote l'API REST du daemon et l'app Musique via AppleScript." },
+        { name: "Daemon P2P", role: "Client SoundMesh auto-hébergé dans Docker, API REST locale pour la recherche et les transferts." },
+        { name: "Hook de conversion", role: "Script shell déclenché à chaque téléchargement terminé : transcodage ffmpeg, contrôle du bitrate réel, vérification MIME, métadonnées." },
+        { name: "App Musique", role: "Dossier surveillé pour l'import automatique ; lecture et écriture des genres, playlists et tags via AppleScript." },
+        { name: "Moteur d'énergie", role: "Analyse librosa du morceau entier, score par percentile intra-genre, buckets E1/E2/E3 et détection de voix. Alternative maison à un outil payant." },
+        { name: "File d'attente", role: "Retry avec verrou fichier, clés normalisées (ordre des artistes, accents) et dates d'échéance : pas de doublons, pas de spam réseau." },
+      ],
+    },
+    modes: {
+      title: "Trois modes",
+      sub: "Le même code sert trois usages distincts.",
+      items: [
+        { title: "Télécharger", body: "Acquérir un nouveau morceau, de la recherche au rangement.", cmd: 'meshd track "Artiste" "Titre" "Genre"' },
+        { title: "Upgrader", body: "Remplacer les MP3 de la bibliothèque par du lossless, playlists préservées, l'ancien fichier part en liste de review, jamais supprimé à l'aveugle.", cmd: "meshd upgrade-batch --playlist=X --apply" },
+        { title: "Classer l'énergie", body: "Scorer chaque morceau en E1/E2/E3 pour construire des sets, avec cache des analyses.", cmd: "meshd energy-analyze --genre=X --apply" },
+      ],
+    },
+    versions: {
+      title: "Trois itérations",
+      sub: "Chaque version a fermé une famille de problèmes constatés en usage réel, pas de features spéculatives.",
+      items: [
+        { v: "v1", title: "Fondations", tags: ["recherche et téléchargement via API", "filtre qualité", "cache de session"] },
+        { v: "v2", title: "Automatisation", tags: ["hook de conversion", "métadonnées embarquées", "playlist par genre", "repli multi-sources", "flow upgrade lossless", "classification d'énergie"] },
+        { v: "v3", title: "Robustesse", tags: ["anti-doublons en amont", "recherche en escalade", "reconnexion auto", "anti-mauvais-fichier", "file d'attente normalisée", "retry nocturne daté", "secrets sortis du code"] },
+      ],
+    },
+    roadmap: {
+      title: "Et ensuite",
+      sub: "Le backlog assumé : des pistes identifiées, notées, et volontairement laissées de côté tant que la douleur ne le justifie pas.",
+      items: [
+        { title: "Recherche par compilation", body: "Quand un single est introuvable seul, le chercher via les albums et compilations connus de l'artiste déjà présents dans la bibliothèque." },
+        { title: "Valider l'énergie à l'oreille", body: "Constituer un set de référence par genre (morceaux dont le bucket est certain) pour mesurer proprement la corrélation du score, et améliorer les genres hétérogènes où le modèle actuel décroche." },
+        { title: "Signal crowd-sourcé", body: "Croiser le score d'énergie avec la position des morceaux dans des sets publics : un track joué en fin de set par beaucoup de DJs est probablement un peak." },
+        { title: "Packager et partager", body: "Extraire la configuration personnelle, documenter l'installation et publier l'outil pour qu'un autre DJ puisse le déployer chez lui." },
+      ],
+    },
+    legal:
+      "SoundMesh est présenté ici comme un réseau peer-to-peer générique pour de l'audio librement licencié et auto-produit. L'ingénierie décrite (daemon auto-hébergé, orchestration REST, pipeline de conversion, intégration bibliothèque, classification d'énergie) est indépendante de la source et s'applique à tout catalogue auquel l'utilisateur a légitimement accès.",
+  },
+  es: {
+    period: "2025 - 2026",
+    title: "Music Downloader",
+    introPre:
+      "Mezclo, y pasaba horas buscando tracks, verificando su calidad, convirtiéndolos, etiquetándolos y archivándolos. Este proyecto reduce todo eso a ",
+    introBold: "un comando",
+    introPost:
+      ": el track se encuentra en SoundMesh, una red peer-to-peer, se descarga en la mejor calidad disponible, se convierte a lossless, se importa en mi biblioteca y se archiva por género y nivel de energía, listo para rekordbox.",
+    stack: ["Python", "Docker", "ffmpeg", "AppleScript", "librosa"],
+    flow: {
+      title: "El flow",
+      sub: "Un comando, siete pasos, cero intervención. Cada paso fue endurecido contra un problema encontrado en uso real.",
+      steps: [
+        { n: "01", title: "Un comando", code: 'meshd track "Artista" "Título" "Género"', body: " es el único input necesario." },
+        { n: "02", title: "Verificación de la biblioteca", body: "Ya existe en lossless: se detiene ahí. Existe en MP3: pasa al flow de upgrade. Sin duplicados." },
+        { n: "03", title: "Búsqueda en escalada", body: "Consulta precisa primero, luego cada vez más amplia hasta encontrar una fuente válida. La conexión a la red se repara sola si se cae." },
+        { n: "04", title: "Filtro de calidad y anti-error", body: "Lossless primero, MP3 320 aceptado, el resto rechazado. Un control de coincidencia descarta los archivos que no son el track correcto (remix no pedido, otro título del mismo artista)." },
+        { n: "05", title: "Descarga con respaldo", body: "Si una fuente rechaza o bloquea, la siguiente toma el relevo, hasta cinco intentos. Los metadatos (género, artista, título) viajan con el archivo." },
+        { n: "06", title: "Conversión e importación automáticas", body: "FLAC y WAV se convierten a AIFF (lossless, legible por las platinas), el MP3 320 se conserva tal cual. El archivo se deja en la carpeta de importación de Música, que lo ingiere sola." },
+        { n: "07", title: "Archivado", body: "Género etiquetado, añadido a la playlist correspondiente, etiqueta de energía (E1 warm-up, E2 mid, E3 peak): el track está listo para sonar." },
+      ],
+      asideBold: "¿Y si el track no se encuentra?",
+      aside: " Entra en una cola persistente. Un job nocturno reintenta las entradas vencidas: las rarezas terminan por resolverse cuando otros pares se conectan.",
+    },
+    tools: {
+      title: "Las herramientas",
+      sub: "El núcleo del flow solo depende de Docker y de la biblioteca estándar de Python. El análisis de audio es el único módulo con dependencias científicas.",
+      cols: ["Componente", "Rol"],
+      rows: [
+        { name: "meshd (CLI)", role: "Orquestador Python de un solo archivo, alrededor de 3000 líneas. Pilota la API REST del daemon y la app Música vía AppleScript." },
+        { name: "Daemon P2P", role: "Cliente SoundMesh autoalojado en Docker, API REST local para búsqueda y transferencias." },
+        { name: "Hook de conversión", role: "Script shell disparado en cada descarga terminada: transcodificación ffmpeg, control del bitrate real, verificación MIME, metadatos." },
+        { name: "App Música", role: "Carpeta vigilada para importación automática; lee y escribe géneros, playlists y etiquetas vía AppleScript." },
+        { name: "Motor de energía", role: "Análisis librosa del track entero, puntuación por percentil intra-género, buckets E1/E2/E3 y detección de voz. Alternativa propia a una herramienta de pago." },
+        { name: "Cola", role: "Reintento con bloqueo de archivo, claves normalizadas (orden de artistas, acentos) y fechas de vencimiento: sin duplicados, sin spam de red." },
+      ],
+    },
+    modes: {
+      title: "Tres modos",
+      sub: "El mismo código sirve tres usos distintos.",
+      items: [
+        { title: "Descargar", body: "Adquirir un nuevo track, de la búsqueda al archivado.", cmd: 'meshd track "Artista" "Título" "Género"' },
+        { title: "Mejorar", body: "Reemplazar los MP3 de la biblioteca por lossless, playlists preservadas; el archivo antiguo va a una lista de review, nunca borrado a ciegas.", cmd: "meshd upgrade-batch --playlist=X --apply" },
+        { title: "Clasificar energía", body: "Puntuar cada track en E1/E2/E3 para construir sets, con caché de análisis.", cmd: "meshd energy-analyze --genre=X --apply" },
+      ],
+    },
+    versions: {
+      title: "Tres iteraciones",
+      sub: "Cada versión cerró una familia de problemas vistos en uso real, sin features especulativas.",
+      items: [
+        { v: "v1", title: "Fundaciones", tags: ["búsqueda y descarga vía API", "filtro de calidad", "caché de sesión"] },
+        { v: "v2", title: "Automatización", tags: ["hook de conversión", "metadatos embebidos", "playlist por género", "respaldo multi-fuente", "flow de upgrade lossless", "clasificación de energía"] },
+        { v: "v3", title: "Robustez", tags: ["de-duplicación en origen", "búsqueda en escalada", "reconexión automática", "guardia anti-archivo-malo", "cola normalizada", "reintento nocturno con fecha", "secretos fuera del código"] },
+      ],
+    },
+    roadmap: {
+      title: "Y después",
+      sub: "El backlog asumido: pistas identificadas, anotadas y dejadas de lado a propósito hasta que el dolor lo justifique.",
+      items: [
+        { title: "Búsqueda por compilación", body: "Cuando un single no se encuentra solo, buscarlo a través de los álbumes y compilaciones conocidos del artista ya presentes en la biblioteca." },
+        { title: "Validar la energía de oído", body: "Formar un set de referencia por género (tracks cuyo bucket es seguro) para medir limpiamente la correlación del score, y mejorar los géneros heterogéneos donde el modelo actual falla." },
+        { title: "Señal crowd-sourced", body: "Cruzar el score de energía con la posición de los tracks en sets públicos: un track puesto al final por muchos DJs probablemente es un peak." },
+        { title: "Empaquetar y compartir", body: "Extraer la configuración personal, documentar la instalación y publicar la herramienta para que otro DJ pueda desplegarla." },
+      ],
+    },
+    legal:
+      "SoundMesh se presenta aquí como una red peer-to-peer genérica para audio de licencia libre y autoproducido. La ingeniería descrita (daemon autoalojado, orquestación REST, pipeline de conversión, integración con la biblioteca, clasificación de energía) es independiente de la fuente y se aplica a cualquier catálogo al que el usuario tenga acceso legítimo.",
   },
 };
