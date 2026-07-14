@@ -1,22 +1,102 @@
 "use client";
 
-import { work } from "../data/content";
+import { work, recommendations } from "../data/content";
 import { workText } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
+
+// Monogramme placeholder (remplacé par un logo via w.image plus tard).
+function initials(company: string): string {
+  const words = company.replace(/[^\p{L}\s]/gu, " ").split(/\s+/).filter(Boolean);
+  if (words.length === 0) return "•";
+  if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
+  return (words[0][0] + words[1][0]).toUpperCase();
+}
+
+function Avatar({ company, image }: { company: string; image?: string }) {
+  if (image) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src={image}
+        alt={company}
+        className="shrink-0 rounded-lg object-cover"
+        style={{ width: 52, height: 52 }}
+      />
+    );
+  }
+  return (
+    <div
+      className="shrink-0 rounded-lg flex items-center justify-center font-display font-bold"
+      style={{
+        width: 52,
+        height: 52,
+        fontSize: "0.95rem",
+        background: "var(--accent-subtle)",
+        border: "1px solid var(--border)",
+        color: "var(--accent)",
+      }}
+      aria-hidden
+    >
+      {initials(company)}
+    </div>
+  );
+}
 
 export function Work() {
   const { locale, t } = useLocale();
   const localized = workText[locale];
+  const quotes = recommendations.filter((r) => r.quote);
+
   return (
     <section
       id="work"
       className="max-w-6xl mx-auto px-6 py-16"
       style={{ borderTop: "1px solid var(--border)" }}
     >
-      <div className="mb-10">
+      <div className="mb-8">
         <h2 className="font-display text-2xl sm:text-3xl font-bold">{t.workTitle}</h2>
       </div>
 
+      {/* Quotes — entre le titre de section et les expériences */}
+      <div className="grid gap-5 sm:grid-cols-2 mb-12">
+        {quotes.map((r) => (
+          <blockquote
+            key={r.author}
+            className="surface p-6 sm:p-7"
+            style={{ boxShadow: "var(--shadow)" }}
+          >
+            <p className="text-base sm:text-lg leading-relaxed italic">
+              &ldquo;{r.quote}&rdquo;
+            </p>
+            <footer
+              className="mt-5 pt-4 flex items-end justify-between gap-3"
+              style={{ borderTop: "1px solid var(--border)" }}
+            >
+              <div>
+                <p className="font-display font-bold text-sm">{r.author}</p>
+                <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+                  {r.title}
+                </p>
+              </div>
+              <a
+                href={r.linkedin || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs px-3 py-1.5 rounded-full whitespace-nowrap"
+                style={{
+                  background: "var(--tag-bg)",
+                  color: "var(--tag-text)",
+                  border: "1px solid var(--border)",
+                }}
+              >
+                LinkedIn
+              </a>
+            </footer>
+          </blockquote>
+        ))}
+      </div>
+
+      {/* Expériences */}
       <div className="grid gap-5 sm:grid-cols-2">
         {work.map((w, index) => {
           const lx = localized[w.id];
@@ -28,11 +108,14 @@ export function Work() {
               className={`surface p-6 sm:p-7 flex flex-col${index === 0 ? " card-featured" : ""}`}
               style={{ boxShadow: "var(--shadow)" }}
             >
-              <header className="flex items-baseline justify-between gap-4 mb-3">
-                <h3 className="font-display text-xl font-bold">{w.company}</h3>
-                <span className="text-xs whitespace-nowrap" style={{ color: "var(--text-muted)" }}>
-                  {w.period}
-                </span>
+              <header className="flex items-center gap-3 mb-3">
+                <Avatar company={w.company} image={w.image} />
+                <div className="flex-1 flex items-baseline justify-between gap-4">
+                  <h3 className="font-display text-xl font-bold">{w.company}</h3>
+                  <span className="text-xs whitespace-nowrap" style={{ color: "var(--text-muted)" }}>
+                    {w.period}
+                  </span>
+                </div>
               </header>
               <p className="text-sm font-medium mb-1" style={{ color: "var(--accent)" }}>
                 {lx?.role}

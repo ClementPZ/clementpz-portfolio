@@ -45,6 +45,7 @@ export type WorkItem = {
   period: string;
   location: string;
   tags: string[];
+  image?: string; // visuel de carte (sinon placeholder monogramme généré)
 };
 
 export const work: WorkItem[] = [

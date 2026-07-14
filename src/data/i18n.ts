@@ -48,7 +48,7 @@ export const ui: Record<Locale, UI> = {
   en: {
     getInTouch: "Get in touch",
     stackTitle: "My day-to-day stack",
-    workTitle: "Selected work",
+    workTitle: "IC & Management experiences",
     impactLabel: "Business impact",
     recentTitle: "Past 6 months side projects",
     recentSub:
@@ -65,7 +65,7 @@ export const ui: Record<Locale, UI> = {
   fr: {
     getInTouch: "Me contacter",
     stackTitle: "Ma stack au quotidien",
-    workTitle: "Sélection de projets",
+    workTitle: "Expériences salariales",
     impactLabel: "Impact business",
     recentTitle: "Side projects des 6 derniers mois",
     recentSub:
@@ -82,7 +82,7 @@ export const ui: Record<Locale, UI> = {
   es: {
     getInTouch: "Contactarme",
     stackTitle: "Mi stack del día a día",
-    workTitle: "Trabajo seleccionado",
+    workTitle: "Experiencia profesional",
     impactLabel: "Impacto de negocio",
     recentTitle: "Side projects de los últimos 6 meses",
     recentSub:
@@ -804,5 +804,160 @@ export const musicDownloaderText: Record<
     },
     legal:
       "SoundMesh se presenta aquí como una red peer-to-peer genérica para audio de licencia libre y autoproducido. La ingeniería descrita (daemon autoalojado, orquestación REST, pipeline de conversión, integración con la biblioteca, clasificación de energía) es independiente de la fuente y se aplica a cualquier catálogo al que el usuario tenga acceso legítimo.",
+  },
+};
+
+// ============================================================================
+// Highlight — projet en vedette sur la home (Builder). Lien vers /builder.
+// ============================================================================
+
+export const highlightText: Record<
+  Locale,
+  {
+    eyebrow: string;
+    title: string;
+    tagline: string;
+    blurb: string;
+    ctaPrimary: string;
+    ctaSecondary: string;
+  }
+> = {
+  en: {
+    eyebrow: "Featured",
+    title: "Builder",
+    tagline: "A Claude Code plugin",
+    blurb:
+      "Builder lets non-engineers ship front-end changes that stay on the design system: a ratified token contract, changes tiered by risk, and code left review-ready for engineers.",
+    ctaPrimary: "Get in touch",
+    ctaSecondary: "See the plugin",
+  },
+  fr: {
+    eyebrow: "En vedette",
+    title: "Builder",
+    tagline: "Un plugin Claude Code",
+    blurb:
+      "Builder permet aux non-ingénieurs de livrer des changements front-end fidèles au design system : un contrat de tokens ratifié, des changements par paliers de risque, et du code laissé prêt pour la review des ingénieurs.",
+    ctaPrimary: "Me contacter",
+    ctaSecondary: "Découvrir le plugin",
+  },
+  es: {
+    eyebrow: "Destacado",
+    title: "Builder",
+    tagline: "Un plugin de Claude Code",
+    blurb:
+      "Builder permite a los no ingenieros entregar cambios de front-end fieles al design system: un contrato de tokens ratificado, cambios por niveles de riesgo, y código listo para la review de los ingenieros.",
+    ctaPrimary: "Contactarme",
+    ctaSecondary: "Ver el plugin",
+  },
+};
+
+// ============================================================================
+// Page /builder — explication du plugin (EN / FR / ES).
+// ============================================================================
+
+export const builderText: Record<
+  Locale,
+  {
+    kicker: string;
+    title: string;
+    intro: string;
+    sections: { heading: string; body: string }[];
+    contactLead: string;
+    contactCta: string;
+    backHome: string;
+  }
+> = {
+  en: {
+    kicker: "Claude Code plugin",
+    title: "Builder",
+    intro:
+      "A design-system enforcer for non-engineers. Describe a front-end change in plain language; Builder delivers code that stays on the system and is left review-ready for engineers.",
+    sections: [
+      {
+        heading: "The problem",
+        body: "Non-engineers can now generate front-end code, but it drifts: off-token colors, one-off spacing, patterns that don't match the app. Review falls back on engineers, every time.",
+      },
+      {
+        heading: "How it works",
+        body: "Builder scans the repo and extracts a token contract (DTCG). You ratify it once, and it becomes the source of truth. Every change is checked against it, on the changed lines, before anything is committed.",
+      },
+      {
+        heading: "Tiered by risk",
+        body: "T1 touches tokens (color, spacing, a label, a variant). T2 composes new UI from patterns already in the app. T3, anything with logic, data or auth, stops with a clean handoff for engineering. Doubt always promotes up, never down.",
+      },
+      {
+        heading: "Three modes",
+        body: "Setup builds and ratifies the contract. Audit scores compliance without touching a file. Tweak applies one atomic change at a time, behind a write gate you approve.",
+      },
+      {
+        heading: "Status",
+        body: "V1, piloted on this very portfolio. Not public yet.",
+      },
+    ],
+    contactLead: "Curious, or want it on your codebase?",
+    contactCta: "Get in touch",
+    backHome: "Back to the portfolio",
+  },
+  fr: {
+    kicker: "Plugin Claude Code",
+    title: "Builder",
+    intro:
+      "Un garde-fou de design system pour les non-ingénieurs. Décris un changement front-end en langage naturel ; Builder produit du code fidèle au système, laissé prêt pour la review des ingénieurs.",
+    sections: [
+      {
+        heading: "Le problème",
+        body: "Les non-ingénieurs génèrent désormais du code front-end, mais ça dérive : couleurs hors tokens, espacements one-off, patterns qui ne collent pas à l'app. La review retombe sur les ingénieurs, à chaque fois.",
+      },
+      {
+        heading: "Comment ça marche",
+        body: "Builder scanne le repo et en extrait un contrat de tokens (DTCG). Tu le ratifies une fois, il devient la source de vérité. Chaque changement est vérifié contre lui, sur les lignes modifiées, avant tout commit.",
+      },
+      {
+        heading: "Par paliers de risque",
+        body: "T1 touche aux tokens (couleur, espacement, un label, une variante). T2 compose du nouveau UI à partir de patterns déjà présents. T3, tout ce qui touche à la logique, aux données ou à l'auth, s'arrête avec un handoff propre pour l'engineering. Le doute fait toujours monter d'un cran, jamais descendre.",
+      },
+      {
+        heading: "Trois modes",
+        body: "Setup construit et ratifie le contrat. Audit note la conformité sans toucher un fichier. Tweak applique un changement atomique à la fois, derrière un write gate que tu approuves.",
+      },
+      {
+        heading: "Statut",
+        body: "V1, piloté sur ce portfolio même. Pas encore public.",
+      },
+    ],
+    contactLead: "Envie des détails, ou de l'essayer sur ton code ?",
+    contactCta: "Me contacter",
+    backHome: "Retour au portfolio",
+  },
+  es: {
+    kicker: "Plugin de Claude Code",
+    title: "Builder",
+    intro:
+      "Un garante del design system para no ingenieros. Describe un cambio de front-end en lenguaje natural; Builder produce código fiel al sistema, listo para la review de los ingenieros.",
+    sections: [
+      {
+        heading: "El problema",
+        body: "Los no ingenieros ya generan código de front-end, pero se desvía: colores fuera de tokens, espaciados one-off, patrones que no encajan con la app. La review recae en los ingenieros, cada vez.",
+      },
+      {
+        heading: "Cómo funciona",
+        body: "Builder escanea el repo y extrae un contrato de tokens (DTCG). Lo ratificas una vez y se vuelve la fuente de verdad. Cada cambio se verifica contra él, en las líneas modificadas, antes de cualquier commit.",
+      },
+      {
+        heading: "Por niveles de riesgo",
+        body: "T1 toca los tokens (color, espaciado, una etiqueta, una variante). T2 compone nuevo UI a partir de patrones ya presentes. T3, todo lo que toca lógica, datos o auth, se detiene con un handoff limpio para ingeniería. La duda siempre sube un nivel, nunca baja.",
+      },
+      {
+        heading: "Tres modos",
+        body: "Setup construye y ratifica el contrato. Audit puntúa el cumplimiento sin tocar un archivo. Tweak aplica un cambio atómico a la vez, tras un write gate que apruebas.",
+      },
+      {
+        heading: "Estado",
+        body: "V1, piloteado en este mismo portafolio. Aún no público.",
+      },
+    ],
+    contactLead: "¿Quieres los detalles, o probarlo en tu código?",
+    contactCta: "Contactarme",
+    backHome: "Volver al portafolio",
   },
 };

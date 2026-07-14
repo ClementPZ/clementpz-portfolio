@@ -11,26 +11,31 @@ export function RecentProjects() {
   const localized = projectText[locale];
   const status = statusText[locale];
 
-  // Effet "carrousel arrondi" : la carte la plus proche du centre est agrandie,
-  // les latérales rétrécies + estompées. On calcule la distance via offsetLeft /
-  // scrollLeft (position de LAYOUT, indépendante du transform) pour éviter la
-  // boucle de rétroaction du scale — cause des glitches précédents.
+  // Deck défilant : les cartes se chevauchent (marges négatives). La plus proche
+  // du centre passe devant (zIndex), grandit (scale), les latérales reculent
+  // (scale bas, opacité, translateY) avec un léger fan (rotate). Calcul basé sur
+  // offsetLeft/scrollLeft (layout, pas transform) pour éviter la rétroaction.
   const applyMagnify = useCallback(() => {
     const track = trackRef.current;
     if (!track) return;
     const center = track.scrollLeft + track.clientWidth / 2;
+    const half = track.clientWidth / 2;
     const cards = track.querySelectorAll<HTMLElement>("[data-card]");
     cards.forEach((card) => {
       const cardCenter = card.offsetLeft + card.offsetWidth / 2;
-      const dist = Math.min(Math.abs(cardCenter - center) / (track.clientWidth / 2), 1);
-      const scale = 1.06 - dist * 0.16;
-      const opacity = 1 - dist * 0.34;
-      card.style.transform = `translateY(${dist * 12}px) scale(${scale})`;
+      const rel = Math.max(-1, Math.min(1, (cardCenter - center) / half));
+      const dist = Math.abs(rel);
+      const scale = 1.08 - dist * 0.2;
+      const opacity = Math.max(0.35, 1 - dist * 0.42);
+      const ty = dist * 18;
+      const rot = Math.max(-5, Math.min(5, rel * 6));
+      card.style.transform = `translateY(${ty}px) scale(${scale}) rotate(${rot}deg)`;
       card.style.opacity = String(opacity);
+      card.style.zIndex = String(1000 - Math.round(dist * 1000));
     });
   }, []);
 
-  // Au mount : ouvrir le carousel centré sur la carte Builder Flow (par id).
+  // Au mount : ouvrir le deck centré sur la carte Builder Flow (par id).
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
@@ -69,7 +74,8 @@ export function RecentProjects() {
     const track = trackRef.current;
     if (!track) return;
     const card = track.querySelector<HTMLElement>("[data-card]");
-    const amount = card ? card.offsetWidth + 20 : 340;
+    // Une carte utile = largeur visible après chevauchement (~82%).
+    const amount = card ? card.offsetWidth * 0.82 : 260;
     track.scrollBy({ left: dir * amount, behavior: "smooth" });
   };
 
@@ -106,10 +112,10 @@ export function RecentProjects() {
 
       <div
         ref={trackRef}
-        className="flex gap-5 overflow-x-auto px-6 snap-x snap-mandatory"
-        style={{ scrollbarWidth: "none", paddingTop: 18, paddingBottom: 34, position: "relative" }}
+        className="flex overflow-x-auto px-6 snap-x snap-mandatory"
+        style={{ scrollbarWidth: "none", paddingTop: 24, paddingBottom: 40, position: "relative" }}
       >
-        {recentProjects.map((p) => {
+        {recentProjects.map((p, i) => {
           const lx = localized[p.id];
           return (
             <article
@@ -119,9 +125,11 @@ export function RecentProjects() {
               style={{
                 width: "min(82vw, 320px)",
                 minHeight: 420,
+                marginLeft: i === 0 ? 0 : -60,
                 background: `linear-gradient(150deg, ${p.accent} 0%, ${p.accent2} 100%)`,
                 color: "#ffffff",
-                boxShadow: "var(--shadow)",
+                boxShadow: "0 18px 44px rgba(15, 4, 18, 0.5)",
+                border: "1px solid rgba(255,255,255,0.1)",
                 transformOrigin: "center bottom",
                 transition: "transform 0.25s ease, opacity 0.25s ease",
                 willChange: "transform",

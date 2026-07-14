@@ -1,0 +1,87 @@
+"use client";
+
+import Link from "next/link";
+import { profile, recentProjects } from "../data/content";
+import { highlightText } from "../data/i18n";
+import { useLocale } from "./LocaleProvider";
+
+// Projet en vedette = Builder. Couleurs d'identité tirées des données du
+// carrousel (builder-flow), texte blanc sur le gradient comme les cartes projet.
+const builder = recentProjects.find((p) => p.id === "builder-flow");
+const accent = builder?.accent ?? "#7c3aed";
+const accent2 = builder?.accent2 ?? "#1e1b4b";
+
+export function Highlight() {
+  const { locale } = useLocale();
+  const t = highlightText[locale];
+
+  return (
+    <section
+      id="featured"
+      className="max-w-6xl mx-auto px-6 py-16"
+      style={{ borderTop: "1px solid var(--border)" }}
+    >
+      <div
+        className="rounded-2xl overflow-hidden grid md:grid-cols-2 gap-8 p-8 sm:p-10"
+        style={{
+          background: `linear-gradient(150deg, ${accent} 0%, ${accent2} 100%)`,
+          color: "#ffffff",
+          boxShadow: "var(--shadow)",
+        }}
+      >
+        {/* Texte */}
+        <div className="flex flex-col justify-center">
+          <span
+            className="text-xs uppercase tracking-widest font-semibold mb-4"
+            style={{ color: "rgba(255,255,255,0.7)" }}
+          >
+            {t.eyebrow}
+          </span>
+          <h2 className="font-display text-3xl sm:text-4xl font-bold leading-tight">
+            {t.title}
+          </h2>
+          <p className="text-sm font-medium mt-1" style={{ color: "rgba(255,255,255,0.85)" }}>
+            {t.tagline}
+          </p>
+          <p className="text-base leading-relaxed mt-5" style={{ color: "rgba(255,255,255,0.78)" }}>
+            {t.blurb}
+          </p>
+          <div className="flex flex-wrap gap-3 mt-7">
+            <a
+              href={`mailto:${profile.email}`}
+              className="inline-flex items-center px-5 py-3 rounded-full text-sm font-semibold"
+              style={{ background: "#ffffff", color: accent2 }}
+            >
+              {t.ctaPrimary}
+            </a>
+            <Link
+              href="/builder"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold"
+              style={{ border: "1px solid rgba(255,255,255,0.5)", color: "#ffffff" }}
+            >
+              {t.ctaSecondary}
+              <span aria-hidden>→</span>
+            </Link>
+          </div>
+        </div>
+
+        {/* Visuel — placeholder (remplaçable par une image plus tard) */}
+        <div
+          className="relative rounded-xl min-h-[220px] flex items-center justify-center"
+          style={{
+            background:
+              "linear-gradient(160deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.03) 100%)",
+            border: "1px solid rgba(255,255,255,0.18)",
+          }}
+        >
+          <span
+            className="font-display font-extrabold"
+            style={{ fontSize: "clamp(72px, 12vw, 132px)", color: "rgba(255,255,255,0.9)", lineHeight: 1 }}
+          >
+            B
+          </span>
+        </div>
+      </div>
+    </section>
+  );
+}
