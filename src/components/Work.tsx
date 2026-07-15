@@ -57,39 +57,31 @@ export function Work() {
         <h2 className="font-display text-2xl sm:text-3xl font-bold">{t.workTitle}</h2>
       </div>
 
-      {/* Quotes — entre le titre de section et les expériences */}
-      <div className="grid gap-5 sm:grid-cols-2 mb-12">
+      {/* Quotes — traitement éditorial, sans card, posé sur le fond */}
+      <div className="grid gap-10 sm:grid-cols-2 mb-14">
         {quotes.map((r) => (
-          <blockquote
-            key={r.author}
-            className="surface p-6 sm:p-7"
-            style={{ boxShadow: "var(--shadow)" }}
-          >
-            <p className="text-base sm:text-lg leading-relaxed italic">
-              &ldquo;{r.quote}&rdquo;
-            </p>
-            <footer
-              className="mt-5 pt-4 flex items-end justify-between gap-3"
-              style={{ borderTop: "1px solid var(--border)" }}
+          <blockquote key={r.author} className="flex flex-col">
+            <span
+              aria-hidden
+              className="font-display font-bold leading-none mb-1"
+              style={{ fontSize: "2.75rem", color: "var(--accent)" }}
             >
-              <div>
-                <p className="font-display font-bold text-sm">{r.author}</p>
-                <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-                  {r.title}
-                </p>
-              </div>
+              &ldquo;
+            </span>
+            <p className="text-lg leading-relaxed" style={{ color: "var(--text)" }}>
+              {r.quote}
+            </p>
+            <footer className="mt-4 flex items-baseline gap-2 flex-wrap text-sm">
+              <span className="font-display font-bold">{r.author}</span>
+              <span style={{ color: "var(--text-muted)" }}>· {r.title}</span>
               <a
                 href={r.linkedin || "#"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs px-3 py-1.5 rounded-full whitespace-nowrap"
-                style={{
-                  background: "var(--tag-bg)",
-                  color: "var(--tag-text)",
-                  border: "1px solid var(--border)",
-                }}
+                className="hover:underline"
+                style={{ color: "var(--accent)" }}
               >
-                LinkedIn
+                LinkedIn ↗
               </a>
             </footer>
           </blockquote>

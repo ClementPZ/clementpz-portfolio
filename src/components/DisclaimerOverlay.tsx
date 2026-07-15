@@ -134,10 +134,6 @@ export function DisclaimerOverlay() {
         >
           {t.overlayCta}
         </button>
-
-        <p style={{ fontSize: "0.72rem", color: "var(--text-muted)", opacity: 0.7, marginTop: 16 }}>
-          {t.overlayFoot}
-        </p>
       </div>
     </div>
   );

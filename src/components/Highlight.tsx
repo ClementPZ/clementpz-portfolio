@@ -21,6 +21,9 @@ export function Highlight() {
       className="max-w-6xl mx-auto px-6 py-16"
       style={{ borderTop: "1px solid var(--border)" }}
     >
+      <div className="mb-8">
+        <h2 className="font-display text-2xl sm:text-3xl font-bold">{t.sectionTitle}</h2>
+      </div>
       <div
         className="rounded-2xl overflow-hidden grid md:grid-cols-2 gap-8 p-8 sm:p-10"
         style={{
@@ -31,15 +34,9 @@ export function Highlight() {
       >
         {/* Texte */}
         <div className="flex flex-col justify-center">
-          <span
-            className="text-xs uppercase tracking-widest font-semibold mb-4"
-            style={{ color: "rgba(255,255,255,0.7)" }}
-          >
-            {t.eyebrow}
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold leading-tight">
+          <h3 className="font-display text-3xl sm:text-4xl font-bold leading-tight">
             {t.title}
-          </h2>
+          </h3>
           <p className="text-sm font-medium mt-1" style={{ color: "rgba(255,255,255,0.85)" }}>
             {t.tagline}
           </p>

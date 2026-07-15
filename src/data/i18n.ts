@@ -40,7 +40,6 @@ type UI = {
   overlayBodyPre: string; // avant le numéro
   overlayBodyPost: string; // après le numéro
   overlayCta: string;
-  overlayFoot: string;
   makingOfWidget: string;
 };
 
@@ -59,7 +58,6 @@ export const ui: Record<Locale, UI> = {
     overlayBodyPost:
       "person to visit. Have a tour, and don't hesitate to reach out for anything. Design, code, and AI, all done by hand.",
     overlayCta: "Visit",
-    overlayFoot: "No wall, no sign-up, and no AI slop.",
     makingOfWidget: "How this portfolio was built",
   },
   fr: {
@@ -76,7 +74,6 @@ export const ui: Record<Locale, UI> = {
     overlayBodyPost:
       "personne à le visiter. Faites le tour, et n'hésitez pas à me contacter pour quoi que ce soit. Design, code et IA, tout est fait main.",
     overlayCta: "Visiter",
-    overlayFoot: "Pas de mur, pas d'inscription, et pas d'AI slop.",
     makingOfWidget: "Comment ce portfolio a été construit",
   },
   es: {
@@ -93,7 +90,6 @@ export const ui: Record<Locale, UI> = {
     overlayBodyPost:
       "persona en visitarlo. Date una vuelta, y no dudes en contactarme para lo que sea. Design, código e IA, todo hecho a mano.",
     overlayCta: "Visitar",
-    overlayFoot: "Sin muro, sin registro, y sin AI slop.",
     makingOfWidget: "Cómo se construyó este portafolio",
   },
 };
@@ -814,7 +810,7 @@ export const musicDownloaderText: Record<
 export const highlightText: Record<
   Locale,
   {
-    eyebrow: string;
+    sectionTitle: string;
     title: string;
     tagline: string;
     blurb: string;
@@ -823,7 +819,7 @@ export const highlightText: Record<
   }
 > = {
   en: {
-    eyebrow: "Featured",
+    sectionTitle: "Monthly highlight",
     title: "Builder",
     tagline: "A Claude Code plugin",
     blurb:
@@ -832,7 +828,7 @@ export const highlightText: Record<
     ctaSecondary: "See the plugin",
   },
   fr: {
-    eyebrow: "En vedette",
+    sectionTitle: "Highlight du mois",
     title: "Builder",
     tagline: "Un plugin Claude Code",
     blurb:
@@ -841,7 +837,7 @@ export const highlightText: Record<
     ctaSecondary: "Découvrir le plugin",
   },
   es: {
-    eyebrow: "Destacado",
+    sectionTitle: "Destacado del mes",
     title: "Builder",
     tagline: "Un plugin de Claude Code",
     blurb:

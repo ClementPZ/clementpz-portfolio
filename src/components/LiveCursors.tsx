@@ -108,15 +108,23 @@ export function LiveCursors() {
       anchor = false
     ) => {
       if (!el) return;
+      // Tout est calculé dans le repère de #page-shift (transformé) : le curseur
+      // y vit, donc son position:fixed est relatif à ce conteneur scrollé. Le
+      // disclaimer n'apparaît qu'après un scroll → sans cet offset, l'axe
+      // d'entrée serait décalé du montant scrollé (bug corrigé ici).
+      const shift = document.getElementById("page-shift");
+      const sr0 = shift?.getBoundingClientRect();
+      const ox0 = sr0 ? sr0.left : 0;
+      const oy0 = sr0 ? sr0.top : 0;
       const start = {
-        x: window.innerWidth * startFrac.x,
-        y: window.innerHeight * startFrac.y,
+        x: window.innerWidth * startFrac.x - ox0,
+        y: window.innerHeight * startFrac.y - oy0,
       };
       const target = document.getElementById(targetId);
       const r = target?.getBoundingClientRect();
       const end = r
-        ? { x: r.left + r.width * 0.5, y: r.top + r.height * 0.5 }
-        : { x: window.innerWidth * 0.4, y: window.innerHeight * 0.4 };
+        ? { x: r.left - ox0 + r.width * 0.5, y: r.top - oy0 + r.height * 0.5 }
+        : { x: window.innerWidth * 0.4 - ox0, y: window.innerHeight * 0.4 - oy0 };
 
       el.style.transform = `translate(${start.x}px, ${start.y}px)`;
       el.style.opacity = "0";
@@ -146,7 +154,6 @@ export function LiveCursors() {
             // positionne donc Carol relativement à #page-shift (rect CTA − rect
             // conteneur) : les deux bougent ensemble → collés au scroll, et sous
             // la nav. On recalcule sur scroll/resize pour absorber les reflows.
-            const shift = document.getElementById("page-shift");
             const stick = () => {
               const rr = target.getBoundingClientRect();
               const sr = shift?.getBoundingClientRect();
@@ -195,8 +202,9 @@ export function LiveCursors() {
         animateTo(stefanRef.current, "mode-toggle", { x: 0.12, y: 0.26 }, 600, 3500);
       }
       // Carol traverse jusqu'au CTA "Get in touch" et y reste ancrée (suit le
-      // bouton au scroll au lieu de disparaître).
-      animateTo(carolinoRef.current, "cta-getintouch", { x: 0.5, y: 0.55 }, 200, 2000, true);
+      // bouton au scroll au lieu de disparaître). Entrée depuis la droite pour
+      // un axe de déplacement diagonal net vers le CTA.
+      animateTo(carolinoRef.current, "cta-getintouch", { x: 0.82, y: 0.62 }, 200, 2000, true);
     };
 
     let alreadySeen = false;
