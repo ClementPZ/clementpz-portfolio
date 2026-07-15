@@ -146,9 +146,25 @@ export type RecentProject = {
   image?: string; // photo de fond de carte (sinon gradient accent/accent2)
 };
 
-// Ordre : concepts à gauche, Builder Flow au CENTRE (le carousel s'ouvre centré
-// dessus), les autres (WIP / live / fail) à droite.
+// Ordre d'affichage gauche → droite dans le carrousel. Builder Flow est au
+// centre : le carrousel s'ouvre centré dessus (initialSlide dans RecentProjects).
 export const recentProjects: RecentProject[] = [
+  {
+    id: "dj-energy",
+    name: "DJ Energy Classifier",
+    status: "fail",
+    tags: ["Python", "librosa", "Audio ML"],
+    accent: "#db2777",
+    accent2: "#18181b",
+  },
+  {
+    id: "paris-conf",
+    name: "Paris Conferences",
+    status: "concept",
+    tags: ["Next.js", "Open Data", "TypeScript"],
+    accent: "#2563eb",
+    accent2: "#0f172a",
+  },
   {
     id: "job-search",
     name: "Job Search",
@@ -166,13 +182,14 @@ export const recentProjects: RecentProject[] = [
     accent2: "#1c1917",
   },
   {
-    id: "paris-conf",
-    name: "Paris Conferences",
-    status: "concept",
-    tags: ["Next.js", "Open Data", "TypeScript"],
-    accent: "#2563eb",
-    accent2: "#0f172a",
+    id: "couples-card",
+    name: "Couples Card Game",
+    status: "concept-wip",
+    tags: ["Flutter", "Game Design", "Product"],
+    accent: "#ea580c",
+    accent2: "#1c1917",
   },
+  // ── Carte centrale : le carrousel s'ouvre ici ──
   {
     id: "builder-flow",
     name: "Builder Flow",
@@ -180,14 +197,6 @@ export const recentProjects: RecentProject[] = [
     tags: ["Claude Code", "Design System", "AI"],
     accent: "#7c3aed",
     accent2: "#1e1b4b",
-  },
-  {
-    id: "couples-card",
-    name: "Couples Card Game",
-    status: "concept-wip",
-    tags: ["Flutter", "Game Design", "Product"],
-    accent: "#ea580c",
-    accent2: "#1c1917",
   },
   {
     id: "legal-music",
@@ -198,22 +207,17 @@ export const recentProjects: RecentProject[] = [
     accent2: "#022c22",
     link: "/music-downloader",
   },
+  // Couleurs = l'identité réelle de l'app (SpotColors.bratLime #cafe00 sur
+  // near-black, cf. lib/theme.dart du repo SpotA). Le lime est assombri ici :
+  // le brat lime pur rend le badge de statut (blanc translucide) illisible.
   {
-    id: "interior-design",
-    name: "Apartment Interior Design",
-    status: "live",
-    tags: ["Interior", "Community", "Design"],
-    accent: "#9a3412",
-    accent2: "#1c1917",
-    image: "/interior/carroussel.JPG",
-  },
-  {
-    id: "dj-energy",
-    name: "DJ Energy Classifier",
-    status: "fail",
-    tags: ["Python", "librosa", "Audio ML"],
-    accent: "#db2777",
-    accent2: "#18181b",
+    id: "spota",
+    name: "SpotA",
+    status: "in progress",
+    tags: ["Flutter", "Supabase", "Social Game"],
+    accent: "#7a9900",
+    accent2: "#1a1a1a",
+    link: "/spota",
   },
   // Carte méta : le portfolio comme projet du portfolio. Seule carte aux
   // couleurs de l'identité (aubergine signature) → visuellement "spéciale".
@@ -225,6 +229,15 @@ export const recentProjects: RecentProject[] = [
     accent: "#54255a",
     accent2: "#1a0e1c",
     link: "/making-of",
+  },
+  {
+    id: "interior-design",
+    name: "Apartment Interior Design",
+    status: "live",
+    tags: ["Interior", "Community", "Design"],
+    accent: "#9a3412",
+    accent2: "#1c1917",
+    image: "/interior/carroussel.JPG",
   },
 ];
 

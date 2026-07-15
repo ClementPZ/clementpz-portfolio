@@ -67,8 +67,11 @@ export function RecentProjects() {
         grabCursor
         centeredSlides
         slidesPerView="auto"
+        spaceBetween={16}
         initialSlide={builderIndex}
-        coverflowEffect={{ rotate: 26, stretch: 0, depth: 160, modifier: 1, slideShadows: false }}
+        // Rotation/profondeur modérées : au-delà, les cartes se recouvrent au
+        // point de rogner le titre de la voisine.
+        coverflowEffect={{ rotate: 14, stretch: 0, depth: 120, modifier: 1, slideShadows: false }}
         navigation={{ enabled: true }}
         onBeforeInit={wireNav}
         style={{ paddingTop: 20, paddingBottom: 44 }}
@@ -101,11 +104,13 @@ export function RecentProjects() {
                 )}
 
                 <span
-                  className="absolute top-5 right-5 text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full"
+                  className="absolute top-5 right-5 z-10 text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full"
                   style={{
-                    background: "rgba(255,255,255,0.18)",
+                    // Pas de backdrop-filter ici : dans le contexte 3D de Swiper,
+                    // il crée un contexte d'empilement qui échappe au clipping de
+                    // la carte et vient flotter au-dessus de la slide voisine.
+                    background: "rgba(255,255,255,0.22)",
                     color: "#ffffff",
-                    backdropFilter: "blur(8px)",
                   }}
                 >
                   {status[p.status]}

@@ -330,6 +330,11 @@ export const projectText: Record<
       description:
         "The ongoing interior design of my apartment — inspirations from Verner Panton, Tadao Ando and Jean-Pierre Garrauld. A dedicated page where visitors upvote the photos, bumping the best ones to the top.",
     },
+    spota: {
+      tagline: "Spot a ___, every day",
+      description:
+        "A social game for friend groups. One prompt a day: spot a ___. Find it in the real world, shoot it with both cameras at once (the target and your face), and post. You only see your friends' spots once you have posted yours.",
+    },
     "making-of": {
       tagline: "The portfolio, explained by itself",
       description:
@@ -377,6 +382,11 @@ export const projectText: Record<
       description:
         "Le design d'intérieur en cours de mon appartement — inspirations Verner Panton, Tadao Ando et Jean-Pierre Garrauld. Une page dédiée où les visiteurs upvotent les photos, faisant remonter les meilleures.",
     },
+    spota: {
+      tagline: "Repère un ___, chaque jour",
+      description:
+        "Un jeu social entre potes. Un défi par jour : repère un ___. Trouve-le dans la vraie vie, capture-le avec les deux caméras à la fois (la cible et ta tête), et poste. Tu ne vois les spots des autres qu'une fois le tien posté.",
+    },
     "making-of": {
       tagline: "Le portfolio, expliqué par lui-même",
       description:
@@ -423,6 +433,11 @@ export const projectText: Record<
       tagline: "Mi apartamento, diseñado en público",
       description:
         "El diseño interior en curso de mi apartamento — inspiraciones de Verner Panton, Tadao Ando y Jean-Pierre Garrauld. Una página dedicada donde los visitantes votan las fotos, subiendo las mejores.",
+    },
+    spota: {
+      tagline: "Encuentra un ___, cada día",
+      description:
+        "Un juego social entre amigos. Un reto al día: encuentra un ___. Búscalo en la vida real, captúralo con las dos cámaras a la vez (el objetivo y tu cara), y publícalo. Solo ves los spots de los demás cuando ya has publicado el tuyo.",
     },
     "making-of": {
       tagline: "El portafolio, explicado por sí mismo",
@@ -844,6 +859,97 @@ export const highlightText: Record<
       "Builder permite a los no ingenieros entregar cambios de front-end fieles al design system: un contrato de tokens ratificado, cambios por niveles de riesgo, y código listo para la review de los ingenieros.",
     ctaPrimary: "Contactarme",
     ctaSecondary: "Ver el plugin",
+  },
+};
+
+// ============================================================================
+// Page /spota — jeu social de repérage quotidien (EN / FR / ES).
+// ============================================================================
+
+export const spotaText: Record<
+  Locale,
+  {
+    kicker: string;
+    title: string;
+    intro: string;
+    sections: { heading: string; body: string }[];
+    backHome: string;
+  }
+> = {
+  en: {
+    kicker: "Social game",
+    title: "SpotA",
+    intro:
+      "A daily spotting game for a group of friends. One prompt, both cameras, and nothing to see until you have posted.",
+    sections: [
+      {
+        heading: "The idea",
+        body: "One prompt a day, the same for your whole group: spot a ___. No feed to scroll, no score to farm. You have the day to find the thing in the real world.",
+      },
+      {
+        heading: "The mechanic",
+        body: "Both cameras fire in sequence: the back one for the target, the front one for your face. They composite into a single image, shot in session, no gallery import. The feed is gated, so you see your friends' spots only after posting yours.",
+      },
+      {
+        heading: "How it is built",
+        body: "Flutter, one codebase for iOS and Android. Supabase for Postgres, Storage and anonymous auth: no account, you join a group with a code. No push and no realtime in the MVP, the feed refreshes on pull. Private bucket and signed URLs, since the audience is 13+.",
+      },
+      {
+        heading: "Scope and status",
+        body: "Hackathon mode, deliberately lean. Onboarding and group join run end to end against the live database. The daily prompt screen and the feed are built and currently being wired. Not published yet: test phase first, APK sideload and TestFlight.",
+      },
+    ],
+    backHome: "Back to the portfolio",
+  },
+  fr: {
+    kicker: "Jeu social",
+    title: "SpotA",
+    intro:
+      "Un jeu de repérage quotidien entre potes. Un défi, les deux caméras, et rien à voir tant que tu n'as pas posté.",
+    sections: [
+      {
+        heading: "L'idée",
+        body: "Un défi par jour, le même pour tout le groupe : repère un ___. Pas de feed à scroller, pas de score à farmer. Tu as la journée pour trouver la chose dans la vraie vie.",
+      },
+      {
+        heading: "La mécanique",
+        body: "Les deux caméras s'enchaînent : l'arrière pour la cible, l'avant pour ta tête. Elles se composent en une seule image, prise en direct, sans import galerie. Le feed est gaté : tu ne vois les spots des autres qu'après avoir posté le tien.",
+      },
+      {
+        heading: "Comment c'est construit",
+        body: "Flutter, un seul codebase iOS et Android. Supabase pour Postgres, le Storage et l'auth anonyme : pas de compte, tu rejoins un groupe avec un code. Pas de push ni de realtime dans le MVP, le feed se rafraîchit au pull. Bucket privé et URLs signées, le public étant 13+.",
+      },
+      {
+        heading: "Périmètre et statut",
+        body: "Mode hackathon, volontairement lean. L'onboarding et le join de groupe tournent de bout en bout contre la base live. L'écran du défi du jour et le feed sont codés, en cours de branchement. Pas encore publié : phase de test d'abord, APK sideload et TestFlight.",
+      },
+    ],
+    backHome: "Retour au portfolio",
+  },
+  es: {
+    kicker: "Juego social",
+    title: "SpotA",
+    intro:
+      "Un juego de búsqueda diario entre amigos. Un reto, las dos cámaras, y nada que ver hasta que hayas publicado.",
+    sections: [
+      {
+        heading: "La idea",
+        body: "Un reto al día, el mismo para todo el grupo: encuentra un ___. Sin feed que scrollear, sin puntos que farmear. Tienes el día para encontrar la cosa en la vida real.",
+      },
+      {
+        heading: "La mecánica",
+        body: "Las dos cámaras se encadenan: la trasera para el objetivo, la delantera para tu cara. Se componen en una sola imagen, tomada en directo, sin importar de la galería. El feed está gateado: solo ves los spots de los demás después de publicar el tuyo.",
+      },
+      {
+        heading: "Cómo está construido",
+        body: "Flutter, un solo codebase para iOS y Android. Supabase para Postgres, Storage y auth anónima: sin cuenta, entras a un grupo con un código. Sin push ni realtime en el MVP, el feed se refresca al tirar. Bucket privado y URLs firmadas, ya que el público es 13+.",
+      },
+      {
+        heading: "Alcance y estado",
+        body: "Modo hackathon, deliberadamente lean. El onboarding y el join de grupo funcionan de punta a punta contra la base live. La pantalla del reto diario y el feed están hechos, en proceso de conexión. Aún no publicado: primero fase de prueba, APK sideload y TestFlight.",
+      },
+    ],
+    backHome: "Volver al portafolio",
   },
 };
 
