@@ -839,8 +839,8 @@ export const highlightText: Record<
     tagline: "A Claude Code plugin",
     blurb:
       "Builder lets non-engineers ship front-end changes that stay on the design system: a ratified token contract, changes tiered by risk, and code left review-ready for engineers.",
-    ctaPrimary: "Get in touch",
-    ctaSecondary: "See the plugin",
+    ctaPrimary: "Ask for access",
+    ctaSecondary: "See details",
   },
   fr: {
     sectionTitle: "Highlight du mois",
@@ -848,8 +848,8 @@ export const highlightText: Record<
     tagline: "Un plugin Claude Code",
     blurb:
       "Builder permet aux non-ingénieurs de livrer des changements front-end fidèles au design system : un contrat de tokens ratifié, des changements par paliers de risque, et du code laissé prêt pour la review des ingénieurs.",
-    ctaPrimary: "Me contacter",
-    ctaSecondary: "Découvrir le plugin",
+    ctaPrimary: "Demander l'accès",
+    ctaSecondary: "Voir les détails",
   },
   es: {
     sectionTitle: "Destacado del mes",
@@ -857,10 +857,34 @@ export const highlightText: Record<
     tagline: "Un plugin de Claude Code",
     blurb:
       "Builder permite a los no ingenieros entregar cambios de front-end fieles al design system: un contrato de tokens ratificado, cambios por niveles de riesgo, y código listo para la review de los ingenieros.",
-    ctaPrimary: "Contactarme",
-    ctaSecondary: "Ver el plugin",
+    ctaPrimary: "Pedir acceso",
+    ctaSecondary: "Ver detalles",
   },
 };
+
+// Mail pré-rempli pour la demande d'accès à Builder (Highlight + page /builder).
+export const builderAccessMail: Record<Locale, { subject: string; body: string }> = {
+  en: {
+    subject: "Builder, access request",
+    body: "Hey, I saw your work on the front-end builder plugin for non-engineers. I'd be interested in getting access to it. Please get in touch and let's arrange something :)",
+  },
+  fr: {
+    subject: "Builder, demande d'accès",
+    body: "Salut, j'ai vu ton travail sur le plugin de front-end builder pour non-ingénieurs. J'aimerais beaucoup y avoir accès. Recontacte-moi et voyons ça ensemble :)",
+  },
+  es: {
+    subject: "Builder, solicitud de acceso",
+    body: "Hola, vi tu trabajo en el plugin de front-end builder para no ingenieros. Me interesaría tener acceso. Escríbeme y organizamos algo :)",
+  },
+};
+
+// Construit le href mailto pré-rempli (sujet + corps) pour la demande d'accès.
+export function accessMailtoHref(email: string, locale: Locale): string {
+  const m = builderAccessMail[locale];
+  return `mailto:${email}?subject=${encodeURIComponent(m.subject)}&body=${encodeURIComponent(
+    m.body
+  )}`;
+}
 
 // ============================================================================
 // Page /spota — jeu social de repérage quotidien (EN / FR / ES).
@@ -997,7 +1021,7 @@ export const builderText: Record<
       },
     ],
     contactLead: "Curious, or want it on your codebase?",
-    contactCta: "Get in touch",
+    contactCta: "Ask for access",
     backHome: "Back to the portfolio",
   },
   fr: {
@@ -1028,7 +1052,7 @@ export const builderText: Record<
       },
     ],
     contactLead: "Envie des détails, ou de l'essayer sur ton code ?",
-    contactCta: "Me contacter",
+    contactCta: "Demander l'accès",
     backHome: "Retour au portfolio",
   },
   es: {
@@ -1059,7 +1083,7 @@ export const builderText: Record<
       },
     ],
     contactLead: "¿Quieres los detalles, o probarlo en tu código?",
-    contactCta: "Contactarme",
+    contactCta: "Pedir acceso",
     backHome: "Volver al portafolio",
   },
 };

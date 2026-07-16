@@ -4,6 +4,7 @@ import Link from "next/link";
 import { profile } from "../data/content";
 import { introText } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
+import { fireConfetti } from "../lib/confetti";
 
 export function Hero() {
   const { locale, t } = useLocale();
@@ -19,7 +20,12 @@ export function Hero() {
         {introText[locale]}
       </p>
       <div className="mt-10 flex flex-wrap gap-3">
-        <a id="cta-getintouch" href={`mailto:${profile.email}`} className="btn-accent">
+        <a
+          id="cta-getintouch"
+          href={`mailto:${profile.email}`}
+          className="btn-accent"
+          onClick={(e) => fireConfetti(e.currentTarget)}
+        >
           {t.getInTouch}
         </a>
         <a
@@ -27,6 +33,7 @@ export function Hero() {
           target="_blank"
           rel="noopener noreferrer"
           className="btn-ghost"
+          onClick={(e) => fireConfetti(e.currentTarget)}
         >
           LinkedIn
         </a>
@@ -35,6 +42,7 @@ export function Hero() {
           target="_blank"
           rel="noopener noreferrer"
           className="btn-ghost"
+          onClick={(e) => fireConfetti(e.currentTarget)}
         >
           GitHub
         </a>

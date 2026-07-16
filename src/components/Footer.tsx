@@ -1,6 +1,7 @@
 "use client";
 
 import { profile } from "../data/content";
+import { fireConfetti } from "../lib/confetti";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -20,13 +21,29 @@ export function Footer() {
             className="flex flex-wrap gap-4 text-xs mt-3"
             style={{ color: "var(--text-muted)" }}
           >
-            <a href={`mailto:${profile.email}`} className="hover:underline">
+            <a
+              href={`mailto:${profile.email}`}
+              className="hover:underline"
+              onClick={(e) => fireConfetti(e.currentTarget)}
+            >
               Email
             </a>
-            <a href={profile.links.linkedin} target="_blank" rel="noopener noreferrer" className="hover:underline">
+            <a
+              href={profile.links.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+              onClick={(e) => fireConfetti(e.currentTarget)}
+            >
               LinkedIn
             </a>
-            <a href={profile.links.github} target="_blank" rel="noopener noreferrer" className="hover:underline">
+            <a
+              href={profile.links.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+              onClick={(e) => fireConfetti(e.currentTarget)}
+            >
               GitHub
             </a>
           </div>

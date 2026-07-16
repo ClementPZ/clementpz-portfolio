@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { profile, recentProjects } from "../data/content";
-import { highlightText } from "../data/i18n";
+import { highlightText, accessMailtoHref } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
+import { fireConfetti } from "../lib/confetti";
 
 // Projet en vedette = Builder. Couleurs d'identité tirées des données du
 // carrousel (builder-flow), texte blanc sur le gradient comme les cartes projet.
@@ -45,7 +46,8 @@ export function Highlight() {
           </p>
           <div className="flex flex-wrap gap-3 mt-7">
             <a
-              href={`mailto:${profile.email}`}
+              href={accessMailtoHref(profile.email, locale)}
+              onClick={(e) => fireConfetti(e.currentTarget)}
               className="inline-flex items-center px-5 py-3 rounded-full text-sm font-semibold"
               style={{ background: "#ffffff", color: accent2 }}
             >

@@ -1,9 +1,9 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
-import confetti from "canvas-confetti";
+import { useEffect, useRef, useState } from "react";
 import { useLocale } from "./LocaleProvider";
 import { LanguageDropdown } from "./LanguageDropdown";
+import { fireConfetti } from "../lib/confetti";
 
 // Real visit counter via abacus (free, no auth, no backend). Each /hit call
 // increments and returns the running total. Personal namespace.
@@ -59,17 +59,8 @@ export function DisclaimerOverlay() {
     };
   }, [count]);
 
-  const burst = useCallback(() => {
-    const rect = btnRef.current?.getBoundingClientRect();
-    const x = rect ? (rect.left + rect.width / 2) / window.innerWidth : 0.5;
-    const y = rect ? (rect.top + rect.height / 2) / window.innerHeight : 0.6;
-    const colors = ["#b370c0", "#54255a", "#d3a6dd", "#f5eff6", "#7c3aed"];
-    confetti({ particleCount: 90, spread: 70, startVelocity: 42, origin: { x, y }, colors });
-    confetti({ particleCount: 40, spread: 100, startVelocity: 28, scalar: 0.9, origin: { x, y }, colors });
-  }, []);
-
   const dismiss = () => {
-    burst();
+    fireConfetti(btnRef.current);
     sessionStorage.setItem("disclaimer-seen", "1");
     // Signale aux live cursors que "Visit" a été cliqué → Carol peut entrer.
     window.dispatchEvent(new Event("disclaimer-dismissed"));

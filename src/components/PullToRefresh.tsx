@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 // iOS/Android) et révèle un message dans l'espace créé. UN message par geste,
 // séquentiel via un compteur persistant : 1er pull → 1er message, etc.
 const MESSAGES = [
-  "Hello You",
-  "You look great today",
-  "Page is charged you can stop doing this 😊",
+  "Hello You 😊",
+  "You look great today ☺️",
+  "You can stop reloading 🫶🏼",
 ];
 
 const MAX_PULL = 92;

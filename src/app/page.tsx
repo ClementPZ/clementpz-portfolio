@@ -21,8 +21,8 @@ export default function Home() {
           <Hero />
           <Stack />
           <Highlight />
-          <RecentProjects />
           <Work />
+          <RecentProjects />
         </main>
         <Footer />
         {/* Dans #page-shift (transformé → stacking context) pour que la nav

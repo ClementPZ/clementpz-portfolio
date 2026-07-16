@@ -5,8 +5,9 @@ import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { BackHome } from "./BackHome";
 import { profile } from "../data/content";
-import { builderText } from "../data/i18n";
+import { builderText, accessMailtoHref } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
+import { fireConfetti } from "../lib/confetti";
 
 export function BuilderContent() {
   const { locale } = useLocale();
@@ -51,7 +52,11 @@ export function BuilderContent() {
           style={{ background: "var(--bg-card)", border: "1px solid var(--border)" }}
         >
           <p className="text-lg font-medium">{t.contactLead}</p>
-          <a href={`mailto:${profile.email}`} className="btn-accent shrink-0">
+          <a
+            href={accessMailtoHref(profile.email, locale)}
+            onClick={(e) => fireConfetti(e.currentTarget)}
+            className="btn-accent shrink-0"
+          >
             {t.contactCta}
           </a>
         </div>
