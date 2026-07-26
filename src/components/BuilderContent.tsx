@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { BackHome } from "./BackHome";
+import { BuilderDiagram } from "./BuilderDiagram";
 import { profile } from "../data/content";
 import { builderText, accessMailtoHref } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
@@ -46,12 +47,15 @@ export function BuilderContent() {
           ))}
         </div>
 
+        <div className="mt-8">
+          <BuilderDiagram />
+        </div>
+
         {/* CTA contact */}
         <div
-          className="mt-16 rounded-2xl p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+          className="mt-16 rounded-2xl p-8 flex items-center justify-center gap-4"
           style={{ background: "var(--bg-card)", border: "1px solid var(--border)" }}
         >
-          <p className="text-lg font-medium">{t.contactLead}</p>
           <a
             href={accessMailtoHref(profile.email, locale)}
             onClick={(e) => fireConfetti(e.currentTarget)}

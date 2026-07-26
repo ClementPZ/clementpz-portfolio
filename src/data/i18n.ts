@@ -96,9 +96,9 @@ export const ui: Record<Locale, UI> = {
 
 // Intro localisée (profile.intro).
 export const introText: Record<Locale, string> = {
-  en: "Hello, I'm Clément. Product designer with 10+ years across product, design systems, and innovation. I built NRC Health's design function from scratch, now leading a team of three from research to production to analytics. A business and marketing role at Devialet, various entrepreneurial projects, and then founding a coding campus in Mexico City, shaped the business-first instinct that still drives how I lead design today.",
-  fr: "Bonjour, moi c'est Clément. Product designer avec 10+ ans entre produit, design systems et innovation. J'ai construit la fonction design de NRC Health de zéro, et je pilote aujourd'hui une équipe de trois, de la recherche à la production à l'analytics. Un rôle business et marketing chez Devialet, divers projets entrepreneuriaux, puis la création d'un campus de code à Mexico ont forgé l'instinct business-first qui guide encore ma façon de diriger le design aujourd'hui.",
-  es: "Hola, soy Clément. Product designer con más de 10 años entre producto, design systems e innovación. Construí la función de diseño de NRC Health desde cero, y hoy lidero un equipo de tres, desde la investigación hasta la producción y la analítica. Un rol de negocio y marketing en Devialet, varios proyectos emprendedores, y luego fundar un campus de código en Ciudad de México forjaron el instinto business-first que sigue guiando cómo lidero el diseño hoy.",
+  en: "Hello, I'm Clément, a product designer with 10+ years of experience across product, business, design systems and innovation. I built the design function at NRC Health (Nasdaq: NRC) from scratch, and today I lead a team of three, from research to production to analytics. My role as a sales and marketing project manager at Devialet, various entrepreneurial projects, then founding a coding campus in Mexico City shaped my business-first approach, which guides how I do product today.",
+  fr: "Bonjour, je suis Clément, Product designer avec 10+ ans d'expérience entre produit, business, design systems et innovation. J'ai monté la fonction design de NRC Health (Nasdaq: NRC) à partir de zéro et je pilote aujourd'hui une équipe de trois personnes, de la recherche à la production en passant par les analytics. Mon rôle de project manager sales et marketing chez Devialet, dans divers projets entrepreneuriaux, puis dans la création d'un campus de code à Mexico, a forgé mon approche business-first, qui guide aujourd'hui ma façon de faire du produit.",
+  es: "Hola, soy Clément, product designer con más de 10 años de experiencia entre producto, business, design systems e innovación. Construí la función de diseño de NRC Health (Nasdaq: NRC) desde cero, y hoy lidero un equipo de tres personas, desde la investigación hasta la producción pasando por los analytics. Mi rol de project manager de ventas y marketing en Devialet, varios proyectos emprendedores, y luego la creación de un campus de código en Ciudad de México forjaron mi enfoque business-first, que guía hoy mi manera de hacer producto.",
 };
 
 // Texte localisé des expériences — index aligné sur `work` dans content.ts :
@@ -296,9 +296,9 @@ export const projectText: Record<
 > = {
   en: {
     "builder-flow": {
-      tagline: "Front-end editing for non-engineers",
+      tagline: "Front-end changes, made accessible to PMs and designers",
       description:
-        "A Claude Code skill that lets a PM or designer edit an app's front-end in plain language, with design-system enforcement. Production-ready, compliant code, reviewed by engineers before merge.",
+        "A Claude Code plugin that lets a PM or designer make front-end changes to an app in plain language, while reinforcing the design system. The generated code is production-ready and ready for an engineer to review before merge.",
     },
     "couples-card": {
       tagline: "An asymmetric reveal mechanic",
@@ -348,9 +348,9 @@ export const projectText: Record<
   },
   fr: {
     "builder-flow": {
-      tagline: "Édition front-end pour les non-engineers",
+      tagline: "Le front-end rendu accessible aux PM et aux designers",
       description:
-        "Un skill Claude Code qui permet à un PM ou un designer d'éditer le front-end d'une app en langage naturel, avec enforcement du design system. Code production-ready et compliant, relu par les engineers avant merge.",
+        "Un plugin Claude Code qui permet à un PM ou un designer d'apporter des modifications au front-end d'une app en langage naturel, tout en renforçant l'usage du design system. Le code généré est production-ready et prêt pour la review d'un ingénieur avant merge.",
     },
     "couples-card": {
       tagline: "Une mécanique de révélation asymétrique",
@@ -400,9 +400,9 @@ export const projectText: Record<
   },
   es: {
     "builder-flow": {
-      tagline: "Edición front-end para non-engineers",
+      tagline: "El front-end, al alcance de PMs y diseñadores",
       description:
-        "Un skill de Claude Code que permite a un PM o diseñador editar el front-end de una app en lenguaje natural, con enforcement del design system. Código production-ready y compliant, revisado por engineers antes del merge.",
+        "Un plugin de Claude Code que permite a un PM o un diseñador aportar modificaciones al front-end de una app en lenguaje natural, reforzando el uso del design system. El código generado es production-ready y está listo para la review de un ingeniero antes del merge.",
     },
     "couples-card": {
       tagline: "Una mecánica de revelación asimétrica",
@@ -834,30 +834,30 @@ export const highlightText: Record<
   }
 > = {
   en: {
-    sectionTitle: "Monthly highlight",
+    sectionTitle: "Highlight",
     title: "Builder",
     tagline: "A Claude Code plugin",
     blurb:
-      "Builder lets non-engineers ship front-end changes that stay on the design system: a ratified token contract, changes tiered by risk, and code left review-ready for engineers.",
-    ctaPrimary: "Ask for access",
+      "The Builder plugin lets a PM or designer make front-end changes while reinforcing the design system. A ratified token contract, changes tiered by risk, and production-ready code an engineer only has to review and merge.",
+    ctaPrimary: "Contact me",
     ctaSecondary: "See details",
   },
   fr: {
-    sectionTitle: "Highlight du mois",
+    sectionTitle: "Highlight",
     title: "Builder",
     tagline: "Un plugin Claude Code",
     blurb:
-      "Builder permet aux non-ingénieurs de livrer des changements front-end fidèles au design system : un contrat de tokens ratifié, des changements par paliers de risque, et du code laissé prêt pour la review des ingénieurs.",
-    ctaPrimary: "Demander l'accès",
+      "Le plugin Builder permet à un PM ou un designer d'apporter des modifications au front-end tout en renforçant l'usage du design system. Un contrat de tokens validé, des changements classés par niveau de risque, et du code production-ready qu'un ingénieur n'a plus qu'à reviewer et à merger.",
+    ctaPrimary: "Contactez-moi",
     ctaSecondary: "Voir les détails",
   },
   es: {
-    sectionTitle: "Destacado del mes",
+    sectionTitle: "Destacado",
     title: "Builder",
     tagline: "Un plugin de Claude Code",
     blurb:
-      "Builder permite a los no ingenieros entregar cambios de front-end fieles al design system: un contrato de tokens ratificado, cambios por niveles de riesgo, y código listo para la review de los ingenieros.",
-    ctaPrimary: "Pedir acceso",
+      "El plugin Builder permite a un PM o un diseñador aportar modificaciones al front-end reforzando el uso del design system. Un contrato de tokens ratificado, cambios clasificados por nivel de riesgo, y código production-ready que un ingeniero solo tiene que revisar y mergear.",
+    ctaPrimary: "Contáctame",
     ctaSecondary: "Ver detalles",
   },
 };
@@ -866,15 +866,15 @@ export const highlightText: Record<
 export const builderAccessMail: Record<Locale, { subject: string; body: string }> = {
   en: {
     subject: "Builder, access request",
-    body: "Hey, I saw your work on the front-end builder plugin for non-engineers. I'd be interested in getting access to it. Please get in touch and let's arrange something :)",
+    body: "Hi Clément, I just came across Builder, your plugin that lets non-engineers make front-end changes while keeping the design system intact. I'd love to get access, happy to chat about it.",
   },
   fr: {
     subject: "Builder, demande d'accès",
-    body: "Salut, j'ai vu ton travail sur le plugin de front-end builder pour non-ingénieurs. J'aimerais beaucoup y avoir accès. Recontacte-moi et voyons ça ensemble :)",
+    body: "Bonjour Clément, je viens de découvrir Builder, votre plugin qui permet aux non-ingénieurs d'apporter des modifications au front-end tout en respectant le design system. J'aimerais beaucoup y avoir accès, au plaisir d'en discuter.",
   },
   es: {
     subject: "Builder, solicitud de acceso",
-    body: "Hola, vi tu trabajo en el plugin de front-end builder para no ingenieros. Me interesaría tener acceso. Escríbeme y organizamos algo :)",
+    body: "Hola Clément, acabo de descubrir Builder, su plugin que permite a los no ingenieros aportar modificaciones al front-end respetando el design system. Me encantaría tener acceso; con gusto lo comentamos.",
   },
 };
 
@@ -988,7 +988,6 @@ export const builderText: Record<
     title: string;
     intro: string;
     sections: { heading: string; body: string }[];
-    contactLead: string;
     contactCta: string;
     backHome: string;
   }
@@ -997,93 +996,194 @@ export const builderText: Record<
     kicker: "Claude Code plugin",
     title: "Builder",
     intro:
-      "A design-system enforcer for non-engineers. Describe a front-end change in plain language; Builder delivers code that stays on the system and is left review-ready for engineers.",
+      "A tool that lets non-engineers produce front-end code that is production-ready and consistent with the design system. A PM or designer describes the interface change they want, and the plugin generates the matching code, ready for an engineer to review before merge.",
     sections: [
       {
         heading: "The problem",
-        body: "Non-engineers can now generate front-end code, but it drifts: off-token colors, one-off spacing, patterns that don't match the app. Review falls back on engineers, every time.",
+        body: "PMs and designers are often the first to spot UX and UI problems, and the best placed to solve them. Today the fix goes through an engineer, or through a codegen tool that drifts fast and loses visual consistency. Builder hands that resolution back to the people whose value it is, without ever leaving the design system.",
       },
       {
         heading: "How it works",
-        body: "Builder scans the repo and extracts a token contract (DTCG). You ratify it once, and it becomes the source of truth. Every change is checked against it, on the changed lines, before anything is committed.",
+        body: "Builder scans the repo and extracts a token contract (DTCG, a standard format), validated by a human then frozen as the reference. Every change is then checked against that contract, line by line, before any commit.",
       },
       {
         heading: "Tiered by risk",
-        body: "T1 touches tokens (color, spacing, a label, a variant). T2 composes new UI from patterns already in the app. T3, anything with logic, data or auth, stops with a clean handoff for engineering. Doubt always promotes up, never down.",
+        body: "T1 covers simple changes: a color, a spacing value, a label, a variant. T2 composes new UI from patterns already in the app. T3, anything involving logic, data or auth, stops with a clean handoff for the engineer. When in doubt, it always promotes a tier up, never down.",
       },
       {
-        heading: "Three modes",
-        body: "Setup builds and ratifies the contract. Audit scores compliance without touching a file. Tweak applies one atomic change at a time, behind a write gate you approve.",
-      },
-      {
-        heading: "Status",
-        body: "V1, piloted on this very portfolio. Not public yet.",
+        heading: "The architecture",
+        body: "Builder ships as a versioned Claude Code plugin (v0.2.1), installable from a marketplace, not a homemade script. Inside: one orchestrator, three agents, one validator. The orchestrator, the skill itself, takes the plain-language request, tiers it by risk and holds the gates. The three agents only run when needed: a setup agent extracts the contract from the repo and the design system, a context agent runs a narrow scan when a change calls for it, an executor agent applies the ratified plan on the heavier changes. At the end of the chain, a deterministic validator, code and not an agent, checks every diff: nothing off-token, project lint and typecheck green.",
       },
     ],
-    contactLead: "Curious, or want it on your codebase?",
-    contactCta: "Ask for access",
+    contactCta: "Contact me",
     backHome: "Back to the portfolio",
   },
   fr: {
     kicker: "Plugin Claude Code",
     title: "Builder",
     intro:
-      "Un garde-fou de design system pour les non-ingénieurs. Décris un changement front-end en langage naturel ; Builder produit du code fidèle au système, laissé prêt pour la review des ingénieurs.",
+      "Un outil qui permet aux non-ingénieurs de produire du code front-end, production-ready et cohérent avec le design system. Un PM ou un designer décrit la modification d'interface souhaitée, et le plugin génère le code correspondant, prêt pour la review d'un ingénieur avant merge.",
     sections: [
       {
         heading: "Le problème",
-        body: "Les non-ingénieurs génèrent désormais du code front-end, mais ça dérive : couleurs hors tokens, espacements one-off, patterns qui ne collent pas à l'app. La review retombe sur les ingénieurs, à chaque fois.",
+        body: "Les PM et les designers sont souvent les premiers à repérer les problèmes d'UX et d'UI, et ceux qui savent le mieux les résoudre. Aujourd'hui l'exécution passe par un ingénieur, ou par un codegen qui dérive vite et perd la cohérence visuelle. Builder remet cette résolution entre les mains de ceux dont c'est la valeur ajoutée, sans sortir du design system.",
       },
       {
         heading: "Comment ça marche",
-        body: "Builder scanne le repo et en extrait un contrat de tokens (DTCG). Tu le ratifies une fois, il devient la source de vérité. Chaque changement est vérifié contre lui, sur les lignes modifiées, avant tout commit.",
+        body: "Builder scanne le repo et en extrait un contrat de tokens (DTCG, un format standard), validé par un humain puis figé comme référence. Chaque changement est ensuite comparé à ce contrat, ligne par ligne, avant le moindre commit.",
       },
       {
         heading: "Par paliers de risque",
-        body: "T1 touche aux tokens (couleur, espacement, un label, une variante). T2 compose du nouveau UI à partir de patterns déjà présents. T3, tout ce qui touche à la logique, aux données ou à l'auth, s'arrête avec un handoff propre pour l'engineering. Le doute fait toujours monter d'un cran, jamais descendre.",
+        body: "T1 a trait aux changements simples : une couleur, un espacement, un label, une variante. T2 compose une nouvelle UI à partir de patterns déjà présents dans l'app. T3, dès qu'il y a de la logique, de la donnée ou de l'auth, le plugin s'arrête et prépare un handoff propre pour l'ingénieur. En cas de doute, il monte toujours d'un cran, jamais l'inverse.",
       },
       {
-        heading: "Trois modes",
-        body: "Setup construit et ratifie le contrat. Audit note la conformité sans toucher un fichier. Tweak applique un changement atomique à la fois, derrière un write gate que tu approuves.",
-      },
-      {
-        heading: "Statut",
-        body: "V1, piloté sur ce portfolio même. Pas encore public.",
+        heading: "L'architecture",
+        body: "Builder est un plugin Claude Code versionné (v0.2.1), installable depuis un marketplace, pas un script maison. Dedans : un orchestrateur, trois agents, un validateur. L'orchestrateur, le skill lui-même, reçoit la demande en langage naturel, la classe par niveau de risque et tient les gates. Les trois agents ne se lancent qu'au besoin : un agent de setup extrait le contrat depuis le repo et le design system, un agent de contexte fait un scan ciblé quand une modification l'exige, un agent d'exécution applique le plan validé sur les changements les plus lourds. En bout de chaîne, un validateur déterministe, du code et pas un agent, vérifie chaque diff : rien hors tokens, lint et typecheck du projet qui passent.",
       },
     ],
-    contactLead: "Envie des détails, ou de l'essayer sur ton code ?",
-    contactCta: "Demander l'accès",
+    contactCta: "Contactez-moi",
     backHome: "Retour au portfolio",
   },
   es: {
     kicker: "Plugin de Claude Code",
     title: "Builder",
     intro:
-      "Un garante del design system para no ingenieros. Describe un cambio de front-end en lenguaje natural; Builder produce código fiel al sistema, listo para la review de los ingenieros.",
+      "Una herramienta que permite a los no ingenieros producir código front-end, production-ready y coherente con el design system. Un PM o un diseñador describe la modificación de interfaz deseada, y el plugin genera el código correspondiente, listo para la review de un ingeniero antes del merge.",
     sections: [
       {
         heading: "El problema",
-        body: "Los no ingenieros ya generan código de front-end, pero se desvía: colores fuera de tokens, espaciados one-off, patrones que no encajan con la app. La review recae en los ingenieros, cada vez.",
+        body: "Los PM y los diseñadores suelen ser los primeros en detectar los problemas de UX y de UI, y los que mejor saben resolverlos. Hoy la ejecución pasa por un ingeniero, o por un codegen que se desvía rápido y pierde la coherencia visual. Builder devuelve esa resolución a quienes aportan justamente ese valor, sin salir del design system.",
       },
       {
         heading: "Cómo funciona",
-        body: "Builder escanea el repo y extrae un contrato de tokens (DTCG). Lo ratificas una vez y se vuelve la fuente de verdad. Cada cambio se verifica contra él, en las líneas modificadas, antes de cualquier commit.",
+        body: "Builder escanea el repo y extrae un contrato de tokens (DTCG, un formato estándar), validado por un humano y fijado como referencia. Cada cambio se compara luego con ese contrato, línea por línea, antes de cualquier commit.",
       },
       {
         heading: "Por niveles de riesgo",
-        body: "T1 toca los tokens (color, espaciado, una etiqueta, una variante). T2 compone nuevo UI a partir de patrones ya presentes. T3, todo lo que toca lógica, datos o auth, se detiene con un handoff limpio para ingeniería. La duda siempre sube un nivel, nunca baja.",
+        body: "T1 cubre cambios simples: un color, un espaciado, una etiqueta, una variante. T2 compone nueva UI a partir de patrones ya presentes en la app. T3, en cuanto hay lógica, datos o auth, el plugin se detiene y prepara un handoff limpio para el ingeniero. Ante la duda, siempre sube un nivel, nunca lo contrario.",
       },
       {
-        heading: "Tres modos",
-        body: "Setup construye y ratifica el contrato. Audit puntúa el cumplimiento sin tocar un archivo. Tweak aplica un cambio atómico a la vez, tras un write gate que apruebas.",
-      },
-      {
-        heading: "Estado",
-        body: "V1, piloteado en este mismo portafolio. Aún no público.",
+        heading: "La arquitectura",
+        body: "Builder es un plugin de Claude Code versionado (v0.2.1), instalable desde un marketplace, no un script casero. Dentro: un orquestador, tres agentes, un validador. El orquestador, el skill en sí, recibe la petición en lenguaje natural, la clasifica por nivel de riesgo y sostiene los gates. Los tres agentes solo se lanzan cuando hace falta: un agente de setup extrae el contrato desde el repo y el design system, un agente de contexto hace un escaneo puntual cuando un cambio lo exige, un agente de ejecución aplica el plan validado en los cambios más pesados. Al final de la cadena, un validador determinista, código y no un agente, verifica cada diff: nada fuera de tokens, lint y typecheck del proyecto en verde.",
       },
     ],
-    contactLead: "¿Quieres los detalles, o probarlo en tu código?",
-    contactCta: "Pedir acceso",
+    contactCta: "Contáctame",
     backHome: "Volver al portafolio",
+  },
+};
+
+// ============================================================================
+// Schéma d'architecture Builder (BuilderDiagram) — textes localisés EN/FR/ES.
+// ============================================================================
+
+export const builderDiagramText: Record<
+  Locale,
+  {
+    ariaTitle: string;
+    ariaDesc: string;
+    request: string;
+    orchestrator: string;
+    orchestratorSub: string;
+    tiersLabel: string;
+    doubtLabel: string;
+    t1: string;
+    t1Sub: string;
+    t2: string;
+    t2Sub: string;
+    t3: string;
+    t3Sub: string;
+    validator: string;
+    validatorSub: string;
+    diff: string;
+    agentSetup: string;
+    agentSetupSub: string;
+    gateContract: string;
+    agentContext: string;
+    agentContextSub: string;
+    agentExec: string;
+    agentExecSub: string;
+    gateWrite: string;
+  }
+> = {
+  en: {
+    ariaTitle: "Builder architecture",
+    ariaDesc:
+      "A natural-language request goes through the orchestrator, which tiers it into three risk levels, before a deterministic validator produces a diff ready for an engineer's review. Three agents and two human gates step in as needed.",
+    request: "Natural-language request",
+    orchestrator: "Orchestrator",
+    orchestratorSub: "the skill · tiers by risk · holds the gates",
+    tiersLabel: "THREE RISK TIERS",
+    doubtLabel: "doubt promotes a tier ↑",
+    t1: "Tokens",
+    t1Sub: "color, spacing, label · direct, no agent",
+    t2: "Composition",
+    t2Sub: "a UI from existing patterns",
+    t3: "Logic · data · auth",
+    t3Sub: "STOP → engineer handoff",
+    validator: "Deterministic validator",
+    validatorSub: "code, not an agent · nothing off-token · lint · typecheck",
+    diff: "Diff ready for engineer review",
+    agentSetup: "Agent · Setup",
+    agentSetupSub: "extracts the token contract",
+    gateContract: "◆ contract ratified by a human",
+    agentContext: "Agent · Context",
+    agentContextSub: "targeted scan, as needed",
+    agentExec: "Agent · Execution",
+    agentExecSub: "applies the validated plan",
+    gateWrite: "◆ human write gate",
+  },
+  fr: {
+    ariaTitle: "Architecture de Builder",
+    ariaDesc:
+      "Une demande en langage naturel passe par l'orchestrateur, qui la classe en trois paliers de risque, avant un validateur déterministe qui produit un diff prêt pour la review d'un ingénieur. Trois agents et deux gates humaines interviennent au besoin.",
+    request: "Demande en langage naturel",
+    orchestrator: "Orchestrateur",
+    orchestratorSub: "le skill · classe par palier · tient les gates",
+    tiersLabel: "TROIS PALIERS DE RISQUE",
+    doubtLabel: "le doute monte d'un cran ↑",
+    t1: "Tokens",
+    t1Sub: "couleur, espacement, label · en direct, sans agent",
+    t2: "Composition",
+    t2Sub: "une UI à partir des patterns existants",
+    t3: "Logique · données · auth",
+    t3Sub: "STOP → handoff ingénieur",
+    validator: "Validateur déterministe",
+    validatorSub: "du code, pas un agent · rien hors tokens · lint · typecheck",
+    diff: "Diff prêt pour la review ingénieur",
+    agentSetup: "Agent · Setup",
+    agentSetupSub: "extrait le contrat de tokens",
+    gateContract: "◆ contrat ratifié par un humain",
+    agentContext: "Agent · Contexte",
+    agentContextSub: "scan ciblé, au besoin",
+    agentExec: "Agent · Exécution",
+    agentExecSub: "applique le plan validé",
+    gateWrite: "◆ write gate humaine",
+  },
+  es: {
+    ariaTitle: "Arquitectura de Builder",
+    ariaDesc:
+      "Una petición en lenguaje natural pasa por el orquestador, que la clasifica en tres niveles de riesgo, antes de un validador determinista que produce un diff listo para la review de un ingeniero. Tres agentes y dos gates humanas intervienen cuando hace falta.",
+    request: "Petición en lenguaje natural",
+    orchestrator: "Orquestador",
+    orchestratorSub: "el skill · clasifica por nivel · sostiene los gates",
+    tiersLabel: "TRES NIVELES DE RIESGO",
+    doubtLabel: "la duda sube un nivel ↑",
+    t1: "Tokens",
+    t1Sub: "color, espaciado, label · en directo, sin agente",
+    t2: "Composición",
+    t2Sub: "una UI a partir de patrones existentes",
+    t3: "Lógica · datos · auth",
+    t3Sub: "STOP → handoff ingeniero",
+    validator: "Validador determinista",
+    validatorSub: "código, no un agente · nada fuera de tokens · lint · typecheck",
+    diff: "Diff listo para la review de ingeniería",
+    agentSetup: "Agente · Setup",
+    agentSetupSub: "extrae el contrato de tokens",
+    gateContract: "◆ contrato ratificado por un humano",
+    agentContext: "Agente · Contexto",
+    agentContextSub: "escaneo puntual, si hace falta",
+    agentExec: "Agente · Ejecución",
+    agentExecSub: "aplica el plan validado",
+    gateWrite: "◆ write gate humana",
   },
 };
