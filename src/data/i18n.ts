@@ -47,11 +47,11 @@ export const ui: Record<Locale, UI> = {
   en: {
     getInTouch: "Get in touch",
     stackTitle: "My day-to-day stack",
-    workTitle: "IC & Management experiences",
+    workTitle: "Experiences",
     impactLabel: "Business impact",
     recentTitle: "Past 6 months side projects",
     recentSub:
-      "Side projects in flight. The goal: push each one to a solid first version.",
+      "Side projects in progress, each pushed toward a solid first version.",
     recoTitle: "Recommendations",
     overlayTitle: "This portfolio is under construction, but already online.",
     overlayBodyPre: "You're the",
@@ -63,11 +63,11 @@ export const ui: Record<Locale, UI> = {
   fr: {
     getInTouch: "Me contacter",
     stackTitle: "Ma stack au quotidien",
-    workTitle: "Expériences salariales",
+    workTitle: "Expériences",
     impactLabel: "Impact business",
     recentTitle: "Side projects des 6 derniers mois",
     recentSub:
-      "Side projects en cours. L'objectif : pousser chacun jusqu'à une première version solide.",
+      "Des side projects en cours, chacun poussé vers une première version solide.",
     recoTitle: "Recommandations",
     overlayTitle: "Ce portfolio est en construction, mais déjà en ligne.",
     overlayBodyPre: "Vous êtes la",
@@ -79,11 +79,11 @@ export const ui: Record<Locale, UI> = {
   es: {
     getInTouch: "Contactarme",
     stackTitle: "Mi stack del día a día",
-    workTitle: "Experiencia profesional",
+    workTitle: "Experiencias",
     impactLabel: "Impacto de negocio",
     recentTitle: "Side projects de los últimos 6 meses",
     recentSub:
-      "Proyectos en marcha. El objetivo: llevar cada uno a una primera versión sólida.",
+      "Side projects en marcha, cada uno llevado hacia una primera versión sólida.",
     recoTitle: "Recomendaciones",
     overlayTitle: "Este portafolio está en construcción, pero ya en línea.",
     overlayBodyPre: "Eres la",
@@ -111,27 +111,18 @@ export const workText: Record<
     nrc: {
       role: "Product Design Lead",
       bullets: [
-        "Built NRC's first product design team from scratch (two designers + a senior UX/data researcher) across all four product suites.",
-        "Created a multi-product design system (tokens, NRC semantic layer on Flowbite) with AI-assisted design-to-code tooling for non-engineers.",
-        "Led the design of AI features: the Huey in-app assistant and an ambient-listening tool.",
-        "Owned the design roadmap and stood up the team's first analytics practice.",
-      ],
-      impact: [
-        "Nurse-rounding documentation 55% → 90% (ambient-listening)",
-        "+24% outreach-email CTR (research-led A/B testing)",
+        "Recruited and led NRC Health's first Design team, two Product Designers and an Analytics Specialist, serving all four product suites: Consumer, Patient, Market Insights and Employee Experience.",
+        "Created a multi-product design system, design tokens and a Flowbite-based semantic layer, unifying the experience across every product and bridging design with a multi-stack production environment (Angular, React, legacy). Built an AI-assisted design-to-code workflow that lets non-technical profiles ship UX/UI changes safely.",
+        "Led the design of the company's core AI features, notably the Huey conversational assistant, its product-embedded features and an ambient-listening tool that raised nurse documentation from 55% to 90%.",
+        "Set up the product team's analytics approach with Product, Engineering and C-level, validating design decisions through research and A/B testing, e.g. +24% CTR on email outreach.",
       ],
     },
     episource: {
       role: "Senior → Lead Product Designer · Design System",
       bullets: [
-        "Led design of the AI-assisted NLP coding interface (Click to Code) from alpha to full production, including a V2.0 redesign.",
-        "Established Figma component libraries and integrated design tokens to React/TypeScript production.",
-        "Led Provider Direct Messaging, a bi-directional EHR integration piloted with UHC.",
-        "Promoted to Lead after 12 months, across 6+ products.",
-      ],
-      impact: [
-        "88% acceptance · 80% satisfaction (V2.0, 897 users)",
-        "Core enabler of autocoding targeting 500–750k charts/year",
+        "Coordinated user research across several products: MCC/epiCoder, epiAnalyst, epiEncounter and HRA. Promoted to Lead Product Designer after 12 months.",
+        "Contributed to the design-system rollout across the whole product suite (Q4 2021 - Q2 2022), building the Figma component libraries and integrating design tokens into production. Then owned Provider Direct Messaging, a bi-directional EHR integration built with UHC and piloted for Q1 2024.",
+        "Led the Click to Code medical autocoding project, an NLP-based AI coding interface, from alpha to production (Q1 2022). A major V2.0 redesign, validated with 897 users, reached 88% acceptance and 80% satisfaction, and became a pillar of Episource's autocoding strategy, targeting 500,000-750,000 charts a year.",
       ],
     },
     seif: {
@@ -159,7 +150,7 @@ export const workText: Record<
       ],
     },
     devialet: {
-      role: "Project Manager — Retail & Flagship Europe",
+      role: "Project Manager · Retail & Flagship Europe",
       bullets: [
         "Launched the Paris flagship store.",
         "Deployed concept stores across Europe.",
@@ -171,59 +162,50 @@ export const workText: Record<
     nrc: {
       role: "Product Design Lead",
       bullets: [
-        "Construit la première équipe design produit de NRC, de zéro (deux designers + un senior UX/data researcher) sur les quatre suites produits.",
-        "Créé un design system multi-produits (tokens, couche sémantique NRC sur Flowbite) avec un outillage AI-to-code pour les non-engineers.",
-        "Piloté le design des features IA : l'assistant in-app Huey et un outil d'écoute ambiante.",
-        "Porté la roadmap design et lancé la première pratique analytics de l'équipe.",
-      ],
-      impact: [
-        "Documentation infirmière 55% → 90% (écoute ambiante)",
-        "+24% de CTR sur les emails outreach (A/B testing par la recherche)",
+        "Recrutement et management de la première équipe Design de NRC Health, composée de deux Product Designers et d'un Analytics Specialist, au service des quatre suites produits : Consumer, Patient, Market Insights et Employee Experience.",
+        "Création d'un design system multi-produits, de design tokens et d'une semantic layer basée sur Flowbite, unifiant l'expérience utilisateur à travers l'ensemble des produits et assurant le lien entre le design et un environnement de production multi-stack (Angular, React, legacy). Développement d'un workflow design-to-code assisté par IA permettant à des profils non techniques de déployer des évolutions UX/UI en toute sécurité.",
+        "Pilotage de la conception des principales fonctionnalités IA de l'entreprise, notamment l'assistant conversationnel Huey, les features structurellement intégrées aux produits et un outil d'ambient listening ayant permis d'augmenter le taux de documentation des infirmières de 55 % à 90 %.",
+        "Mise en place de l'approche analytics de l'équipe produit, en collaboration avec les équipes Produit, Engineering et C-level. Validation des décisions de conception via une approche research-driven et des A/B tests. Ex : +24 % de CTR sur les campagnes d'outreach par email.",
       ],
     },
     episource: {
       role: "Senior → Lead Product Designer · Design System",
       bullets: [
-        "Piloté le design de l'interface de codage NLP assistée par IA (Click to Code), de l'alpha à la production, dont une refonte V2.0.",
-        "Établi les bibliothèques de composants Figma et intégré les design tokens en production React/TypeScript.",
-        "Dirigé Provider Direct Messaging, une intégration EHR bidirectionnelle pilotée avec UHC.",
-        "Promu Lead après 12 mois, sur 6+ produits.",
-      ],
-      impact: [
-        "88% d'acceptation · 80% de satisfaction (V2.0, 897 users)",
-        "Catalyseur d'un autocoding visant 500–750k dossiers/an",
+        "Coordination de la recherche utilisateur à l'échelle de plusieurs produits : MCC/epiCoder, epiAnalyst, epiEncounter et HRA. Promotion au poste de Lead Product Designer après 12 mois.",
+        "Contribution au déploiement du design system sur l'ensemble de la suite produit (Q4 2021 - Q2 2022), avec la création de bibliothèques de composants Figma et l'intégration de design tokens dans l'environnement de production. Prise en charge par la suite de la conception de Provider Direct Messaging, une intégration EHR bidirectionnelle développée avec UHC et déployée en pilote pour Q1 2024.",
+        "Pilotage du projet d'autocoding médical Click to Code, l'interface de coding assistée par IA reposant sur le NLP, depuis l'alpha jusqu'à la mise en production (Q1 2022). Refonte majeure (V2.0) validée auprès de 897 utilisateurs, atteignant 88 % d'acceptation et 80 % de satisfaction. Cette fonctionnalité est devenue un pilier de la stratégie d'autocoding d'Episource, avec un objectif de traitement de 500 000 à 750 000 dossiers par an.",
       ],
     },
     seif: {
       role: "Product Designer · Design System · Chef de projet",
       bullets: [
-        "Défini et positionné les produits blockchain/fintech avec le CEO et le CTO.",
-        "Conçu des interfaces PWA conversationnelles : KYC, paiements, explorateur blockchain, dashboards.",
-        "Construit l'UI kit et le design system de zéro.",
+        "Définition et positionnement des produits blockchain/fintech avec le CEO et le CTO.",
+        "Conception d'interfaces PWA conversationnelles : KYC, paiements, explorateur blockchain, dashboards.",
+        "Construction de l'UI kit et du design system à partir de zéro.",
       ],
     },
     lewagon: {
       role: "Fondateur · Enseignant Product Design · Business Development",
       bullets: [
-        "Lancé le campus Le Wagon de Mexico, le premier d'Amérique latine.",
-        "Sécurisé 15 partenaires commerciaux (ITAM, Start-Up Mexico, Numa).",
-        "Enseigné les fondamentaux UI/UX sur 4 promotions.",
+        "Lancement du campus Le Wagon de Mexico, le premier d'Amérique latine.",
+        "Signature de 15 partenaires commerciaux, dont ITAM, Start-Up Mexico et Numa.",
+        "Enseignement des fondamentaux UI/UX sur 4 promotions.",
       ],
       impact: ["4 promotions · 40 étudiants · 15 produits web livrés"],
     },
     welcomhere: {
       role: "Co-fondateur · Product & Business Development",
       bullets: [
-        "Co-fondé une plateforme de relocation pour migrants.",
-        "Porté la définition produit, les pitchs, la levée de fonds et les partenariats.",
+        "Co-fondation d'une plateforme de relocation pour migrants.",
+        "Prise en charge de la définition produit, des pitchs, de la levée de fonds et des partenariats.",
       ],
     },
     devialet: {
-      role: "Chef de projet — Retail & Flagship Europe",
+      role: "Chef de projet · Retail & Flagship Europe",
       bullets: [
-        "Lancé le flagship store parisien.",
-        "Déployé les concept stores à travers l'Europe.",
-        "Porté les opérations retail et l'expérience client premium.",
+        "Lancement du flagship store parisien.",
+        "Déploiement des concept stores à travers l'Europe.",
+        "Prise en charge des opérations retail et de l'expérience client premium.",
       ],
     },
   },
@@ -231,27 +213,18 @@ export const workText: Record<
     nrc: {
       role: "Product Design Lead",
       bullets: [
-        "Construí el primer equipo de diseño de producto de NRC, desde cero (dos diseñadores + un senior UX/data researcher) en las cuatro suites de producto.",
-        "Creé un design system multi-producto (tokens, capa semántica NRC sobre Flowbite) con herramientas AI-to-code para non-engineers.",
-        "Lideré el diseño de funciones de IA: el asistente in-app Huey y una herramienta de escucha ambiental.",
-        "Dirigí la roadmap de diseño y lancé la primera práctica de analítica del equipo.",
-      ],
-      impact: [
-        "Documentación de enfermería 55% → 90% (escucha ambiental)",
-        "+24% de CTR en emails de outreach (A/B testing basado en investigación)",
+        "Contraté y gestioné el primer equipo de Diseño de NRC Health, formado por dos Product Designers y un Analytics Specialist, al servicio de las cuatro suites de producto: Consumer, Patient, Market Insights y Employee Experience.",
+        "Creé un design system multi-producto, design tokens y una semantic layer basada en Flowbite, unificando la experiencia de usuario en todos los productos y conectando el diseño con un entorno de producción multi-stack (Angular, React, legacy). Desarrollé un workflow design-to-code asistido por IA que permite a perfiles no técnicos desplegar cambios de UX/UI con total seguridad.",
+        "Dirigí el diseño de las principales funcionalidades de IA de la empresa, en particular el asistente conversacional Huey, sus features integradas en los productos y una herramienta de ambient listening que elevó la documentación de enfermería del 55 % al 90 %.",
+        "Implementé el enfoque analytics del equipo de producto, en colaboración con los equipos de Producto, Engineering y C-level. Validé las decisiones de diseño mediante investigación y A/B testing. Ej.: +24 % de CTR en campañas de outreach por email.",
       ],
     },
     episource: {
       role: "Senior → Lead Product Designer · Design System",
       bullets: [
-        "Lideré el diseño de la interfaz de codificación NLP asistida por IA (Click to Code), de alpha a producción, con un rediseño V2.0.",
-        "Establecí las bibliotecas de componentes en Figma e integré design tokens en producción React/TypeScript.",
-        "Dirigí Provider Direct Messaging, una integración EHR bidireccional piloteada con UHC.",
-        "Promovido a Lead tras 12 meses, en más de 6 productos.",
-      ],
-      impact: [
-        "88% de aceptación · 80% de satisfacción (V2.0, 897 usuarios)",
-        "Habilitador clave de autocoding para 500–750k historiales/año",
+        "Coordiné la investigación de usuario a escala de varios productos: MCC/epiCoder, epiAnalyst, epiEncounter y HRA. Fui ascendido a Lead Product Designer tras 12 meses.",
+        "Contribuí al despliegue del design system en toda la suite de producto (Q4 2021 - Q2 2022), creando las bibliotecas de componentes en Figma e integrando design tokens en el entorno de producción. Después me hice cargo del diseño de Provider Direct Messaging, una integración EHR bidireccional desarrollada con UHC y piloteada para Q1 2024.",
+        "Dirigí el proyecto de autocoding médico Click to Code, la interfaz de coding asistida por IA basada en NLP, desde el alpha hasta producción (Q1 2022). Un rediseño mayor (V2.0), validado con 897 usuarios, alcanzó 88 % de aceptación y 80 % de satisfacción, y se volvió un pilar de la estrategia de autocoding de Episource, con un objetivo de 500 000 a 750 000 historiales al año.",
       ],
     },
     seif: {
@@ -279,7 +252,7 @@ export const workText: Record<
       ],
     },
     devialet: {
-      role: "Project Manager — Retail & Flagship Europa",
+      role: "Project Manager · Retail & Flagship Europa",
       bullets: [
         "Lancé la flagship store de París.",
         "Desplegué concept stores por toda Europa.",
@@ -328,7 +301,7 @@ export const projectText: Record<
     "interior-design": {
       tagline: "My apartment, designed in public",
       description:
-        "The ongoing interior design of my apartment — inspirations from Verner Panton, Tadao Ando and Jean-Pierre Garrauld. A dedicated page where visitors upvote the photos, bumping the best ones to the top.",
+        "The ongoing interior design of my apartment, with inspirations from Verner Panton, Tadao Ando and Jean-Pierre Garrauld. A dedicated page where visitors upvote the photos, bumping the best ones to the top.",
     },
     spota: {
       tagline: "Spot a ___, every day",
@@ -365,7 +338,7 @@ export const projectText: Record<
     "job-search": {
       tagline: "Une interface France Travail épurée",
       description:
-        "Une interface épurée par-dessus l'API France Travail : recherche par commune, filtres, cartes d'offres. Proxy Cloudflare Worker pour l'OAuth et le cache.",
+        "Une interface allégée par-dessus l'API France Travail : recherche par commune, filtres, cartes d'offres. Proxy Cloudflare Worker pour l'OAuth et le cache.",
     },
     "graphic-history": {
       tagline: "Une vue chronologique des mouvements",
@@ -380,12 +353,12 @@ export const projectText: Record<
     "interior-design": {
       tagline: "Mon appartement, designé en public",
       description:
-        "Le design d'intérieur en cours de mon appartement — inspirations Verner Panton, Tadao Ando et Jean-Pierre Garrauld. Une page dédiée où les visiteurs upvotent les photos, faisant remonter les meilleures.",
+        "Le design d'intérieur en cours de mon appartement, inspiré de Verner Panton, Tadao Ando et Jean-Pierre Garrauld. Une page dédiée où les visiteurs upvotent les photos, faisant remonter les meilleures.",
     },
     spota: {
-      tagline: "Repère un ___, chaque jour",
+      tagline: "Repérez un ___, chaque jour",
       description:
-        "Un jeu social entre potes. Un défi par jour : repère un ___. Trouve-le dans la vraie vie, capture-le avec les deux caméras à la fois (la cible et ta tête), et poste. Tu ne vois les spots des autres qu'une fois le tien posté.",
+        "Un jeu social entre potes. Un défi par jour : repérez un ___. Trouvez-le dans la vraie vie, capturez-le avec les deux caméras à la fois (la cible et votre visage), et postez. Vous ne voyez les spots des autres qu'une fois le vôtre posté.",
     },
     "making-of": {
       tagline: "Le portfolio, expliqué par lui-même",
@@ -432,12 +405,12 @@ export const projectText: Record<
     "interior-design": {
       tagline: "Mi apartamento, diseñado en público",
       description:
-        "El diseño interior en curso de mi apartamento — inspiraciones de Verner Panton, Tadao Ando y Jean-Pierre Garrauld. Una página dedicada donde los visitantes votan las fotos, subiendo las mejores.",
+        "El diseño interior en curso de mi apartamento, inspirado en Verner Panton, Tadao Ando y Jean-Pierre Garrauld. Una página dedicada donde los visitantes votan las fotos, subiendo las mejores.",
     },
     spota: {
-      tagline: "Encuentra un ___, cada día",
+      tagline: "Encuentre un ___, cada día",
       description:
-        "Un juego social entre amigos. Un reto al día: encuentra un ___. Búscalo en la vida real, captúralo con las dos cámaras a la vez (el objetivo y tu cara), y publícalo. Solo ves los spots de los demás cuando ya has publicado el tuyo.",
+        "Un juego social entre amigos. Un reto al día: encuentre un ___. Búsquelo en la vida real, captúrelo con las dos cámaras a la vez (el objetivo y su cara), y publíquelo. Solo ve los spots de los demás cuando ya ha publicado el suyo.",
     },
     "making-of": {
       tagline: "El portafolio, explicado por sí mismo",
@@ -929,19 +902,19 @@ export const spotaText: Record<
     kicker: "Jeu social",
     title: "SpotA",
     intro:
-      "Un jeu de repérage quotidien entre potes. Un défi, les deux caméras, et rien à voir tant que tu n'as pas posté.",
+      "Un jeu de repérage quotidien entre potes. Un défi, les deux caméras, et rien à voir tant que vous n'avez pas posté.",
     sections: [
       {
         heading: "L'idée",
-        body: "Un défi par jour, le même pour tout le groupe : repère un ___. Pas de feed à scroller, pas de score à farmer. Tu as la journée pour trouver la chose dans la vraie vie.",
+        body: "Un défi par jour, le même pour tout le groupe : repérez un ___. Pas de feed à scroller, pas de score à farmer. Vous avez la journée pour trouver la chose dans la vraie vie.",
       },
       {
         heading: "La mécanique",
-        body: "Les deux caméras s'enchaînent : l'arrière pour la cible, l'avant pour ta tête. Elles se composent en une seule image, prise en direct, sans import galerie. Le feed est gaté : tu ne vois les spots des autres qu'après avoir posté le tien.",
+        body: "Les deux caméras s'enchaînent : l'arrière pour la cible, l'avant pour votre visage. Elles se composent en une seule image, prise en direct, sans import galerie. Le feed est gaté : vous ne voyez les spots des autres qu'après avoir posté le vôtre.",
       },
       {
         heading: "Comment c'est construit",
-        body: "Flutter, un seul codebase iOS et Android. Supabase pour Postgres, le Storage et l'auth anonyme : pas de compte, tu rejoins un groupe avec un code. Pas de push ni de realtime dans le MVP, le feed se rafraîchit au pull. Bucket privé et URLs signées, le public étant 13+.",
+        body: "Flutter, un seul codebase iOS et Android. Supabase pour Postgres, le Storage et l'auth anonyme : pas de compte, vous rejoignez un groupe avec un code. Pas de push ni de realtime dans le MVP, le feed se rafraîchit au pull. Bucket privé et URLs signées, le public étant 13+.",
       },
       {
         heading: "Périmètre et statut",
@@ -954,19 +927,19 @@ export const spotaText: Record<
     kicker: "Juego social",
     title: "SpotA",
     intro:
-      "Un juego de búsqueda diario entre amigos. Un reto, las dos cámaras, y nada que ver hasta que hayas publicado.",
+      "Un juego de búsqueda diario entre amigos. Un reto, las dos cámaras, y nada que ver hasta que haya publicado.",
     sections: [
       {
         heading: "La idea",
-        body: "Un reto al día, el mismo para todo el grupo: encuentra un ___. Sin feed que scrollear, sin puntos que farmear. Tienes el día para encontrar la cosa en la vida real.",
+        body: "Un reto al día, el mismo para todo el grupo: encuentre un ___. Sin feed que scrollear, sin puntos que farmear. Tiene el día para encontrar la cosa en la vida real.",
       },
       {
         heading: "La mecánica",
-        body: "Las dos cámaras se encadenan: la trasera para el objetivo, la delantera para tu cara. Se componen en una sola imagen, tomada en directo, sin importar de la galería. El feed está gateado: solo ves los spots de los demás después de publicar el tuyo.",
+        body: "Las dos cámaras se encadenan: la trasera para el objetivo, la delantera para su cara. Se componen en una sola imagen, tomada en directo, sin importar de la galería. El feed está gateado: solo ve los spots de los demás después de publicar el suyo.",
       },
       {
         heading: "Cómo está construido",
-        body: "Flutter, un solo codebase para iOS y Android. Supabase para Postgres, Storage y auth anónima: sin cuenta, entras a un grupo con un código. Sin push ni realtime en el MVP, el feed se refresca al tirar. Bucket privado y URLs firmadas, ya que el público es 13+.",
+        body: "Flutter, un solo codebase para iOS y Android. Supabase para Postgres, Storage y auth anónima: sin cuenta, entra a un grupo con un código. Sin push ni realtime en el MVP, el feed se refresca al tirar. Bucket privado y URLs firmadas, ya que el público es 13+.",
       },
       {
         heading: "Alcance y estado",
@@ -1186,4 +1159,15 @@ export const builderDiagramText: Record<
     agentExecSub: "aplica el plan validado",
     gateWrite: "◆ write gate humana",
   },
+};
+
+// ============================================================================
+// Démo interactive Builder (BuilderDemo) — libellés localisés. Le contenu du
+// terminal (commandes, logs) reste en anglais, convention CLI.
+// ============================================================================
+
+export const builderDemoText: Record<Locale, { hint: string }> = {
+  en: { hint: "Setup runs on scroll; Audit and Tweak on tap." },
+  fr: { hint: "Setup se lance au scroll ; Audit et Tweak au clic." },
+  es: { hint: "Setup corre al hacer scroll; Audit y Tweak al hacer clic." },
 };

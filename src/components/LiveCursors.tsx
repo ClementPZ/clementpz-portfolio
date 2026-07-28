@@ -201,10 +201,10 @@ export function LiveCursors() {
       if (SHOW_EXTRA_CURSORS) {
         animateTo(stefanRef.current, "mode-toggle", { x: 0.12, y: 0.26 }, 600, 3500);
       }
-      // Carol traverse jusqu'au CTA "Get in touch" et y reste ancrée (suit le
-      // bouton au scroll au lieu de disparaître). Entrée depuis la droite pour
-      // un axe de déplacement diagonal net vers le CTA.
-      animateTo(carolinoRef.current, "cta-getintouch", { x: 0.82, y: 0.62 }, 200, 2000, true);
+      // Carol traverse jusqu'au widget "Comment ce portfolio a été construit"
+      // et y reste ancrée (suit le bouton au scroll au lieu de disparaître).
+      // Entrée depuis la droite pour un axe de déplacement diagonal net.
+      animateTo(carolinoRef.current, "cta-makingof", { x: 0.82, y: 0.62 }, 200, 2000, true);
     };
 
     let alreadySeen = false;

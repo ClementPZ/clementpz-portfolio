@@ -46,8 +46,9 @@ export function Hero() {
         >
           GitHub
         </a>
-        {/* Widget méta : mène au making of, aligné sur les autres CTAs */}
-        <Link href="/making-of" className="btn-ghost">
+        {/* Widget méta : mène au making of, aligné sur les autres CTAs.
+            id = cible d'ancrage du curseur Carol (LiveCursors). */}
+        <Link href="/making-of" id="cta-makingof" className="btn-ghost">
           {t.makingOfWidget}
           <span aria-hidden style={{ color: "var(--text-muted)" }}>
             →

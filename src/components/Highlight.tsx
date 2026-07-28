@@ -5,6 +5,7 @@ import { profile, recentProjects } from "../data/content";
 import { highlightText, accessMailtoHref } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
 import { fireConfetti } from "../lib/confetti";
+import { BuilderDemo } from "./BuilderDemo";
 
 // Projet en vedette = Builder. Couleurs d'identité tirées des données du
 // carrousel (builder-flow), texte blanc sur le gradient comme les cartes projet.
@@ -26,7 +27,7 @@ export function Highlight() {
         <h2 className="font-display text-2xl sm:text-3xl font-bold">{t.sectionTitle}</h2>
       </div>
       <div
-        className="rounded-2xl overflow-hidden grid md:grid-cols-2 gap-8 p-8 sm:p-10"
+        className="rounded-2xl overflow-hidden p-8 sm:p-10"
         style={{
           background: `linear-gradient(150deg, ${accent} 0%, ${accent2} 100%)`,
           color: "#ffffff",
@@ -44,41 +45,29 @@ export function Highlight() {
           <p className="text-base leading-relaxed mt-5" style={{ color: "rgba(255,255,255,0.78)" }}>
             {t.blurb}
           </p>
-          <div className="flex flex-wrap gap-3 mt-7">
-            <a
-              href={accessMailtoHref(profile.email, locale)}
-              onClick={(e) => fireConfetti(e.currentTarget)}
-              className="inline-flex items-center px-5 py-3 rounded-full text-sm font-semibold"
-              style={{ background: "#ffffff", color: accent2 }}
-            >
-              {t.ctaPrimary}
-            </a>
-            <Link
-              href="/builder"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold"
-              style={{ border: "1px solid rgba(255,255,255,0.5)", color: "#ffffff" }}
-            >
-              {t.ctaSecondary}
-              <span aria-hidden>→</span>
-            </Link>
-          </div>
         </div>
 
-        {/* Visuel — placeholder (remplaçable par une image plus tard) */}
-        <div
-          className="relative rounded-xl min-h-[220px] flex items-center justify-center"
-          style={{
-            background:
-              "linear-gradient(160deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.03) 100%)",
-            border: "1px solid rgba(255,255,255,0.18)",
-          }}
-        >
-          <span
-            className="font-display font-extrabold"
-            style={{ fontSize: "clamp(72px, 12vw, 132px)", color: "rgba(255,255,255,0.9)", lineHeight: 1 }}
+        <div className="mt-8">
+          <BuilderDemo />
+        </div>
+
+        <div className="flex flex-wrap gap-3 mt-8">
+          <a
+            href={accessMailtoHref(profile.email, locale)}
+            onClick={(e) => fireConfetti(e.currentTarget)}
+            className="inline-flex items-center px-5 py-3 rounded-full text-sm font-semibold"
+            style={{ background: "#ffffff", color: accent2 }}
           >
-            B
-          </span>
+            {t.ctaPrimary}
+          </a>
+          <Link
+            href="/builder"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold"
+            style={{ border: "1px solid rgba(255,255,255,0.5)", color: "#ffffff" }}
+          >
+            {t.ctaSecondary}
+            <span aria-hidden>→</span>
+          </Link>
         </div>
       </div>
     </section>
