@@ -82,7 +82,7 @@ export function BuilderDemo({ trigger }: { trigger: number }) {
 
   return (
     <div
-      className="rounded-xl overflow-hidden font-mono text-[13px] leading-relaxed"
+      className="w-full rounded-xl overflow-hidden font-mono text-[13px] leading-relaxed"
       style={{
         background: "rgba(10,6,14,0.55)",
         border: "1px solid rgba(255,255,255,0.16)",

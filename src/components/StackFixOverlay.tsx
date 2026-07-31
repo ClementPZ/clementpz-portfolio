@@ -4,7 +4,12 @@
 // (.overlay-root/.overlay-glass) et le langage terminal de BuilderDemo, mais
 // en tokens de thème (l'overlay vit sur la page, pas sur une carte à couleurs
 // fixes) : dark/light doivent tous les deux marcher.
+// Rendu via portail dans document.body : #page-shift (PullToRefresh) porte un
+// transform qui devient containing block des descendants position:fixed, donc
+// un overlay monté à l'intérieur se centre sur la hauteur de page entière, pas
+// le viewport visible (cf. piège documenté dans CLAUDE.md / LiveCursors.stick).
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { useLocale } from "./LocaleProvider";
 import { stackEggText } from "../data/i18n";
 
@@ -63,7 +68,7 @@ export function StackFixOverlay({
   const lines = SCRIPT.slice(0, count);
   const finished = count >= SCRIPT.length;
 
-  return (
+  return createPortal(
     <div className="overlay-root" role="dialog" aria-modal="true" aria-label={t.badge}>
       <div className="overlay-glass" style={{ maxWidth: 480 }}>
         <p
@@ -145,6 +150,7 @@ export function StackFixOverlay({
           </button>
         )}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

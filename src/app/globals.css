@@ -611,6 +611,10 @@ a {
    scopé à #stack pour ne pas toucher .pill ailleurs (music-downloader, PTR).
    ============================================================================ */
 
+#stack .pill[data-fixed="true"] {
+  cursor: default;
+}
+
 #stack .pill[data-fixed="true"]:hover {
   border-color: var(--border);
 }
