@@ -76,9 +76,7 @@ export function BuilderDemo({ trigger }: { trigger: number }) {
     };
   }, [trigger]);
 
-  const lines = SCRIPT.slice(0, count);
-  const running = trigger > 0 && count < SCRIPT.length;
-  const showCaret = trigger === 0 || running;
+  const idle = count === 0;
 
   return (
     <div
@@ -101,38 +99,52 @@ export function BuilderDemo({ trigger }: { trigger: number }) {
         <span style={{ color: MUTED }}>builder · claude code</span>
       </div>
 
-      <div className="px-4 py-4 min-h-[232px]">
-        {lines.map((l, idx) => (
-          <div key={idx} className="flex gap-2.5 py-[3px]">
-            {l.kind === "badge" ? (
-              <span
-                className="inline-block rounded px-2 py-0.5 text-[11px] font-semibold"
-                style={{ background: "rgba(255,255,255,0.14)", color: INK }}
-              >
-                {l.text}
-              </span>
-            ) : (
-              <>
-                <span aria-hidden style={{ color: markColor(l.kind), width: 12, flexShrink: 0 }}>
-                  {MARK[l.kind]}
-                </span>
+      {/* Toutes les lignes sont TOUJOURS rendues : seule l'opacité change. Le
+          terminal garde donc la même hauteur au repos, pendant et après la
+          démo (pas de reflow de la carte), et cette hauteur reste juste à
+          toutes les largeurs, contrairement à une hauteur fixe en pixels. */}
+      <div className="relative px-4 py-4">
+        {SCRIPT.map((l, idx) => {
+          const shown = idx < count;
+          return (
+            <div
+              key={idx}
+              className="flex gap-2.5 py-[3px]"
+              style={{ opacity: shown ? 1 : 0, transition: "opacity 0.18s ease" }}
+              aria-hidden={!shown}
+            >
+              {l.kind === "badge" ? (
                 <span
-                  style={{
-                    color: l.kind === "run" ? MUTED : INK,
-                    fontWeight: l.kind === "done" ? 600 : 400,
-                  }}
+                  className="inline-block rounded px-2 py-0.5 text-[11px] font-semibold"
+                  style={{ background: "rgba(255,255,255,0.14)", color: INK }}
                 >
                   {l.text}
                 </span>
-              </>
-            )}
-          </div>
-        ))}
-        {showCaret && (
+              ) : (
+                <>
+                  <span aria-hidden style={{ color: markColor(l.kind), width: 12, flexShrink: 0 }}>
+                    {MARK[l.kind]}
+                  </span>
+                  <span
+                    style={{
+                      color: l.kind === "run" ? MUTED : INK,
+                      fontWeight: l.kind === "done" ? 600 : 400,
+                    }}
+                  >
+                    {l.text}
+                  </span>
+                </>
+              )}
+            </div>
+          );
+        })}
+        {/* Curseur d'attente, posé en absolu sur la première ligne (invisible)
+            tant que la démo n'a pas démarré. */}
+        {idle && (
           <span
             aria-hidden
-            className="inline-block w-2 h-4 align-middle bd-caret"
-            style={{ background: "rgba(255,255,255,0.7)", marginLeft: lines.length ? 2 : 0 }}
+            className="absolute inline-block w-2 h-4 bd-caret"
+            style={{ background: "rgba(255,255,255,0.7)", top: 20, left: 16 }}
           />
         )}
       </div>
