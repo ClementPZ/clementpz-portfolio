@@ -16,7 +16,7 @@ type Line = { kind: Kind; text: string };
 const SCRIPT: Line[] = [
   {
     kind: "prompt",
-    text: '"the secondary button is as visually strong as the primary one and competes for attention — reduce its weight (ghost style, no fill) so the primary CTA stands out"',
+    text: '"the secondary button is as visually strong as the primary one and competes for attention, reduce its weight (ghost style, no fill) so the primary CTA stands out"',
   },
   { kind: "run", text: "Triage" },
   { kind: "badge", text: "T1 · token-level change" },

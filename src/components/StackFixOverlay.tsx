@@ -18,7 +18,10 @@ type Line = { kind: Kind; text: string };
 
 // Script en anglais (convention CLI), cf. BuilderDemo.
 const SCRIPT: Line[] = [
-  { kind: "prompt", text: '"the stack tags react on hover but aren\'t interactive — fix the affordance"' },
+  {
+    kind: "prompt",
+    text: '"the stack tags react on hover but aren\'t interactive, fix the affordance"',
+  },
   { kind: "run", text: "Triage" },
   { kind: "badge", text: "T1 · token-level change" },
   { kind: "run", text: "Plan · 1 file · globals.css" },
