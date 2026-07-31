@@ -630,7 +630,19 @@ a {
   }
 }
 
+/* Ancre le callout en position absolute : il flotte au-dessus du contenu
+   suivant au lieu de pousser le reste de la page (cf. .stack-egg-callout). */
+.stack-egg-anchor {
+  position: relative;
+}
+
+/* position:absolute retire le callout du flow : il flotte par-dessus le
+   contenu qui suit #stack au lieu de pousser la page vers le bas. */
 .stack-egg-callout {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 20;
   margin-top: 16px;
   max-width: 420px;
   padding: 16px 18px;

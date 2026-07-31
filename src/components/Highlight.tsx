@@ -39,19 +39,29 @@ export function Highlight() {
       >
         {/* Texte + CTAs */}
         <div className="flex flex-col justify-center">
-          {/* Le CTA primaire vit sur la ligne du titre, poussé à droite. */}
-          <div className="flex items-center justify-between gap-4">
+          {/* Les 2 CTA vivent groupés sur la ligne du titre, poussés à droite. */}
+          <div className="flex flex-wrap items-center justify-between gap-4">
             <h3 className="font-display text-3xl sm:text-4xl font-bold leading-tight">
               {t.title}
             </h3>
-            <button
-              type="button"
-              onClick={() => setDemoTrigger((n) => n + 1)}
-              className="inline-flex shrink-0 items-center px-5 py-3 rounded-full text-sm font-semibold"
-              style={{ background: "#ffffff", color: accent2 }}
-            >
-              {t.ctaPrimary}
-            </button>
+            <div className="flex flex-wrap items-center gap-3">
+              <button
+                type="button"
+                onClick={() => setDemoTrigger((n) => n + 1)}
+                className="inline-flex shrink-0 items-center px-5 py-3 rounded-full text-sm font-semibold"
+                style={{ background: "#ffffff", color: accent2 }}
+              >
+                {t.ctaPrimary}
+              </button>
+              <Link
+                href="/builder"
+                className="inline-flex shrink-0 items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold"
+                style={{ border: "1px solid rgba(255,255,255,0.5)", color: "#ffffff" }}
+              >
+                {t.ctaSecondary}
+                <span aria-hidden>→</span>
+              </Link>
+            </div>
           </div>
           <p className="text-sm font-medium mt-1" style={{ color: "rgba(255,255,255,0.85)" }}>
             {t.tagline}
@@ -59,16 +69,6 @@ export function Highlight() {
           <p className="text-base leading-relaxed mt-5" style={{ color: "rgba(255,255,255,0.78)" }}>
             {t.blurb}
           </p>
-          <div className="mt-7">
-            <Link
-              href="/builder"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold"
-              style={{ border: "1px solid rgba(255,255,255,0.5)", color: "#ffffff" }}
-            >
-              {t.ctaSecondary}
-              <span aria-hidden>→</span>
-            </Link>
-          </div>
         </div>
 
         {/* Démo : moitié droite sur desktop, empilée en dessous sur mobile */}

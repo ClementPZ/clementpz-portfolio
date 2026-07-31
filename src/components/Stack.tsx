@@ -46,60 +46,65 @@ export function Stack() {
       <div className="mb-8">
         <h2 className="font-display text-2xl sm:text-3xl font-bold">{t.stackTitle}</h2>
       </div>
-      <div className="flex flex-wrap gap-2">
-        {stack.map((s) => {
-          const inner = (
-            <>
-              <span style={{ display: "inline-flex", color: "var(--accent)" }}>
-                <StackIcon icon={s.icon} />
+      {/* stack-egg-anchor : le callout est en position:absolute ancré à ce
+          conteneur, il flotte donc par-dessus la suite de la page au lieu
+          de pousser tout vers le bas quand il apparaît. */}
+      <div className="stack-egg-anchor">
+        <div className="flex flex-wrap gap-2">
+          {stack.map((s) => {
+            const inner = (
+              <>
+                <span style={{ display: "inline-flex", color: "var(--accent)" }}>
+                  <StackIcon icon={s.icon} />
+                </span>
+                {s.label}
+              </>
+            );
+            return fixed ? (
+              <span key={s.label} className="pill" data-fixed="true" style={{ gap: 8 }}>
+                {inner}
               </span>
-              {s.label}
-            </>
-          );
-          return fixed ? (
-            <span key={s.label} className="pill" data-fixed="true" style={{ gap: 8 }}>
-              {inner}
-            </span>
-          ) : (
-            <button
-              key={s.label}
-              type="button"
-              className="pill"
-              style={{ gap: 8, cursor: "pointer" }}
-              onClick={() => setCalloutOpen(true)}
-            >
-              {inner}
-            </button>
-          );
-        })}
-      </div>
-
-      {calloutOpen && !fixed && (
-        <div className="stack-egg-callout" role="status">
-          <span className="stack-egg-badge">{egg.badge}</span>
-          <p>{egg.body}</p>
-          <div className="stack-egg-actions">
-            <button
-              type="button"
-              className="btn-accent"
-              onClick={() => {
-                setCalloutOpen(false);
-                setOverlayOpen(true);
-              }}
-            >
-              {egg.cta}
-            </button>
-            <button
-              type="button"
-              className="stack-egg-dismiss"
-              aria-label={egg.dismissAria}
-              onClick={() => setCalloutOpen(false)}
-            >
-              ×
-            </button>
-          </div>
+            ) : (
+              <button
+                key={s.label}
+                type="button"
+                className="pill"
+                style={{ gap: 8, cursor: "pointer" }}
+                onClick={() => setCalloutOpen(true)}
+              >
+                {inner}
+              </button>
+            );
+          })}
         </div>
-      )}
+
+        {calloutOpen && !fixed && (
+          <div className="stack-egg-callout" role="status">
+            <span className="stack-egg-badge">{egg.badge}</span>
+            <p>{egg.body}</p>
+            <div className="stack-egg-actions">
+              <button
+                type="button"
+                className="btn-accent"
+                onClick={() => {
+                  setCalloutOpen(false);
+                  setOverlayOpen(true);
+                }}
+              >
+                {egg.cta}
+              </button>
+              <button
+                type="button"
+                className="stack-egg-dismiss"
+                aria-label={egg.dismissAria}
+                onClick={() => setCalloutOpen(false)}
+              >
+                ×
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
 
       {overlayOpen && (
         <StackFixOverlay onDone={handleFixed} onClose={() => setOverlayOpen(false)} />
