@@ -604,6 +604,85 @@ a {
   border-color: var(--border-strong);
 }
 
+/* ============================================================================
+   STACK EASTER EGG — les tags "day-to-day stack" imitent des boutons (hover +
+   curseur) ; cliquer déclenche un callout "Bad UX!" → Builder "corrige"
+   l'affordance (StackFixOverlay). Une fois fixé, le hover ne réagit plus,
+   scopé à #stack pour ne pas toucher .pill ailleurs (music-downloader, PTR).
+   ============================================================================ */
+
+#stack .pill[data-fixed="true"]:hover {
+  border-color: var(--border);
+}
+
+@keyframes stack-egg-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.stack-egg-callout {
+  margin-top: 16px;
+  max-width: 420px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow);
+  animation: stack-egg-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.stack-egg-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--accent-subtle);
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.stack-egg-callout p {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.stack-egg-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stack-egg-dismiss {
+  margin-left: auto;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--text-muted);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.stack-egg-dismiss:hover {
+  background: var(--bg-elev);
+  color: var(--text);
+}
+
 /* btn-accent — radius et couleur pilotés par les tokens du thème actif */
 .btn-accent {
   display: inline-flex;

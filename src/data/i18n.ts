@@ -812,7 +812,7 @@ export const highlightText: Record<
     tagline: "A Claude Code plugin",
     blurb:
       "The Builder plugin lets a PM or designer make front-end changes while reinforcing the design system. A ratified token contract, changes tiered by risk, and production-ready code an engineer only has to review and merge.",
-    ctaPrimary: "Contact me",
+    ctaPrimary: "Launch demo",
     ctaSecondary: "See details",
   },
   fr: {
@@ -821,7 +821,7 @@ export const highlightText: Record<
     tagline: "Un plugin Claude Code",
     blurb:
       "Le plugin Builder permet à un PM ou un designer d'apporter des modifications au front-end tout en renforçant l'usage du design system. Un contrat de tokens validé, des changements classés par niveau de risque, et du code production-ready qu'un ingénieur n'a plus qu'à reviewer et à merger.",
-    ctaPrimary: "Contactez-moi",
+    ctaPrimary: "Lancer demo",
     ctaSecondary: "Voir les détails",
   },
   es: {
@@ -830,7 +830,7 @@ export const highlightText: Record<
     tagline: "Un plugin de Claude Code",
     blurb:
       "El plugin Builder permite a un PM o un diseñador aportar modificaciones al front-end reforzando el uso del design system. Un contrato de tokens ratificado, cambios clasificados por nivel de riesgo, y código production-ready que un ingeniero solo tiene que revisar y mergear.",
-    ctaPrimary: "Contáctame",
+    ctaPrimary: "Lanzar demo",
     ctaSecondary: "Ver detalles",
   },
 };
@@ -1162,12 +1162,48 @@ export const builderDiagramText: Record<
 };
 
 // ============================================================================
-// Démo interactive Builder (BuilderDemo) — libellés localisés. Le contenu du
-// terminal (commandes, logs) reste en anglais, convention CLI.
+// Easter egg sur les tags "Stack" (StackFixOverlay). Le script du terminal
+// reste en anglais (convention CLI, cf. BuilderDemo) ; seul le "chrome"
+// autour (badge, texte, CTA) est localisé.
 // ============================================================================
 
-export const builderDemoText: Record<Locale, { hint: string }> = {
-  en: { hint: "Setup runs on scroll; Audit and Tweak on tap." },
-  fr: { hint: "Setup se lance au scroll ; Audit et Tweak au clic." },
-  es: { hint: "Setup corre al hacer scroll; Audit y Tweak al hacer clic." },
+export const stackEggText: Record<
+  Locale,
+  {
+    badge: string;
+    body: string;
+    cta: string;
+    dismissAria: string;
+    overlayLead: string;
+    fixedFooter: string;
+    close: string;
+  }
+> = {
+  en: {
+    badge: "Bad UX!",
+    body: "These are tags, not buttons. But they react on hover, as if they were clickable.",
+    cta: "Correct with Builder",
+    dismissAria: "Dismiss",
+    overlayLead: "Watch Builder fix it, live.",
+    fixedFooter: "Fixed. Hover away, nothing happens now.",
+    close: "Close",
+  },
+  fr: {
+    badge: "Mauvaise UX !",
+    body: "Ce sont des tags, pas des boutons. Mais ils réagissent au survol, comme s'ils étaient cliquables.",
+    cta: "Corriger avec Builder",
+    dismissAria: "Fermer",
+    overlayLead: "Builder corrige ça, en direct.",
+    fixedFooter: "Corrigé. Passez la souris, il ne se passe plus rien.",
+    close: "Fermer",
+  },
+  es: {
+    badge: "Mala UX",
+    body: "Son tags, no botones. Pero reaccionan al pasar el cursor, como si fueran clicables.",
+    cta: "Corregir con Builder",
+    dismissAria: "Cerrar",
+    overlayLead: "Builder corrigiéndolo, en vivo.",
+    fixedFooter: "Corregido. Pase el cursor, ya no reacciona.",
+    close: "Cerrar",
+  },
 };
