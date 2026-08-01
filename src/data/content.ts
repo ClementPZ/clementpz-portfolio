@@ -238,7 +238,28 @@ export const recentProjects: RecentProject[] = [
     accent: "#9a3412",
     accent2: "#1c1917",
     image: "/interior/carroussel.JPG",
+    link: "/interior",
   },
+];
+
+// ============================================================================
+// Photos de la galerie /interior (structurel, pas de texte à traduire : pas
+// de légende par photo). Le vote par photo vit côté client (InteriorContent),
+// compteur abacus (namespace clementpz, clé `interior-photo-{id}`).
+// ============================================================================
+
+export type InteriorPhoto = {
+  id: string;
+  file: string;
+};
+
+// Ordre = ordre par défaut à égalité de votes (tri stable).
+export const interiorPhotos: InteriorPhoto[] = [
+  { id: "carroussel", file: "/interior/carroussel.JPG" },
+  { id: "c1", file: "/interior/c1.JPG" },
+  { id: "c3", file: "/interior/c3.JPG" },
+  { id: "c4", file: "/interior/c4.JPG" },
+  { id: "c6", file: "/interior/c6.JPG" },
 ];
 
 // ============================================================================
