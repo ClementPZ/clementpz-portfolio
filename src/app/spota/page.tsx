@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { SpotaContent } from "../../components/SpotaContent";
 
 export const metadata: Metadata = {
-  title: "SpotA · Clément PZ",
+  title: "SpotA",
   description:
-    "A daily spotting game for a group of friends. One prompt, both cameras, and nothing to see until you have posted.",
+    "A daily spotting game for your crew. Today: spot a ___. Find it, capture it, post it to unlock the feed.",
 };
 
 export default function SpotaPage() {

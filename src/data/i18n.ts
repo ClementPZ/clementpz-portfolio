@@ -859,96 +859,9 @@ export function accessMailtoHref(email: string, locale: Locale): string {
   )}`;
 }
 
-// ============================================================================
-// Page /spota — jeu social de repérage quotidien (EN / FR / ES).
-// ============================================================================
-
-export const spotaText: Record<
-  Locale,
-  {
-    kicker: string;
-    title: string;
-    intro: string;
-    sections: { heading: string; body: string }[];
-    backHome: string;
-  }
-> = {
-  en: {
-    kicker: "Social game",
-    title: "SpotA",
-    intro:
-      "A daily spotting game for a group of friends. One prompt, both cameras, and nothing to see until you have posted.",
-    sections: [
-      {
-        heading: "The idea",
-        body: "One prompt a day, the same for your whole group: spot a ___. No feed to scroll, no score to farm. You have the day to find the thing in the real world.",
-      },
-      {
-        heading: "The mechanic",
-        body: "Both cameras fire in sequence: the back one for the target, the front one for your face. They composite into a single image, shot in session, no gallery import. The feed is gated, so you see your friends' spots only after posting yours.",
-      },
-      {
-        heading: "How it is built",
-        body: "Flutter, one codebase for iOS and Android. Supabase for Postgres, Storage and anonymous auth: no account, you join a group with a code. No push and no realtime in the MVP, the feed refreshes on pull. Private bucket and signed URLs, since the audience is 13+.",
-      },
-      {
-        heading: "Scope and status",
-        body: "Hackathon mode, deliberately lean. Onboarding and group join run end to end against the live database. The daily prompt screen and the feed are built and currently being wired. Not published yet: test phase first, APK sideload and TestFlight.",
-      },
-    ],
-    backHome: "Back to the portfolio",
-  },
-  fr: {
-    kicker: "Jeu social",
-    title: "SpotA",
-    intro:
-      "Un jeu de repérage quotidien entre potes. Un défi, les deux caméras, et rien à voir tant que vous n'avez pas posté.",
-    sections: [
-      {
-        heading: "L'idée",
-        body: "Un défi par jour, le même pour tout le groupe : repérez un ___. Pas de feed à scroller, pas de score à farmer. Vous avez la journée pour trouver la chose dans la vraie vie.",
-      },
-      {
-        heading: "La mécanique",
-        body: "Les deux caméras s'enchaînent : l'arrière pour la cible, l'avant pour votre visage. Elles se composent en une seule image, prise en direct, sans import galerie. Le feed est gaté : vous ne voyez les spots des autres qu'après avoir posté le vôtre.",
-      },
-      {
-        heading: "Comment c'est construit",
-        body: "Flutter, un seul codebase iOS et Android. Supabase pour Postgres, le Storage et l'auth anonyme : pas de compte, vous rejoignez un groupe avec un code. Pas de push ni de realtime dans le MVP, le feed se rafraîchit au pull. Bucket privé et URLs signées, le public étant 13+.",
-      },
-      {
-        heading: "Périmètre et statut",
-        body: "Mode hackathon, volontairement lean. L'onboarding et le join de groupe tournent de bout en bout contre la base live. L'écran du défi du jour et le feed sont codés, en cours de branchement. Pas encore publié : phase de test d'abord, APK sideload et TestFlight.",
-      },
-    ],
-    backHome: "Retour au portfolio",
-  },
-  es: {
-    kicker: "Juego social",
-    title: "SpotA",
-    intro:
-      "Un juego de búsqueda diario entre amigos. Un reto, las dos cámaras, y nada que ver hasta que haya publicado.",
-    sections: [
-      {
-        heading: "La idea",
-        body: "Un reto al día, el mismo para todo el grupo: encuentre un ___. Sin feed que scrollear, sin puntos que farmear. Tiene el día para encontrar la cosa en la vida real.",
-      },
-      {
-        heading: "La mecánica",
-        body: "Las dos cámaras se encadenan: la trasera para el objetivo, la delantera para su cara. Se componen en una sola imagen, tomada en directo, sin importar de la galería. El feed está gateado: solo ve los spots de los demás después de publicar el suyo.",
-      },
-      {
-        heading: "Cómo está construido",
-        body: "Flutter, un solo codebase para iOS y Android. Supabase para Postgres, Storage y auth anónima: sin cuenta, entra a un grupo con un código. Sin push ni realtime en el MVP, el feed se refresca al tirar. Bucket privado y URLs firmadas, ya que el público es 13+.",
-      },
-      {
-        heading: "Alcance y estado",
-        body: "Modo hackathon, deliberadamente lean. El onboarding y el join de grupo funcionan de punta a punta contra la base live. La pantalla del reto diario y el feed están hechos, en proceso de conexión. Aún no publicado: primero fase de prueba, APK sideload y TestFlight.",
-      },
-    ],
-    backHome: "Volver al portafolio",
-  },
-};
+// Page /spota: pas d'entree i18n. C'est une exception documentee (voir
+// CLAUDE.md) au systeme EN/FR/ES du portfolio, English only comme l'app
+// elle-meme. Copie geree directement dans SpotaContent.tsx.
 
 // ============================================================================
 // Page /builder — explication du plugin (EN / FR / ES).
@@ -1205,5 +1118,50 @@ export const stackEggText: Record<
     overlayLead: "Builder corrigiéndolo, en vivo.",
     fixedFooter: "Corregido. Pase el cursor, ya no reacciona.",
     close: "Cerrar",
+  },
+};
+
+// ============================================================================
+// Page /interior — galerie votable de l'appartement. Pas de légende par
+// photo (décision produit) : juste l'intro et les libellés de vote.
+// ============================================================================
+
+export const interiorText: Record<
+  Locale,
+  {
+    kicker: string;
+    title: string;
+    intro: string;
+    voteSingular: string;
+    votePlural: string;
+    backHome: string;
+  }
+> = {
+  en: {
+    kicker: "Personal project",
+    title: "Apartment Interior Design",
+    intro:
+      "The ongoing interior design of my apartment, inspired by Verner Panton, Tadao Ando and Jean-Pierre Garrauld. Upvote your favorites, the best rise to the top.",
+    voteSingular: "vote",
+    votePlural: "votes",
+    backHome: "Back to the portfolio",
+  },
+  fr: {
+    kicker: "Projet personnel",
+    title: "Design d'intérieur de mon appartement",
+    intro:
+      "Le design d'intérieur en cours de mon appartement, inspiré de Verner Panton, Tadao Ando et Jean-Pierre Garrauld. Votez pour vos photos préférées, les meilleures remontent en haut.",
+    voteSingular: "vote",
+    votePlural: "votes",
+    backHome: "Retour au portfolio",
+  },
+  es: {
+    kicker: "Proyecto personal",
+    title: "Diseño interior de mi apartamento",
+    intro:
+      "El diseño interior en curso de mi apartamento, inspirado en Verner Panton, Tadao Ando y Jean-Pierre Garrauld. Vote por sus fotos favoritas, las mejores suben arriba.",
+    voteSingular: "voto",
+    votePlural: "votos",
+    backHome: "Volver al portafolio",
   },
 };
