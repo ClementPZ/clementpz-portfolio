@@ -53,21 +53,19 @@ function Zigzag({ color = SPOT }: { color?: string }) {
   );
 }
 
-// Reproduit exactement widgets/spot_tile.dart: badge en haut a gauche,
-// incrustation selfie en haut a droite, tag pseudo en bas a gauche. C'est le
-// vrai composant de l'app, pas une illustration generique.
+// Vraie capture d'ecran du build iOS (member page), pas une reconstitution en
+// CSS: header "Sammy's spot" + zigzag, incrustation selfie cerclee de vert,
+// actions Poke / Back to crew. La coque gardee autour est le seul habillage.
 function PhoneMock() {
   return (
     <div className="spota-phone">
       <div className="spota-phone-inner">
-        <div className="spota-door-scene">
-          <div className="spota-door" />
-        </div>
-        <div className="spota-badge-1st">1ST SPOT</div>
-        <div className="spota-selfie-inset">
-          <i />
-        </div>
-        <div className="spota-name-chip">Zoé</div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          className="spota-shot"
+          src="/spota/member-spot.jpg"
+          alt="SpotA member page: a crew member's spot of the day, with their selfie inset in the corner"
+        />
       </div>
     </div>
   );
@@ -99,18 +97,65 @@ function Reveal({ children }: { children: React.ReactNode }) {
   );
 }
 
+// Machine a ecrire: on tape le mot lettre par lettre, on tient, on efface, on
+// passe au suivant. La phase "idle" est l'etat de depart, donc le rendu
+// serveur et le cas reduced-motion affichent le mot entier, sans curseur.
+type TypePhase = "idle" | "typing" | "holding" | "erasing";
+
+const TYPE_MS = 75;
+const ERASE_MS = 35;
+const HOLD_MS = 1900;
+
 function WordRotator() {
   const [index, setIndex] = useState(0);
+  const [count, setCount] = useState(PROMPT_WORDS[0].length);
+  const [phase, setPhase] = useState<TypePhase>("idle");
 
+  // Demarrage differe: le premier prompt tient le meme temps que les suivants
+  // avant de s'effacer. Passer par un timer plutot qu'un setState synchrone
+  // evite aussi la cascade de rendus que react-hooks refuse dans un effet.
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const id = setInterval(() => {
-      setIndex((i) => (i + 1) % PROMPT_WORDS.length);
-    }, 2400);
-    return () => clearInterval(id);
+    const id = setTimeout(() => setPhase("erasing"), HOLD_MS);
+    return () => clearTimeout(id);
   }, []);
 
-  return <span className="spota-word">{PROMPT_WORDS[index]}</span>;
+  useEffect(() => {
+    if (phase === "idle") return;
+    const word = PROMPT_WORDS[index];
+    const delay = phase === "holding" ? HOLD_MS : phase === "erasing" ? ERASE_MS : TYPE_MS;
+
+    const id = setTimeout(() => {
+      if (phase === "holding") {
+        setPhase("erasing");
+      } else if (phase === "erasing") {
+        if (count <= 0) {
+          setIndex((i) => (i + 1) % PROMPT_WORDS.length);
+          setPhase("typing");
+        } else {
+          setCount((c) => c - 1);
+        }
+      } else if (count >= word.length) {
+        setPhase("holding");
+      } else {
+        setCount((c) => c + 1);
+      }
+    }, delay);
+    return () => clearTimeout(id);
+  }, [phase, count, index]);
+
+  const word = PROMPT_WORDS[index];
+  const shown = phase === "idle" ? word : word.slice(0, count);
+
+  // Le point ne se pose qu'une fois le mot entier tape, sinon on lirait
+  // "refle." avec le curseur coince avant un point deja la.
+  return (
+    <span className="spota-word">
+      {shown}
+      {shown.length === word.length && "."}
+      {phase !== "idle" && <i className="spota-caret" aria-hidden="true" />}
+    </span>
+  );
 }
 
 export function SpotaContent() {
@@ -129,11 +174,27 @@ export function SpotaContent() {
         <header className="spota-hero">
           <div className="spota-eyebrow">A daily dare for you and your crew</div>
           <h1>
-            Today: spot a <WordRotator />.
+            <span className="spota-h1-lead">Today: spot a</span>
+            {/* Tous les prompts sont empiles invisibles dans la meme cellule
+                de grid: la hauteur de la rangee vaut le max de tous, donc le
+                titre ne bouge d'un pixel a aucune largeur d'ecran. */}
+            <span className="spota-h1-slot">
+              {PROMPT_WORDS.map((w) => (
+                <span className="spota-h1-ghost" aria-hidden="true" key={w}>
+                  {w}.
+                </span>
+              ))}
+              <span className="spota-h1-live">
+                <WordRotator />
+              </span>
+            </span>
           </h1>
           <p className="spota-lede">
             One prompt a day. Find it in the real world, capture it, back camera for the
             target, front camera for you. Post yours to unlock what your crew spotted.
+          </p>
+          <p className="spota-slogan">
+            <b>One spot a day</b>, keep the doctor away.
           </p>
           <div className="spota-hero-ctas">
             <a
@@ -316,9 +377,26 @@ export function SpotaContent() {
         .spota-hero h1 {
           font-size: clamp(38px, 7.5vw, 60px);
           font-weight: 800; line-height: 1.02; letter-spacing: -1.6px;
-          text-wrap: balance;
         }
-        .spota-word { color: var(--spot); }
+        .spota-h1-lead { display: block; color: var(--spot); }
+        .spota-h1-slot { display: grid; }
+        .spota-h1-slot > * { grid-area: 1 / 1; }
+        .spota-h1-ghost { visibility: hidden; pointer-events: none; }
+        .spota-h1-live { color: #fff; }
+        .spota-caret {
+          display: inline-block; width: 0.055em; height: 0.74em;
+          margin-left: 0.06em; vertical-align: -0.04em;
+          background: var(--spot);
+          animation: spota-blink 1s steps(1, end) infinite;
+        }
+
+        .spota-slogan {
+          margin-top: 18px;
+          font-family: var(--font-sora), var(--font-dm-sans), sans-serif;
+          font-weight: 800; font-size: clamp(17px, 2.7vw, 21px);
+          letter-spacing: -0.4px; color: #fff;
+        }
+        .spota-slogan b { color: var(--spot); font-weight: 800; }
         .spota-lede {
           margin-top: 20px; max-width: 46ch;
           font-size: 17px; line-height: 1.55; color: rgba(255,255,255,0.7);
@@ -335,7 +413,7 @@ export function SpotaContent() {
 
         .spota-stage { position: relative; margin: 46px 0 8px; display: flex; justify-content: center; }
         .spota-phone {
-          position: relative; width: min(260px, 72vw); aspect-ratio: 9 / 15.5;
+          position: relative; width: min(260px, 72vw); aspect-ratio: 800 / 1734;
           border-radius: 30px; padding: 3px;
           background: conic-gradient(from var(--spin, 0deg), var(--spot), var(--self), #fff, var(--self), var(--spot));
           animation: spota-spin 7s linear infinite;
@@ -344,38 +422,7 @@ export function SpotaContent() {
           position: relative; width: 100%; height: 100%; border-radius: 27px;
           overflow: hidden; background: #1a1a1a;
         }
-        .spota-door-scene {
-          position: absolute; inset: 0;
-          background: linear-gradient(180deg, #2a2320 0%, #1c1815 55%, #14110f 100%);
-        }
-        .spota-door {
-          position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
-          width: 46%; height: 62%; background: #e8c400;
-          border-radius: 14px 14px 0 0; box-shadow: inset 0 0 0 3px rgba(0,0,0,0.18);
-        }
-        .spota-door::after {
-          content: ""; position: absolute; right: 14%; top: 46%;
-          width: 8px; height: 8px; border-radius: 50%; background: #14110f;
-        }
-        .spota-badge-1st {
-          position: absolute; left: 8px; top: 8px;
-          font-size: 10px; font-weight: 800; letter-spacing: 0.02em;
-          padding: 3px 7px; border-radius: 6px; color: var(--spot-ink);
-          background: linear-gradient(120deg, var(--spot), var(--self), #fff);
-        }
-        .spota-selfie-inset {
-          position: absolute; right: 6px; top: 6px; width: 26%; height: 22%;
-          border-radius: 10px; padding: 1.5px; background: var(--self);
-        }
-        .spota-selfie-inset i {
-          display: block; width: 100%; height: 100%; border-radius: 8.5px;
-          background: linear-gradient(160deg, #3a3f2e, #202318);
-        }
-        .spota-name-chip {
-          position: absolute; left: 6px; bottom: 8px;
-          font-size: 10px; font-weight: 700; color: #fff;
-          background: rgba(0,0,0,0.55); padding: 3px 7px; border-radius: 6px;
-        }
+        .spota-shot { display: block; width: 100%; height: 100%; object-fit: cover; }
 
         .spota-section { padding: 58px 0; border-top: 1px solid rgba(255,255,255,0.08); }
         .spota-section-head { max-width: 50ch; }
@@ -431,6 +478,7 @@ export function SpotaContent() {
         .spota-reveal.in { opacity: 1; transform: none; }
 
         @keyframes spota-spin { to { --spin: 360deg; } }
+        @keyframes spota-blink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
         @property --spin { syntax: '<angle>'; inherits: true; initial-value: 0deg; }
 
         @media (prefers-reduced-motion: reduce) {
