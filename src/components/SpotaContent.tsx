@@ -53,9 +53,9 @@ function Zigzag({ color = SPOT }: { color?: string }) {
   );
 }
 
-// Vraie capture d'ecran du build iOS (member page), pas une reconstitution en
-// CSS: header "Sammy's spot" + zigzag, incrustation selfie cerclee de vert,
-// actions Poke / Back to crew. La coque gardee autour est le seul habillage.
+// Export Figma de la member page, pas une reconstitution en CSS: header
+// "Sammy's spot" + zigzag, incrustation selfie cerclee de vert, rail
+// d'actions a droite. La coque gardee autour est le seul habillage.
 function PhoneMock() {
   return (
     <div className="spota-phone">
@@ -413,7 +413,7 @@ export function SpotaContent() {
 
         .spota-stage { position: relative; margin: 46px 0 8px; display: flex; justify-content: center; }
         .spota-phone {
-          position: relative; width: min(260px, 72vw); aspect-ratio: 800 / 1734;
+          position: relative; width: min(260px, 72vw); aspect-ratio: 590 / 1278;
           border-radius: 30px; padding: 3px;
           background: conic-gradient(from var(--spin, 0deg), var(--spot), var(--self), #fff, var(--self), var(--spot));
           animation: spota-spin 7s linear infinite;
