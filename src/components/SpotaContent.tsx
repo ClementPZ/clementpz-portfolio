@@ -323,7 +323,12 @@ export function SpotaContent() {
         <footer className="spota-section spota-footer">
           <div className="spota-foot-row">
             <span>Spot a · 2026</span>
-            <span>Ages 13+ · Privacy &amp; Terms coming soon</span>
+            <span>
+              Ages 13+ ·{" "}
+              <Link href="/spota/privacy" className="spota-foot-link">
+                Privacy policy
+              </Link>
+            </span>
           </div>
           <Link href="/" className="spota-back">
             ← Clément PZ, portfolio
@@ -471,6 +476,8 @@ export function SpotaContent() {
           display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center;
           justify-content: space-between; font-size: 12.5px; color: rgba(255,255,255,0.38);
         }
+        .spota-foot-link { color: rgba(255,255,255,0.6); text-decoration: underline; text-underline-offset: 2px; }
+        .spota-foot-link:hover { color: #fff; }
         .spota-back { font-size: 13px; color: rgba(255,255,255,0.7); text-decoration: none; }
         .spota-back:hover { color: #fff; }
 
