@@ -28,12 +28,9 @@ const PROMPT_WORDS = [
   "green thing",
 ];
 
-const BETA_MAILTO =
-  "mailto:clementpicardzivy@gmail.com" +
-  "?subject=" +
-  encodeURIComponent("SpotA, beta access request") +
-  "&body=" +
-  encodeURIComponent("Hi Clement, I'd love to try SpotA, happy to be added to the beta.");
+// Public TestFlight link, external group Friends. Anyone who opens it joins
+// without handing over an email first (SpotA/TESTFLIGHT.md).
+const BETA_LINK = "https://testflight.apple.com/join/RvAnbmHY";
 
 const ZIGZAG_POINTS =
   "1.2,13.8 28.8,3.8 54.7,13.8 79.5,3.8 101.7,13.8 132.5,3.8 150.6,13.8 " +
@@ -166,8 +163,8 @@ export function SpotaContent() {
           <div className="spota-wordmark">
             Spot<b>a</b>
           </div>
-          <a className="spota-nav-cta" href={BETA_MAILTO} onClick={(e) => fireConfetti(e.currentTarget, [SPOT, SELF, "#ffffff"])}>
-            Get the beta
+          <a className="spota-nav-cta" href={BETA_LINK} onClick={(e) => fireConfetti(e.currentTarget, [SPOT, SELF, "#ffffff"])}>
+            Join the beta
           </a>
         </nav>
 
@@ -199,12 +196,12 @@ export function SpotaContent() {
           <div className="spota-hero-ctas">
             <a
               className="spota-btn"
-              href={BETA_MAILTO}
+              href={BETA_LINK}
               onClick={(e) => fireConfetti(e.currentTarget, [SPOT, SELF, "#ffffff"])}
             >
-              Get the beta
+              Join the beta
             </a>
-            <span className="spota-fine-print">iOS, via TestFlight · ages 13+</span>
+            <span className="spota-fine-print">iOS 16 or later · ages 13+</span>
           </div>
         </header>
 
@@ -306,16 +303,31 @@ export function SpotaContent() {
             </div>
             <h2>Your crew is waiting on you to post first.</h2>
             <p className="spota-lede">
-              Testing right now with a small crew. Ask for the beta and you&apos;re in.
+              Testing right now with a small crew. The link below drops you straight in.
             </p>
             <div className="spota-hero-ctas">
               <a
                 className="spota-btn"
-                href={BETA_MAILTO}
+                href={BETA_LINK}
                 onClick={(e) => fireConfetti(e.currentTarget, [SPOT, SELF, "#ffffff"])}
               >
-                Get the beta
+                Join the beta
               </a>
+            </div>
+            {/* Step 2 is the whole point of this block: people install
+                TestFlight, open TestFlight, find it empty and give up. The
+                invite rides on the link, never on the app alone. */}
+            <div className="spota-join">
+              <div className="spota-join-head">Getting in takes two steps</div>
+              <ol>
+                <li>
+                  Install <b>TestFlight</b>, Apple&apos;s free app for betas.
+                </li>
+                <li>
+                  <b>Come back and tap again.</b> TestFlight on its own stays empty,
+                  only the link carries the invite.
+                </li>
+              </ol>
             </div>
           </section>
         </Reveal>
@@ -470,6 +482,14 @@ export function SpotaContent() {
         .spota-cta-band h2 { font-size: clamp(26px, 5vw, 38px); font-weight: 800; letter-spacing: -1px; text-wrap: balance; }
         .spota-cta-band .spota-lede { margin-top: 12px; }
         .spota-cta-band .spota-hero-ctas { margin-top: 26px; }
+        .spota-join { margin-top: 28px; max-width: 46ch; }
+        .spota-join-head { font-size: 13px; font-weight: 800; letter-spacing: 0.02em; color: #fff; }
+        /* Tailwind preflight strips list markers, and the numbering is the
+           point here: step 2 is the one people skip. */
+        .spota-join ol { margin-top: 10px; padding-left: 20px; display: grid; gap: 8px; list-style: decimal; }
+        .spota-join li { font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.7); }
+        .spota-join li::marker { color: var(--spot); font-weight: 800; }
+        .spota-join b { color: #fff; }
 
         .spota-footer { padding-top: 30px; padding-bottom: 56px; display: grid; gap: 18px; }
         .spota-foot-row {
