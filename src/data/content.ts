@@ -144,6 +144,7 @@ export type RecentProject = {
   accent2: string;
   link?: string;
   image?: string; // photo de fond de carte (sinon gradient accent/accent2)
+  motif?: "zigzag"; // signe graphique du projet, dessine sur le degrade
 };
 
 // Ordre d'affichage gauche → droite dans le carrousel. Builder Flow est au
@@ -220,6 +221,9 @@ export const recentProjects: RecentProject[] = [
     tags: ["Flutter", "Supabase", "Social Game"],
     accent: "#9922ff",
     accent2: "#1a1a1a",
+    // Pas de photo : le zigzag lime sur le violet suffit a nommer l'app, et
+    // c'est le meme signe que sous les titres de la page /spota.
+    motif: "zigzag",
     link: "/spota",
   },
   // Carte méta : le portfolio comme projet du portfolio. Seule carte aux

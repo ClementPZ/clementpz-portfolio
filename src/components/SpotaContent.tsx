@@ -66,7 +66,7 @@ function PhoneMock() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           className="spota-shot"
-          src="/spota/member-spot.jpg"
+          src="/spota/member-spot-retint.jpg"
           alt="SpotA member page: a crew member's spot of the day, with their selfie inset in the corner"
         />
       </div>

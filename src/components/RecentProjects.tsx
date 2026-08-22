@@ -117,6 +117,27 @@ export function RecentProjects() {
                 </span>
 
                 <div className="relative">
+                  {/* Signe graphique du projet, au-dessus du titre comme sur la
+                      page /spota. Meme polyline que ZIGZAG_POINTS la-bas. */}
+                  {p.motif === "zigzag" && (
+                    <svg
+                      viewBox="0 0 316 18"
+                      preserveAspectRatio="none"
+                      aria-hidden="true"
+                      className="block w-full mb-4"
+                      style={{ height: 14 }}
+                    >
+                      <polyline
+                        points="1.2,13.8 28.8,3.8 54.7,13.8 79.5,3.8 101.7,13.8 132.5,3.8 150.6,13.8 179.4,3.8 197.1,13.8 226.9,3.8 246.0,13.8 271.9,3.8 293.4,13.8 314.2,3.8"
+                        fill="none"
+                        stroke="#cafe00"
+                        strokeWidth={3}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        vectorEffect="non-scaling-stroke"
+                      />
+                    </svg>
+                  )}
                   <h3 className="font-display text-2xl font-bold mb-2 leading-tight">{p.name}</h3>
                   <p className="text-sm font-medium mb-3" style={{ color: "rgba(255,255,255,0.9)" }}>
                     {lx?.tagline}
