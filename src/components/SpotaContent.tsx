@@ -16,8 +16,11 @@ import { fireConfetti } from "../lib/confetti";
 // se rapprocher du chunky de TikTok Sans (police de l'app, non embarquable
 // ici) sans ajouter de font au bundle.
 
-const SPOT = "#cafe00"; // bratLime, lib/theme.dart
-const SELF = "#00f500"; // billiesGreen, lib/theme.dart
+// Post-retint values (863dea8, 19 Aug): the spot colour took the violet and
+// the self colour took the old lime. The token names swapped with them in
+// 7167070, so bratLime now names what used to be billiesGreen.
+const SPOT = "#9922ff"; // electricViolet, lib/theme.dart
+const SELF = "#cafe00"; // bratLime, lib/theme.dart
 const SPOT_INK = "#0a0d00";
 
 const PROMPT_WORDS = [
@@ -345,8 +348,8 @@ export function SpotaContent() {
           color: #fff;
           font-family: var(--font-dm-sans), system-ui, sans-serif;
           background-image:
-            radial-gradient(1200px 600px at 20% -10%, rgba(202,254,0,0.07), transparent 60%),
-            radial-gradient(900px 500px at 100% 10%, rgba(0,245,0,0.05), transparent 55%);
+            radial-gradient(1200px 600px at 20% -10%, rgba(153,34,255,0.07), transparent 60%),
+            radial-gradient(900px 500px at 100% 10%, rgba(202,254,0,0.05), transparent 55%);
         }
         .spota * { box-sizing: border-box; }
         .spota h1, .spota h2, .spota h3, .spota p { margin: 0; }
@@ -361,7 +364,7 @@ export function SpotaContent() {
         .spota-wordmark b { color: var(--spot); }
         .spota-nav-cta {
           font-weight: 700; font-size: 13px; letter-spacing: 0.02em;
-          color: var(--spot-ink); background: var(--spot);
+          color: var(--spot-ink); background: var(--self);
           padding: 9px 16px; border-radius: 12px; text-decoration: none;
         }
 
@@ -377,7 +380,7 @@ export function SpotaContent() {
         }
         .spota-eyebrow::before {
           content: ""; width: 6px; height: 6px; border-radius: 50%;
-          background: var(--self); box-shadow: 0 0 0 3px rgba(0,245,0,0.18);
+          background: var(--self); box-shadow: 0 0 0 3px rgba(202,254,0,0.18);
         }
         .spota-hero h1 {
           font-size: clamp(38px, 7.5vw, 60px);
@@ -411,7 +414,9 @@ export function SpotaContent() {
           display: inline-flex; align-items: center; justify-content: center;
           height: 46px; padding: 0 28px; border-radius: 12px;
           font-weight: 800; font-size: 16px; text-decoration: none;
-          border: none; cursor: pointer; background: var(--spot); color: var(--spot-ink);
+          /* Lime, not violet: the app's own CTA is lime, and dark ink on
+             violet is 3.76:1 at 16px/800, under the AA floor for normal text. */
+          border: none; cursor: pointer; background: var(--self); color: var(--spot-ink);
         }
         .spota-btn:hover { filter: brightness(1.06); }
         .spota-fine-print { font-size: 12.5px; color: rgba(255,255,255,0.38); }
@@ -439,7 +444,7 @@ export function SpotaContent() {
 
         .spota-steps { margin-top: 34px; display: grid; gap: 22px; }
         .spota-step { display: grid; grid-template-columns: 34px 1fr; gap: 14px; }
-        .spota-step-mark { font-size: 13px; font-weight: 800; color: var(--self); font-variant-numeric: tabular-nums; }
+        .spota-step-mark { font-size: 13px; font-weight: 800; color: var(--spot); font-variant-numeric: tabular-nums; }
         .spota-step h3 { font-size: 17px; font-weight: 800; letter-spacing: -0.2px; }
         .spota-step p { margin-top: 4px; font-size: 14.5px; line-height: 1.55; color: rgba(255,255,255,0.7); }
 

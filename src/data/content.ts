@@ -207,15 +207,18 @@ export const recentProjects: RecentProject[] = [
     accent2: "#022c22",
     link: "/music-downloader",
   },
-  // Couleurs = l'identité réelle de l'app (SpotColors.bratLime #cafe00 sur
-  // near-black, cf. lib/theme.dart du repo SpotA). Le lime est assombri ici :
-  // le brat lime pur rend le badge de statut (blanc translucide) illisible.
+  // Couleurs = l'identité réelle de l'app après le retint du 19 août
+  // (SpotColors.electricViolet #9922ff sur surfaceDark #1a1a1a, cf.
+  // lib/theme.dart du repo SpotA). C'est la couleur de l'icône, donc ce que
+  // l'oeil reconnaît. Plus besoin d'assombrir : le badge de statut
+  // (blanc translucide 22%) composite en #af53ff sur le violet et se voit,
+  // alors qu'il disparaissait sur le lime, d'où l'ancien #7a9900.
   {
     id: "spota",
     name: "SpotA",
     status: "in progress",
     tags: ["Flutter", "Supabase", "Social Game"],
-    accent: "#7a9900",
+    accent: "#9922ff",
     accent2: "#1a1a1a",
     link: "/spota",
   },
