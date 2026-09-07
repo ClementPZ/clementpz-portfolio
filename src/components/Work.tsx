@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { work, recommendations } from "../data/content";
 import { workText } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
@@ -139,6 +140,16 @@ export function Work() {
                     ))}
                   </ul>
                 </div>
+              )}
+
+              {w.link && (
+                <Link
+                  href={w.link}
+                  className="text-sm font-medium mb-4 self-start hover:underline"
+                  style={{ color: "var(--accent)" }}
+                >
+                  {t.caseStudy} →
+                </Link>
               )}
 
               <div className="mt-auto flex flex-wrap gap-1.5 pt-2">

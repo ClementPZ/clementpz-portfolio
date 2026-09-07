@@ -46,6 +46,7 @@ export type WorkItem = {
   location: string;
   tags: string[];
   image?: string; // visuel de carte (sinon placeholder monogramme généré)
+  link?: string; // page de case study dédiée, rendue en pied de carte
 };
 
 export const work: WorkItem[] = [
@@ -55,6 +56,7 @@ export const work: WorkItem[] = [
     period: "2024 — Present",
     location: "Lincoln, USA · Paris",
     tags: ["Healthcare", "SaaS", "Design System", "Lead", "AI"],
+    link: "/nrc",
   },
   {
     id: "episource",
