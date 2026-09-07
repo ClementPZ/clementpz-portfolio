@@ -19,8 +19,8 @@ export default function Home() {
         <Nav />
         <main>
           <Hero />
-          <Stack />
           <Highlight />
+          <Stack />
           <Work />
           <RecentProjects />
         </main>
