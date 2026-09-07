@@ -5,6 +5,8 @@
 // (workText[locale][id], projectText[locale][id]) — plus de merge par index.
 // ============================================================================
 
+import type { ProjectId, WorkId } from "./content";
+
 export type Locale = "en" | "fr" | "es";
 
 export const locales: { id: Locale; label: string; short: string }[] = [
@@ -109,7 +111,7 @@ export const introText: Record<Locale, string> = {
 // 0 NRC · 1 Episource · 2 SEIF · 3 Le Wagon · 4 Welcomhere · 5 Devialet
 export const workText: Record<
   Locale,
-  Record<string, { role: string; bullets: string[]; impact?: string[] }>
+  Record<WorkId, { role: string; bullets: string[]; impact?: string[] }>
 > = {
   en: {
     nrc: {
@@ -269,7 +271,7 @@ export const workText: Record<
 // Texte localisé des projets — index aligné sur `recentProjects` :
 export const projectText: Record<
   Locale,
-  Record<string, { tagline: string; description: string }>
+  Record<ProjectId, { tagline: string; description: string }>
 > = {
   en: {
     "builder-flow": {

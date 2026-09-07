@@ -39,8 +39,18 @@ export const stack: { label: string; icon: string }[] = [
 // sont dans i18n.ts → workText[locale][id]. Ordre = ordre d'affichage.
 // ============================================================================
 
+// Identifiants des expériences. Cette liste est la source de vérité : i18n.ts
+// doit fournir un texte pour chacun dans les 3 langues, sinon le build casse.
+export type WorkId =
+  | "nrc"
+  | "episource"
+  | "seif"
+  | "lewagon"
+  | "welcomhere"
+  | "devialet";
+
 export type WorkItem = {
-  id: string;
+  id: WorkId;
   company: string;
   period: string;
   location: string;
@@ -137,8 +147,22 @@ export type ProjectStatus =
   | "fail"
   | "private-live";
 
+// Identifiants des projets du carrousel. Même règle que WorkId : chaque id doit
+// avoir son texte dans i18n.ts, en EN, FR et ES.
+export type ProjectId =
+  | "dj-energy"
+  | "paris-conf"
+  | "job-search"
+  | "graphic-history"
+  | "couples-card"
+  | "builder-flow"
+  | "legal-music"
+  | "spota"
+  | "making-of"
+  | "interior-design";
+
 export type RecentProject = {
-  id: string;
+  id: ProjectId;
   name: string;
   status: ProjectStatus;
   tags: string[];
