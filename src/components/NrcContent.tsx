@@ -236,15 +236,12 @@ export function NrcContent() {
           </div>
         </section>
 
-        {/* CTA contact */}
-        <div
-          className="mt-16 rounded-2xl p-8 flex items-center justify-center gap-4"
-          style={{ background: "var(--bg-card)", border: "1px solid var(--border)" }}
-        >
+        {/* CTA contact : le bouton seul, pas de boite autour */}
+        <div className="mt-16">
           <a
             href={accessMailtoHref(profile.email, locale)}
             onClick={(e) => fireConfetti(e.currentTarget)}
-            className="btn-accent shrink-0"
+            className="btn-accent"
           >
             {t.contactCta}
           </a>
