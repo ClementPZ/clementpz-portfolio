@@ -11,6 +11,10 @@
 # push and polled after it. An ETag that flips is proof the new version is
 # actually served, where a 200 only proves the site answers. A brand new page
 # has no ETag before, and gains one after, which reads as a change too.
+#
+# Name no path when the change touches no page, a README or a script. The site
+# output is then identical by design and no ETag can ever flip, so asking for
+# that proof would fail on a healthy deploy.
 
 set -o pipefail
 
@@ -25,9 +29,6 @@ fi
 shift
 
 PATHS=("$@")
-if [ ${#PATHS[@]} -eq 0 ]; then
-  PATHS=("/")
-fi
 
 cd "$(dirname "$0")/.." || exit 1
 
@@ -70,6 +71,13 @@ git add -A || exit 1
 git commit -qm "$MSG" || exit 1
 git push -q origin main || exit 1
 echo "pushed $(git rev-parse --short HEAD)"
+
+if [ ${#PATHS[@]} -eq 0 ]; then
+  echo
+  echo "no page named, so no deploy proof was asked for"
+  echo "site answers $(curl -s -o /dev/null -w '%{http_code}' --max-time 10 "$SITE/")"
+  exit 0
+fi
 
 step "waiting for the deploy"
 started=$SECONDS
