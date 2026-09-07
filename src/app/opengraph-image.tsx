@@ -5,7 +5,7 @@ import { profile } from "../data/content";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = `${profile.name} — ${profile.tagline}`;
+export const alt = `${profile.name} · ${profile.tagline}`;
 
 // Share card — Jégousse-style: circular photo centered, name below in a vibrant
 // aubergine gradient, on a light background. Minimal.
