@@ -78,6 +78,12 @@ export function RecentProjects() {
       >
         {recentProjects.map((p) => {
           const lx = localized[p.id];
+          // Défauts du deck : blanc translucide. Une carte ne les remplace que
+          // si sa marque impose sa propre hiérarchie (p.brand).
+          const badgeBg = p.brand?.badgeBg ?? "rgba(255,255,255,0.22)";
+          const badgeText = p.brand?.badgeText ?? "#ffffff";
+          const tagBg = p.brand?.tagBg ?? "rgba(255,255,255,0.14)";
+          const motifColor = p.brand?.motif ?? "#cafe00";
           return (
             <SwiperSlide key={p.name} style={{ width: 320 }}>
               <article
@@ -109,8 +115,8 @@ export function RecentProjects() {
                     // Pas de backdrop-filter ici : dans le contexte 3D de Swiper,
                     // il crée un contexte d'empilement qui échappe au clipping de
                     // la carte et vient flotter au-dessus de la slide voisine.
-                    background: "rgba(255,255,255,0.22)",
-                    color: "#ffffff",
+                    background: badgeBg,
+                    color: badgeText,
                   }}
                 >
                   {status[p.status]}
@@ -130,7 +136,7 @@ export function RecentProjects() {
                       <polyline
                         points="1.2,13.8 28.8,3.8 54.7,13.8 79.5,3.8 101.7,13.8 132.5,3.8 150.6,13.8 179.4,3.8 197.1,13.8 226.9,3.8 246.0,13.8 271.9,3.8 293.4,13.8 314.2,3.8"
                         fill="none"
-                        stroke="#cafe00"
+                        stroke={motifColor}
                         strokeWidth={3}
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -153,7 +159,7 @@ export function RecentProjects() {
                       <span
                         key={tag}
                         className="text-[10px] uppercase tracking-wider px-2 py-1 rounded"
-                        style={{ background: "rgba(255,255,255,0.14)", color: "#ffffff" }}
+                        style={{ background: tagBg, color: "#ffffff" }}
                       >
                         {tag}
                       </span>
