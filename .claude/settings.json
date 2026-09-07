@@ -1,5 +1,19 @@
 {
   "enabledPlugins": {
     "vercel-plugin@vercel": true
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/ensure-deps.sh",
+            "timeout": 120,
+            "statusMessage": "Installing dependencies (first run only)"
+          }
+        ]
+      }
+    ]
   }
 }
