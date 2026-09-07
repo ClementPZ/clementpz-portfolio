@@ -6,6 +6,7 @@ import { recentProjects } from "../data/content";
 import { highlightText } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
 import { BuilderDemo } from "./BuilderDemo";
+import { SpotaFeature } from "./SpotaFeature";
 
 // Projet en vedette = Builder. Couleurs d'identité tirées des données du
 // carrousel (builder-flow), texte blanc sur le gradient comme les cartes projet.
@@ -75,6 +76,12 @@ export function Highlight() {
         <div className="flex items-center">
           <BuilderDemo trigger={demoTrigger} />
         </div>
+      </div>
+
+      {/* Second bloc : SpotA. Sa carte porte l'identité de l'app, elle vit
+          dans SpotaFeature avec ses propres couleurs de marque. */}
+      <div className="mt-6">
+        <SpotaFeature />
       </div>
     </section>
   );

@@ -485,7 +485,7 @@ export const makingOfText: Record<
     kicker: "Very meta",
     title: "The making of this portfolio",
     intro:
-      "A first portfolio, built as a portfolio piece: why now, and how far one person can push design, code and AI in a single flow.",
+      "A first portfolio, built as a portfolio piece: why now, and how far design, code and AI can be pushed in a single flow.",
     sections: [
       {
         heading: "Why now, after 10 years without one",
@@ -510,7 +510,7 @@ export const makingOfText: Record<
     kicker: "Très méta",
     title: "Le making of de ce portfolio",
     intro:
-      "Un premier portfolio, conçu comme une pièce du portfolio : pourquoi maintenant, et jusqu'où une personne peut pousser design, code et IA dans un seul flow.",
+      "Un premier portfolio, conçu comme une pièce du portfolio : pourquoi maintenant, et jusqu'où peut on pousser design, code et IA dans un seul flow.",
     sections: [
       {
         heading: "Pourquoi maintenant, après 10 ans sans",
@@ -535,7 +535,7 @@ export const makingOfText: Record<
     kicker: "Muy meta",
     title: "El making of de este portafolio",
     intro:
-      "Un primer portafolio, hecho como una pieza del portafolio: por qué ahora, y hasta dónde puede llevar una persona el design, el código y la IA en un solo flow.",
+      "Un primer portafolio, hecho como una pieza del portafolio: por qué ahora, y hasta dónde se puede llevar el design, el código y la IA en un solo flow.",
     sections: [
       {
         heading: "Por qué ahora, tras 10 años sin uno",
@@ -813,7 +813,7 @@ export const highlightText: Record<
   }
 > = {
   en: {
-    sectionTitle: "Highlight",
+    sectionTitle: "Highlights",
     title: "Builder",
     tagline: "A Claude Code plugin",
     blurb:
@@ -822,7 +822,7 @@ export const highlightText: Record<
     ctaSecondary: "See details",
   },
   fr: {
-    sectionTitle: "Highlight",
+    sectionTitle: "Highlights",
     title: "Builder",
     tagline: "Un plugin Claude Code",
     blurb:
@@ -831,7 +831,7 @@ export const highlightText: Record<
     ctaSecondary: "Voir les détails",
   },
   es: {
-    sectionTitle: "Destacado",
+    sectionTitle: "Destacados",
     title: "Builder",
     tagline: "Un plugin de Claude Code",
     blurb:
@@ -1631,5 +1631,37 @@ export const nrcText: Record<
     },
     contactCta: "Hablar de este trabajo",
     backHome: "Volver al inicio",
+  },
+};
+
+// ============================================================================
+// spotaHighlightText — le bloc SpotA de la section Highlights (home).
+// Le titre "Today: spot a ..." n'est pas ici : c'est le nom du produit joué
+// dans la phrase, le traduire casserait le jeu de mots. Les prompts qui
+// défilent restent en anglais aussi, ce sont les prompts réels de l'app.
+// La page /spota, elle, reste entièrement hors i18n (English only).
+// ============================================================================
+
+export const spotaHighlightText: Record<
+  Locale,
+  { eyebrow: string; lede: string; cta: string; finePrint: string }
+> = {
+  en: {
+    eyebrow: "A daily dare for you and your crew",
+    lede: "One prompt a day. Find it in the real world, capture it, back camera for the target, front camera for you. Post yours to unlock what your crew spotted.",
+    cta: "Get the beta",
+    finePrint: "iOS, via TestFlight · ages 13+",
+  },
+  fr: {
+    eyebrow: "Un défi par jour, pour toi et ta bande",
+    lede: "Un prompt par jour. Trouve-le dans la vraie vie, capture-le, caméra arrière pour la cible, caméra avant pour toi. Publie le tien pour découvrir ce que ta bande a repéré.",
+    cta: "Accéder à la beta",
+    finePrint: "iOS, via TestFlight · 13 ans et plus",
+  },
+  es: {
+    eyebrow: "Un reto diario para ti y tu grupo",
+    lede: "Un prompt al día. Encuéntralo en la vida real, captúralo, cámara trasera para el objetivo, cámara frontal para ti. Publica el tuyo para ver lo que encontró tu grupo.",
+    cta: "Acceder a la beta",
+    finePrint: "iOS, via TestFlight · 13 años o más",
   },
 };
