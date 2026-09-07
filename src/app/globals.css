@@ -735,6 +735,21 @@ a {
   background: var(--bg-elev);
 }
 
+/* Carte entierement cliquable (lien etire). Le seul retour au survol est une
+   bordure qui s'eclaircit : la carte featured est aubergine foncee dans les
+   deux themes, donc c'est le meme geste en clair et en sombre. */
+.card-link {
+  transition: border-color 0.2s ease;
+}
+
+.card-link:hover {
+  border-color: var(--border-strong);
+}
+
+.card-featured.card-link:hover {
+  border-color: rgba(255, 255, 255, 0.34);
+}
+
 /* ============================================================================
    CARTE FEATURED
    Redéfinit les vars CSS localement → tous les enfants s'adaptent
