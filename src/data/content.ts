@@ -171,6 +171,15 @@ export type RecentProject = {
   link?: string;
   image?: string; // photo de fond de carte (sinon gradient accent/accent2)
   motif?: "zigzag"; // signe graphique du projet, dessine sur le degrade
+  // Habillage de carte quand la marque du projet impose sa propre hiérarchie
+  // (badge, motif, tags). Non renseigné = les défauts blancs translucides du
+  // carrousel, donc aucune carte existante ne bouge.
+  brand?: {
+    motif?: string;
+    badgeBg?: string;
+    badgeText?: string;
+    tagBg?: string;
+  };
 };
 
 // Ordre d'affichage gauche → droite dans le carrousel. Builder Flow est au
@@ -225,6 +234,29 @@ export const recentProjects: RecentProject[] = [
     accent: "#7c3aed",
     accent2: "#1e1b4b",
   },
+  // Voisine immédiate de Builder : les deux projets en vedette sur la home se
+  // suivent aussi dans le deck.
+  // Couleurs = l'identité réelle de l'app (SpotColors, lib/theme.dart du repo
+  // SpotA) : noir de marque en fond, CTA lime, accent violet. C'est la
+  // hiérarchie de l'app elle-même, donc ce que l'oeil reconnaît.
+  {
+    id: "spota",
+    name: "SpotA",
+    status: "in progress",
+    tags: ["Flutter", "Supabase", "Social Game"],
+    accent: "#1a1a1a",
+    accent2: "#000000",
+    // Pas de photo : le zigzag suffit a nommer l'app, et c'est le meme signe
+    // que sous les titres de la page /spota.
+    motif: "zigzag",
+    brand: {
+      motif: "#9922ff", // electricViolet
+      badgeBg: "#cafe00", // bratLime, la couleur du CTA de l'app
+      badgeText: "#0a0d00",
+      tagBg: "rgba(153, 34, 255, 0.28)",
+    },
+    link: "/spota",
+  },
   {
     id: "legal-music",
     name: "Music Downloader",
@@ -233,24 +265,6 @@ export const recentProjects: RecentProject[] = [
     accent: "#059669",
     accent2: "#022c22",
     link: "/music-downloader",
-  },
-  // Couleurs = l'identité réelle de l'app après le retint du 19 août
-  // (SpotColors.electricViolet #9922ff sur surfaceDark #1a1a1a, cf.
-  // lib/theme.dart du repo SpotA). C'est la couleur de l'icône, donc ce que
-  // l'oeil reconnaît. Plus besoin d'assombrir : le badge de statut
-  // (blanc translucide 22%) composite en #af53ff sur le violet et se voit,
-  // alors qu'il disparaissait sur le lime, d'où l'ancien #7a9900.
-  {
-    id: "spota",
-    name: "SpotA",
-    status: "in progress",
-    tags: ["Flutter", "Supabase", "Social Game"],
-    accent: "#9922ff",
-    accent2: "#1a1a1a",
-    // Pas de photo : le zigzag lime sur le violet suffit a nommer l'app, et
-    // c'est le meme signe que sous les titres de la page /spota.
-    motif: "zigzag",
-    link: "/spota",
   },
   // Carte méta : le portfolio comme projet du portfolio. Seule carte aux
   // couleurs de l'identité (aubergine signature) → visuellement "spéciale".
