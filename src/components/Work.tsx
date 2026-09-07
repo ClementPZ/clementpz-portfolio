@@ -98,9 +98,20 @@ export function Work() {
           return (
             <article
               key={w.company + w.period}
-              className={`surface p-6 sm:p-7 flex flex-col${index === 0 ? " card-featured" : ""}`}
+              className={`surface p-6 sm:p-7 flex flex-col${index === 0 ? " card-featured" : ""}${
+                w.link ? " card-link relative" : ""
+              }`}
               style={{ boxShadow: "var(--shadow)" }}
             >
+              {/* Lien étiré : la carte entière mène au case study. Rien
+                  d'autre n'est cliquable dedans, pas de lien imbriqué. */}
+              {w.link && (
+                <Link
+                  href={w.link}
+                  aria-label={`${w.company}, ${t.caseStudy}`}
+                  className="absolute inset-0 z-10 rounded-[inherit]"
+                />
+              )}
               <header className="flex items-center gap-3 mb-3">
                 <Avatar company={w.company} image={w.image} />
                 <div className="flex-1 flex items-baseline justify-between gap-4">
@@ -140,16 +151,6 @@ export function Work() {
                     ))}
                   </ul>
                 </div>
-              )}
-
-              {w.link && (
-                <Link
-                  href={w.link}
-                  className="text-sm font-medium mb-4 self-start hover:underline"
-                  style={{ color: "var(--accent)" }}
-                >
-                  {t.caseStudy} →
-                </Link>
               )}
 
               <div className="mt-auto flex flex-wrap gap-1.5 pt-2">
