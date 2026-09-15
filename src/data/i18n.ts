@@ -118,7 +118,7 @@ export const workText: Record<
       role: "Product Design Lead",
       bullets: [
         "Recruited and led NRC Health's first Design team, two Product Designers and an Analytics Specialist, serving all four product suites: Consumer, Patient, Market Insights and Employee Experience.",
-        "Created a multi-product design system, design tokens and a Flowbite-based semantic layer, unifying the experience across every product and bridging design with a multi-stack production environment (Angular, React, legacy). Built an AI-assisted design-to-code workflow that lets non-technical profiles ship UX/UI changes safely.",
+        "Created a multi-product design system, design tokens and a semantic layer based on the Flowbite library, unifying the experience across every product and bridging design with a multi-stack production environment (Angular, React, legacy). Built an AI-assisted design-to-code workflow that lets non-technical profiles ship UX/UI changes safely.",
         "Led the design of the company's core AI features, notably the Huey conversational assistant, its product-embedded features and an ambient-listening tool that raised nurse documentation from 55% to 90%.",
         "Set up the product team's analytics approach with Product, Engineering and C-level, validating design decisions through research and A/B testing, e.g. +24% CTR on email outreach.",
       ],
@@ -169,8 +169,8 @@ export const workText: Record<
       role: "Product Design Lead",
       bullets: [
         "Recrutement et management de la première équipe Design de NRC Health, composée de deux Product Designers et d'un Analytics Specialist, au service des quatre suites produits : Consumer, Patient, Market Insights et Employee Experience.",
-        "Création d'un design system multi-produits, de design tokens et d'une semantic layer basée sur Flowbite, unifiant l'expérience utilisateur à travers l'ensemble des produits et assurant le lien entre le design et un environnement de production multi-stack (Angular, React, legacy). Développement d'un workflow design-to-code assisté par IA permettant à des profils non techniques de déployer des évolutions UX/UI en toute sécurité.",
-        "Pilotage de la conception des principales fonctionnalités IA de l'entreprise, notamment l'assistant conversationnel Huey, les features structurellement intégrées aux produits et un outil d'ambient listening ayant permis d'augmenter le taux de documentation des infirmières de 55 % à 90 %.",
+        "Création d'un design system multi-produits, de design tokens et d'une semantic layer basée sur la librairie Flowbite, unifiant l'expérience utilisateur à travers l'ensemble des produits et assurant le lien entre le design et un environnement de production multi-stack (Angular, React, legacy). Développement d'un workflow design-to-code assisté par IA permettant à des profils non techniques de déployer des évolutions UX/UI en toute sécurité.",
+        "Pilotage du design des principales fonctionnalités IA de l'entreprise, notamment l'assistant conversationnel Huey, les features intégrées aux produits et un outil d'ambient listening ayant permis d'augmenter le taux de documentation des infirmières de 55 % à 90 %.",
         "Mise en place de l'approche analytics de l'équipe produit, en collaboration avec les équipes Produit, Engineering et C-level. Validation des décisions de conception via une approche research-driven et des A/B tests. Ex : +24 % de CTR sur les campagnes d'outreach par email.",
       ],
     },
@@ -220,7 +220,7 @@ export const workText: Record<
       role: "Product Design Lead",
       bullets: [
         "Contraté y gestioné el primer equipo de Diseño de NRC Health, formado por dos Product Designers y un Analytics Specialist, al servicio de las cuatro suites de producto: Consumer, Patient, Market Insights y Employee Experience.",
-        "Creé un design system multi-producto, design tokens y una semantic layer basada en Flowbite, unificando la experiencia de usuario en todos los productos y conectando el diseño con un entorno de producción multi-stack (Angular, React, legacy). Desarrollé un workflow design-to-code asistido por IA que permite a perfiles no técnicos desplegar cambios de UX/UI con total seguridad.",
+        "Creé un design system multi-producto, design tokens y una semantic layer basada en la librería Flowbite, unificando la experiencia de usuario en todos los productos y conectando el diseño con un entorno de producción multi-stack (Angular, React, legacy). Desarrollé un workflow design-to-code asistido por IA que permite a perfiles no técnicos desplegar cambios de UX/UI con total seguridad.",
         "Dirigí el diseño de las principales funcionalidades de IA de la empresa, en particular el asistente conversacional Huey, sus features integradas en los productos y una herramienta de ambient listening que elevó la documentación de enfermería del 55 % al 90 %.",
         "Implementé el enfoque analytics del equipo de producto, en colaboración con los equipos de Producto, Engineering y C-level. Validé las decisiones de diseño mediante investigación y A/B testing. Ej.: +24 % de CTR en campañas de outreach por email.",
       ],

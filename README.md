@@ -46,3 +46,9 @@ Where the work stands today is in `HANDOFF.md`.
 ## Stack
 
 Next.js 16, React 19, TypeScript, Tailwind v4, deployed on Vercel.
+
+## Links
+
+Agent rules in [[Projects/portfoliomai2026/CLAUDE|CLAUDE]], current state in
+[[Projects/portfoliomai2026/HANDOFF|HANDOFF]], Next.js version notes in
+[[Projects/portfoliomai2026/AGENTS|AGENTS]].
