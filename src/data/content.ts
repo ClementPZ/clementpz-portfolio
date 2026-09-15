@@ -8,7 +8,7 @@
 export const profile = {
   name: "Clément Picard-Zivy",
   shortName: "Clément PZ",
-  tagline: "Product Design × Code × AI",
+  tagline: "Product Design × Management × AI",
   intro:
     "Hello, I'm Clément, a product designer with 10+ years of experience across product, business, design systems and innovation. I built the design function at NRC Health (Nasdaq: NRC) from scratch, and today I lead a team of three, from research to production to analytics. My role as a sales and marketing project manager at Devialet, various entrepreneurial projects, then founding a coding campus in Mexico City shaped my business-first approach, which guides how I do product today.",
   email: "clementpicardzivy@gmail.com",
