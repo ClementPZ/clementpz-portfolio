@@ -17,18 +17,20 @@ import { fireConfetti } from "../lib/confetti";
 // nomme ce qui doit y aller. Remplacer un cadre = echanger le composant contre
 // une <img>, sans toucher au reste. Seul l'organigramme est vraiment dessine.
 
-function SectionTitle({ title, sub }: { title: string; sub: string }) {
+function SectionTitle({ title, sub }: { title: string; sub?: string }) {
   return (
     <>
-      <h2 className="font-display text-2xl font-bold mb-2">{title}</h2>
-      <p className="text-sm max-w-xl mb-7" style={{ color: "var(--text-muted)" }}>
-        {sub}
-      </p>
+      <h2 className={`font-display text-2xl font-bold ${sub ? "mb-2" : "mb-7"}`}>{title}</h2>
+      {sub && (
+        <p className="text-sm max-w-xl mb-7" style={{ color: "var(--text-muted)" }}>
+          {sub}
+        </p>
+      )}
     </>
   );
 }
 
-function Figure({ label, caption }: { label: string; caption: string }) {
+function Figure({ label, caption }: { label: string; caption?: string }) {
   return (
     <figure className="m-0">
       <div
@@ -46,9 +48,11 @@ function Figure({ label, caption }: { label: string; caption: string }) {
           {label}
         </span>
       </div>
-      <figcaption className="text-sm mt-3" style={{ color: "var(--text-muted)" }}>
-        {caption}
-      </figcaption>
+      {caption && (
+        <figcaption className="text-sm mt-3" style={{ color: "var(--text-muted)" }}>
+          {caption}
+        </figcaption>
+      )}
     </figure>
   );
 }
@@ -89,30 +93,9 @@ export function NrcContent() {
 
         {/* 1. L'equipe */}
         <section className="pt-14">
-          <SectionTitle title={t.team.title} sub={t.team.sub} />
+          <SectionTitle title={t.team.title} />
 
-          <div className="grid gap-2.5">
-            {t.team.hiring.map((h) => (
-              <div key={h.n} className="surface flex flex-col sm:flex-row gap-1 sm:gap-4 px-5 py-4">
-                <span
-                  className="font-display font-bold text-sm shrink-0 w-7"
-                  style={{ color: "var(--accent)" }}
-                >
-                  {h.n}
-                </span>
-                <div>
-                  <h3 className="text-base font-semibold">{h.title}</h3>
-                  <p className="text-sm mt-0.5" style={{ color: "var(--text-muted)" }}>
-                    {h.body}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-8">
-            <NrcOrgChart />
-          </div>
+          <NrcOrgChart />
 
           <div className="grid gap-3 sm:grid-cols-3 mt-8">
             {t.team.strategy.map((s) => (
@@ -158,7 +141,7 @@ export function NrcContent() {
             </Link>
           </div>
           <div className="mt-8">
-            <Figure label={t.figureLabel} caption={t.system.figure} />
+            <Figure label={t.figureLabel} />
           </div>
         </section>
 
@@ -188,6 +171,12 @@ export function NrcContent() {
                     <li key={m}>{m}</li>
                   ))}
                 </ul>
+                {c.status && (
+                  <p className="mt-4 text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
+                    <b style={{ color: "var(--text)" }}>{c.status.label}</b>
+                    {c.status.body}
+                  </p>
+                )}
                 {c.result && (
                   <p
                     className="mt-4 px-4 py-3 text-sm font-semibold"
@@ -211,7 +200,7 @@ export function NrcContent() {
 
         {/* 4. Analytics */}
         <section className="pt-14">
-          <SectionTitle title={t.analytics.title} sub={t.analytics.sub} />
+          <SectionTitle title={t.analytics.title} />
           <p className="text-base leading-relaxed" style={{ color: "var(--text-muted)" }}>
             {t.analytics.body}
           </p>

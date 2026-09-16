@@ -82,7 +82,7 @@ export function NrcOrgChart() {
           width="100%"
           style={{ minWidth: 560, display: "block" }}
           role="img"
-          aria-label={t.caption}
+          aria-label={`${t.lead}: ${t.reports.join(", ")}`}
         >
           {/* Liens horizontaux entre les trois pairs du haut */}
           <line
@@ -143,9 +143,6 @@ export function NrcOrgChart() {
           ))}
         </svg>
       </div>
-      <figcaption className="text-sm mt-3" style={{ color: "var(--text-muted)" }}>
-        {t.caption}
-      </figcaption>
     </figure>
   );
 }

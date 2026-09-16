@@ -1190,9 +1190,7 @@ export const nrcText: Record<
     figureLabel: string;
     team: {
       title: string;
-      sub: string;
-      hiring: { n: string; title: string; body: string }[];
-      org: { top: string[]; lead: string; reports: string[]; caption: string };
+      org: { top: string[]; lead: string; reports: string[] };
       strategy: { title: string; body: string }[];
       asideBold: string;
       aside: string;
@@ -1202,7 +1200,6 @@ export const nrcText: Record<
       sub: string;
       items: { title: string; body: string }[];
       builderCta: string;
-      figure: string;
     };
     cases: {
       title: string;
@@ -1212,11 +1209,12 @@ export const nrcText: Record<
         name: string;
         problem: string;
         moves: string[];
+        status?: { label: string; body: string };
         result?: string;
         figure: string;
       }[];
     };
-    analytics: { title: string; sub: string; body: string; points: string[] };
+    analytics: { title: string; body: string; points: string[] };
     contactCta: string;
     backHome: string;
   }
@@ -1226,133 +1224,118 @@ export const nrcText: Record<
     period: "2024 → today",
     title: "Building the design function at NRC Health",
     intro:
-      "NRC Health sells experience measurement to hospitals and health systems, across four product suites. When I joined there was no design team. This page is what came next: the people, the system that holds four products together, the AI features that gave them a single door, and the analytics that say whether any of it worked.",
-    stack: ["Healthcare", "SaaS", "Design System", "Team Lead", "AI", "Analytics"],
+      "NRC Health helps US hospitals and health systems collect, analyze and act on the experience data of their patients and their employees, through four product suites. When I joined, there was no design team. This page covers what came next: the team, the organization, the design system, and three use cases that show how we worked over the past two years.",
+    stack: ["SaaS", "Healthcare", "Patient Experience", "Employee Experience", "Design to Code", "Management", "AI", "Analytics"],
     figureLabel: "Visual to come",
     team: {
       title: "1. Building the team",
-      sub: "A design function does not start with a design. It starts with who you hire, and with what you promise the rest of the company.",
-      hiring: [
-        {
-          n: "01",
-          title: "Inbound, not hunted",
-          body: "Candidates came to us rather than through a search. That changed the economics of the first pass: filtering on craft before anyone spent an hour in a room.",
-        },
-        {
-          n: "02",
-          title: "20 shortlisted",
-          body: "Twenty profiles cleared that first pass. Small enough to give each one real attention, wide enough to compare.",
-        },
-        {
-          n: "03",
-          title: "One shared exercise",
-          body: "Everyone shortlisted ran the same test. A portfolio shows what someone shipped with a team behind them, an exercise shows how they think alone.",
-        },
-      ],
       org: {
         top: ["CTO", "CPO", "C-suite"],
         lead: "Design Lead",
         reports: ["Product Designer", "Design System", "Analytics"],
-        caption:
-          "Two Product Designers and an Analytics Specialist, reporting into product. That line decides which conversations design sits in by default, and which ones it has to ask to join.",
       },
       strategy: [
         {
-          title: "One designer per suite",
-          body: "Four suites, a team of three. Each suite gets a named designer instead of a shared queue, so a product team knows who to talk to before it knows what to ask.",
+          title: "Assign one designer per suite",
+          body: "Four suites, a team of three. Each suite has its own named designer instead of a shared queue, and every product team knows who to go to.",
         },
         {
-          title: "Quick wins first",
-          body: "A new function has no credit. The first deliveries were small, visible and fast, because that is what buys the right to touch the bigger things later.",
+          title: "Ship quick wins first",
+          body: "A newborn function has no credit. So the first deliveries were small, visible and fast, because that is what earns the right to take on bigger topics later.",
         },
         {
-          title: "One cross-product layer",
-          body: "Design system, analytics and front-end are solved once for everyone rather than four times. That is the only reason three people can cover four suites.",
+          title: "Pool the cross-product layer",
+          body: "Design system, analytics and front-end are handled as one whole.",
         },
       ],
-      asideBold: "Design as a service. ",
+      asideBold: "Design in service of product strategy. ",
       aside:
-        "The team is shared, not embedded. Product teams request design the way they request any other capacity, and the cross-product layer is what keeps that from producing four different products.",
+        "The team is shared, not embedded. Product teams call on design the way they call on any other service in the company, and it is the cross-cutting layers, with team cohesion and the design system first among them, that keep the products consistent with one another.",
     },
     system: {
       title: "2. The design system",
-      sub: "Four products, several front-end stacks, one visual language. The system is the reason a team this size can serve a surface this wide.",
+      sub: "Four products, several front-end stacks, one design system.",
       items: [
         {
-          title: "A semantic layer over Flowbite",
-          body: "Rather than build primitives from scratch, the system sits on Flowbite and adds a semantic layer above it: names that describe intent instead of appearance. Products consume meaning, so a visual decision changes in one place.",
+          title: "Build on Flowbite",
+          body: "Rather than rebuilding primitives, add a semantic layer on top, shaped around the company and its needs.",
         },
         {
-          title: "Tokens across a mixed production stack",
-          body: "Angular, React and legacy code all consume the same tokens. That is what makes the four suites recognisably one product rather than four that share a logo.",
+          title: "Make design tokens stack-agnostic",
+          body: "To cover heterogeneous environments: Angular, Vue and legacy code all consume the same tokens.",
         },
         {
-          title: "Figma and Storybook as the shared proof",
-          body: "The Figma libraries and Storybook let design and engineering look at the same component at the same time. It ends the argument about what shipped versus what was drawn.",
+          title: "Share patterns across products",
+          body: "Navigation, filters and the overall page template are common to every product, which eases development on one side, and onboarding and everyday use on the other.",
         },
         {
-          title: "An AI assisted path into the code",
-          body: "A design to code workflow that lets non technical profiles ship interface changes safely, always inside the system. It became a tool of its own.",
+          title: "Make Figma and Storybook the shared source of truth",
+          body: "Design and engineering look at the same component at the same time, which ends the debate between what was designed and what shipped.",
+        },
+        {
+          title: "Experiment with AI-assisted code generation",
+          body: "A design-to-code workflow that lets non-technical profiles ship changes consistent with the design system, and generates code ready for developer review.",
         },
       ],
-      builderCta: "Read the Builder case study",
-      figure: "Token layers and the products that consume them",
+      builderCta: "Read the Builder plugin case study (inspired by the work done at NRC)",
     },
     cases: {
       title: "3. Three product cases",
-      sub: "Same team, three different kinds of problem: a legacy redesign, a conversion problem, and a strategy problem.",
+      sub: "Three problems of a different nature: redesigning the company's most profitable product, lifting conversion on a major data-collection channel, and a strategic call on AI.",
       items: [
         {
           n: "a",
           name: "Redesigning the Patient Experience suite",
           problem:
-            "The oldest suite in the portfolio, carrying years of accumulated screens and habits. A redesign here breaks workflows that hospitals run every day.",
+            "The oldest product in the portfolio, layered with years of iterations without a sustained product strategy, and weighed down by technical debt. Hospitals rely on it every day, so the redesign could not disrupt any of their workflows.",
           moves: [
-            "Phased, never big bang. The suite was cut into stages that could each ship and be judged on their own.",
-            "User research ahead of each phase, so the redesign answered observed problems rather than assumed ones.",
-            "A dedicated development squad in Vietnam paired to the design work, which kept the distance between a decision and a build short.",
-            "Progressive roll out, with the option to stop at any stage.",
+            "Tackle the suite in phases rather than as one single project, each with its own scope and success criteria.",
+            "Open each phase with a round of user research, to confirm in finer detail the problems identified upstream.",
+            "Pair with a dedicated front-end developer squad based in Vietnam, which shortens the path from a design decision to production.",
+            "Keep the product usable at every step, so the work could pause or be reordered without leaving a half-redesigned suite behind.",
           ],
+          status: {
+            label: "Where it stands: ",
+            body: "phase 1 shipped, design tokens and primitive components (buttons, input fields). Phase 2 shipped, the navigation bar. Phase 3 shipped, the filter system. Tables and data visualization remain.",
+          },
           figure: "Before and after, one phase of the suite",
         },
         {
           n: "b",
           name: "The outreach email",
           problem:
-            "Outreach emails converted at 8%. The design was dense and the one thing that mattered carried no more weight than the rest.",
+            "These emails converted at 8%, which is decent, but the email looked like a scam, with no reading hierarchy and not a single basic UX rule respected.",
           moves: [
-            "101 quick win use cases collected across the products, then ranked. This one came out first: widest reach, lowest cost to change.",
-            "Redesigned around a single action instead of a wall of content.",
-            "Shipped through the design to code pipeline rather than handed over as a specification.",
-            "Presented to the C suite with the before and after side by side.",
+            "List 101 quick wins across every product, then prioritize them. This one came out on top: the widest reach for the lowest cost of change.",
+            "Rebuild the email around a single action, instead of a wall of content.",
+            "Ship it straight through the design-to-code pipeline, with no spec in between.",
+            "Present the result to the executive committee, before and after side by side.",
           ],
-          result: "+24% click-through.",
+          result: "+24% click-through rate.",
           figure: "The email, before and after",
         },
         {
           n: "c",
           name: "Huey, one door for AI",
           problem:
-            "AI features were appearing across the portfolio, each with its own entry point and its own idea of what an assistant is. A user met a different assistant in every suite.",
+            "AI features were multiplying across the portfolio, each with its own entry point and its own definition.",
           moves: [
-            "Everything unified under Huey: one assistant, one behaviour, across all four suites.",
-            "Three ways in, chosen deliberately. A widget for the general case, features embedded where the work already happens, and ask your data for open questions.",
-            "The entry point became a product decision rather than a per feature one.",
+            "Bring everything under Huey: a single assistant federating the AI capabilities, extended into smart features and components shared by every suite.",
+            "Settle on three entry points and no more: an agent to query the data directly, a widget component that pushes information (summaries, insights, next logical actions...), and features embedded in the products where the work already happens (writing assistant, incident handling, ambient listening...).",
+            "Make the entry point a product decision, rather than a choice revisited from scratch with every feature.",
           ],
-          result:
-            "Ambient listening, one of the features under Huey, raised nurse documentation from 55% to 90%.",
+          result: "Ambient listening, for example, raised nurse documentation from 55% to 90%.",
           figure: "Huey, the three entry points",
         },
       ],
     },
     analytics: {
       title: "4. Analytics",
-      sub: "The part that decides whether any of the above was worth doing.",
-      body: "A SaaS can ship for years without knowing which features earn their keep. Setting up product analytics with Product, Engineering and the C suite is what moved design decisions from argued to measured, and it is why the design team holds an analytics seat of its own rather than sending requests elsewhere.",
+      body: "A SaaS product can ship for years without ever knowing which features deserve to exist. Building product analytics with Product, Engineering and the executive committee shifted design decisions from argument to measurement.",
       points: [
-        "Research and A/B testing behind design decisions, so a change ships with a prediction attached to it.",
-        "KPIs defined per feature, not per release.",
-        "An Analytics Specialist inside the design team, not a queue in another department.",
+        "Back every design decision with research and A/B testing, so each change ships with a measurable hypothesis.",
+        "Define KPIs per feature, never per release.",
+        "Bring an Analytics Specialist into the design team, to put a data-driven practice at the heart of design.",
       ],
     },
     contactCta: "Talk about this work",
@@ -1363,105 +1346,92 @@ export const nrcText: Record<
     period: "2024 → aujourd'hui",
     title: "Monter la fonction design chez NRC Health",
     intro:
-      "NRC Health vend de la mesure d'expérience aux hôpitaux et aux groupes de santé, à travers quatre suites produit. À mon arrivée, il n'y avait pas d'équipe design. Cette page raconte la suite : les personnes, le système qui tient quatre produits ensemble, les fonctionnalités d'IA qui leur ont donné une porte unique, et les analytics qui disent si tout ça a servi à quelque chose.",
-    stack: ["Santé", "SaaS", "Design System", "Management", "IA", "Analytics"],
+      "NRC Health accompagne les hôpitaux et les groupes de santé américains dans la collecte, l'analyse et l'exploitation des données d'expérience patient et de leurs employés, grâce à quatre suites de produits. À mon arrivée, il n'y avait pas d'équipe design. Cette page raconte la suite : l'équipe, l'organisation, le design system, et 3 use cases pour illustrer comment nous avons travaillé ces 2 dernières années.",
+    stack: ["SaaS", "Healthcare", "Patient Experience", "Employee Experience", "Design to Code", "Management", "IA", "Analytics"],
     figureLabel: "Visuel à venir",
     team: {
       title: "1. Monter l'équipe",
-      sub: "Une fonction design ne commence pas par un design. Elle commence par qui on recrute, et par ce qu'on promet au reste de l'entreprise.",
-      hiring: [
-        {
-          n: "01",
-          title: "Entrant, pas chassé",
-          body: "Les candidats venaient à nous plutôt que par une recherche. Ça change l'économie du premier tri : on filtre sur le métier avant que quiconque ait passé une heure en entretien.",
-        },
-        {
-          n: "02",
-          title: "20 profils retenus",
-          body: "Vingt profils ont passé ce premier tri. Assez peu pour donner à chacun une vraie attention, assez large pour comparer.",
-        },
-        {
-          n: "03",
-          title: "Un exercice commun",
-          body: "Tous les profils retenus ont passé le même test. Un portfolio montre ce que quelqu'un a livré avec une équipe derrière lui, un exercice montre comment il réfléchit seul.",
-        },
-      ],
       org: {
         top: ["CTO", "CPO", "C-suite"],
         lead: "Design Lead",
         reports: ["Product Designer", "Design System", "Analytics"],
-        caption:
-          "Deux Product Designers et un Analytics Specialist, rattachés au produit. Cette ligne décide des conversations où le design est présent par défaut, et de celles où il doit demander à entrer.",
       },
       strategy: [
         {
-          title: "Un designer par suite",
-          body: "Quatre suites, une équipe de trois. Chaque suite a un designer nommé plutôt qu'une file d'attente partagée, donc une équipe produit sait à qui parler avant de savoir quoi demander.",
+          title: "Nommer un designer par suite",
+          body: "Quatre suites, une équipe de trois. Chaque suite a son designer identifié plutôt qu'une file d'attente partagée, et chaque équipe produit sait à qui s'adresser.",
         },
         {
-          title: "Les victoires rapides d'abord",
-          body: "Une fonction neuve n'a aucun crédit. Les premières livraisons ont été petites, visibles et rapides, parce que c'est ce qui achète le droit de toucher aux gros sujets ensuite.",
+          title: "Livrer des quick wins d'abord",
+          body: "Une fonction qui vient de naître n'a aucun crédit. Les premières livraisons ont donc été petites, visibles et rapides, parce que c'est ce qui achète le droit d'aborder les sujets plus gros ensuite.",
         },
         {
-          title: "Une couche transverse",
-          body: "Design system, analytics et front-end sont résolus une fois pour tous plutôt que quatre fois. C'est la seule raison pour laquelle trois personnes couvrent quatre suites.",
+          title: "Mutualiser la couche transverse",
+          body: "Design system, analytics et front-end sont traités comme un tout.",
         },
       ],
-      asideBold: "Le design comme service. ",
+      asideBold: "L'équipe design au service de la stratégie produit. ",
       aside:
-        "L'équipe est partagée, pas intégrée. Les équipes produit demandent du design comme elles demandent n'importe quelle autre capacité, et c'est la couche transverse qui empêche ça de produire quatre produits différents.",
+        "L'équipe est partagée, pas intégrée. Les équipes produit font appel au design comme à n'importe quel autre service de l'entreprise, et ce sont les couches transverses, la cohésion de l'équipe et le design system en tête, qui maintiennent la cohérence entre les produits.",
     },
     system: {
       title: "2. Le design system",
-      sub: "Quatre produits, plusieurs stacks front, un seul langage visuel. Le système est la raison pour laquelle une équipe de cette taille couvre une surface pareille.",
+      sub: "Quatre produits, plusieurs stacks front, un seul design system.",
       items: [
         {
-          title: "Une couche sémantique sur Flowbite",
-          body: "Plutôt que de reconstruire les primitives, le système s'appuie sur Flowbite et ajoute une couche sémantique au-dessus : des noms qui décrivent l'intention plutôt que l'apparence. Les produits consomment du sens, donc une décision visuelle se change à un seul endroit.",
+          title: "S'appuyer sur Flowbite",
+          body: "Plutôt que reconstruire les primitives, ajouter par-dessus une couche sémantique propre à l'entreprise et à ses besoins.",
         },
         {
-          title: "Des tokens sur une production hétérogène",
-          body: "Angular, React et du code historique consomment les mêmes tokens. C'est ce qui fait que les quatre suites sont reconnaissables comme un seul produit, et pas comme quatre produits qui partagent un logo.",
+          title: "Rendre les design tokens agnostiques",
+          body: "Pour couvrir des environnements hétérogènes : Angular, Vue et le code legacy consomment les mêmes tokens.",
         },
         {
-          title: "Figma et Storybook comme preuve commune",
-          body: "Les bibliothèques Figma et Storybook permettent au design et à l'engineering de regarder le même composant en même temps. Ça termine le débat entre ce qui a été livré et ce qui avait été dessiné.",
+          title: "Mutualiser les patterns",
+          body: "Navigation, filtres et template général des pages sont communs aux produits, ce qui facilite le développement d'une part, l'onboarding et l'usage d'autre part.",
         },
         {
-          title: "Un chemin assisté par IA vers le code",
-          body: "Un workflow design vers code qui permet à des profils non techniques de livrer des changements d'interface en sécurité, toujours à l'intérieur du système. C'est devenu un outil à part entière.",
+          title: "Faire de Figma et Storybook la source commune de vérité",
+          body: "Design et engineering regardent le même composant au même moment, ce qui met fin au débat entre ce qui a été designé et ce qui a été livré.",
+        },
+        {
+          title: "Expérimenter la génération de code assistée par IA",
+          body: "Un workflow design-to-code qui permet à des profils non techniques de livrer des changements cohérents avec le design system, et de générer du code prêt à être reviewé par les développeurs.",
         },
       ],
-      builderCta: "Lire le case study Builder",
-      figure: "Les couches de tokens et les produits qui les consomment",
+      builderCta: "Lire le case study sur le plugin Builder (inspiré du travail effectué chez NRC)",
     },
     cases: {
       title: "3. Trois cas produit",
-      sub: "Même équipe, trois natures de problème différentes : une refonte d'existant, un problème de conversion, un problème de stratégie.",
+      sub: "Trois sujets de nature différente : la refonte du produit le plus rentable de l'entreprise, la conversion d'un canal majeur d'acquisition de données, et un arbitrage stratégique sur l'IA.",
       items: [
         {
           n: "a",
           name: "Refondre la suite Patient Experience",
           problem:
-            "La suite la plus ancienne du portefeuille, chargée d'années d'écrans et d'habitudes accumulés. Une refonte ici casse des workflows que des hôpitaux font tourner tous les jours.",
+            "Le produit le plus ancien du portefeuille, sédimenté par des années d'itérations sans réelle stratégie produit suivie, et alourdi par la dette technique. Les hôpitaux s'appuient dessus tous les jours, la refonte ne devait perturber aucun de leurs workflows.",
           moves: [
-            "Par phases, jamais d'un bloc. La suite a été découpée en étapes livrables et jugeables une par une.",
-            "De la recherche utilisateur avant chaque phase, pour que la refonte réponde à des problèmes observés et pas supposés.",
-            "Une squad de développement dédiée au Vietnam en binôme du design, ce qui a gardé une distance courte entre une décision et sa mise en oeuvre.",
-            "Un déploiement progressif, avec la possibilité de s'arrêter à chaque étape.",
+            "Traiter la suite par phases plutôt qu'en un chantier unique, chacune avec son périmètre et ses critères de réussite.",
+            "Ouvrir chaque phase par une séquence de recherche utilisateurs, pour confirmer plus finement les problèmes découverts en amont.",
+            "Travailler en binôme avec une squad de développeurs front-end dédiée, basée au Vietnam, ce qui raccourcit le trajet entre une décision de design et sa mise en production.",
+            "Laisser le produit utilisable à chaque palier, de sorte que le chantier puisse s'interrompre ou se réordonner sans laisser une suite à moitié refondue.",
           ],
+          status: {
+            label: "Où ça en est : ",
+            body: "phase 1 livrée, design tokens et composants primitifs (boutons, champs de saisie). Phase 2 livrée, barre de navigation. Phase 3 livrée, système de filtres. Restent les tables et la data visualization.",
+          },
           figure: "Avant et après, une phase de la suite",
         },
         {
           n: "b",
           name: "L'email de prise de contact",
           problem:
-            "Les emails de prise de contact convertissaient à 8%. Le design était dense et la seule chose qui comptait ne pesait pas plus que le reste.",
+            "Ces emails convertissaient à 8%, ce qui est correct, mais l'email ressemblait à un scam, sans hiérarchie de lecture, et où aucune des règles UX de base n'était respectée.",
           moves: [
-            "101 cas d'usage à gain rapide collectés à travers les produits, puis classés. Celui-ci est sorti premier : la portée la plus large, le coût de changement le plus faible.",
-            "Redessiné autour d'une action unique plutôt que d'un mur de contenu.",
-            "Livré via le pipeline design vers code plutôt que transmis sous forme de spécification.",
-            "Présenté au comité de direction avec l'avant et l'après côte à côte.",
+            "Recenser 101 quick wins à travers l'ensemble des produits, puis les prioriser. Celui-ci sort en tête : la portée la plus large pour le coût de changement le plus faible.",
+            "Reconstruire le mail autour d'une action unique, au lieu d'un mur de contenu.",
+            "Livrer directement via le pipeline design-to-code, sans passer par une spec.",
+            "Présenter le résultat au comité de direction, avant et après côte à côte.",
           ],
           result: "+24% de taux de clic.",
           figure: "L'email, avant et après",
@@ -1470,26 +1440,24 @@ export const nrcText: Record<
           n: "c",
           name: "Huey, une porte unique pour l'IA",
           problem:
-            "Des fonctionnalités d'IA apparaissaient partout dans le portefeuille, chacune avec son point d'entrée et sa propre idée de ce qu'est un assistant. Un utilisateur rencontrait un assistant différent dans chaque suite.",
+            "Les fonctionnalités d'IA se multipliaient un peu partout dans le portefeuille, chacune avec son point d'entrée et sa propre définition.",
           moves: [
-            "Tout unifié sous Huey : un assistant, un comportement, sur les quatre suites.",
-            "Trois portes d'entrée, choisies délibérément. Un widget pour le cas général, des fonctionnalités intégrées là où le travail se fait déjà, et l'interrogation directe des données pour les questions ouvertes.",
-            "Le point d'entrée est devenu une décision produit plutôt qu'une décision prise fonctionnalité par fonctionnalité.",
+            "Regrouper l'ensemble sous Huey : un seul assistant fédérant les fonctions IA, une déclinaison de features et de composants intelligents, commun à toutes les suites.",
+            "Arbitrer trois points d'entrée et pas davantage : un agent d'interrogation directe des données, un composant widget qui pousse de l'information (Résumés, insight, next logical actions...), et des fonctionnalités intégrées aux produits là où le travail se fait déjà (assistant de rédaction, traitement des incidents, ambient listening...).",
+            "Faire du point d'entrée une décision produit, et non un choix repris à zéro à chaque fonctionnalité.",
           ],
-          result:
-            "L'écoute ambiante, une des fonctionnalités sous Huey, a fait passer la documentation infirmière de 55% à 90%.",
+          result: "L'ambient listening, par exemple, a fait passer la documentation infirmière de 55% à 90%.",
           figure: "Huey, les trois points d'entrée",
         },
       ],
     },
     analytics: {
       title: "4. Analytics",
-      sub: "La partie qui décide si tout ce qui précède valait le coup.",
-      body: "Un SaaS peut livrer pendant des années sans savoir quelles fonctionnalités justifient leur existence. Mettre en place les analytics produit avec le Produit, l'Engineering et le comité de direction est ce qui a fait passer les décisions design de l'argumentaire à la mesure, et c'est pourquoi l'équipe design tient son propre siège analytics plutôt que d'envoyer des demandes ailleurs.",
+      body: "Un SaaS peut livrer pendant des années sans jamais savoir quelles fonctionnalités méritent d'exister. Construire les analytics produit avec le Produit, l'Engineering et le comité de direction a fait basculer les décisions design de l'argumentaire vers la mesure.",
       points: [
-        "De la recherche et de l'A/B testing derrière les décisions design, pour qu'un changement parte avec une prédiction attachée.",
-        "Des KPI définis par fonctionnalité, pas par release.",
-        "Un Analytics Specialist dans l'équipe design, pas une file d'attente dans un autre département.",
+        "Adosser chaque décision design à de la recherche et à de l'A/B testing, pour qu'un changement parte avec une hypothèse mesurable.",
+        "Définir les KPI par fonctionnalité, jamais par release.",
+        "Intégrer un Analytics Specialist à l'équipe design, afin d'embarquer la pratique data oriented au coeur du design.",
       ],
     },
     contactCta: "Parler de ce travail",
@@ -1500,133 +1468,118 @@ export const nrcText: Record<
     period: "2024 → hoy",
     title: "Construir la función de diseño en NRC Health",
     intro:
-      "NRC Health vende medición de experiencia a hospitales y grupos sanitarios, a través de cuatro suites de producto. Cuando llegué no había equipo de diseño. Esta página cuenta lo que vino después: las personas, el sistema que mantiene unidos cuatro productos, las funcionalidades de IA que les dieron una puerta única, y los analytics que dicen si algo de esto sirvió.",
-    stack: ["Salud", "SaaS", "Design System", "Management", "IA", "Analytics"],
+      "NRC Health acompaña a hospitales y sistemas de salud de Estados Unidos en la recopilación, el análisis y el aprovechamiento de los datos de experiencia de sus pacientes y de sus empleados, a través de cuatro suites de producto. Cuando llegué, no había equipo de diseño. Esta página cuenta lo que vino después: el equipo, la organización, el design system y tres casos de uso que ilustran cómo trabajamos estos dos últimos años.",
+    stack: ["SaaS", "Healthcare", "Patient Experience", "Employee Experience", "Design to Code", "Management", "IA", "Analytics"],
     figureLabel: "Visual pendiente",
     team: {
       title: "1. Construir el equipo",
-      sub: "Una función de diseño no empieza por un diseño. Empieza por a quién contratas, y por lo que le prometes al resto de la empresa.",
-      hiring: [
-        {
-          n: "01",
-          title: "Entrante, no cazado",
-          body: "Los candidatos venían a nosotros en lugar de salir a buscarlos. Eso cambia la economía del primer filtro: se filtra por oficio antes de que nadie haya pasado una hora en una entrevista.",
-        },
-        {
-          n: "02",
-          title: "20 perfiles preseleccionados",
-          body: "Veinte perfiles pasaron ese primer filtro. Pocos como para darle a cada uno atención real, suficientes como para comparar.",
-        },
-        {
-          n: "03",
-          title: "Un ejercicio común",
-          body: "Todos los preseleccionados hicieron la misma prueba. Un portfolio muestra lo que alguien entregó con un equipo detrás, un ejercicio muestra cómo piensa solo.",
-        },
-      ],
       org: {
         top: ["CTO", "CPO", "C-suite"],
         lead: "Design Lead",
         reports: ["Product Designer", "Design System", "Analytics"],
-        caption:
-          "Dos Product Designers y un Analytics Specialist, dependiendo de producto. Esa línea decide en qué conversaciones está el diseño por defecto, y en cuáles tiene que pedir entrar.",
       },
       strategy: [
         {
-          title: "Un diseñador por suite",
-          body: "Cuatro suites, un equipo de tres. Cada suite tiene un diseñador con nombre en lugar de una cola compartida, así un equipo de producto sabe con quién hablar antes de saber qué pedir.",
+          title: "Asignar un diseñador por suite",
+          body: "Cuatro suites, un equipo de tres. Cada suite tiene su diseñador de referencia en lugar de una cola compartida, y cada equipo de producto sabe a quién acudir.",
         },
         {
-          title: "Victorias rápidas primero",
-          body: "Una función nueva no tiene crédito. Las primeras entregas fueron pequeñas, visibles y rápidas, porque eso es lo que compra el derecho a tocar los temas grandes después.",
+          title: "Entregar quick wins primero",
+          body: "Una función recién nacida no tiene crédito. Por eso las primeras entregas fueron pequeñas, visibles y rápidas: es lo que da derecho a abordar después los temas de mayor calado.",
         },
         {
-          title: "Una capa transversal",
-          body: "Design system, analytics y front-end se resuelven una vez para todos en lugar de cuatro veces. Es la única razón por la que tres personas cubren cuatro suites.",
+          title: "Mutualizar la capa transversal",
+          body: "Design system, analytics y front-end se tratan como un todo.",
         },
       ],
-      asideBold: "El diseño como servicio. ",
+      asideBold: "El diseño al servicio de la estrategia de producto. ",
       aside:
-        "El equipo es compartido, no incrustado. Los equipos de producto piden diseño como piden cualquier otra capacidad, y la capa transversal es lo que impide que eso produzca cuatro productos distintos.",
+        "El equipo es compartido, no integrado. Los equipos de producto recurren al diseño como a cualquier otro servicio de la empresa, y son las capas transversales, con la cohesión del equipo y el design system a la cabeza, las que mantienen la coherencia entre productos.",
     },
     system: {
       title: "2. El design system",
-      sub: "Cuatro productos, varios stacks de front, un solo lenguaje visual. El sistema es la razón por la que un equipo de este tamaño cubre una superficie así.",
+      sub: "Cuatro productos, varios stacks de front-end, un solo design system.",
       items: [
         {
-          title: "Una capa semántica sobre Flowbite",
-          body: "En lugar de reconstruir las primitivas, el sistema se apoya en Flowbite y añade una capa semántica encima: nombres que describen la intención en vez de la apariencia. Los productos consumen sentido, así que una decisión visual se cambia en un solo sitio.",
+          title: "Apoyarse en Flowbite",
+          body: "En lugar de reconstruir las primitivas, añadir encima una capa semántica propia, pensada para la empresa y sus necesidades.",
         },
         {
-          title: "Tokens sobre una producción heterogénea",
-          body: "Angular, React y código heredado consumen los mismos tokens. Eso es lo que hace que las cuatro suites se reconozcan como un solo producto, y no como cuatro que comparten logo.",
+          title: "Hacer los design tokens agnósticos",
+          body: "Para cubrir entornos heterogéneos: Angular, Vue y el código legacy consumen los mismos tokens.",
         },
         {
-          title: "Figma y Storybook como prueba común",
-          body: "Las librerías de Figma y Storybook permiten que diseño e ingeniería miren el mismo componente al mismo tiempo. Termina la discusión entre lo que se entregó y lo que se había dibujado.",
+          title: "Mutualizar los patrones",
+          body: "Navegación, filtros y plantilla general de página son comunes a todos los productos, lo que facilita el desarrollo por un lado, y el onboarding y el uso por otro.",
         },
         {
-          title: "Un camino asistido por IA hacia el código",
-          body: "Un flujo de diseño a código que permite a perfiles no técnicos entregar cambios de interfaz con seguridad, siempre dentro del sistema. Se convirtió en una herramienta propia.",
+          title: "Hacer de Figma y Storybook la fuente de verdad común",
+          body: "Diseño e ingeniería miran el mismo componente al mismo tiempo, lo que zanja el debate entre lo que se diseñó y lo que se entregó.",
+        },
+        {
+          title: "Experimentar con la generación de código asistida por IA",
+          body: "Un workflow design-to-code que permite a perfiles no técnicos entregar cambios coherentes con el design system y generar código listo para la review de los desarrolladores.",
         },
       ],
-      builderCta: "Leer el case study de Builder",
-      figure: "Las capas de tokens y los productos que las consumen",
+      builderCta: "Leer el case study del plugin Builder (inspirado en el trabajo realizado en NRC)",
     },
     cases: {
       title: "3. Tres casos de producto",
-      sub: "Mismo equipo, tres naturalezas de problema distintas: un rediseño de lo existente, un problema de conversión y un problema de estrategia.",
+      sub: "Tres temas de naturaleza distinta: el rediseño del producto más rentable de la empresa, la conversión de un canal clave de captación de datos y una decisión estratégica sobre la IA.",
       items: [
         {
           n: "a",
           name: "Rediseñar la suite Patient Experience",
           problem:
-            "La suite más antigua del portafolio, cargada de años de pantallas y costumbres acumuladas. Un rediseño aquí rompe flujos de trabajo que los hospitales usan todos los días.",
+            "El producto más antiguo de la cartera, fruto de años de iteraciones sin una estrategia de producto sostenida y lastrado por la deuda técnica. Los hospitales lo usan a diario: el rediseño no podía alterar ninguno de sus flujos de trabajo.",
           moves: [
-            "Por fases, nunca de golpe. La suite se cortó en etapas que podían entregarse y juzgarse una a una.",
-            "Investigación con usuarios antes de cada fase, para que el rediseño respondiera a problemas observados y no supuestos.",
-            "Una squad de desarrollo dedicada en Vietnam emparejada con el diseño, lo que mantuvo corta la distancia entre una decisión y su construcción.",
-            "Despliegue progresivo, con la opción de parar en cualquier etapa.",
+            "Abordar la suite por fases y no como un único proyecto, cada una con su alcance y sus criterios de éxito.",
+            "Abrir cada fase con una ronda de investigación de usuarios, para confirmar con más detalle los problemas detectados previamente.",
+            "Trabajar en tándem con una squad de desarrolladores front-end dedicada, con base en Vietnam, lo que acorta el camino entre una decisión de diseño y su puesta en producción.",
+            "Mantener el producto utilizable en cada etapa, para que el proyecto pudiera pausarse o reordenarse sin dejar una suite a medio rediseñar.",
           ],
+          status: {
+            label: "Estado actual: ",
+            body: "fase 1 entregada, design tokens y componentes primitivos (botones, campos de entrada). Fase 2 entregada, la barra de navegación. Fase 3 entregada, el sistema de filtros. Quedan las tablas y la visualización de datos.",
+          },
           figure: "Antes y después, una fase de la suite",
         },
         {
           n: "b",
           name: "El email de contacto",
           problem:
-            "Los emails de contacto convertían al 8%. El diseño era denso y lo único que importaba no pesaba más que el resto.",
+            "Estos emails convertían al 8%, una cifra correcta, pero el email parecía fraudulento, sin jerarquía de lectura y sin respetar ninguna regla básica de UX.",
           moves: [
-            "101 casos de uso de ganancia rápida recogidos a través de los productos, luego priorizados. Este salió primero: el alcance más amplio, el coste de cambio más bajo.",
-            "Rediseñado alrededor de una sola acción en lugar de un muro de contenido.",
-            "Entregado por el pipeline de diseño a código en vez de transmitido como especificación.",
-            "Presentado al comité de dirección con el antes y el después uno al lado del otro.",
+            "Identificar 101 quick wins en todos los productos y priorizarlos. Este quedó primero: el mayor alcance con el menor coste de cambio.",
+            "Reconstruir el email en torno a una única acción, en lugar de un muro de contenido.",
+            "Entregarlo directamente a través del pipeline design-to-code, sin pasar por una spec.",
+            "Presentar el resultado al comité de dirección, con el antes y el después lado a lado.",
           ],
-          result: "+24% de tasa de clic.",
+          result: "+24% de tasa de clics.",
           figure: "El email, antes y después",
         },
         {
           n: "c",
           name: "Huey, una puerta única para la IA",
           problem:
-            "Aparecían funcionalidades de IA por todo el portafolio, cada una con su punto de entrada y su propia idea de lo que es un asistente. Un usuario se encontraba un asistente distinto en cada suite.",
+            "Las funcionalidades de IA se multiplicaban por toda la cartera, cada una con su propio punto de entrada y su propia definición.",
           moves: [
-            "Todo unificado bajo Huey: un asistente, un comportamiento, en las cuatro suites.",
-            "Tres puertas de entrada, elegidas deliberadamente. Un widget para el caso general, funcionalidades integradas donde el trabajo ya ocurre, y la consulta directa a los datos para preguntas abiertas.",
-            "El punto de entrada pasó a ser una decisión de producto en lugar de una decisión tomada funcionalidad por funcionalidad.",
+            "Reunir todo bajo Huey: un único asistente que federa las funciones de IA, declinado en features y componentes inteligentes comunes a todas las suites.",
+            "Fijar tres puntos de entrada, ni uno más: un agente para consultar los datos directamente, un componente widget que empuja información (resúmenes, insights, próximas acciones lógicas...) y funcionalidades integradas en los productos allí donde ya se trabaja (asistente de redacción, gestión de incidencias, ambient listening...).",
+            "Hacer del punto de entrada una decisión de producto, y no una elección que se replantea desde cero con cada funcionalidad.",
           ],
-          result:
-            "La escucha ambiental, una de las funcionalidades bajo Huey, subió la documentación de enfermería del 55% al 90%.",
+          result: "El ambient listening, por ejemplo, elevó la documentación de enfermería del 55% al 90%.",
           figure: "Huey, los tres puntos de entrada",
         },
       ],
     },
     analytics: {
       title: "4. Analytics",
-      sub: "La parte que decide si todo lo anterior valió la pena.",
-      body: "Un SaaS puede entregar durante años sin saber qué funcionalidades justifican su existencia. Montar los analytics de producto con Producto, Ingeniería y el comité de dirección es lo que llevó las decisiones de diseño del argumento a la medición, y es la razón por la que el equipo de diseño tiene su propio asiento de analytics en vez de mandar peticiones a otro sitio.",
+      body: "Un SaaS puede pasarse años entregando sin saber nunca qué funcionalidades merecen existir. Construir los analytics de producto con Producto, Ingeniería y el comité de dirección hizo que las decisiones de diseño pasaran del argumento a la medición.",
       points: [
-        "Investigación y A/B testing detrás de las decisiones de diseño, para que un cambio salga con una predicción asociada.",
-        "KPI definidos por funcionalidad, no por release.",
-        "Un Analytics Specialist dentro del equipo de diseño, no una cola en otro departamento.",
+        "Respaldar cada decisión de diseño con investigación y A/B testing, para que cada cambio salga con una hipótesis medible.",
+        "Definir los KPI por funcionalidad, nunca por release.",
+        "Integrar un Analytics Specialist en el equipo de diseño, para llevar una práctica data-driven al corazón del diseño.",
       ],
     },
     contactCta: "Hablar de este trabajo",
