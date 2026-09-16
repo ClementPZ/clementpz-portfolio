@@ -14,7 +14,7 @@ export function Hero() {
         {profile.tagline}
       </h1>
       <p
-        className="mt-8 max-w-2xl text-lg sm:text-xl leading-relaxed"
+        className="mt-8 text-lg sm:text-xl leading-relaxed"
         style={{ color: "var(--text-muted)" }}
       >
         {introText[locale]}
