@@ -10,6 +10,9 @@ const ORANGE = "#FF8A00"; // Carolino
 // You + Stefan parqués pour l'instant (trop de bruit) → passer à true pour réactiver.
 const SHOW_EXTRA_CURSORS = false;
 
+// Carolino désactivée pour l'instant → passer à true pour réactiver.
+const SHOW_CAROLINO = false;
+
 function Cursor({
   label,
   color,
@@ -204,7 +207,9 @@ export function LiveCursors() {
       // Carol traverse jusqu'au widget "Comment ce portfolio a été construit"
       // et y reste ancrée (suit le bouton au scroll au lieu de disparaître).
       // Entrée depuis la droite pour un axe de déplacement diagonal net.
-      animateTo(carolinoRef.current, "cta-makingof", { x: 0.82, y: 0.62 }, 200, 2000, true);
+      if (SHOW_CAROLINO) {
+        animateTo(carolinoRef.current, "cta-makingof", { x: 0.82, y: 0.62 }, 200, 2000, true);
+      }
     };
 
     let alreadySeen = false;
@@ -234,7 +239,9 @@ export function LiveCursors() {
         <Cursor label="You" color={GREEN} cursorRef={youRef} />
       )}
       {SHOW_EXTRA_CURSORS && <Cursor label="Stefan" color={BLUE} cursorRef={stefanRef} />}
-      <Cursor label="Carolino" color={ORANGE} cursorRef={carolinoRef} labelLeft />
+      {SHOW_CAROLINO && (
+        <Cursor label="Carolino" color={ORANGE} cursorRef={carolinoRef} labelLeft />
+      )}
     </>
   );
 }
