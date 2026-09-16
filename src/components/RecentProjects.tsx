@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Navigation } from "swiper/modules";
 import type { Swiper as SwiperClass } from "swiper/types";
@@ -10,12 +10,19 @@ import { recentProjects } from "../data/content";
 import { projectText, statusText } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
 
+// Cle sessionStorage : la carte cliquee s'y depose avant de quitter la home,
+// et la carrousel s'y relit une fois au retour pour se recentrer dessus et
+// faire defiler la page jusqu'a la section, plutot que de revenir en haut.
+const RETURN_KEY = "recentReturnId";
+
 export function RecentProjects() {
   const { locale, t } = useLocale();
   const localized = projectText[locale];
   const status = statusText[locale];
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const swiperRef = useRef<SwiperClass | null>(null);
   const builderIndex = Math.max(
     0,
     recentProjects.findIndex((p) => p.id === "builder-flow")
@@ -23,6 +30,7 @@ export function RecentProjects() {
 
   // Câble les flèches custom (btn-ghost) sur la navigation Swiper.
   const wireNav = (swiper: SwiperClass) => {
+    swiperRef.current = swiper;
     const nav = swiper.params.navigation;
     if (nav && typeof nav !== "boolean") {
       nav.prevEl = prevRef.current;
@@ -30,8 +38,23 @@ export function RecentProjects() {
     }
   };
 
+  useEffect(() => {
+    const id = sessionStorage.getItem(RETURN_KEY);
+    if (!id) return;
+    sessionStorage.removeItem(RETURN_KEY);
+    const index = recentProjects.findIndex((p) => p.id === id);
+    if (index < 0) return;
+    swiperRef.current?.slideTo(index);
+    sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, []);
+
   return (
-    <section id="recent" className="py-16" style={{ borderTop: "1px solid var(--border)" }}>
+    <section
+      id="recent"
+      ref={sectionRef}
+      className="py-16"
+      style={{ borderTop: "1px solid var(--border)", scrollMarginTop: 88 }}
+    >
       <div className="max-w-6xl mx-auto px-6 flex items-baseline justify-between mb-8">
         <div>
           <h2 className="font-display text-2xl sm:text-3xl font-bold">{t.recentTitle}</h2>
@@ -106,7 +129,12 @@ export function RecentProjects() {
 
                 {/* Lien étiré : toute la carte devient cliquable (case study) */}
                 {p.link && (
-                  <a href={p.link} aria-label={p.name} className="absolute inset-0 z-10" />
+                  <a
+                    href={p.link}
+                    aria-label={p.name}
+                    className="absolute inset-0 z-10"
+                    onClick={() => sessionStorage.setItem(RETURN_KEY, p.id)}
+                  />
                 )}
 
                 <span

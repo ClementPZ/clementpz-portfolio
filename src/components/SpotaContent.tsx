@@ -67,8 +67,13 @@ export function SpotaContent() {
     <div className="spota">
       <div className="spota-shell">
         <nav className="spota-nav">
-          <div className="spota-wordmark">
-            Spot<b>a</b>
+          <div className="spota-nav-left">
+            <Link href="/" aria-label="Back to portfolio" className="spota-back-btn">
+              ←
+            </Link>
+            <div className="spota-wordmark">
+              Spot<b>a</b>
+            </div>
           </div>
           <a className="spota-nav-cta" href={BETA_MAILTO} onClick={(e) => fireConfetti(e.currentTarget, [SPOT, SELF, "#ffffff"])}>
             Get the beta
@@ -250,6 +255,14 @@ export function SpotaContent() {
         .spota-shell { max-width: 760px; margin: 0 auto; padding: 0 24px; }
 
         .spota-nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 0 0; }
+        .spota-nav-left { display: flex; align-items: center; gap: 14px; }
+        .spota-back-btn {
+          display: inline-flex; align-items: center; justify-content: center;
+          width: 36px; height: 36px; border-radius: 50%;
+          border: 1px solid rgba(255,255,255,0.14); color: rgba(255,255,255,0.7);
+          text-decoration: none; transition: border-color .15s ease, color .15s ease;
+        }
+        .spota-back-btn:hover { border-color: var(--self); color: #fff; }
         .spota-wordmark { font-weight: 800; font-size: 20px; letter-spacing: -0.3px; }
         .spota-wordmark b { color: var(--spot); }
         .spota-nav-cta {

@@ -35,9 +35,14 @@ export default function SpotaPrivacyPage() {
     <div className="spotap">
       <div className="spotap-shell">
         <nav className="spotap-nav">
-          <Link href="/spota" className="spotap-wordmark">
-            Spot<b>a</b>
-          </Link>
+          <div className="spotap-nav-left">
+            <Link href="/spota" aria-label="Back to Spot a" className="spotap-back-btn">
+              ←
+            </Link>
+            <Link href="/spota" className="spotap-wordmark">
+              Spot<b>a</b>
+            </Link>
+          </div>
           <Link href="/spota" className="spotap-nav-back">
             ← Back to Spot a
           </Link>
@@ -242,6 +247,14 @@ export default function SpotaPrivacyPage() {
           display: flex; align-items: center; justify-content: space-between;
           gap: 16px; padding: 22px 0 0;
         }
+        .spotap-nav-left { display: flex; align-items: center; gap: 14px; }
+        .spotap-back-btn {
+          display: inline-flex; align-items: center; justify-content: center;
+          width: 36px; height: 36px; border-radius: 50%;
+          border: 1px solid rgba(255,255,255,0.14); color: rgba(255,255,255,0.7);
+          text-decoration: none; transition: border-color .15s ease, color .15s ease;
+        }
+        .spotap-back-btn:hover { border-color: var(--spot); color: #fff; }
         .spotap-wordmark {
           font-weight: 800; font-size: 20px; letter-spacing: -0.3px;
           color: #fff; text-decoration: none;

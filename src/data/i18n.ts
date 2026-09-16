@@ -324,6 +324,11 @@ export const projectText: Record<
       description:
         "A homegrown system that scores tracks as warm-up / mid / peak through audio analysis (librosa), on an intra-genre percentile. An open-source alternative to Mixed In Key, focused on energy rather than key.",
     },
+    "remarkable-calendar-sync": {
+      tagline: "Your calendar, waiting on paper every morning",
+      description:
+        "A weekly PDF planner generated from Google Calendar and pushed automatically to a reMarkable tablet, so the week is already on paper before I sit down. Built for a Paper Pro, in-place updates keep handwritten notes when the calendar changes.",
+    },
   },
   fr: {
     "builder-flow": {
@@ -376,6 +381,11 @@ export const projectText: Record<
       description:
         "Un système maison qui classe les tracks en warm-up / mid / peak par analyse audio (librosa), en percentile intra-genre. Une alternative open-source à Mixed In Key, focalisée sur l'énergie plutôt que la tonalité.",
     },
+    "remarkable-calendar-sync": {
+      tagline: "Votre agenda, déjà sur papier chaque matin",
+      description:
+        "Un planning hebdomadaire en PDF généré depuis Google Agenda et envoyé automatiquement sur une tablette reMarkable, pour que la semaine soit déjà sur papier avant de s'asseoir. Pensé pour une Paper Pro, la mise à jour sur place garde les notes manuscrites quand l'agenda change.",
+    },
   },
   es: {
     "builder-flow": {
@@ -427,6 +437,11 @@ export const projectText: Record<
       tagline: "Puntuar la energía de un set por análisis de audio",
       description:
         "Un sistema propio que clasifica los tracks en warm-up / mid / peak mediante análisis de audio (librosa), en percentil intra-género. Una alternativa open-source a Mixed In Key, centrada en la energía más que en la tonalidad.",
+    },
+    "remarkable-calendar-sync": {
+      tagline: "Tu agenda, ya en papel cada mañana",
+      description:
+        "Una agenda semanal en PDF generada desde Google Calendar y enviada automáticamente a una tablet reMarkable, para que la semana ya esté en papel antes de sentarte. Pensada para una Paper Pro, la actualización en el mismo lugar conserva las notas manuscritas cuando el calendario cambia.",
     },
   },
 };
@@ -589,6 +604,7 @@ export const musicDownloaderText: Record<
     versions: { title: string; sub: string; items: MusicVersion[] };
     roadmap: { title: string; sub: string; items: MusicRoad[] };
     legal: string;
+    backHome: string;
   }
 > = {
   en: {
@@ -658,6 +674,7 @@ export const musicDownloaderText: Record<
     },
     legal:
       "SoundMesh is presented here as a generic peer-to-peer network for freely licensed, self-produced audio. The engineering described (self-hosted daemon, REST orchestration, conversion pipeline, library integration, energy classification) is independent of the source and applies to any catalog the user can legitimately access.",
+    backHome: "Back to the portfolio",
   },
   fr: {
     period: "2025 - 2026",
@@ -726,6 +743,7 @@ export const musicDownloaderText: Record<
     },
     legal:
       "SoundMesh est présenté ici comme un réseau peer-to-peer générique pour de l'audio librement licencié et auto-produit. L'ingénierie décrite (daemon auto-hébergé, orchestration REST, pipeline de conversion, intégration bibliothèque, classification d'énergie) est indépendante de la source et s'applique à tout catalogue auquel l'utilisateur a légitimement accès.",
+    backHome: "Retour au portfolio",
   },
   es: {
     period: "2025 - 2026",
@@ -794,6 +812,7 @@ export const musicDownloaderText: Record<
     },
     legal:
       "SoundMesh se presenta aquí como una red peer-to-peer genérica para audio de licencia libre y autoproducido. La ingeniería descrita (daemon autoalojado, orquestación REST, pipeline de conversión, integración con la biblioteca, clasificación de energía) es independiente de la fuente y se aplica a cualquier catálogo al que el usuario tenga acceso legítimo.",
+    backHome: "Volver al portafolio",
   },
 };
 
@@ -960,6 +979,86 @@ export const builderText: Record<
       },
     ],
     contactCta: "Contáctame",
+    backHome: "Volver al portafolio",
+  },
+};
+
+// ============================================================================
+// Page /remarkable-calendar-sync — vitrine du produit (EN / FR / ES).
+// Marketing seulement, pas de fonction : pas de CTA, pas de connexion.
+// ============================================================================
+
+export const remarkableCalendarSyncText: Record<
+  Locale,
+  {
+    kicker: string;
+    title: string;
+    intro: string;
+    sections: { heading: string; body: string }[];
+    backHome: string;
+  }
+> = {
+  en: {
+    kicker: "Personal automation",
+    title: "reMarkable Calendar Sync",
+    intro:
+      "A weekly planner generated from my Google Calendar and pushed straight to my reMarkable tablet, so the week is already on paper before I open a laptop. No app, no manual export, just a page that updates itself.",
+    sections: [
+      {
+        heading: "The idea",
+        body: "Every week starts on paper for me, but building that page by hand was a chore Google Calendar didn't solve. This pulls the week straight from the calendar and lays it out as a page sized for the tablet, automatically, on a schedule.",
+      },
+      {
+        heading: "How it works",
+        body: "A scheduled job reads the calendar in read-only mode, builds a week view sized to the device, and replaces the page on the tablet in place, so notes already written on it stay when the calendar changes underneath.",
+      },
+      {
+        heading: "Where it stands",
+        body: "Running end to end on my own Paper Pro since September 2026, personal use for now. Sharing it with a second person, then opening it up further, is the direction, not yet built.",
+      },
+    ],
+    backHome: "Back to the portfolio",
+  },
+  fr: {
+    kicker: "Automatisation personnelle",
+    title: "reMarkable Calendar Sync",
+    intro:
+      "Un planning hebdomadaire généré depuis mon agenda Google et envoyé directement sur ma tablette reMarkable, pour que la semaine soit déjà sur papier avant même d'ouvrir un ordinateur. Pas d'application, pas d'export manuel, juste une page qui se met à jour toute seule.",
+    sections: [
+      {
+        heading: "L'idée",
+        body: "Chaque semaine commence sur papier pour moi, mais construire cette page à la main était une corvée que Google Agenda ne résolvait pas. Ce projet récupère la semaine directement depuis l'agenda et la met en page au format de la tablette, automatiquement, selon un planning.",
+      },
+      {
+        heading: "Comment ça marche",
+        body: "Une tâche planifiée lit l'agenda en lecture seule, construit une vue semaine au format de l'appareil, et remplace la page sur la tablette sur place, pour que les notes déjà écrites dessus restent quand l'agenda change en dessous.",
+      },
+      {
+        heading: "Où ça en est",
+        body: "Fonctionne de bout en bout sur ma propre Paper Pro depuis septembre 2026, usage personnel pour l'instant. Le partager avec une deuxième personne, puis l'ouvrir plus largement, c'est la direction prise, pas encore construite.",
+      },
+    ],
+    backHome: "Retour au portfolio",
+  },
+  es: {
+    kicker: "Automatización personal",
+    title: "reMarkable Calendar Sync",
+    intro:
+      "Una agenda semanal generada desde mi Google Calendar y enviada directamente a mi tablet reMarkable, para que la semana ya esté en papel antes de abrir un portátil. Sin aplicación, sin exportación manual, solo una página que se actualiza sola.",
+    sections: [
+      {
+        heading: "La idea",
+        body: "Cada semana empieza en papel para mí, pero construir esa página a mano era una tarea que Google Calendar no resolvía. Este proyecto toma la semana directamente del calendario y la maqueta al formato de la tablet, automáticamente, según un horario.",
+      },
+      {
+        heading: "Cómo funciona",
+        body: "Una tarea programada lee el calendario en modo solo lectura, arma una vista semanal al formato del dispositivo, y reemplaza la página en la tablet en el mismo lugar, para que las notas ya escritas en ella se mantengan cuando el calendario cambia debajo.",
+      },
+      {
+        heading: "En qué punto está",
+        body: "Funciona de principio a fin en mi propia Paper Pro desde septiembre de 2026, uso personal por ahora. Compartirlo con una segunda persona, y luego abrirlo más, es la dirección tomada, todavía sin construir.",
+      },
+    ],
     backHome: "Volver al portafolio",
   },
 };
@@ -1339,7 +1438,7 @@ export const nrcText: Record<
       ],
     },
     contactCta: "Talk about this work",
-    backHome: "Back home",
+    backHome: "Back to the portfolio",
   },
   fr: {
     kicker: "Product Design Lead · Nasdaq: NRC",
@@ -1461,7 +1560,7 @@ export const nrcText: Record<
       ],
     },
     contactCta: "Parler de ce travail",
-    backHome: "Retour à l'accueil",
+    backHome: "Retour au portfolio",
   },
   es: {
     kicker: "Product Design Lead · Nasdaq: NRC",
@@ -1583,7 +1682,7 @@ export const nrcText: Record<
       ],
     },
     contactCta: "Hablar de este trabajo",
-    backHome: "Volver al inicio",
+    backHome: "Volver al portafolio",
   },
 };
 
