@@ -159,7 +159,8 @@ export type ProjectId =
   | "legal-music"
   | "spota"
   | "making-of"
-  | "interior-design";
+  | "interior-design"
+  | "remarkable-calendar-sync";
 
 export type RecentProject = {
   id: ProjectId;
@@ -233,6 +234,7 @@ export const recentProjects: RecentProject[] = [
     tags: ["Claude Code", "Design System", "AI"],
     accent: "#7c3aed",
     accent2: "#1e1b4b",
+    link: "/builder",
   },
   // Voisine immédiate de Builder : les deux projets en vedette sur la home se
   // suivent aussi dans le deck.
@@ -286,6 +288,15 @@ export const recentProjects: RecentProject[] = [
     accent2: "#1c1917",
     image: "/interior/carroussel.JPG",
     link: "/interior",
+  },
+  {
+    id: "remarkable-calendar-sync",
+    name: "reMarkable Calendar Sync",
+    status: "private-live",
+    tags: ["TypeScript", "Automation", "reMarkable"],
+    accent: "#57534e",
+    accent2: "#0c0a09",
+    link: "/remarkable-calendar-sync",
   },
 ];
 

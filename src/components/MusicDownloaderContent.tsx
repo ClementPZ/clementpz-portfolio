@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { BackHome } from "./BackHome";
@@ -222,6 +223,12 @@ export function MusicDownloaderContent() {
           }}
         >
           {t.legal}
+        </div>
+
+        <div className="mt-10">
+          <Link href="/" className="btn-ghost">
+            {t.backHome}
+          </Link>
         </div>
       </main>
       <Footer />
