@@ -13,6 +13,36 @@ function initials(company: string): string {
   return (words[0][0] + words[1][0]).toUpperCase();
 }
 
+function Quote({ r }: { r: (typeof recommendations)[number] }) {
+  return (
+    <blockquote className="flex flex-col">
+      <span
+        aria-hidden
+        className="font-display font-bold leading-none mb-1"
+        style={{ fontSize: "2.75rem", color: "var(--accent)" }}
+      >
+        &ldquo;
+      </span>
+      <p className="text-lg leading-relaxed" style={{ color: "var(--text)" }}>
+        {r.quote}
+      </p>
+      <footer className="mt-4 flex items-baseline gap-2 flex-wrap text-sm">
+        <span className="font-display font-bold">{r.author}</span>
+        <span style={{ color: "var(--text-muted)" }}>· {r.title}</span>
+        <a
+          href={r.linkedin || "#"}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="relative z-20 hover:underline"
+          style={{ color: "var(--accent)" }}
+        >
+          LinkedIn ↗
+        </a>
+      </footer>
+    </blockquote>
+  );
+}
+
 function Avatar({ company, image }: { company: string; image?: string }) {
   if (image) {
     return (
@@ -61,31 +91,7 @@ export function Work() {
       {/* Quotes — traitement éditorial, sans card, posé sur le fond */}
       <div className="grid gap-10 sm:grid-cols-2 mb-14">
         {quotes.map((r) => (
-          <blockquote key={r.author} className="flex flex-col">
-            <span
-              aria-hidden
-              className="font-display font-bold leading-none mb-1"
-              style={{ fontSize: "2.75rem", color: "var(--accent)" }}
-            >
-              &ldquo;
-            </span>
-            <p className="text-lg leading-relaxed" style={{ color: "var(--text)" }}>
-              {r.quote}
-            </p>
-            <footer className="mt-4 flex items-baseline gap-2 flex-wrap text-sm">
-              <span className="font-display font-bold">{r.author}</span>
-              <span style={{ color: "var(--text-muted)" }}>· {r.title}</span>
-              <a
-                href={r.linkedin || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline"
-                style={{ color: "var(--accent)" }}
-              >
-                LinkedIn ↗
-              </a>
-            </footer>
-          </blockquote>
+          <Quote key={r.author} r={r} />
         ))}
       </div>
 
@@ -96,9 +102,9 @@ export function Work() {
           const bullets = lx?.bullets ?? [];
           const impact = lx?.impact;
           const pinnedQuote = recommendations.find((r) => r.quote && r.pinnedTo === w.id);
-          return (
+          const card = (
             <article
-              key={w.company + w.period}
+              key={pinnedQuote ? undefined : w.company + w.period}
               className={`surface p-6 sm:p-7 flex flex-col${index === 0 ? " card-featured" : ""}${
                 w.link ? " card-link relative" : ""
               }`}
@@ -112,31 +118,6 @@ export function Work() {
                   aria-label={`${w.company}, ${t.caseStudy}`}
                   className="absolute inset-0 z-10 rounded-[inherit]"
                 />
-              )}
-              {pinnedQuote && (
-                <blockquote
-                  className="mb-5 pb-5"
-                  style={{ borderBottom: "1px solid var(--border)" }}
-                >
-                  <p className="text-sm leading-relaxed italic" style={{ color: "var(--text)" }}>
-                    &ldquo;{pinnedQuote.quote}&rdquo;
-                  </p>
-                  <footer className="mt-2 flex items-baseline gap-2 flex-wrap text-xs">
-                    <span className="font-display font-bold">{pinnedQuote.author}</span>
-                    <span style={{ color: "var(--text-muted)" }}>· {pinnedQuote.title}</span>
-                    {pinnedQuote.linkedin && (
-                      <a
-                        href={pinnedQuote.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="relative z-20 hover:underline"
-                        style={{ color: "var(--accent)" }}
-                      >
-                        LinkedIn ↗
-                      </a>
-                    )}
-                  </footer>
-                </blockquote>
               )}
               <header className="flex items-center gap-3 mb-3">
                 <Avatar company={w.company} image={w.image} />
@@ -191,6 +172,13 @@ export function Work() {
                 ))}
               </div>
             </article>
+          );
+          if (!pinnedQuote) return card;
+          return (
+            <div key={w.company + w.period} className="flex flex-col gap-5">
+              <Quote r={pinnedQuote} />
+              {card}
+            </div>
           );
         })}
       </div>
