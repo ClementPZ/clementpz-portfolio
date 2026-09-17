@@ -46,7 +46,7 @@ function Avatar({ company, image }: { company: string; image?: string }) {
 export function Work() {
   const { locale, t } = useLocale();
   const localized = workText[locale];
-  const quotes = recommendations.filter((r) => r.quote);
+  const quotes = recommendations.filter((r) => r.quote && !r.pinnedTo);
 
   return (
     <section
@@ -95,6 +95,7 @@ export function Work() {
           const lx = localized[w.id];
           const bullets = lx?.bullets ?? [];
           const impact = lx?.impact;
+          const pinnedQuote = recommendations.find((r) => r.quote && r.pinnedTo === w.id);
           return (
             <article
               key={w.company + w.period}
@@ -111,6 +112,31 @@ export function Work() {
                   aria-label={`${w.company}, ${t.caseStudy}`}
                   className="absolute inset-0 z-10 rounded-[inherit]"
                 />
+              )}
+              {pinnedQuote && (
+                <blockquote
+                  className="mb-5 pb-5"
+                  style={{ borderBottom: "1px solid var(--border)" }}
+                >
+                  <p className="text-sm leading-relaxed italic" style={{ color: "var(--text)" }}>
+                    &ldquo;{pinnedQuote.quote}&rdquo;
+                  </p>
+                  <footer className="mt-2 flex items-baseline gap-2 flex-wrap text-xs">
+                    <span className="font-display font-bold">{pinnedQuote.author}</span>
+                    <span style={{ color: "var(--text-muted)" }}>· {pinnedQuote.title}</span>
+                    {pinnedQuote.linkedin && (
+                      <a
+                        href={pinnedQuote.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative z-20 hover:underline"
+                        style={{ color: "var(--accent)" }}
+                      >
+                        LinkedIn ↗
+                      </a>
+                    )}
+                  </footer>
+                </blockquote>
               )}
               <header className="flex items-center gap-3 mb-3">
                 <Avatar company={w.company} image={w.image} />

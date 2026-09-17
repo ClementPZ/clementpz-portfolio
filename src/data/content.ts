@@ -114,15 +114,17 @@ export type Reco = {
   title: string;
   quote: string;
   linkedin?: string; // href vide pour l'instant — à valider avec eux
+  pinnedTo?: WorkId; // rendue en tete de cette carte plutot que dans le bloc editorial
 };
 
 export const recommendations: Reco[] = [
   {
     author: "C. Louvion",
-    title: "CTO @ NRC Health",
+    title: "CTO @ Episource",
     quote:
       "Clément brings the full design package: deep user research, journey maps, personas, and fast prototyping, in close collaboration with users, product, and engineering, presenting results clearly to sr leadership.",
     linkedin: "https://www.linkedin.com/in/chrislouvion/",
+    pinnedTo: "episource",
   },
   {
     author: "V. Ramnathan",

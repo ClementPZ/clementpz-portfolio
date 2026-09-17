@@ -1347,9 +1347,9 @@ export const nrcText: Record<
           body: "Design system, analytics and front-end are handled as one whole.",
         },
       ],
-      asideBold: "Design in service of product strategy. ",
+      asideBold: "Design in service of product strategy, and integrated at its core. ",
       aside:
-        "The team is shared, not embedded. Product teams call on design the way they call on any other service in the company, and it is the cross-cutting layers, with team cohesion and the design system first among them, that keep the products consistent with one another.",
+        "The team stays shared rather than embedded: product teams call on design the way they call on any other function, but design's cross-cutting responsibilities, team cohesion and the design system chief among them, are what keep the whole product suite coherent. That structure is what makes design a driver of product and business strategy, not a downstream service.",
     },
     system: {
       title: "2. The design system",
@@ -1469,9 +1469,9 @@ export const nrcText: Record<
           body: "Design system, analytics et front-end sont traités comme un tout.",
         },
       ],
-      asideBold: "L'équipe design au service de la stratégie produit. ",
+      asideBold: "Le design au service de la stratégie produit, intégré à son cœur. ",
       aside:
-        "L'équipe est partagée, pas intégrée. Les équipes produit font appel au design comme à n'importe quel autre service de l'entreprise, et ce sont les couches transverses, la cohésion de l'équipe et le design system en tête, qui maintiennent la cohérence entre les produits.",
+        "L'équipe reste partagée plutôt qu'intégrée dans un produit : les équipes produit font appel au design comme à n'importe quelle autre fonction, mais ce sont les responsabilités transverses du design, la cohésion de l'équipe et le design system en tête, qui maintiennent la cohérence de toute la suite produit. Cette structure fait du design un moteur de la stratégie produit et business, pas un service en aval.",
     },
     system: {
       title: "2. Le design system",
@@ -1591,9 +1591,9 @@ export const nrcText: Record<
           body: "Design system, analytics y front-end se tratan como un todo.",
         },
       ],
-      asideBold: "El diseño al servicio de la estrategia de producto. ",
+      asideBold: "El diseño al servicio de la estrategia de producto, integrado en su núcleo. ",
       aside:
-        "El equipo es compartido, no integrado. Los equipos de producto recurren al diseño como a cualquier otro servicio de la empresa, y son las capas transversales, con la cohesión del equipo y el design system a la cabeza, las que mantienen la coherencia entre productos.",
+        "El equipo se mantiene compartido en lugar de integrado en un producto: los equipos de producto recurren al diseño como a cualquier otra función, pero son las capas transversales del diseño, con la cohesión del equipo y el design system a la cabeza, las que mantienen la coherencia de toda la suite de producto. Esa estructura es lo que convierte al diseño en un motor de la estrategia de producto y de negocio, no en un servicio subordinado.",
     },
     system: {
       title: "2. El design system",

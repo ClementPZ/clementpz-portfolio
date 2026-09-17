@@ -135,11 +135,6 @@ export function NrcContent() {
               </div>
             ))}
           </div>
-          <div className="mt-4">
-            <Link href="/builder" className="btn-ghost">
-              {t.system.builderCta}
-            </Link>
-          </div>
           <div className="mt-8">
             <Figure label={t.figureLabel} />
           </div>
@@ -225,12 +220,16 @@ export function NrcContent() {
           </div>
         </section>
 
-        {/* CTA contact : le bouton seul, pas de boite autour */}
-        <div className="mt-16">
+        {/* CTAs de fin de page : liens sobres, pas de boutons */}
+        <div className="mt-16 flex flex-col gap-3 items-start">
+          <Link href="/builder" className="hover:underline" style={{ color: "var(--accent)" }}>
+            {t.system.builderCta}
+          </Link>
           <a
             href={accessMailtoHref(profile.email, locale)}
             onClick={(e) => fireConfetti(e.currentTarget)}
-            className="btn-accent"
+            className="hover:underline"
+            style={{ color: "var(--accent)" }}
           >
             {t.contactCta}
           </a>
