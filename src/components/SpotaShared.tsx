@@ -53,7 +53,13 @@ export function Zigzag({ color = SPOT }: { color?: string }) {
 export function PhoneMock({ frame = "brand" }: { frame?: "brand" | "device" }) {
   return (
     <div className={frame === "device" ? "spota-device" : "spota-phone"}>
-      {frame === "device" && <span className="spota-device-island" aria-hidden="true" />}
+      {frame === "device" && (
+        <>
+          <span className="spota-device-island" aria-hidden="true" />
+          <span className="spota-device-btn spota-device-btn-power" aria-hidden="true" />
+          <span className="spota-device-btn spota-device-btn-volume" aria-hidden="true" />
+        </>
+      )}
       <div className={frame === "device" ? "spota-device-screen" : "spota-phone-inner"}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -181,20 +187,42 @@ export const SPOTA_SHARED_CSS = `
 
   .spota-device {
     position: relative; width: min(232px, 66vw); aspect-ratio: 590 / 1278;
-    border-radius: 42px; padding: 9px;
-    background: linear-gradient(150deg, #4a4a4f 0%, #17171a 42%, #35353a 100%);
+    border-radius: 42px; padding: 10px;
+    background:
+      radial-gradient(120% 90% at 18% -6%, rgba(255,255,255,0.4), rgba(255,255,255,0) 40%),
+      linear-gradient(155deg, #6a6a70 0%, #38383d 20%, #121214 52%, #2c2c30 78%, #17171a 100%);
     box-shadow:
-      inset 0 0 0 1px rgba(255,255,255,0.16),
-      0 26px 60px rgba(0,0,0,0.55);
+      inset 0 1.5px 0 rgba(255,255,255,0.55),
+      inset 0 -1.5px 0 rgba(0,0,0,0.55),
+      inset 0 0 0 1px rgba(0,0,0,0.65),
+      0 30px 70px rgba(0,0,0,0.6),
+      0 6px 16px rgba(0,0,0,0.35);
   }
   .spota-device-screen {
     position: relative; width: 100%; height: 100%; border-radius: 33px;
-    overflow: hidden; background: #1a1a1a;
+    overflow: hidden; background: #000;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.85);
+  }
+  .spota-device-screen::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(115deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0) 16%, rgba(255,255,255,0) 84%, rgba(255,255,255,0.05) 100%);
   }
   .spota-device-island {
     position: absolute; z-index: 2; top: 18px; left: 50%; transform: translateX(-50%);
     width: 34%; height: 20px; border-radius: 999px; background: #000;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
   }
+  .spota-device-island::after {
+    content: ""; position: absolute; top: 50%; right: 14%; transform: translateY(-50%);
+    width: 6px; height: 6px; border-radius: 999px;
+    background: radial-gradient(circle at 35% 35%, #3a4a5c, #0a0d10 70%);
+  }
+  .spota-device-btn {
+    position: absolute; background: linear-gradient(90deg, #0a0a0b, #2a2a2e 45%, #0a0a0b);
+    border-radius: 2px;
+  }
+  .spota-device-btn-power { right: -2px; top: 24%; width: 3px; height: 9%; }
+  .spota-device-btn-volume { left: -2px; top: 20%; width: 3px; height: 12%; }
 
   @keyframes spota-spin { to { --spin: 360deg; } }
   @keyframes spota-blink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
