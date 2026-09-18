@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { work, recommendations } from "../data/content";
+import { work, recommendations, type Reco } from "../data/content";
 import { workText } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
 
@@ -13,12 +13,12 @@ function initials(company: string): string {
   return (words[0][0] + words[1][0]).toUpperCase();
 }
 
-function Quote({ r, pinned = false }: { r: (typeof recommendations)[number]; pinned?: boolean }) {
+function Quote({ r }: { r: Reco }) {
   return (
     <blockquote className="flex flex-col">
       <span
         aria-hidden
-        className={`font-display font-bold leading-none mb-1 ${pinned ? "mt-[35px]" : "mt-1.5"}`}
+        className="font-display font-bold leading-none mb-1 mt-1.5"
         style={{ fontSize: "2.75rem", color: "var(--accent)" }}
       >
         &ldquo;
@@ -76,7 +76,13 @@ function Avatar({ company, image }: { company: string; image?: string }) {
 export function Work() {
   const { locale, t } = useLocale();
   const localized = workText[locale];
-  const quotes = recommendations.filter((r) => r.quote && !r.pinnedTo);
+  const pinnedByWork = new Map(
+    recommendations.filter((r) => r.quote && r.pinnedTo).map((r) => [r.pinnedTo, r])
+  );
+  const topQuotes = [
+    ...work.map((w) => pinnedByWork.get(w.id)).filter((r): r is Reco => Boolean(r)),
+    ...recommendations.filter((r) => r.quote && !r.pinnedTo),
+  ];
 
   return (
     <section
@@ -88,12 +94,15 @@ export function Work() {
         <h2 className="font-display text-2xl sm:text-3xl font-bold">{t.workTitle}</h2>
       </div>
 
-      {/* Quotes — traitement éditorial, sans card, posé sur le fond */}
-      <div className="grid gap-10 sm:grid-cols-2 mb-14">
-        {quotes.map((r) => (
-          <Quote key={r.author} r={r} />
-        ))}
-      </div>
+      {/* Quotes — traitement éditorial, sans card, posé sur le fond.
+          Ordonnées sur les colonnes de leur carte pour rester flush avec elle. */}
+      {topQuotes.length > 0 && (
+        <div className="grid gap-10 sm:grid-cols-2 mb-14">
+          {topQuotes.map((r) => (
+            <Quote key={r.author} r={r} />
+          ))}
+        </div>
+      )}
 
       {/* Expériences */}
       <div className="grid gap-5 sm:grid-cols-2">
@@ -101,10 +110,9 @@ export function Work() {
           const lx = localized[w.id];
           const bullets = lx?.bullets ?? [];
           const impact = lx?.impact;
-          const pinnedQuote = recommendations.find((r) => r.quote && r.pinnedTo === w.id);
-          const card = (
+          return (
             <article
-              key={pinnedQuote ? undefined : w.company + w.period}
+              key={w.company + w.period}
               className={`surface p-6 sm:p-7 flex flex-col${index === 0 ? " card-featured" : ""}${
                 w.link ? " card-link relative" : ""
               }`}
@@ -182,13 +190,6 @@ export function Work() {
                 ))}
               </div>
             </article>
-          );
-          if (!pinnedQuote) return card;
-          return (
-            <div key={w.company + w.period} className="flex flex-col gap-5">
-              <Quote r={pinnedQuote} pinned />
-              {card}
-            </div>
           );
         })}
       </div>
