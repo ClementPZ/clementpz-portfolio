@@ -18,7 +18,7 @@ function Quote({ r }: { r: (typeof recommendations)[number] }) {
     <blockquote className="flex flex-col">
       <span
         aria-hidden
-        className="font-display font-bold leading-none mb-1"
+        className="font-display font-bold leading-none mb-1 mt-1.5"
         style={{ fontSize: "2.75rem", color: "var(--accent)" }}
       >
         &ldquo;
