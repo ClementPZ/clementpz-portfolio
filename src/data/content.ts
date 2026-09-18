@@ -55,7 +55,8 @@ export type WorkItem = {
   period: string;
   location: string;
   tags: string[];
-  image?: string; // visuel de carte (sinon placeholder monogramme généré)
+  image?: string; // logo/avatar 52px (sinon placeholder monogramme généré)
+  photo?: string; // grand visuel de carte, entre la localisation et les puces
   link?: string; // page de case study dédiée, rendue en pied de carte
 };
 
@@ -102,6 +103,7 @@ export const work: WorkItem[] = [
     period: "2011 - 2015",
     location: "Paris · Europe",
     tags: ["Retail", "Luxury", "Operations", "Europe"],
+    photo: "/work/devialet.jpg",
   },
 ];
 
