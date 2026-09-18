@@ -13,12 +13,12 @@ function initials(company: string): string {
   return (words[0][0] + words[1][0]).toUpperCase();
 }
 
-function Quote({ r }: { r: (typeof recommendations)[number] }) {
+function Quote({ r, pinned = false }: { r: (typeof recommendations)[number]; pinned?: boolean }) {
   return (
     <blockquote className="flex flex-col">
       <span
         aria-hidden
-        className="font-display font-bold leading-none mb-1 mt-1.5"
+        className={`font-display font-bold leading-none mb-1 ${pinned ? "mt-[35px]" : "mt-1.5"}`}
         style={{ fontSize: "2.75rem", color: "var(--accent)" }}
       >
         &ldquo;
@@ -135,6 +135,16 @@ export function Work() {
                 {w.location}
               </p>
 
+              {w.photo && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={w.photo}
+                  alt={w.company}
+                  className="w-full mb-4 rounded-lg object-cover"
+                  style={{ aspectRatio: "3 / 2" }}
+                />
+              )}
+
               <ul className="text-sm leading-relaxed mb-4 space-y-2 pl-4" style={{ listStyle: "disc" }}>
                 {bullets.map((b) => (
                   <li key={b}>{b}</li>
@@ -176,7 +186,7 @@ export function Work() {
           if (!pinnedQuote) return card;
           return (
             <div key={w.company + w.period} className="flex flex-col gap-5">
-              <Quote r={pinnedQuote} />
+              <Quote r={pinnedQuote} pinned />
               {card}
             </div>
           );
