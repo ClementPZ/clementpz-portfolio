@@ -134,6 +134,7 @@ export const recommendations: Reco[] = [
     quote:
       "Clément built our design function from nothing, hired the team, and set the bar for how design worked across all four product lines. He was as comfortable in C-suite product strategy conversations as he was shipping production design and AI tooling. I'd hire him again.",
     linkedin: "https://www.linkedin.com/in/vinithacramnathan/",
+    pinnedTo: "nrc",
   },
 ];
 
