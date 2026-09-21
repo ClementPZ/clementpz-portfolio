@@ -74,8 +74,10 @@ export function SpotaFeature() {
         }
         @media (min-width: 768px) {
           /* Colonne droite plus large que la photo : elle se centre dedans
-             au lieu de coller le bord de la carte. */
-          .spota-feature { grid-template-columns: 1fr 380px; gap: 40px; }
+             au lieu de coller le bord de la carte. Hauteur mini pour que la
+             photo ait la place de se voir grande, pas ratatinee a la
+             hauteur du texte. */
+          .spota-feature { grid-template-columns: 1fr 420px; gap: 40px; min-height: 520px; }
         }
 
         .spota-feature h1 {
@@ -109,8 +111,8 @@ export function SpotaFeature() {
         }
         .spota-feature .spota-btn:hover { filter: brightness(1.06); }
         .spota-feature .spota-fine-print { font-size: 12.5px; color: rgba(255,255,255,0.38); }
-        .spota-feature-stage { display: flex; justify-content: center; padding: 20px; }
-        .spota-hand-shot { width: min(300px, 68vw); height: auto; display: block; }
+        .spota-feature-stage { display: flex; align-items: center; justify-content: center; padding: 12px; }
+        .spota-hand-shot { width: min(420px, 78vw); height: auto; display: block; }
       `}</style>
     </div>
   );
