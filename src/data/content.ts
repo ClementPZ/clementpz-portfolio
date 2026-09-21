@@ -67,7 +67,7 @@ export const work: WorkItem[] = [
     period: "2024 - Present",
     location: "Lincoln, USA · Paris",
     tags: ["Healthcare", "SaaS", "Design System", "Lead", "AI"],
-    photo: "/work/nrc.png",
+    photo: "/work/nrc.jpg",
     link: "/nrc",
   },
   {
@@ -76,13 +76,7 @@ export const work: WorkItem[] = [
     period: "2021 - 2024",
     location: "Los Angeles, Remote",
     tags: ["Healthcare", "AI", "Design System", "Enterprise", "NLP"],
-  },
-  {
-    id: "seif",
-    company: "SEIF",
-    period: "2020 - 2021",
-    location: "Mexico City, Remote",
-    tags: ["Fintech", "Blockchain", "Mobile", "Design System"],
+    photo: "/work/episource.jpg",
   },
   {
     id: "lewagon",
@@ -93,19 +87,26 @@ export const work: WorkItem[] = [
     photo: "/work/lewagon.jpg",
   },
   {
-    id: "welcomhere",
-    company: "Welcomhere",
-    period: "2015 - 2017",
-    location: "Paris",
-    tags: ["Founder", "Social Impact", "Product", "NGO"],
-  },
-  {
     id: "devialet",
     company: "Devialet",
     period: "2011 - 2015",
     location: "Paris · Europe",
     tags: ["Retail", "Luxury", "Operations", "Europe"],
     photo: "/work/devialet.jpg",
+  },
+  {
+    id: "seif",
+    company: "SEIF",
+    period: "2020 - 2021",
+    location: "Mexico City, Remote",
+    tags: ["Fintech", "Blockchain", "Mobile", "Design System"],
+  },
+  {
+    id: "welcomhere",
+    company: "Welcomhere",
+    period: "2015 - 2017",
+    location: "Paris",
+    tags: ["Founder", "Social Impact", "Product", "NGO"],
   },
 ];
 
