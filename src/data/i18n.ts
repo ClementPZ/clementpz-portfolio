@@ -1291,6 +1291,7 @@ export const nrcText: Record<
       title: string;
       org: { top: string[]; lead: string; reports: string[] };
       strategy: { title: string; body: string }[];
+      roadmap: { label: string; items: { category: string; title: string }[] }[];
       asideBold: string;
       aside: string;
     };
@@ -1323,7 +1324,7 @@ export const nrcText: Record<
     period: "2024 → today",
     title: "Building the design function at NRC Health",
     intro:
-      "NRC Health helps US hospitals and health systems collect, analyze and act on the experience data of their patients and their employees, through four product suites. When I joined, there was no design team. This page covers what came next: the team, the organization, the design system, and three use cases that show how we worked over the past two years.",
+      "NRC Health helps US hospitals and health systems collect, analyze and act on the experience data of their patients and their employees, through four product suites, a business worth several hundred million dollars in revenue. When I joined, there was no design team. This page covers what came next: the team, the organization, the design system, and three use cases that show how we worked over the past two years.",
     stack: ["SaaS", "Healthcare", "Patient Experience", "Employee Experience", "Design to Code", "Management", "AI", "Analytics"],
     figureLabel: "Visual to come",
     team: {
@@ -1345,6 +1346,36 @@ export const nrcText: Record<
         {
           title: "Pool the cross-product layer",
           body: "Design system, analytics and front-end are handled as one whole.",
+        },
+      ],
+      roadmap: [
+        {
+          label: "Completed",
+          items: [
+            { category: "Design system", title: "Design system foundation" },
+            { category: "Product design", title: "Product quick wins, started" },
+          ],
+        },
+        {
+          label: "Now",
+          items: [
+            { category: "Strategy · Innovation", title: "Product suite strategy" },
+            { category: "Product design", title: "Product consistency, basics" },
+          ],
+        },
+        {
+          label: "Next",
+          items: [
+            { category: "Design system", title: "Online design system" },
+            { category: "Team growth", title: "Design system developer" },
+          ],
+        },
+        {
+          label: "Future",
+          items: [
+            { category: "Product design", title: "Product consistency, advanced" },
+            { category: "Strategy · Innovation", title: "Brand identity" },
+          ],
         },
       ],
       asideBold: "Design in service of product strategy, and integrated at its core. ",
@@ -1445,7 +1476,7 @@ export const nrcText: Record<
     period: "2024 → aujourd'hui",
     title: "Monter la fonction design chez NRC Health",
     intro:
-      "NRC Health accompagne les hôpitaux et les groupes de santé américains dans la collecte, l'analyse et l'exploitation des données d'expérience patient et de leurs employés, grâce à quatre suites de produits. À mon arrivée, il n'y avait pas d'équipe design. Cette page raconte la suite : l'équipe, l'organisation, le design system, et 3 use cases pour illustrer comment nous avons travaillé ces 2 dernières années.",
+      "NRC Health accompagne les hôpitaux et les groupes de santé américains dans la collecte, l'analyse et l'exploitation des données d'expérience patient et de leurs employés, grâce à quatre suites de produits, un business de plusieurs centaines de millions de dollars de revenus. À mon arrivée, il n'y avait pas d'équipe design. Cette page raconte la suite : l'équipe, l'organisation, le design system, et 3 use cases pour illustrer comment nous avons travaillé ces 2 dernières années.",
     stack: ["SaaS", "Healthcare", "Patient Experience", "Employee Experience", "Design to Code", "Management", "IA", "Analytics"],
     figureLabel: "Visuel à venir",
     team: {
@@ -1467,6 +1498,36 @@ export const nrcText: Record<
         {
           title: "Mutualiser la couche transverse",
           body: "Design system, analytics et front-end sont traités comme un tout.",
+        },
+      ],
+      roadmap: [
+        {
+          label: "Terminé",
+          items: [
+            { category: "Design system", title: "Fondations du design system" },
+            { category: "Product design", title: "Premiers quick wins produit" },
+          ],
+        },
+        {
+          label: "Maintenant",
+          items: [
+            { category: "Strategy · Innovation", title: "Stratégie de la suite produit" },
+            { category: "Product design", title: "Cohérence produit, les bases" },
+          ],
+        },
+        {
+          label: "Ensuite",
+          items: [
+            { category: "Design system", title: "Design system en ligne" },
+            { category: "Team growth", title: "Développeur design system" },
+          ],
+        },
+        {
+          label: "Plus tard",
+          items: [
+            { category: "Product design", title: "Cohérence produit, avancée" },
+            { category: "Strategy · Innovation", title: "Identité de marque" },
+          ],
         },
       ],
       asideBold: "Le design au service de la stratégie produit, intégré à son cœur. ",
@@ -1567,7 +1628,7 @@ export const nrcText: Record<
     period: "2024 → hoy",
     title: "Construir la función de diseño en NRC Health",
     intro:
-      "NRC Health acompaña a hospitales y sistemas de salud de Estados Unidos en la recopilación, el análisis y el aprovechamiento de los datos de experiencia de sus pacientes y de sus empleados, a través de cuatro suites de producto. Cuando llegué, no había equipo de diseño. Esta página cuenta lo que vino después: el equipo, la organización, el design system y tres casos de uso que ilustran cómo trabajamos estos dos últimos años.",
+      "NRC Health acompaña a hospitales y sistemas de salud de Estados Unidos en la recopilación, el análisis y el aprovechamiento de los datos de experiencia de sus pacientes y de sus empleados, a través de cuatro suites de producto, un negocio de varios cientos de millones de dólares en ingresos. Cuando llegué, no había equipo de diseño. Esta página cuenta lo que vino después: el equipo, la organización, el design system y tres casos de uso que ilustran cómo trabajamos estos dos últimos años.",
     stack: ["SaaS", "Healthcare", "Patient Experience", "Employee Experience", "Design to Code", "Management", "IA", "Analytics"],
     figureLabel: "Visual pendiente",
     team: {
@@ -1589,6 +1650,36 @@ export const nrcText: Record<
         {
           title: "Mutualizar la capa transversal",
           body: "Design system, analytics y front-end se tratan como un todo.",
+        },
+      ],
+      roadmap: [
+        {
+          label: "Completado",
+          items: [
+            { category: "Design system", title: "Bases del design system" },
+            { category: "Product design", title: "Primeros quick wins de producto" },
+          ],
+        },
+        {
+          label: "Ahora",
+          items: [
+            { category: "Strategy · Innovation", title: "Estrategia de la suite de producto" },
+            { category: "Product design", title: "Consistencia de producto, básica" },
+          ],
+        },
+        {
+          label: "Próximo",
+          items: [
+            { category: "Design system", title: "Design system online" },
+            { category: "Team growth", title: "Desarrollador de design system" },
+          ],
+        },
+        {
+          label: "Futuro",
+          items: [
+            { category: "Product design", title: "Consistencia de producto, avanzada" },
+            { category: "Strategy · Innovation", title: "Identidad de marca" },
+          ],
         },
       ],
       asideBold: "El diseño al servicio de la estrategia de producto, integrado en su núcleo. ",

@@ -5,6 +5,7 @@ import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { BackHome } from "./BackHome";
 import { NrcOrgChart } from "./NrcOrgChart";
+import { NrcRoadmap } from "./NrcRoadmap";
 import { profile } from "../data/content";
 import { nrcText, accessMailtoHref } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
@@ -107,6 +108,8 @@ export function NrcContent() {
               </div>
             ))}
           </div>
+
+          <NrcRoadmap />
 
           <div
             className="mt-3.5 px-5 py-3.5 text-sm"
