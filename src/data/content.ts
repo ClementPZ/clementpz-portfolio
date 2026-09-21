@@ -63,15 +63,16 @@ export type WorkItem = {
 export const work: WorkItem[] = [
   {
     id: "nrc",
-    company: "NRC Health",
+    company: "NRC Health (Nasdaq: NRC)",
     period: "2024 - Present",
     location: "Lincoln, USA · Paris",
     tags: ["Healthcare", "SaaS", "Design System", "Lead", "AI"],
+    photo: "/work/nrc.png",
     link: "/nrc",
   },
   {
     id: "episource",
-    company: "Episource · Optum (UnitedHealth Group)",
+    company: "Episource · Optum (NYSE: UNH, UnitedHealth Group)",
     period: "2021 - 2024",
     location: "Los Angeles, Remote",
     tags: ["Healthcare", "AI", "Design System", "Enterprise", "NLP"],
@@ -89,6 +90,7 @@ export const work: WorkItem[] = [
     period: "2017 - 2021",
     location: "Mexico City",
     tags: ["Founder", "Education", "Teaching", "LATAM"],
+    photo: "/work/lewagon.jpg",
   },
   {
     id: "welcomhere",
