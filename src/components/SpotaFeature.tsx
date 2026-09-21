@@ -8,16 +8,16 @@ import {
   SELF,
   SPOT_INK,
   SPOTA_SHARED_CSS,
-  PhoneMock,
   SpotaHeadline,
 } from "./SpotaShared";
 
-// Deuxieme bloc de la section Highlights, a cote de Builder. C'est le hero de
-// /spota rejoue en carte: meme titre qui se tape, meme lede, meme CTA lime,
-// meme coque de telephone (SpotaShared). La carte porte l'identite de l'app,
-// noir et lime et violet, comme la carte Builder porte son violet: une
-// couleur de marque est une donnee, pas un token de theme, donc elle ne
-// change pas entre le mode sombre et le mode clair.
+// Bloc SpotA de la section Highlights. C'est le hero de /spota rejoue en
+// carte: meme titre qui se tape, meme lede, meme CTA lime, mais une vraie
+// photo (main + iPhone, ecran SpotA compose dedans) plutot que la coque
+// dessinee en CSS de /spota, cf. hand-mockup.png. La carte porte l'identite
+// de l'app, noir et lime et violet, comme la carte Builder porte son
+// violet: une couleur de marque est une donnee, pas un token de theme, donc
+// elle ne change pas entre le mode sombre et le mode clair.
 export function SpotaFeature() {
   const { locale } = useLocale();
   const t = spotaHighlightText[locale];
@@ -40,7 +40,16 @@ export function SpotaFeature() {
       </div>
 
       <div className="spota-feature-stage">
-        <PhoneMock frame="device" />
+        {/* Vraie photo (main + iPhone) composee avec l'ecran SpotA reel,
+            remplace la coque dessinee en CSS : plus realiste, sans les
+            soucis de recadrage de cette derniere. Mockup Designbolts,
+            licence perso + commercial, ecran remplace par le notre. */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          className="spota-hand-shot"
+          src="/spota/hand-mockup.png"
+          alt="SpotA hero: a hand holding an iPhone showing the member page, a crew member's spot of the day"
+        />
       </div>
 
       <style>{`
@@ -64,9 +73,9 @@ export function SpotaFeature() {
           overflow: hidden;
         }
         @media (min-width: 768px) {
-          /* Colonne droite plus large que le telephone: il se centre dedans
+          /* Colonne droite plus large que la photo : elle se centre dedans
              au lieu de coller le bord de la carte. */
-          .spota-feature { grid-template-columns: 1fr 340px; gap: 40px; }
+          .spota-feature { grid-template-columns: 1fr 380px; gap: 40px; }
         }
 
         .spota-feature h1 {
@@ -101,7 +110,7 @@ export function SpotaFeature() {
         .spota-feature .spota-btn:hover { filter: brightness(1.06); }
         .spota-feature .spota-fine-print { font-size: 12.5px; color: rgba(255,255,255,0.38); }
         .spota-feature-stage { display: flex; justify-content: center; padding: 20px; }
-        .spota-feature .spota-device { width: min(224px, 62vw); }
+        .spota-hand-shot { width: min(300px, 68vw); height: auto; display: block; }
       `}</style>
     </div>
   );
