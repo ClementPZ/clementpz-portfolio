@@ -195,8 +195,8 @@ export const SPOTA_SHARED_CSS = `
       inset 0 1.5px 0 rgba(255,255,255,0.55),
       inset 0 -1.5px 0 rgba(0,0,0,0.55),
       inset 0 0 0 1px rgba(0,0,0,0.65),
-      0 30px 70px rgba(0,0,0,0.6),
-      0 6px 16px rgba(0,0,0,0.35);
+      0 10px 24px rgba(0,0,0,0.5),
+      0 3px 8px rgba(0,0,0,0.35);
   }
   .spota-device-screen {
     position: relative; width: 100%; height: 100%; border-radius: 33px;
