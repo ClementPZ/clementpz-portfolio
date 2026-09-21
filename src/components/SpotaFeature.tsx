@@ -98,7 +98,7 @@ export function SpotaFeature() {
         }
         .spota-feature .spota-btn:hover { filter: brightness(1.06); }
         .spota-feature .spota-fine-print { font-size: 12.5px; color: rgba(255,255,255,0.38); }
-        .spota-feature-stage { display: flex; justify-content: center; }
+        .spota-feature-stage { display: flex; justify-content: center; padding: 20px; }
         .spota-feature .spota-device { width: min(224px, 62vw); }
       `}</style>
     </div>
