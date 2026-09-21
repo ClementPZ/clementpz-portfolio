@@ -30,61 +30,57 @@ export function Highlight() {
       <div className="mb-8">
         <h2 className="font-display text-2xl sm:text-3xl font-bold">{t.sectionTitle}</h2>
       </div>
-      {/* Builder et SpotA côte à côte à partir de lg : chacun garde son
-          propre découpage interne (texte | média), donc les emboîter plus
-          tôt (md) les aurait rendus deux fois étroits au même point de
-          rupture. */}
-      <div className="grid lg:grid-cols-2 gap-6">
-        <div
-          className="rounded-2xl overflow-hidden grid md:grid-cols-2 gap-8 p-8 sm:p-10"
-          style={{
-            background: `linear-gradient(150deg, ${accent} 0%, ${accent2} 100%)`,
-            color: "#ffffff",
-            boxShadow: "var(--shadow)",
-          }}
-        >
-          {/* Texte + CTAs */}
-          <div className="flex flex-col justify-center">
-            {/* Les 2 CTA vivent groupés sur la ligne du titre, poussés à droite. */}
-            <div className="flex flex-wrap items-center justify-between gap-4">
-              <h3 className="font-display text-3xl sm:text-4xl font-bold leading-tight">
-                {t.title}
-              </h3>
-              <div className="flex flex-wrap items-center gap-3">
-                <button
-                  type="button"
-                  onClick={() => setDemoTrigger((n) => n + 1)}
-                  className="inline-flex shrink-0 items-center px-5 py-3 rounded-full text-sm font-semibold"
-                  style={{ background: "#ffffff", color: accent2 }}
-                >
-                  {t.ctaPrimary}
-                </button>
-                <Link
-                  href="/builder"
-                  className="inline-flex shrink-0 items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold"
-                  style={{ border: "1px solid rgba(255,255,255,0.5)", color: "#ffffff" }}
-                >
-                  {t.ctaSecondary}
-                  <span aria-hidden>→</span>
-                </Link>
-              </div>
+      <div
+        className="rounded-2xl overflow-hidden grid md:grid-cols-2 gap-8 p-8 sm:p-10"
+        style={{
+          background: `linear-gradient(150deg, ${accent} 0%, ${accent2} 100%)`,
+          color: "#ffffff",
+          boxShadow: "var(--shadow)",
+        }}
+      >
+        {/* Texte + CTAs */}
+        <div className="flex flex-col justify-center">
+          {/* Les 2 CTA vivent groupés sur la ligne du titre, poussés à droite. */}
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <h3 className="font-display text-3xl sm:text-4xl font-bold leading-tight">
+              {t.title}
+            </h3>
+            <div className="flex flex-wrap items-center gap-3">
+              <button
+                type="button"
+                onClick={() => setDemoTrigger((n) => n + 1)}
+                className="inline-flex shrink-0 items-center px-5 py-3 rounded-full text-sm font-semibold"
+                style={{ background: "#ffffff", color: accent2 }}
+              >
+                {t.ctaPrimary}
+              </button>
+              <Link
+                href="/builder"
+                className="inline-flex shrink-0 items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold"
+                style={{ border: "1px solid rgba(255,255,255,0.5)", color: "#ffffff" }}
+              >
+                {t.ctaSecondary}
+                <span aria-hidden>→</span>
+              </Link>
             </div>
-            <p className="text-sm font-medium mt-1" style={{ color: "rgba(255,255,255,0.85)" }}>
-              {t.tagline}
-            </p>
-            <p className="text-base leading-relaxed mt-5" style={{ color: "rgba(255,255,255,0.78)" }}>
-              {t.blurb}
-            </p>
           </div>
-
-          {/* Démo : moitié droite sur desktop, empilée en dessous sur mobile */}
-          <div className="flex items-center">
-            <BuilderDemo trigger={demoTrigger} />
-          </div>
+          <p className="text-sm font-medium mt-1" style={{ color: "rgba(255,255,255,0.85)" }}>
+            {t.tagline}
+          </p>
+          <p className="text-base leading-relaxed mt-5" style={{ color: "rgba(255,255,255,0.78)" }}>
+            {t.blurb}
+          </p>
         </div>
 
-        {/* SpotA. Sa carte porte l'identité de l'app, elle vit dans
-            SpotaFeature avec ses propres couleurs de marque. */}
+        {/* Démo : moitié droite sur desktop, empilée en dessous sur mobile */}
+        <div className="flex items-center">
+          <BuilderDemo trigger={demoTrigger} />
+        </div>
+      </div>
+
+      {/* Second bloc : SpotA. Sa carte porte l'identité de l'app, elle vit
+          dans SpotaFeature avec ses propres couleurs de marque. */}
+      <div className="mt-6">
         <SpotaFeature />
       </div>
     </section>

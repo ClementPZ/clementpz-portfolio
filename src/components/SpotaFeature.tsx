@@ -64,7 +64,9 @@ export function SpotaFeature() {
           overflow: hidden;
         }
         @media (min-width: 768px) {
-          .spota-feature { grid-template-columns: 1fr auto; gap: 40px; }
+          /* Colonne droite plus large que le telephone: il se centre dedans
+             au lieu de coller le bord de la carte. */
+          .spota-feature { grid-template-columns: 1fr 340px; gap: 40px; }
         }
 
         .spota-feature h1 {
