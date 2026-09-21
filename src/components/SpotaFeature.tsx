@@ -77,7 +77,7 @@ export function SpotaFeature() {
              au lieu de coller le bord de la carte. Hauteur mini pour que la
              photo ait la place de se voir grande, pas ratatinee a la
              hauteur du texte. */
-          .spota-feature { grid-template-columns: 1fr 420px; gap: 40px; min-height: 520px; }
+          .spota-feature { grid-template-columns: 1fr 480px; gap: 40px; min-height: 520px; }
         }
 
         .spota-feature h1 {
