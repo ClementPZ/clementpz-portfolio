@@ -21,7 +21,7 @@ import { fireConfetti } from "../lib/confetti";
 
 // Apercu du design system extrait : une bande de teintes et deux composants
 // vivants et compacts, la page complete est /nrc/design-system.
-const TEASER_SHADES = ["blue-600", "gray-500", "green-600", "amber-500", "red-600", "purple-600", "teal-600"];
+const TEASER_SHADES = ["violet-600", "gray-500", "green-600", "amber-500", "red-600", "purple-600", "teal-600"];
 const TEASER_PREVIEWS = [
   { name: "Badge", height: 90 },
   { name: "SearchInput", height: 90 },
@@ -182,11 +182,7 @@ export function NrcContent() {
             <p className="text-sm mt-4" style={{ color: "var(--text-muted)" }}>
               {t.system.teaserCaption}
             </p>
-            <Link
-              href="/nrc/design-system"
-              className="inline-block mt-2 hover:underline"
-              style={{ color: "var(--accent)" }}
-            >
+            <Link href="/nrc/design-system" className="btn-accent mt-4">
               {t.system.exploreCta} →
             </Link>
           </div>
