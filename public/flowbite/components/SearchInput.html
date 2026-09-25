@@ -1,0 +1,24 @@
+<!-- @dsCard group="Forms" height=200 -->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/flowbite/tokens.css">
+<style>
+  body { margin: 0; padding: 24px; font-family: var(--font-sans); background: #fff; }
+  .wrap { display: flex; max-width: 320px; }
+  input { flex: 1; box-sizing: border-box; padding: 10px var(--space-3); font-size: 14px; font-family: inherit; border-radius: var(--radius-sm) 0 0 var(--radius-sm); border: 1px solid var(--gray-300); border-right: none; color: var(--gray-800); }
+  input::placeholder { color: var(--gray-400); }
+  input:focus-visible { outline: none; border-color: var(--blue-500); box-shadow: 0 0 0 4px var(--blue-100); position: relative; z-index: 1; }
+  button { border: none; background: var(--blue-600); color: #fff; width: 40px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  button:hover { background: var(--blue-700); }
+  .magnifier { width: 10px; height: 10px; border: 2px solid #fff; border-radius: 50%; position: relative; }
+  .magnifier::after { content: ""; position: absolute; width: 6px; height: 2px; background: #fff; bottom: -4px; right: -5px; transform: rotate(45deg); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <input placeholder="Search in feedback" aria-label="Search in feedback">
+    <button aria-label="Search"><span class="magnifier"></span></button>
+  </div>
+</body>
+</html>

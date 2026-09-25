@@ -1,0 +1,47 @@
+<!-- @dsCard group="Feedback" height=320 -->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/flowbite/tokens.css">
+<style>
+  body { margin: 0; padding: 24px; font-family: var(--font-sans); background: #fff; }
+  .label { font-size: 12px; color: var(--gray-500); margin-bottom: var(--space-2); text-transform: uppercase; letter-spacing: .04em; }
+  .row { display: flex; gap: var(--space-3); align-items: center; flex-wrap: wrap; margin-bottom: var(--space-6); }
+  .pill { display: inline-flex; align-items: center; gap: var(--space-1); border-radius: var(--radius-full); font-size: 12px; font-weight: 600; padding: 4px var(--space-3); }
+  .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .outline-green { border: 1px solid var(--green-600); color: var(--green-800); background: #fff; }
+  .outline-green .dot { background: var(--green-600); }
+  .solid-red { background: var(--red-600); color: #fff; }
+  .solid-amber { background: var(--amber-500); color: var(--gray-900); }
+  .chip { display: inline-flex; align-items: center; gap: var(--space-1); font-size: 13px; color: var(--gray-700); }
+  .chip .dot.gray { background: var(--gray-500); }
+  .chip .dot.blue { background: var(--blue-600); }
+  .chip .dot.green { background: var(--green-600); }
+  .chip .dot.red { background: var(--red-600); }
+  .chip .dot.amber { background: var(--amber-600); }
+  .chip .dot.purple { background: var(--purple-600); }
+  .chip .dot.teal { background: var(--teal-600); }
+</style>
+</head>
+<body>
+  <div class="label">Outline (sentiment/score)</div>
+  <div class="row">
+    <span class="pill outline-green"><span class="dot"></span>10 Extremely likely</span>
+  </div>
+  <div class="label">Solid (status)</div>
+  <div class="row">
+    <span class="pill solid-red">RE-OPENED: MANUAL</span>
+    <span class="pill solid-amber">PENDING REVIEW</span>
+  </div>
+  <div class="label">Category chip · 7-hue cycle</div>
+  <div class="row">
+    <span class="chip"><span class="dot gray"></span>Scheduling</span>
+    <span class="chip"><span class="dot blue"></span>Doctor</span>
+    <span class="chip"><span class="dot green"></span>Courtesy/Respect</span>
+    <span class="chip"><span class="dot red"></span>Wait Time</span>
+    <span class="chip"><span class="dot amber"></span>Testing</span>
+    <span class="chip"><span class="dot purple"></span>Team-Communication</span>
+    <span class="chip"><span class="dot teal"></span>Doctor-Communication</span>
+  </div>
+</body>
+</html>

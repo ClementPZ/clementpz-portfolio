@@ -8,6 +8,7 @@ import { NrcOrgChart } from "./NrcOrgChart";
 import { NrcRoadmap } from "./NrcRoadmap";
 import { profile } from "../data/content";
 import { nrcText, accessMailtoHref } from "../data/i18n";
+import { flowbite, flowbiteGround } from "../data/flowbiteSystem";
 import { useLocale } from "./LocaleProvider";
 import { fireConfetti } from "../lib/confetti";
 
@@ -17,6 +18,14 @@ import { fireConfetti } from "../lib/confetti";
 // Les visuels n'existent pas encore : Figure rend un cadre en pointilles qui
 // nomme ce qui doit y aller. Remplacer un cadre = echanger le composant contre
 // une <img>, sans toucher au reste. Seul l'organigramme est vraiment dessine.
+
+// Apercu du design system extrait : une bande de teintes et deux composants
+// vivants et compacts, la page complete est /nrc/design-system.
+const TEASER_SHADES = ["blue-600", "gray-500", "green-600", "amber-500", "red-600", "purple-600", "teal-600"];
+const TEASER_PREVIEWS = [
+  { name: "Badge", height: 90 },
+  { name: "SearchInput", height: 90 },
+];
 
 function SectionTitle({ title, sub }: { title: string; sub?: string }) {
   return (
@@ -138,8 +147,48 @@ export function NrcContent() {
               </div>
             ))}
           </div>
-          <div className="mt-8">
-            <Figure label={t.figureLabel} />
+          <div className="mt-8 surface p-5">
+            <div className="flex gap-1.5" aria-hidden>
+              {TEASER_SHADES.map((n) => (
+                <div
+                  key={n}
+                  className="flex-1"
+                  style={{
+                    height: 40,
+                    borderRadius: "var(--radius)",
+                    background: flowbite.colors.find((c) => c.name === n)?.value,
+                  }}
+                />
+              ))}
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2 items-start mt-3">
+              {TEASER_PREVIEWS.map(({ name, height }) => (
+                <iframe
+                  key={name}
+                  src={`/flowbite/components/${name}.html`}
+                  title={name}
+                  loading="lazy"
+                  scrolling="no"
+                  className="w-full"
+                  style={{
+                    height,
+                    border: "1px solid var(--border)",
+                    borderRadius: "var(--radius)",
+                    background: flowbiteGround,
+                  }}
+                />
+              ))}
+            </div>
+            <p className="text-sm mt-4" style={{ color: "var(--text-muted)" }}>
+              {t.system.teaserCaption}
+            </p>
+            <Link
+              href="/nrc/design-system"
+              className="inline-block mt-2 hover:underline"
+              style={{ color: "var(--accent)" }}
+            >
+              {t.system.exploreCta} →
+            </Link>
           </div>
         </section>
 

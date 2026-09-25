@@ -1,0 +1,41 @@
+<!-- @dsCard group="Navigation" height=140 -->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/flowbite/tokens.css">
+<style>
+  body { margin: 0; font-family: var(--font-sans); background: #fff; }
+  header { height: var(--space-16); box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--space-6); border-bottom: 1px solid var(--gray-200); }
+  .left { display: flex; align-items: center; gap: var(--space-3); }
+  .logo { width: 32px; height: 32px; background: var(--gray-200); border-radius: var(--radius-md); }
+  .app-name { font-size: 16px; font-weight: 600; color: var(--gray-900); }
+  .right { display: flex; align-items: center; gap: var(--space-6); }
+  .right a { font-size: 14px; color: var(--gray-600); text-decoration: none; }
+  .right a:hover { color: var(--gray-900); }
+  details { position: relative; }
+  summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: var(--space-2); font-size: 14px; color: var(--gray-800); }
+  summary::-webkit-details-marker { display: none; }
+  .avatar { width: 28px; height: 28px; border-radius: 50%; background: var(--blue-100); color: var(--blue-700); font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; }
+  .menu { position: absolute; top: calc(100% + var(--space-2)); right: 0; background: #fff; border: 1px solid var(--gray-200); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); min-width: 160px; padding: var(--space-2) 0; }
+  .menu a { display: block; padding: var(--space-2) var(--space-4); }
+</style>
+</head>
+<body>
+  <header>
+    <div class="left">
+      <div class="logo"></div>
+      <span class="app-name">App name</span>
+    </div>
+    <div class="right">
+      <a href="#">Resources</a>
+      <details>
+        <summary><span class="avatar">AW</span> Andie Westling ▾</summary>
+        <div class="menu">
+          <a href="#">Profile</a>
+          <a href="#">Sign out</a>
+        </div>
+      </details>
+    </div>
+  </header>
+</body>
+</html>

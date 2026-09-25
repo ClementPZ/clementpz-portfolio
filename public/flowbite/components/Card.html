@@ -1,0 +1,33 @@
+<!-- @dsCard group="Surfaces" height=360 -->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/flowbite/tokens.css">
+<style>
+  body { margin: 0; padding: 24px; font-family: var(--font-sans); background: var(--gray-50); display: flex; gap: var(--space-6); flex-wrap: wrap; align-items: flex-start; }
+  .card { width: 280px; background: #fff; border: 1px solid var(--gray-200); border-radius: var(--radius-lg); box-shadow: var(--shadow-xs); padding: var(--space-6); box-sizing: border-box; }
+  .card h3 { margin: 0 0 var(--space-2); font-size: 20px; line-height: 28px; font-weight: 700; color: var(--gray-900); }
+  .card p { margin: 0 0 var(--space-4); font-size: 14px; line-height: 20px; color: var(--gray-600); }
+  .card button { font-family: inherit; font-weight: 500; font-size: 14px; border-radius: var(--radius-md); border: none; padding: 10px var(--space-4); background: var(--blue-600); color: #fff; cursor: pointer; }
+  .card button:hover { background: var(--blue-700); }
+  .list { list-style: none; margin: 0; padding: 0; }
+  .list li { padding: var(--space-3) 0; border-bottom: 1px solid var(--gray-200); font-size: 14px; color: var(--gray-800); }
+  .list li:last-child { border-bottom: none; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h3>Card title</h3>
+    <p>Supporting text goes here, short enough to keep the card scannable.</p>
+    <button>Action</button>
+  </div>
+  <div class="card">
+    <h3>With a list</h3>
+    <ul class="list">
+      <li>First row</li>
+      <li>Second row</li>
+      <li>Third row</li>
+    </ul>
+  </div>
+</body>
+</html>
