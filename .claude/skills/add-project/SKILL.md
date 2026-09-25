@@ -35,6 +35,11 @@ references already in the codebase:
 - **Rich** (`/music-downloader` pattern, `musicDownloaderText` in `i18n.ts`):
   hero with stack pills, then structured sections, steps, tables, grids,
   roadmap. Fits a working pipeline with real detail to show.
+- **App landing** (`/spota` pattern, `src/app/spota/NOTES.md`): a product
+  landing for an app headed to the App Store, plus its `/<id>/privacy` page.
+  Outside the common shell, the app's own colours hard-coded, English only, no
+  entry in `i18n.ts`. It is the listing's marketing and support URL, the
+  privacy page is the URL Apple checks during review.
 
 Ask, do not default silently. Confirm the section list (headings only) before
 writing any copy.
@@ -62,6 +67,17 @@ In order:
    `BackHome`, CSS variables only, `<Link>` never `<a href="/...">`.
 6. Add the new route and component to the two lists in `CLAUDE.md` ("Routes"
    and the architecture tree), same one-line style as the existing entries.
+   For an **App landing**, replace steps 4 to 6 with:
+   - Page copy in English, inside the component, not in `i18n.ts`.
+   - `src/app/<id>/page.tsx`, `src/app/<id>/privacy/page.tsx` and
+     `src/components/<PascalCaseId>Content.tsx`, no shared `Nav` or `Footer`.
+     The landing carries a contact, it serves as support URL.
+   - The privacy text is written from the app's code, read it first. List in a
+     comment at the top of the privacy page the code facts it depends on.
+   - `src/app/<id>/NOTES.md`, shaped like the SpotA one: why the page exists,
+     what the privacy text depends on, the traps.
+   - In `CLAUDE.md`, the two routes in "Routes", the files in the tree, and a
+     one-line "Exception /<id>" next to "Exception /spota".
 7. Run `npx tsc --noEmit` and `npm run lint`. Fix anything they catch before
    going further.
 
