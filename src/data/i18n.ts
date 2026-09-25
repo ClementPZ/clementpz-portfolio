@@ -314,6 +314,11 @@ export const projectText: Record<
       description:
         "A social game for friend groups. One prompt a day: spot a ___. Find it in the real world, shoot it with both cameras at once (the target and your face), and post. You only see your friends' spots once you have posted yours.",
     },
+    days: {
+      tagline: "One number, the days that matter",
+      description:
+        "A very clean iOS day counter. Count down to a date or count up the days since one, with a ring, home screen and lock screen widgets, and a quiet notification at each milestone. No account, no ads, everything stays on the phone.",
+    },
     "making-of": {
       tagline: "The portfolio, explained by itself",
       description:
@@ -371,6 +376,11 @@ export const projectText: Record<
       description:
         "Un jeu social entre potes. Un défi par jour : repérez un ___. Trouvez-le dans la vraie vie, capturez-le avec les deux caméras à la fois (la cible et votre visage), et postez. Vous ne voyez les spots des autres qu'une fois le vôtre posté.",
     },
+    days: {
+      tagline: "Un chiffre, les jours qui comptent",
+      description:
+        "Un compteur de jours très épuré pour iOS. Comptez à rebours vers une date ou comptez les jours écoulés depuis, avec un anneau, des widgets sur l'écran d'accueil et l'écran verrouillé, et une notification discrète à chaque palier. Pas de compte, pas de publicité, tout reste sur le téléphone.",
+    },
     "making-of": {
       tagline: "Le portfolio, expliqué par lui-même",
       description:
@@ -427,6 +437,11 @@ export const projectText: Record<
       tagline: "Encuentre un ___, cada día",
       description:
         "Un juego social entre amigos. Un reto al día: encuentre un ___. Búsquelo en la vida real, captúrelo con las dos cámaras a la vez (el objetivo y su cara), y publíquelo. Solo ve los spots de los demás cuando ya ha publicado el suyo.",
+    },
+    days: {
+      tagline: "Un número, los días que importan",
+      description:
+        "Un contador de días muy limpio para iOS. Cuente hacia atrás hasta una fecha o cuente los días desde una, con un anillo, widgets en la pantalla de inicio y en la de bloqueo, y una notificación discreta en cada hito. Sin cuenta, sin publicidad, todo se queda en el teléfono.",
     },
     "making-of": {
       tagline: "El portafolio, explicado por sí mismo",
