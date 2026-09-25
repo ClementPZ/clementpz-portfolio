@@ -1,0 +1,29 @@
+<!-- @dsCard group="Navigation" height=260 -->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/flowbite/tokens.css">
+<style>
+  body { margin: 0; padding: 24px; font-family: var(--font-sans); background: #fff; }
+  details { display: inline-block; position: relative; }
+  summary { list-style: none; cursor: pointer; font-family: inherit; font-weight: 500; font-size: 14px; border-radius: var(--radius-md); background: var(--gray-100); color: var(--gray-800); padding: 10px var(--space-4); display: inline-flex; align-items: center; gap: var(--space-2); }
+  summary::-webkit-details-marker { display: none; }
+  summary:hover { background: var(--gray-200); }
+  .chevron { font-size: 10px; color: var(--gray-500); }
+  .menu { position: absolute; top: calc(100% + var(--space-2)); left: 0; background: #fff; border: 1px solid var(--gray-200); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); min-width: 180px; padding: var(--space-2) 0; }
+  .menu a { display: block; padding: var(--space-2) var(--space-4); font-size: 14px; color: var(--gray-700); text-decoration: none; }
+  .menu a:hover { background: var(--gray-50); }
+</style>
+</head>
+<body>
+  <p style="font-size:13px;color:var(--gray-500);margin:0 0 var(--space-4)">Click the button to open the menu (native disclosure, no script)</p>
+  <details>
+    <summary>Export <span class="chevron">▾</span></summary>
+    <div class="menu">
+      <a href="#">Export as PDF</a>
+      <a href="#">Export as CSV</a>
+      <a href="#">Export as Excel</a>
+    </div>
+  </details>
+</body>
+</html>

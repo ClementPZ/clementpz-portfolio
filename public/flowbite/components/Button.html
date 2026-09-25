@@ -1,0 +1,58 @@
+<!-- @dsCard group="Actions" height=360 -->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/flowbite/tokens.css">
+<style>
+  body { margin: 0; padding: 24px; font-family: var(--font-sans); background: #fff; }
+  .label { font-size: 12px; color: var(--gray-500); margin-bottom: var(--space-2); text-transform: uppercase; letter-spacing: .04em; }
+  .row { display: flex; gap: var(--space-3); align-items: center; flex-wrap: wrap; margin-bottom: var(--space-6); }
+  button { font-family: inherit; font-weight: 500; border-radius: var(--radius-md); border: 1px solid transparent; cursor: pointer; font-size: 14px; line-height: 20px; padding: 10px var(--space-4); }
+  .btn-primary { background: var(--blue-600); color: #fff; }
+  .btn-primary:hover { background: var(--blue-700); }
+  .btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 4px var(--blue-100); }
+  .btn-secondary { background: var(--gray-100); color: var(--gray-800); }
+  .btn-secondary:hover { background: var(--gray-200); }
+  .btn-success { background: var(--green-700); color: #fff; }
+  .btn-success:hover { background: var(--green-800); }
+  .btn-danger { background: var(--red-600); color: #fff; }
+  .btn-danger:hover { background: var(--red-800); }
+  .btn-warning { background: var(--amber-500); color: var(--gray-900); }
+  .btn-warning:hover { background: var(--amber-600); }
+  .btn-dark { background: var(--gray-900); color: #fff; }
+  .btn-dark:hover { background: var(--gray-800); }
+  .btn-outline { background: transparent; color: var(--blue-600); border-color: var(--blue-600); }
+  .btn-outline:hover { background: var(--blue-50); }
+  .btn-xs { padding: 6px var(--space-3); font-size: 12px; }
+  .btn-sm { padding: 8px var(--space-3); font-size: 14px; }
+  .btn-lg { padding: 12px var(--space-5); font-size: 16px; }
+  .btn-xl { padding: 14px var(--space-6); font-size: 16px; }
+  button[disabled] { opacity: .5; cursor: not-allowed; }
+</style>
+</head>
+<body>
+  <div class="label">Variants</div>
+  <div class="row">
+    <button class="btn-primary">Primary</button>
+    <button class="btn-secondary">Secondary</button>
+    <button class="btn-success">Success</button>
+    <button class="btn-danger">Danger</button>
+    <button class="btn-warning">Warning</button>
+    <button class="btn-dark">Dark</button>
+    <button class="btn-outline">Outline</button>
+  </div>
+  <div class="label">Sizes</div>
+  <div class="row">
+    <button class="btn-primary btn-xs">Extra small</button>
+    <button class="btn-primary btn-sm">Small</button>
+    <button class="btn-primary">Base</button>
+    <button class="btn-primary btn-lg">Large</button>
+    <button class="btn-primary btn-xl">Extra large</button>
+  </div>
+  <div class="label">States · hover and focus (tab to it) are live</div>
+  <div class="row">
+    <button class="btn-primary">Default</button>
+    <button class="btn-primary" disabled>Disabled</button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!-- @dsCard group="Forms" height=280 -->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/flowbite/tokens.css">
+<style>
+  body { margin: 0; padding: 24px; font-family: var(--font-sans); background: #fff; }
+  .field { max-width: 260px; margin-bottom: var(--space-6); }
+  label { display: block; margin-bottom: var(--space-2); font-size: 14px; font-weight: 500; color: var(--gray-800); }
+  .select-wrap { position: relative; }
+  select { width: 100%; box-sizing: border-box; appearance: none; padding: 10px var(--space-3); padding-right: 32px; font-size: 14px; font-family: inherit; border-radius: var(--radius-sm); border: 1px solid var(--gray-300); background: #fff; color: var(--gray-800); }
+  select:focus-visible { outline: none; border-color: var(--blue-500); box-shadow: 0 0 0 4px var(--blue-100); }
+  select[disabled] { background: var(--gray-100); color: var(--gray-400); cursor: not-allowed; }
+  .chevron { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: var(--gray-400); font-size: 12px; pointer-events: none; }
+</style>
+</head>
+<body>
+  <div class="field">
+    <label for="s1">Facilities (default, try opening it)</label>
+    <div class="select-wrap">
+      <select id="s1">
+        <option>All</option>
+        <option>JoyHealth</option>
+        <option>Sleep/Wake Disorders Center</option>
+      </select>
+      <span class="chevron">▾</span>
+    </div>
+  </div>
+  <div class="field">
+    <label for="s2">Providers (disabled)</label>
+    <div class="select-wrap">
+      <select id="s2" disabled>
+        <option>All</option>
+      </select>
+      <span class="chevron">▾</span>
+    </div>
+  </div>
+</body>
+</html>

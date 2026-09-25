@@ -1315,6 +1315,8 @@ export const nrcText: Record<
       sub: string;
       items: { title: string; body: string }[];
       builderCta: string;
+      teaserCaption: string;
+      exploreCta: string;
     };
     cases: {
       title: string;
@@ -1423,6 +1425,8 @@ export const nrcText: Record<
         },
       ],
       builderCta: "Read the Builder plugin case study (inspired by the work done at NRC)",
+      teaserCaption: "Flowbite, the open-source base of the system, extracted into tokens and 16 live components.",
+      exploreCta: "Explore the extracted design system",
     },
     cases: {
       title: "3. Three product cases",
@@ -1575,6 +1579,8 @@ export const nrcText: Record<
         },
       ],
       builderCta: "Lire le case study sur le plugin Builder (inspiré du travail effectué chez NRC)",
+      teaserCaption: "Flowbite, la base open source du système, extraite en tokens et 16 composants vivants.",
+      exploreCta: "Explorer le design system extrait",
     },
     cases: {
       title: "3. Trois cas produit",
@@ -1727,6 +1733,8 @@ export const nrcText: Record<
         },
       ],
       builderCta: "Leer el case study del plugin Builder (inspirado en el trabajo realizado en NRC)",
+      teaserCaption: "Flowbite, la base de código abierto del sistema, extraída en tokens y 16 componentes vivos.",
+      exploreCta: "Explorar el design system extraído",
     },
     cases: {
       title: "3. Tres casos de producto",
@@ -1821,5 +1829,120 @@ export const spotaHighlightText: Record<
     lede: "Un prompt al día. Encuéntralo en la vida real, captúralo, cámara trasera para el objetivo, cámara frontal para ti. Publica el tuyo para ver lo que encontró tu grupo.",
     cta: "Acceder a la beta",
     finePrint: "iOS, via TestFlight · 13 años o más",
+  },
+};
+
+// ============================================================================
+// Page /nrc/design-system : extraction Flowbite (EN/FR/ES). Seul le chrome de
+// la page est traduit, les notes d'usage et les guides restent en anglais
+// (voir src/data/flowbiteSystem.ts).
+// ============================================================================
+
+export const nrcSystemText: Record<
+  Locale,
+  {
+    kicker: string;
+    period: string;
+    title: string;
+    intro: string;
+    disclaimerBold: string;
+    disclaimer: string;
+    sourceLabel: string;
+    color: { title: string; sub: string };
+    type: { title: string; sub: string };
+    spacing: { title: string; sub: string };
+    radius: { title: string; sub: string };
+    shadow: { title: string; sub: string };
+    components: { title: string; sub: string; notBuilt: string };
+    groups: Record<string, string>;
+    backCase: string;
+  }
+> = {
+  en: {
+    kicker: "Design system · Open source",
+    period: "MIT license",
+    title: "Flowbite, extracted and documented",
+    intro:
+      "At NRC Health, the design system is built on Flowbite. This page shows that open-source base on its own: every token copied from the source, every component with a live preview and a usage guide. Usage notes and guides are in English.",
+    disclaimerBold: "This is not NRC's design system. ",
+    disclaimer:
+      "It is a public extraction of Flowbite, and it does not include the semantic layer built on top of it at NRC.",
+    sourceLabel: "Source: flowbite.com, MIT license",
+    color: {
+      title: "Color",
+      sub: "Tailwind's default palette as Flowbite uses it. Each note says where a shade is used and the contrast computed against its usual background.",
+    },
+    type: {
+      title: "Type",
+      sub: "Heading and text sizes documented by Flowbite. The family is Inter, the specimens below use the system font.",
+    },
+    spacing: { title: "Spacing", sub: "Steps that map to Flowbite's button paddings and layout gaps." },
+    radius: { title: "Radius", sub: "Tailwind's default scale, from checkboxes to pills." },
+    shadow: { title: "Shadow", sub: "Three elevations, from cards to modals." },
+    components: {
+      title: "Components",
+      sub: "Sixteen components, all live. Hover, focus and click inside the previews.",
+      notBuilt: "Not built yet: Alert, Table, Tabs, Modal, Avatar.",
+    },
+    groups: { Actions: "Actions", Forms: "Forms", Navigation: "Navigation", Surfaces: "Surfaces", Feedback: "Feedback" },
+    backCase: "Back to the NRC case study",
+  },
+  fr: {
+    kicker: "Design system · Open source",
+    period: "Licence MIT",
+    title: "Flowbite, extrait et documenté",
+    intro:
+      "Chez NRC Health, le design system s'appuie sur Flowbite. Cette page montre cette base open source seule : chaque token copié de la source, chaque composant avec un aperçu vivant et un guide d'usage. Les notes d'usage et les guides sont en anglais.",
+    disclaimerBold: "Ce n'est pas le design system de NRC. ",
+    disclaimer:
+      "C'est une extraction publique de Flowbite, sans la couche sémantique construite par-dessus chez NRC.",
+    sourceLabel: "Source : flowbite.com, licence MIT",
+    color: {
+      title: "Couleur",
+      sub: "La palette par défaut de Tailwind telle que Flowbite l'utilise. Chaque note indique où une teinte sert et le contraste calculé sur son fond habituel.",
+    },
+    type: {
+      title: "Typographie",
+      sub: "Tailles de titres et de texte documentées par Flowbite. La famille est Inter, les échantillons ci-dessous utilisent la police système.",
+    },
+    spacing: { title: "Espacements", sub: "Des pas qui correspondent aux paddings des boutons Flowbite et aux écarts de mise en page." },
+    radius: { title: "Arrondis", sub: "L'échelle par défaut de Tailwind, des cases à cocher aux pilules." },
+    shadow: { title: "Ombres", sub: "Trois niveaux d'élévation, des cartes aux modales." },
+    components: {
+      title: "Composants",
+      sub: "Seize composants, tous vivants. Survolez, mettez le focus et cliquez dans les aperçus.",
+      notBuilt: "Pas encore construits : Alert, Table, Tabs, Modal, Avatar.",
+    },
+    groups: { Actions: "Actions", Forms: "Formulaires", Navigation: "Navigation", Surfaces: "Surfaces", Feedback: "Retours" },
+    backCase: "Retour au case study NRC",
+  },
+  es: {
+    kicker: "Design system · Código abierto",
+    period: "Licencia MIT",
+    title: "Flowbite, extraído y documentado",
+    intro:
+      "En NRC Health, el design system se apoya en Flowbite. Esta página muestra esa base de código abierto por sí sola: cada token copiado de la fuente, cada componente con una vista previa viva y una guía de uso. Las notas de uso y las guías están en inglés.",
+    disclaimerBold: "Este no es el design system de NRC. ",
+    disclaimer:
+      "Es una extracción pública de Flowbite, sin la capa semántica construida encima en NRC.",
+    sourceLabel: "Fuente: flowbite.com, licencia MIT",
+    color: {
+      title: "Color",
+      sub: "La paleta por defecto de Tailwind tal como la usa Flowbite. Cada nota indica dónde se usa un tono y el contraste calculado sobre su fondo habitual.",
+    },
+    type: {
+      title: "Tipografía",
+      sub: "Tamaños de títulos y de texto documentados por Flowbite. La familia es Inter, las muestras de abajo usan la fuente del sistema.",
+    },
+    spacing: { title: "Espaciados", sub: "Pasos que corresponden a los paddings de los botones de Flowbite y a los huecos de maquetación." },
+    radius: { title: "Radios", sub: "La escala por defecto de Tailwind, de las casillas a las píldoras." },
+    shadow: { title: "Sombras", sub: "Tres niveles de elevación, de las tarjetas a los modales." },
+    components: {
+      title: "Componentes",
+      sub: "Dieciséis componentes, todos vivos. Pasa el cursor, enfoca y haz clic dentro de las vistas previas.",
+      notBuilt: "Aún sin construir: Alert, Table, Tabs, Modal, Avatar.",
+    },
+    groups: { Actions: "Acciones", Forms: "Formularios", Navigation: "Navegación", Surfaces: "Superficies", Feedback: "Retroalimentación" },
+    backCase: "Volver al case study NRC",
   },
 };

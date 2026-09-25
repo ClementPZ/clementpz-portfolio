@@ -1,0 +1,42 @@
+<!-- @dsCard group="Forms" height=420 -->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/flowbite/tokens.css">
+<style>
+  body { margin: 0; padding: 24px; font-family: var(--font-sans); background: #fff; }
+  .field { max-width: 320px; margin-bottom: var(--space-6); }
+  label { display: block; margin-bottom: var(--space-2); font-size: 14px; font-weight: 500; color: var(--gray-800); }
+  input { width: 100%; box-sizing: border-box; padding: 10px var(--space-3); font-size: 14px; font-family: inherit; border-radius: var(--radius-sm); border: 1px solid var(--gray-300); background: #fff; color: var(--gray-800); }
+  input::placeholder { color: var(--gray-400); }
+  input:focus-visible { outline: none; border-color: var(--blue-500); box-shadow: 0 0 0 4px var(--blue-100); }
+  input[disabled] { background: var(--gray-100); color: var(--gray-400); cursor: not-allowed; }
+  .helper { margin-top: var(--space-2); font-size: 13px; color: var(--gray-500); }
+  .field-error input { border-color: var(--red-600); background: var(--red-100); color: var(--red-800); }
+  .field-error label, .field-error .helper { color: var(--red-800); }
+  .field-success input { border-color: var(--green-600); background: var(--green-100); color: var(--green-800); }
+  .field-success label, .field-success .helper { color: var(--green-800); }
+</style>
+</head>
+<body>
+  <div class="field">
+    <label for="i1">Email (default, try focusing it)</label>
+    <input id="i1" placeholder="name@company.com">
+    <div class="helper">We'll never share your email.</div>
+  </div>
+  <div class="field">
+    <label for="i2">Email (disabled)</label>
+    <input id="i2" value="name@company.com" disabled>
+  </div>
+  <div class="field field-error">
+    <label for="i3">Email (error)</label>
+    <input id="i3" value="not-an-email">
+    <div class="helper">Enter a valid email address.</div>
+  </div>
+  <div class="field field-success">
+    <label for="i4">Email (success)</label>
+    <input id="i4" value="name@company.com">
+    <div class="helper">Looks good.</div>
+  </div>
+</body>
+</html>

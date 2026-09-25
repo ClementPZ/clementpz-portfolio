@@ -1,11 +1,18 @@
 import Link from "next/link";
 
 // Flèche retour vers la home — en haut à gauche de chaque page projet.
-export function BackHome() {
+// `href` et `label` permettent de remonter d'un niveau (ex. /nrc/design-system).
+export function BackHome({
+  href = "/",
+  label = "Back to portfolio",
+}: {
+  href?: string;
+  label?: string;
+}) {
   return (
     <Link
-      href="/"
-      aria-label="Back to portfolio"
+      href={href}
+      aria-label={label}
       className="btn-ghost"
       style={{
         width: 42,
