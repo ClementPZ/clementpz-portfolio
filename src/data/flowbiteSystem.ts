@@ -37,7 +37,7 @@ export const flowbite: {
     {
       "name": "gray-300",
       "value": "oklch(87.2% 0.01 258.338)",
-      "usage": "Default input/select border. Note: at 1.47:1 against white this does not on its own meet the 3:1 non-text contrast guideline; the label and, on focus, the blue-500 ring (3.76:1) carry the boundary. Also Flowbite's dark-mode secondary text (dark:text-gray-300)."
+      "usage": "Default input/select border. Note: at 1.47:1 against white this does not on its own meet the 3:1 non-text contrast guideline; the label and, on focus, the violet-500 ring (4.40:1) carry the boundary. Also Flowbite's dark-mode secondary text (dark:text-gray-300)."
     },
     {
       "name": "gray-400",
@@ -70,39 +70,44 @@ export const flowbite: {
       "usage": "Dark-button background (17.75:1 with white text); Warning-button text on amber-500 (8.27:1)."
     },
     {
-      "name": "blue-50",
-      "value": "oklch(97% 0.014 254.604)",
+      "name": "violet-50",
+      "value": "oklch(96.9% 0.016 293.756)",
       "usage": "Brand tint; info alert/badge soft background; Outline-button hover fill; Sidebar active-item background."
     },
     {
-      "name": "blue-100",
-      "value": "oklch(93.2% 0.032 255.585)",
+      "name": "violet-100",
+      "value": "oklch(94.3% 0.029 294.588)",
       "usage": "Brand soft background for badges and alerts; focus-ring halo."
     },
     {
-      "name": "blue-300",
-      "value": "oklch(80.9% 0.105 251.813)",
+      "name": "violet-300",
+      "value": "oklch(81.1% 0.111 293.571)",
       "usage": "Brand border on light alert/badge backgrounds."
     },
     {
-      "name": "blue-500",
-      "value": "oklch(62.3% 0.214 259.815)",
-      "usage": "Focus ring / focus border (3.76:1 on white, meets the 3:1 UI-boundary guideline)."
+      "name": "violet-500",
+      "value": "oklch(60.6% 0.25 292.717)",
+      "usage": "Focus ring / focus border (4.40:1 on white, meets the 3:1 UI-boundary guideline)."
+    },
+    {
+      "name": "violet-600",
+      "value": "oklch(54.1% 0.281 293.009)",
+      "usage": "Primary brand color (violet); Primary-button background with white text (5.88:1); Link default; Sidebar active-item border/text; Outline-button border/text; checkbox/radio accent color."
+    },
+    {
+      "name": "violet-700",
+      "value": "oklch(49.1% 0.27 292.581)",
+      "usage": "Primary-button hover/active state (7.29:1 with white text); Link hover."
+    },
+    {
+      "name": "violet-900",
+      "value": "oklch(38% 0.189 293.745)",
+      "usage": "Brand text on light backgrounds; dark-mode brand accents."
     },
     {
       "name": "blue-600",
       "value": "oklch(54.6% 0.245 262.881)",
-      "usage": "Primary brand color; Primary-button background with white text (5.26:1); Link default; Sidebar active-item border/text; Outline-button border/text; checkbox/radio accent color."
-    },
-    {
-      "name": "blue-700",
-      "value": "oklch(48.8% 0.243 264.376)",
-      "usage": "Primary-button hover/active state (6.82:1 with white text); Link hover."
-    },
-    {
-      "name": "blue-900",
-      "value": "oklch(37.9% 0.146 265.522)",
-      "usage": "Brand text on light backgrounds; dark-mode brand accents."
+      "usage": "Category-chip dot for the blue hue only. Not a brand color in this system: the brand is violet."
     },
     {
       "name": "green-100",
@@ -393,7 +398,7 @@ export const flowbite: {
       "name": "Button",
       "group": "Actions",
       "height": 360,
-      "guide": "A clickable control that triggers an action; provide the label text and, optionally, an icon.\n\nUse `blue-600` (Primary) for the single main action in a view. Use the gray Secondary style for lower-emphasis actions beside it, never two Primary buttons in the same view. Reserve `green-700` (Success), `red-600` (Danger) and `amber-500` (Warning) for actions that match that meaning, not for visual variety. Warning pairs with `gray-900` text, not white, white fails contrast on `amber-500` (2.15:1). Radius is `radius-md`; horizontal padding scales `space-3` → `space-6` across the five sizes (xs → xl), matching Flowbite's own button padding at each size.\n\nNever rely on color alone to mark a destructive action, label it (\"Delete\", \"Remove\"), don't just make it red. Disabled buttons drop to 50% opacity and lose the pointer cursor; they still need a reason visible nearby (helper text, tooltip), not just the dimmed look."
+      "guide": "A clickable control that triggers an action; provide the label text and, optionally, an icon.\n\nUse `violet-600` (Primary) for the single main action in a view. Use the gray Secondary style for lower-emphasis actions beside it, never two Primary buttons in the same view. Reserve `green-700` (Success), `red-600` (Danger) and `amber-500` (Warning) for actions that match that meaning, not for visual variety. Warning pairs with `gray-900` text, not white, white fails contrast on `amber-500` (2.15:1). Radius is `radius-md`; horizontal padding scales `space-3` → `space-6` across the five sizes (xs → xl), matching Flowbite's own button padding at each size.\n\nNever rely on color alone to mark a destructive action, label it (\"Delete\", \"Remove\"), don't just make it red. Disabled buttons drop to 50% opacity and lose the pointer cursor; they still need a reason visible nearby (helper text, tooltip), not just the dimmed look."
     },
     {
       "name": "Card",
@@ -405,25 +410,25 @@ export const flowbite: {
       "name": "Checkbox",
       "group": "Forms",
       "height": 220,
-      "guide": "A binary on/off control for one option in a list, or for a single agreement toggle; provide the label text.\n\nUses the browser's native checkbox with `accent-color: blue-600` rather than a hand-drawn replica, real keyboard and screen-reader behavior for free, tinted to the brand. Label text is `gray-700`; disabled drops to `gray-400` and removes the pointer cursor.\n\nAlways pair the box with a clickable label (`<label>` wrapping both, or `for`/`id`), never a checkbox with no associated text."
+      "guide": "A binary on/off control for one option in a list, or for a single agreement toggle; provide the label text.\n\nUses the browser's native checkbox with `accent-color: violet-600` rather than a hand-drawn replica, real keyboard and screen-reader behavior for free, tinted to the brand. Label text is `gray-700`; disabled drops to `gray-400` and removes the pointer cursor.\n\nAlways pair the box with a clickable label (`<label>` wrapping both, or `for`/`id`), never a checkbox with no associated text."
     },
     {
       "name": "DateRangePicker",
       "group": "Forms",
       "height": 180,
-      "guide": "The trigger control for choosing a date range; provide the currently selected start and end dates.\n\nScope note: this is the closed-state trigger only, styled like an Outline button showing the formatted range and a calendar glyph (drawn in CSS, no icon asset available to copy), not the open calendar grid itself. The grid is a materially different, more complex component (month navigation, day selection, range highlighting) and hasn't been built yet; treat it as a separate future component rather than assuming this covers it.\n\nBorder `gray-300`, radius `radius-sm`, focus ring `blue-500`, same as Select."
+      "guide": "The trigger control for choosing a date range; provide the currently selected start and end dates.\n\nScope note: this is the closed-state trigger only, styled like an Outline button showing the formatted range and a calendar glyph (drawn in CSS, no icon asset available to copy), not the open calendar grid itself. The grid is a materially different, more complex component (month navigation, day selection, range highlighting) and hasn't been built yet; treat it as a separate future component rather than assuming this covers it.\n\nBorder `gray-300`, radius `radius-sm`, focus ring `violet-500`, same as Select."
     },
     {
       "name": "Input",
       "group": "Forms",
       "height": 420,
-      "guide": "A single-line text field with a label and helper text; provide the label, placeholder, and, for the error/success states, a message explaining why.\n\nDefault border is `gray-300`, radius `radius-sm`. That border alone is a light 1.47:1 against a white page and doesn't meet the 3:1 non-text contrast guideline on its own; the label above the field and, on focus, the `blue-500` ring (3.76:1) are what actually mark the boundary, this is flagged rather than silently fixed, since it's this system's own choice, not a copied brand value.\n\nError state tints the whole field `red-100` background / `red-600` border / `red-800` text; success tints `green-100` / `green-600` / `green-800`. Never show the error tint without an explanatory message next to it, the color change alone doesn't say what's wrong. Disabled fields use `gray-100` background and `gray-400` text and drop the pointer cursor."
+      "guide": "A single-line text field with a label and helper text; provide the label, placeholder, and, for the error/success states, a message explaining why.\n\nDefault border is `gray-300`, radius `radius-sm`. That border alone is a light 1.47:1 against a white page and doesn't meet the 3:1 non-text contrast guideline on its own; the label above the field and, on focus, the `violet-500` ring (4.40:1) are what actually mark the boundary, this is flagged rather than silently fixed, since it's this system's own choice, not a copied brand value.\n\nError state tints the whole field `red-100` background / `red-600` border / `red-800` text; success tints `green-100` / `green-600` / `green-800`. Never show the error tint without an explanatory message next to it, the color change alone doesn't say what's wrong. Disabled fields use `gray-100` background and `gray-400` text and drop the pointer cursor."
     },
     {
       "name": "Link",
       "group": "Feedback",
       "height": 160,
-      "guide": "Inline text that navigates or triggers an action from within a sentence or a list; provide the label text.\n\n`blue-600` default (5.26:1 on white), `blue-700` on hover with an underline added on hover only, the underline appearing is itself a hover signal, so it doesn't need to be there by default when the color already marks it as a link within a body-text paragraph. A standalone link used as a control (not inside a sentence) still needs that color to meet 4.5:1, which `blue-600` does.\n\nNever use Link styling on something that isn't navigable, that's what Button (ghost/text style) is for."
+      "guide": "Inline text that navigates or triggers an action from within a sentence or a list; provide the label text.\n\n`violet-600` default (5.88:1 on white), `violet-700` on hover with an underline added on hover only, the underline appearing is itself a hover signal, so it doesn't need to be there by default when the color already marks it as a link within a body-text paragraph. A standalone link used as a control (not inside a sentence) still needs that color to meet 4.5:1, which `violet-600` does.\n\nNever use Link styling on something that isn't navigable, that's what Button (ghost/text style) is for."
     },
     {
       "name": "MenuButton",
@@ -447,31 +452,31 @@ export const flowbite: {
       "name": "Radio",
       "group": "Forms",
       "height": 220,
-      "guide": "A single choice among mutually exclusive options; provide the option group name and the list of labels.\n\nSame approach as Checkbox: native `<input type=\"radio\">` with `accent-color: blue-600`, real interaction included. Group options under one `name` attribute so only one can be selected.\n\nNever use Radio for a single yes/no toggle, that's Checkbox's job."
+      "guide": "A single choice among mutually exclusive options; provide the option group name and the list of labels.\n\nSame approach as Checkbox: native `<input type=\"radio\">` with `accent-color: violet-600`, real interaction included. Group options under one `name` attribute so only one can be selected.\n\nNever use Radio for a single yes/no toggle, that's Checkbox's job."
     },
     {
       "name": "SearchInput",
       "group": "Forms",
       "height": 200,
-      "guide": "A text input scoped to filtering a list of results as you type; provide a placeholder describing what's being searched.\n\nBuilt on Input's tokens (`gray-300` border, `radius-sm`, `blue-500` focus ring) with a trailing icon button in `radius-sm` on its right edge, background `blue-600` / icon white. The icon is drawn in CSS (no icon font or image asset available to copy from a real source, so nothing was approximated as a logo or brand mark, just a generic magnifier shape).\n\nUse this only where results filter live or on submit; if there's no list to search, it's a plain Input."
+      "guide": "A text input scoped to filtering a list of results as you type; provide a placeholder describing what's being searched.\n\nBuilt on Input's tokens (`gray-300` border, `radius-sm`, `violet-500` focus ring) with a trailing icon button in `radius-sm` on its right edge, background `violet-600` / icon white. The icon is drawn in CSS (no icon font or image asset available to copy from a real source, so nothing was approximated as a logo or brand mark, just a generic magnifier shape).\n\nUse this only where results filter live or on submit; if there's no list to search, it's a plain Input."
     },
     {
       "name": "Select",
       "group": "Forms",
       "height": 280,
-      "guide": "A single-choice dropdown for filtering or picking a value from a fixed list; provide the option list and the current value.\n\nShares Input's border and radius (`gray-300`, `radius-sm`) and the same contrast caveat: that border alone doesn't meet 3:1 against white, the label and focus ring (`blue-500`) carry the boundary. Trailing chevron in `gray-400`. Disabled uses `gray-100` background and `gray-400` text.\n\nPrefer Radio over Select when there are 4 or fewer options, letting people compare choices without opening a menu is usually better than hiding them."
+      "guide": "A single-choice dropdown for filtering or picking a value from a fixed list; provide the option list and the current value.\n\nShares Input's border and radius (`gray-300`, `radius-sm`) and the same contrast caveat: that border alone doesn't meet 3:1 against white, the label and focus ring (`violet-500`) carry the boundary. Trailing chevron in `gray-400`. Disabled uses `gray-100` background and `gray-400` text.\n\nPrefer Radio over Select when there are 4 or fewer options, letting people compare choices without opening a menu is usually better than hiding them."
     },
     {
       "name": "Sidebar",
       "group": "Navigation",
       "height": 260,
-      "guide": "A vertical list of destinations (reports, pages, sections); provide the list of labels and which one is active.\n\nThe active item gets a `blue-600` left border, `blue-50` background and `blue-700` text; inactive items are `gray-600` text with a `gray-50` hover background. This is a functional current-page indicator, not decoration, don't add the same left-border treatment to something that isn't indicating \"you are here.\"\n\nThis is the generic Flowbite-token version of the container; it does not carry any specific product's brand color (see Navbar)."
+      "guide": "A vertical list of destinations (reports, pages, sections); provide the list of labels and which one is active.\n\nThe active item gets a `violet-600` left border, `violet-50` background and `violet-700` text; inactive items are `gray-600` text with a `gray-50` hover background. This is a functional current-page indicator, not decoration, don't add the same left-border treatment to something that isn't indicating \"you are here.\"\n\nThis is the generic Flowbite-token version of the container; it does not carry any specific product's brand color (see Navbar)."
     },
     {
       "name": "StatTile",
       "group": "Feedback",
       "height": 200,
-      "guide": "A single number with a label, for a dashboard summary; provide the number and the caption describing it, and optionally a link to the detail view.\n\nValue uses the `h2` type style (36px/700) in `gray-900`; caption is `caption` (12px) in `gray-500`, uppercase, above the number. An optional link below uses Link's `blue-600`.\n\nNever show a number here without a caption, an unlabeled number is meaningless out of context. Keep to one number per tile; a tile with a trend arrow or delta is a variant to design deliberately, not to bolt on."
+      "guide": "A single number with a label, for a dashboard summary; provide the number and the caption describing it, and optionally a link to the detail view.\n\nValue uses the `h2` type style (36px/700) in `gray-900`; caption is `caption` (12px) in `gray-500`, uppercase, above the number. An optional link below uses Link's `violet-600`.\n\nNever show a number here without a caption, an unlabeled number is meaningless out of context. Keep to one number per tile; a tile with a trend arrow or delta is a variant to design deliberately, not to bolt on."
     }
   ]
 };
