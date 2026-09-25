@@ -168,7 +168,8 @@ export type ProjectId =
   | "spota"
   | "making-of"
   | "interior-design"
-  | "remarkable-calendar-sync";
+  | "remarkable-calendar-sync"
+  | "days";
 
 export type RecentProject = {
   id: ProjectId;
@@ -305,6 +306,17 @@ export const recentProjects: RecentProject[] = [
     accent: "#57534e",
     accent2: "#0c0a09",
     link: "/remarkable-calendar-sync",
+  },
+  // Couleurs = l'identite de l'app (Theme.swift du repo day-counter): l'indigo
+  // du degrade d'accent sur le fond nuit de l'app.
+  {
+    id: "days",
+    name: "Days",
+    status: "in progress",
+    tags: ["Swift", "SwiftUI", "WidgetKit"],
+    accent: "#4f52e6",
+    accent2: "#0b0e17",
+    link: "/days",
   },
 ];
 
