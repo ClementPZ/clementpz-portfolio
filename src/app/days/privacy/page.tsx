@@ -13,6 +13,8 @@ import Link from "next/link";
 //   de SDK tiers (Package.swift absent, project.yml sans dependance externe)
 // - stockage = JSON des compteurs dans les UserDefaults du groupe
 //   group.com.clementpz.days, partage app et widget, Shared/SharedStorage.swift
+// - notes par compteur (lignes de texte, case cochee ou non) dans ce meme JSON,
+//   Shared/Counter.swift, lues par l'app seule, jamais affichees par le widget
 // - notifications locales a 9 h, permission demandee au premier enregistrement,
 //   App/NotificationScheduler.swift
 // - schema d'URL days://counter/<id>, ouvre un compteur depuis le widget
@@ -30,7 +32,7 @@ export const metadata: Metadata = {
 };
 
 const CONTACT = "clementpicardzivy@gmail.com";
-const UPDATED = "25 September 2026";
+const UPDATED = "27 September 2026";
 
 export default function DaysPrivacyPage() {
   return (
@@ -76,6 +78,11 @@ export default function DaysPrivacyPage() {
               <b>Your counters.</b> For each one, the title you typed, its date, its mode
               (countdown or count up), the options you chose (show the title on the widget,
               count today as day 1, a milestone every so many days) and the day you created
+              it.
+            </li>
+            <li>
+              <b>Your notes.</b> The lines you add to a counter’s notes page, and
+              whether each one is ticked. They are kept with the counter and deleted with
               it.
             </li>
             <li>
