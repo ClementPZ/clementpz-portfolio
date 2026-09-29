@@ -1,0 +1,50 @@
+<!-- @dsCard group="Navigation" height=110 -->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/flowbite/tokens.css">
+<style>
+  body { margin: 0; padding: 24px; font-family: var(--font-sans); background: var(--violet-50); }
+  .bar { box-sizing: border-box; padding: 0 24px; height: 88px; display: flex; align-items: center; justify-content: space-between; background: transparent; border-bottom: 1px solid var(--gray-200); }
+  .filters { display: flex; align-items: center; gap: var(--space-2); }
+  .filter-trigger { display: flex; flex-direction: column; gap: 2px; padding: 8px 16px; border-radius: var(--radius-md); }
+  .filter-trigger:hover { background: var(--gray-50); }
+  .filter-trigger .label { font-size: 12px; text-transform: uppercase; color: var(--gray-500); letter-spacing: 0.02em; }
+  .filter-trigger .value-row { display: flex; align-items: center; gap: 8px; }
+  .filter-trigger .value { font-size: 14px; color: var(--gray-900); }
+  .filter-trigger .chevron { font-size: 10px; color: var(--gray-400); }
+  details { position: relative; }
+  summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: var(--space-2); font-size: 14px; color: var(--gray-800); }
+  summary::-webkit-details-marker { display: none; }
+  .avatar { width: 28px; height: 28px; border-radius: 50%; background: var(--violet-100); color: var(--violet-700); font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; }
+  .menu { position: absolute; top: calc(100% + var(--space-2)); right: 0; background: #fff; border: 1px solid var(--gray-200); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); min-width: 160px; padding: var(--space-2) 0; }
+  .menu a { display: block; padding: var(--space-2) var(--space-4); font-size: 14px; color: var(--gray-700); text-decoration: none; }
+  .menu a:hover { background: var(--gray-50); }
+</style>
+</head>
+<body>
+  <div class="bar">
+    <div class="filters">
+      <div class="filter-trigger">
+        <span class="label">Region</span>
+        <span class="value-row"><span class="value">All regions</span><span class="chevron">▾</span></span>
+      </div>
+      <div class="filter-trigger">
+        <span class="label">Health System</span>
+        <span class="value-row"><span class="value">All</span><span class="chevron">▾</span></span>
+      </div>
+      <div class="filter-trigger">
+        <span class="label">Facility Type</span>
+        <span class="value-row"><span class="value">All</span><span class="chevron">▾</span></span>
+      </div>
+    </div>
+    <details>
+      <summary><span class="avatar">ML</span> Morgan Lee ▾</summary>
+      <div class="menu">
+        <a href="#">Profile</a>
+        <a href="#">Sign out</a>
+      </div>
+    </details>
+  </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!-- @dsCard group="Navigation" height=200 -->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/flowbite/tokens.css">
+<style>
+  body { margin: 0; padding: 24px; font-family: var(--font-sans); background: var(--gray-50); }
+  header { box-sizing: border-box; padding: 24px; display: flex; flex-direction: column; gap: var(--space-3); background: #fff; border-bottom: 1px solid var(--gray-200); border-radius: var(--radius-lg); }
+  .row { display: flex; align-items: center; justify-content: space-between; }
+  .crumbs { display: flex; flex-direction: column; gap: 6px; }
+  nav { display: flex; align-items: center; gap: var(--space-2); font-size: 14px; }
+  nav a { text-decoration: none; color: var(--gray-500); }
+  nav span.sep { color: var(--gray-400); }
+  nav span.current { color: var(--gray-700); font-weight: 500; }
+  h1 { margin: 0; font-size: 24px; line-height: 32px; font-weight: 700; color: var(--gray-900); }
+  .actions { display: flex; gap: var(--space-2); }
+  .btn { font-size: 14px; font-weight: 500; border-radius: var(--radius-md); padding: 10px 16px; border: none; cursor: pointer; font-family: inherit; }
+  .btn-primary { background: var(--violet-600); color: #fff; }
+  .btn-secondary { background: var(--gray-100); color: var(--gray-800); }
+  .filters { display: flex; align-items: center; gap: var(--space-2); }
+  .filter-pill { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: var(--radius-full); border: 1px solid var(--gray-300); background: #fff; font-size: 14px; color: var(--gray-700); cursor: pointer; }
+  .filter-pill:hover { background: var(--gray-50); }
+  .filter-pill .chevron { font-size: 10px; color: var(--gray-400); }
+</style>
+</head>
+<body>
+  <header>
+    <div class="row">
+      <div class="crumbs">
+        <nav>
+          <a href="#">Home</a>
+          <span class="sep">/</span>
+          <span class="current">Feedback Operations</span>
+        </nav>
+        <h1>Feedback Operations</h1>
+      </div>
+      <div class="actions">
+        <button class="btn btn-secondary">Subscribe</button>
+        <button class="btn btn-primary">Export</button>
+      </div>
+    </div>
+    <div class="filters">
+      <span class="filter-pill">Service lines <span class="chevron">▾</span></span>
+      <span class="filter-pill">Facility <span class="chevron">▾</span></span>
+      <span class="filter-pill">Teams <span class="chevron">▾</span></span>
+    </div>
+  </header>
+</body>
+</html>

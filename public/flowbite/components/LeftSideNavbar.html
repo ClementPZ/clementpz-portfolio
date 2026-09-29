@@ -1,0 +1,81 @@
+<!-- @dsCard group="Navigation" height=440 -->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/flowbite/tokens.css">
+<style>
+  body { margin: 0; font-family: var(--font-sans); background: var(--gray-50); }
+  aside { width: 280px; box-sizing: border-box; display: flex; flex-direction: column; background: #fff; border-right: 1px solid var(--gray-200); }
+  a { text-decoration: none; }
+  details { position: relative; }
+  summary { list-style: none; cursor: pointer; }
+  summary::-webkit-details-marker { display: none; }
+  .top { height: 64px; box-sizing: border-box; padding: 0 var(--space-4); display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--gray-200); }
+  .brand { display: flex; align-items: center; gap: var(--space-3); }
+  .logo { width: 32px; height: 32px; background: var(--gray-200); border-radius: var(--radius-md); }
+  .app-name { font-size: 16px; font-weight: 600; color: var(--gray-900); }
+  .switcher-trigger { width: 36px; height: 36px; border-radius: var(--radius-md); background: var(--gray-100); display: flex; align-items: center; justify-content: center; }
+  .switcher-trigger:hover { background: var(--gray-200); }
+  .dots { display: grid; grid-template-columns: repeat(3, 4px); gap: 3px; }
+  .dots span { width: 4px; height: 4px; border-radius: 1px; background: var(--gray-600); }
+  .switcher-menu { position: absolute; top: calc(100% + var(--space-2)); right: 0; background: #fff; border: 1px solid var(--gray-200); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); min-width: 180px; padding: var(--space-2) 0; }
+  .switcher-menu a { display: block; padding: var(--space-2) var(--space-4); font-size: 14px; color: var(--gray-700); }
+  .switcher-menu a:hover { background: var(--gray-50); }
+  .top-links { padding: var(--space-4); display: flex; flex-direction: column; gap: 4px; }
+  .top-links a { font-size: 14px; color: var(--gray-600); padding: 8px 8px; border-radius: var(--radius-md); }
+  .divider { height: 1px; background: var(--gray-200); margin: 0 var(--space-4); }
+  nav { padding: var(--space-4) var(--space-2); display: flex; flex-direction: column; gap: 2px; }
+  nav a { font-size: 14px; padding: 8px 12px 8px 16px; border-radius: var(--radius-md); color: var(--gray-600); }
+  nav a.active { padding-left: 13px; border-left: 3px solid var(--violet-600); background: var(--violet-50); color: var(--violet-600); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+  nav summary { display: flex; align-items: center; justify-content: space-between; font-size: 14px; color: var(--gray-600); padding: 8px 12px 8px 16px; border-radius: var(--radius-md); }
+  nav summary .chevron { font-size: 10px; color: var(--gray-400); }
+  .sub-items { display: flex; flex-direction: column; gap: 2px; padding-top: 2px; }
+  .sub-items a { padding: 8px 12px 8px 32px; color: var(--gray-500); }
+</style>
+</head>
+<body>
+  <aside>
+    <div class="top">
+      <div class="brand">
+        <div class="logo"></div>
+        <span class="app-name">Feedback Ops</span>
+      </div>
+      <details>
+        <summary class="switcher-trigger" aria-label="Switch app">
+          <span class="dots">
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+          </span>
+        </summary>
+        <div class="switcher-menu">
+          <a href="#">Feedback Operations</a>
+          <a href="#">Resource Center</a>
+          <a href="#">Admin</a>
+        </div>
+      </details>
+    </div>
+    <div class="top-links">
+      <a href="#">Home</a>
+      <a href="#">Huey assist</a>
+    </div>
+    <div class="divider"></div>
+    <nav>
+      <a class="active" href="#">Feedback Operations</a>
+      <details>
+        <summary>
+          <span>Patient Experience Survey</span>
+          <span class="chevron">▾</span>
+        </summary>
+        <div class="sub-items">
+          <a href="#">[Sub-item]</a>
+          <a href="#">[Sub-item]</a>
+        </div>
+      </details>
+      <a href="#">Facility Satisfaction Trend</a>
+      <a href="#">Provider Scorecard</a>
+      <a href="#">Monthly Alert Digest</a>
+    </nav>
+  </aside>
+</body>
+</html>

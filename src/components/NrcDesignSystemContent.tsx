@@ -8,6 +8,7 @@ import { BackHome } from "./BackHome";
 import { nrcSystemText } from "../data/i18n";
 import { flowbite, flowbiteGround, type FlowbiteColor } from "../data/flowbiteSystem";
 import { useLocale } from "./LocaleProvider";
+import { FlowbiteIconBrowser } from "./FlowbiteIconBrowser";
 
 // Extraction Flowbite, sous /nrc. Meme coquille que /nrc : Nav, BackHome (vers
 // /nrc), pilule, Footer, max-w-3xl. Les valeurs de l'extraction (couleurs,
@@ -323,6 +324,12 @@ export function NrcDesignSystemContent() {
               </div>
             ))}
           </div>
+        </section>
+
+        {/* Icones */}
+        <section className="pt-14">
+          <SectionTitle title={t.icons.title} sub={t.icons.sub} />
+          <FlowbiteIconBrowser text={t.icons} />
         </section>
 
         {/* Composants */}
