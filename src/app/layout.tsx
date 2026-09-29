@@ -61,7 +61,7 @@ export default function RootLayout({
         {/* Applique le mode (dark|light) AVANT le render pour éviter le flash */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var m=localStorage.getItem('mode');document.documentElement.setAttribute('data-theme',m==='light'?'signature-light':'signature');}catch(e){}})();`,
+            __html: `(function(){try{var m=localStorage.getItem('mode-v2');document.documentElement.setAttribute('data-theme',m==='dark'?'signature':'signature-light');}catch(e){}})();`,
           }}
         />
       </head>

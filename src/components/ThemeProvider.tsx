@@ -23,9 +23,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   // V1 : identité unique "signature" en dark/light. Le switcher multi-marques
   // est parqué. On lit le mode (dark|light) depuis localStorage au mount.
   useEffect(() => {
-    let next: ThemeId = DARK;
+    let next: ThemeId = LIGHT;
     try {
-      next = window.localStorage.getItem("mode") === "light" ? LIGHT : DARK;
+      next = window.localStorage.getItem("mode-v2") === "dark" ? DARK : LIGHT;
     } catch {}
     // Lecture client-only de localStorage au mount (post-hydratation) : le
     // setState ici est intentionnel et sûr, pas une cascade de renders.
@@ -44,7 +44,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       const next = prev === LIGHT ? DARK : LIGHT;
       document.documentElement.setAttribute("data-theme", next);
       try {
-        window.localStorage.setItem("mode", next === LIGHT ? "light" : "dark");
+        window.localStorage.setItem("mode-v2", next === LIGHT ? "light" : "dark");
       } catch {}
       return next;
     });

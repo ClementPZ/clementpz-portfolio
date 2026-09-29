@@ -348,4 +348,4 @@ export const interiorPhotos: InteriorPhoto[] = [
 
 export type ThemeId = "signature" | "signature-light";
 
-export const defaultTheme: ThemeId = "signature";
+export const defaultTheme: ThemeId = "signature-light";
