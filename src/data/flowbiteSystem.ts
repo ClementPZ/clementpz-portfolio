@@ -389,6 +389,12 @@ export const flowbite: {
       "guide": "A collapsible section for hiding secondary content (typically filter groups) behind a heading; provide the heading text and the content it hides, and optionally a trailing action like \"Reset\".\n\nBuilt on native `<details>`/`<summary>`, expand/collapse and keyboard support come from the browser, no JavaScript. The chevron rotates 180° on open using a `details[open]` CSS selector, not a script. Header text is `body-sm` `font-medium` in `gray-700`; the panel has no border or background of its own, it just indents.\n\nDon't nest an Accordion inside another Accordion, flatten the groups instead, or it becomes hard to scan."
     },
     {
+      "name": "AppLevelFilter",
+      "group": "Navigation",
+      "height": 130,
+      "guide": "The top utility bar for filters that apply across the whole app (region, health system, facility type), plus the current user's menu; provide the filter labels and values, and the user's name.\n\nBackground is transparent, meant to sit directly on the app shell's `violet-50` background, not on white, that's what separates it visually from the page-level Header sitting below it. Each filter is a label/value pair, `caption` label in `gray-500`, value in `gray-900`, `gray-400` chevron. The user menu reuses an avatar circle in `violet-100`/`violet-700`.\n\nDistinct from FilterTrigger: FilterTrigger is the single pill control, this is the app-wide bar that groups several of them with the account menu."
+    },
+    {
       "name": "Badge",
       "group": "Feedback",
       "height": 320,
@@ -419,10 +425,22 @@ export const flowbite: {
       "guide": "The trigger control for choosing a date range; provide the currently selected start and end dates.\n\nScope note: this is the closed-state trigger only, styled like an Outline button showing the formatted range and a calendar glyph (drawn in CSS, no icon asset available to copy), not the open calendar grid itself. The grid is a materially different, more complex component (month navigation, day selection, range highlighting) and hasn't been built yet; treat it as a separate future component rather than assuming this covers it.\n\nBorder `gray-300`, radius `radius-sm`, focus ring `violet-500`, same as Select."
     },
     {
+      "name": "Header",
+      "group": "Navigation",
+      "height": 200,
+      "guide": "The page-level header: breadcrumb, title, primary actions and a row of page filters; provide the breadcrumb trail, the title, the action labels and the filter labels.\n\nWhite background (`#fff`), distinct from the app shell's general `violet-50` background so it reads as a raised block. Border-bottom `gray-200`; breadcrumb links `gray-500`, current page `gray-700`; title in `h1`, `gray-900`. Primary action pairs with the Secondary style beside it, same rule as the Button component: one Primary per view. Filter pills reuse the same visual language as FilterTrigger but sit inline, for page-scoped filters rather than app-scoped ones (see AppLevelFilter for the latter)."
+    },
+    {
       "name": "Input",
       "group": "Forms",
       "height": 420,
       "guide": "A single-line text field with a label and helper text; provide the label, placeholder, and, for the error/success states, a message explaining why.\n\nDefault border is `gray-300`, radius `radius-sm`. That border alone is a light 1.47:1 against a white page and doesn't meet the 3:1 non-text contrast guideline on its own; the label above the field and, on focus, the `violet-500` ring (4.40:1) are what actually mark the boundary, this is flagged rather than silently fixed, since it's this system's own choice, not a copied brand value.\n\nError state tints the whole field `red-100` background / `red-600` border / `red-800` text; success tints `green-100` / `green-600` / `green-800`. Never show the error tint without an explanatory message next to it, the color change alone doesn't say what's wrong. Disabled fields use `gray-100` background and `gray-400` text and drop the pointer cursor."
+    },
+    {
+      "name": "LeftSideNavbar",
+      "group": "Navigation",
+      "height": 440,
+      "guide": "The left column: logo, app switcher, two top-level links, then the main navigation with one active item and one expandable item for sub-pages; provide the app name, the nav labels, and which item is active.\n\nWhite background, border-right `gray-200`, unaffected by the app shell's `violet-50` background. Active item gets a `violet-600` left border, `violet-50` background and `violet-600` text; inactive items are `gray-600`. Combines Sidebar's navigation pattern with MenuButton's icon-trigger variant for the app switcher, assembled as one organism rather than composed by hand each time.\n\nSame active/inactive rule as Sidebar: this is a functional current-page indicator, not decoration."
     },
     {
       "name": "Link",

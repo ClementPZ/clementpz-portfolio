@@ -1853,6 +1853,17 @@ export const nrcSystemText: Record<
     spacing: { title: string; sub: string };
     radius: { title: string; sub: string };
     shadow: { title: string; sub: string };
+    icons: {
+      title: string;
+      sub: string;
+      searchPlaceholder: string;
+      variantAll: string;
+      variantOutline: string;
+      variantSolid: string;
+      categoryAll: string;
+      copied: string;
+      copyFallback: string;
+    };
     components: { title: string; sub: string; notBuilt: string };
     groups: Record<string, string>;
     backCase: string;
@@ -1879,9 +1890,20 @@ export const nrcSystemText: Record<
     spacing: { title: "Spacing", sub: "Steps that map to Flowbite's button paddings and layout gaps." },
     radius: { title: "Radius", sub: "Tailwind's default scale, from checkboxes to pills." },
     shadow: { title: "Shadow", sub: "Three elevations, from cards to modals." },
+    icons: {
+      title: "Icons",
+      sub: "751 icons vendored from Flowbite's own icon set, MIT license, outline and solid. Search by name, click one to copy its SVG.",
+      searchPlaceholder: "Search icons",
+      variantAll: "All",
+      variantOutline: "Outline",
+      variantSolid: "Solid",
+      categoryAll: "All categories",
+      copied: "Copied",
+      copyFallback: "Copy unavailable, select manually",
+    },
     components: {
       title: "Components",
-      sub: "Sixteen components, all live. Hover, focus and click inside the previews.",
+      sub: "Twenty-one components, all live. Hover, focus and click inside the previews.",
       notBuilt: "Not built yet: Alert, Table, Tabs, Modal, Avatar.",
     },
     groups: { Actions: "Actions", Forms: "Forms", Navigation: "Navigation", Surfaces: "Surfaces", Feedback: "Feedback" },
@@ -1908,9 +1930,20 @@ export const nrcSystemText: Record<
     spacing: { title: "Espacements", sub: "Des pas qui correspondent aux paddings des boutons Flowbite et aux écarts de mise en page." },
     radius: { title: "Arrondis", sub: "L'échelle par défaut de Tailwind, des cases à cocher aux pilules." },
     shadow: { title: "Ombres", sub: "Trois niveaux d'élévation, des cartes aux modales." },
+    icons: {
+      title: "Icônes",
+      sub: "751 icônes reprises du jeu d'icônes Flowbite, licence MIT, en contour et en plein. Recherche par nom, clic pour copier le SVG.",
+      searchPlaceholder: "Rechercher une icône",
+      variantAll: "Toutes",
+      variantOutline: "Contour",
+      variantSolid: "Plein",
+      categoryAll: "Toutes les catégories",
+      copied: "Copié",
+      copyFallback: "Copie indisponible, sélectionnez manuellement",
+    },
     components: {
       title: "Composants",
-      sub: "Seize composants, tous vivants. Survolez, mettez le focus et cliquez dans les aperçus.",
+      sub: "Vingt et un composants, tous vivants. Survolez, mettez le focus et cliquez dans les aperçus.",
       notBuilt: "Pas encore construits : Alert, Table, Tabs, Modal, Avatar.",
     },
     groups: { Actions: "Actions", Forms: "Formulaires", Navigation: "Navigation", Surfaces: "Surfaces", Feedback: "Retours" },
@@ -1937,9 +1970,20 @@ export const nrcSystemText: Record<
     spacing: { title: "Espaciados", sub: "Pasos que corresponden a los paddings de los botones de Flowbite y a los huecos de maquetación." },
     radius: { title: "Radios", sub: "La escala por defecto de Tailwind, de las casillas a las píldoras." },
     shadow: { title: "Sombras", sub: "Tres niveles de elevación, de las tarjetas a los modales." },
+    icons: {
+      title: "Iconos",
+      sub: "751 iconos del propio set de iconos de Flowbite, licencia MIT, contorno y sólido. Busca por nombre, haz clic para copiar el SVG.",
+      searchPlaceholder: "Buscar iconos",
+      variantAll: "Todos",
+      variantOutline: "Contorno",
+      variantSolid: "Sólido",
+      categoryAll: "Todas las categorías",
+      copied: "Copiado",
+      copyFallback: "Copia no disponible, selecciona manualmente",
+    },
     components: {
       title: "Componentes",
-      sub: "Dieciséis componentes, todos vivos. Pasa el cursor, enfoca y haz clic dentro de las vistas previas.",
+      sub: "Veintiún componentes, todos vivos. Pasa el cursor, enfoca y haz clic dentro de las vistas previas.",
       notBuilt: "Aún sin construir: Alert, Table, Tabs, Modal, Avatar.",
     },
     groups: { Actions: "Acciones", Forms: "Formularios", Navigation: "Navegación", Surfaces: "Superficies", Feedback: "Retroalimentación" },
