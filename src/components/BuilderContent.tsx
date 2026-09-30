@@ -5,10 +5,8 @@ import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { BackHome } from "./BackHome";
 import { BuilderDiagram } from "./BuilderDiagram";
-import { profile } from "../data/content";
-import { builderText, accessMailtoHref } from "../data/i18n";
+import { builderText } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
-import { fireConfetti } from "../lib/confetti";
 
 export function BuilderContent() {
   const { locale } = useLocale();
@@ -21,7 +19,7 @@ export function BuilderContent() {
           <BackHome />
         </div>
         <p
-          className="text-xs uppercase tracking-widest font-semibold mb-4"
+          className="text-sm font-semibold mb-4"
           style={{ color: "var(--accent)" }}
         >
           {t.kicker}
@@ -47,22 +45,11 @@ export function BuilderContent() {
           ))}
         </div>
 
-        <div className="mt-8">
+        <div className="mt-8 panel p-4 sm:p-6">
           <BuilderDiagram />
         </div>
 
-        {/* CTA contact : le bouton seul, pas de boite autour */}
         <div className="mt-16">
-          <a
-            href={accessMailtoHref(profile.email, locale)}
-            onClick={(e) => fireConfetti(e.currentTarget)}
-            className="btn-accent"
-          >
-            {t.contactCta}
-          </a>
-        </div>
-
-        <div className="mt-10">
           <Link href="/" className="btn-ghost">
             {t.backHome}
           </Link>
