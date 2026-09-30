@@ -54,12 +54,12 @@ export const ui: Record<Locale, UI> = {
     impactLabel: "Business impact",
     recentTitle: "Past 6 months side projects",
     recentSub:
-      "Side projects in progress, each pushed toward a solid first version.",
+      "Side projects in progress.",
     recoTitle: "Recommendations",
     overlayTitle: "This portfolio is under construction, but already online.",
     overlayBodyPre: "You're the",
     overlayBodyPost:
-      "person to visit. Have a tour, and don't hesitate to reach out for anything. Design, code, and AI, all done by hand.",
+      "person to visit. Have a tour, and reach out if anything catches your eye.",
     overlayCta: "Visit",
     makingOfWidget: "How this portfolio was built",
     caseStudy: "Read the case study",
@@ -71,12 +71,12 @@ export const ui: Record<Locale, UI> = {
     impactLabel: "Impact business",
     recentTitle: "Side projects des 6 derniers mois",
     recentSub:
-      "Des side projects en cours, chacun poussé vers une première version solide.",
+      "Des side projects en cours.",
     recoTitle: "Recommandations",
     overlayTitle: "Ce portfolio est en construction, mais déjà en ligne.",
     overlayBodyPre: "Vous êtes la",
     overlayBodyPost:
-      "personne à le visiter. Faites le tour, et n'hésitez pas à me contacter pour quoi que ce soit. Design, code et IA, tout est fait main.",
+      "personne à le visiter. Faites le tour, et contactez-moi si quelque chose vous parle.",
     overlayCta: "Visiter",
     makingOfWidget: "Comment ce portfolio a été construit",
     caseStudy: "Lire le case study",
@@ -88,12 +88,12 @@ export const ui: Record<Locale, UI> = {
     impactLabel: "Impacto de negocio",
     recentTitle: "Side projects de los últimos 6 meses",
     recentSub:
-      "Side projects en marcha, cada uno llevado hacia una primera versión sólida.",
+      "Side projects en marcha.",
     recoTitle: "Recomendaciones",
     overlayTitle: "Este portafolio está en construcción, pero ya en línea.",
     overlayBodyPre: "Eres la",
     overlayBodyPost:
-      "persona en visitarlo. Date una vuelta, y no dudes en contactarme para lo que sea. Design, código e IA, todo hecho a mano.",
+      "persona en visitarlo. Date una vuelta, y escríbeme si algo te llama la atención.",
     overlayCta: "Visitar",
     makingOfWidget: "Cómo se construyó este portafolio",
     caseStudy: "Leer el case study",
@@ -102,9 +102,9 @@ export const ui: Record<Locale, UI> = {
 
 // Intro localisée (profile.intro).
 export const introText: Record<Locale, string> = {
-  en: "Hello, I'm Clément, a product designer with 10+ years of experience across product, business, design systems and innovation. I built the design function at NRC Health (Nasdaq: NRC) from scratch, and today I lead a team of three, from research to production to analytics. My role as a sales and marketing project manager at Devialet, various entrepreneurial projects, then founding a coding campus in Mexico City shaped my business-first approach, which guides how I do product today.",
-  fr: "Bonjour, je suis Clément, Product designer avec 10+ ans d'expérience entre produit, business, design systems et innovation. J'ai monté la fonction design de NRC Health (Nasdaq: NRC) à partir de zéro et je pilote aujourd'hui une équipe de trois personnes, de la recherche à la production en passant par les analytics. Mon rôle de project manager sales et marketing chez Devialet, dans divers projets entrepreneuriaux, puis dans la création d'un campus de code à Mexico, a forgé mon approche business-first, qui guide aujourd'hui ma façon de faire du produit.",
-  es: "Hola, soy Clément, product designer con más de 10 años de experiencia entre producto, business, design systems e innovación. Construí la función de diseño de NRC Health (Nasdaq: NRC) desde cero, y hoy lidero un equipo de tres personas, desde la investigación hasta la producción pasando por los analytics. Mi rol de project manager de ventas y marketing en Devialet, varios proyectos emprendedores, y luego la creación de un campus de código en Ciudad de México forjaron mi enfoque business-first, que guía hoy mi manera de hacer producto.",
+  en: "Hello, I'm Clément, a product designer with 10+ years across product, business and design systems. I worked in healthcare SaaS for the past 6 years, built the design function at NRC Health (Nasdaq: NRC) from scratch and led a team of three, from research and design to production and analytics. Before that I founded a coding campus in Mexico City and ran marketing and sales projects at Devialet. So I always start from the business question.",
+  fr: "Bonjour, je suis Clément, Product designer avec 10+ ans d'expérience entre produit, business et design systems. J'ai travaillé dans le SaaS santé ces 6 dernières années, monté la fonction design de NRC Health (Nasdaq: NRC) à partir de zéro et dirigé une équipe de trois personnes, de la recherche et du design jusqu'à la production et aux analytics. Avant cela, j'ai fondé un campus de code à Mexico et mené des projets marketing et ventes chez Devialet. Je pars donc toujours de la question business.",
+  es: "Hola, soy Clément, product designer con más de 10 años de experiencia entre producto, business y design systems. Trabajé en SaaS de salud durante los últimos 6 años, construí la función de diseño de NRC Health (Nasdaq: NRC) desde cero y lideré un equipo de tres personas, desde la investigación y el diseño hasta la producción y los analytics. Antes fundé un campus de código en Ciudad de México y llevé proyectos de marketing y ventas en Devialet. Por eso siempre parto de la pregunta de negocio.",
 };
 
 // Texte localisé des expériences — index aligné sur `work` dans content.ts :
@@ -127,8 +127,8 @@ export const workText: Record<
       role: "Senior → Lead Product Designer · Design System",
       bullets: [
         "Coordinated user research across several products: MCC/epiCoder, epiAnalyst, epiEncounter and HRA. Promoted to Lead Product Designer after 12 months.",
-        "Contributed to the design-system rollout across the whole product suite (Q4 2021 - Q2 2022), building the Figma component libraries and integrating design tokens into production. Then owned Provider Direct Messaging, a bi-directional EHR integration built with UHC and piloted for Q1 2024.",
-        "Led the Click to Code medical autocoding project, an NLP-based AI coding interface, from alpha to production (Q1 2022). A major V2.0 redesign, validated with 897 users, reached 88% acceptance and 80% satisfaction, and became a pillar of Episource's autocoding strategy, targeting 500,000-750,000 charts a year.",
+        "Built the Figma component libraries and integrated design tokens into production for the design-system rollout across the whole product suite (Q4 2021 - Q2 2022). Then owned Provider Direct Messaging, a bi-directional EHR integration built with UHC and piloted for Q1 2024.",
+        "Led the Click to Code medical autocoding project, an NLP-based AI coding interface, from alpha to production (Q1 2022). A major V2.0 redesign, validated with 897 users, reached 88% acceptance and 80% satisfaction, and became a core part of Episource's autocoding strategy, targeting 500,000-750,000 charts a year.",
       ],
     },
     seif: {
@@ -178,8 +178,8 @@ export const workText: Record<
       role: "Senior → Lead Product Designer · Design System",
       bullets: [
         "Coordination de la recherche utilisateur à l'échelle de plusieurs produits : MCC/epiCoder, epiAnalyst, epiEncounter et HRA. Promotion au poste de Lead Product Designer après 12 mois.",
-        "Contribution au déploiement du design system sur l'ensemble de la suite produit (Q4 2021 - Q2 2022), avec la création de bibliothèques de composants Figma et l'intégration de design tokens dans l'environnement de production. Prise en charge par la suite de la conception de Provider Direct Messaging, une intégration EHR bidirectionnelle développée avec UHC et déployée en pilote pour Q1 2024.",
-        "Pilotage du projet d'autocoding médical Click to Code, l'interface de coding assistée par IA reposant sur le NLP, depuis l'alpha jusqu'à la mise en production (Q1 2022). Refonte majeure (V2.0) validée auprès de 897 utilisateurs, atteignant 88 % d'acceptation et 80 % de satisfaction. Cette fonctionnalité est devenue un pilier de la stratégie d'autocoding d'Episource, avec un objectif de traitement de 500 000 à 750 000 dossiers par an.",
+        "Création des bibliothèques de composants Figma et intégration des design tokens en production pour le déploiement du design system sur l'ensemble de la suite produit (Q4 2021 - Q2 2022). Prise en charge par la suite de la conception de Provider Direct Messaging, une intégration EHR bidirectionnelle développée avec UHC et déployée en pilote pour Q1 2024.",
+        "Pilotage du projet d'autocoding médical Click to Code, l'interface de coding assistée par IA reposant sur le NLP, depuis l'alpha jusqu'à la mise en production (Q1 2022). Refonte majeure (V2.0) validée auprès de 897 utilisateurs, atteignant 88 % d'acceptation et 80 % de satisfaction. Cette fonctionnalité est devenue un élément central de la stratégie d'autocoding d'Episource, avec un objectif de traitement de 500 000 à 750 000 dossiers par an.",
       ],
     },
     seif: {
@@ -229,8 +229,8 @@ export const workText: Record<
       role: "Senior → Lead Product Designer · Design System",
       bullets: [
         "Coordiné la investigación de usuario a escala de varios productos: MCC/epiCoder, epiAnalyst, epiEncounter y HRA. Fui ascendido a Lead Product Designer tras 12 meses.",
-        "Contribuí al despliegue del design system en toda la suite de producto (Q4 2021 - Q2 2022), creando las bibliotecas de componentes en Figma e integrando design tokens en el entorno de producción. Después me hice cargo del diseño de Provider Direct Messaging, una integración EHR bidireccional desarrollada con UHC y piloteada para Q1 2024.",
-        "Dirigí el proyecto de autocoding médico Click to Code, la interfaz de coding asistida por IA basada en NLP, desde el alpha hasta producción (Q1 2022). Un rediseño mayor (V2.0), validado con 897 usuarios, alcanzó 88 % de aceptación y 80 % de satisfacción, y se volvió un pilar de la estrategia de autocoding de Episource, con un objetivo de 500 000 a 750 000 historiales al año.",
+        "Creé las bibliotecas de componentes en Figma e integré design tokens en producción para el despliegue del design system en toda la suite de producto (Q4 2021 - Q2 2022). Después me hice cargo del diseño de Provider Direct Messaging, una integración EHR bidireccional desarrollada con UHC y piloteada para Q1 2024.",
+        "Dirigí el proyecto de autocoding médico Click to Code, la interfaz de coding asistida por IA basada en NLP, desde el alpha hasta producción (Q1 2022). Un rediseño mayor (V2.0), validado con 897 usuarios, alcanzó 88 % de aceptación y 80 % de satisfacción, y se volvió una pieza central de la estrategia de autocoding de Episource, con un objetivo de 500 000 a 750 000 historiales al año.",
       ],
     },
     seif: {
@@ -277,17 +277,17 @@ export const projectText: Record<
     "builder-flow": {
       tagline: "Front-end changes, made accessible to PMs and designers",
       description:
-        "A Claude Code plugin that lets a PM or designer make front-end changes to an app in plain language, while reinforcing the design system. The generated code is production-ready and ready for an engineer to review before merge.",
+        "A Claude Code plugin that lets a PM or designer make front-end changes to an app in plain language, within the design system. An engineer reviews the generated code before merge.",
     },
     "couples-card": {
-      tagline: "An asymmetric reveal mechanic",
+      tagline: "A card game for couples",
       description:
         "A card game for couples built on a simultaneous reveal on a spectrum. 5 pillars, an intensity-based color system, special cards. Currently in card-design phase.",
     },
     "legal-music": {
-      tagline: "One command, a deck-ready track",
+      tagline: "Music platforms to rekordbox in one command",
       description:
-        "A pipeline that finds a track on a P2P network, downloads the best quality available, converts it to lossless and files it into my DJ library: genre, playlist, energy tag. One command, zero clicks.",
+        "A pipeline that finds a track on a P2P network, downloads the best quality available, converts it to lossless and files it into my DJ library: genre, playlist, energy tag. All from a single command.",
     },
     "job-search": {
       tagline: "A cleaner France Travail interface",
@@ -305,7 +305,7 @@ export const projectText: Record<
         "App aggregating conferences and cultural events in Paris from the city's and the Ministry of Culture's open data. Filters, week view, iCal export.",
     },
     "interior-design": {
-      tagline: "My apartment, designed in public",
+      tagline: "A Parisian apartment",
       description:
         "The ongoing interior design of my apartment, with inspirations from Verner Panton, Tadao Ando and Jean-Pierre Garrauld. A dedicated page where visitors upvote the photos, bumping the best ones to the top.",
     },
@@ -315,9 +315,9 @@ export const projectText: Record<
         "A social game for friend groups. One prompt a day: spot a ___. Find it in the real world, shoot it with both cameras at once (the target and your face), and post. You only see your friends' spots once you have posted yours.",
     },
     days: {
-      tagline: "One number, the days that matter",
+      tagline: "Count days down or up",
       description:
-        "A very clean iOS day counter. Count down to a date or count up the days since one, with a ring, home screen and lock screen widgets, and a quiet notification at each milestone. No account, no ads, everything stays on the phone.",
+        "An iOS day counter. Count down to a date or count up the days since one, with a ring, home screen and lock screen widgets, and a notification at each milestone. No account, no ads, everything stays on the phone.",
     },
     "making-of": {
       tagline: "The portfolio, explained by itself",
@@ -339,17 +339,17 @@ export const projectText: Record<
     "builder-flow": {
       tagline: "Le front-end rendu accessible aux PM et aux designers",
       description:
-        "Un plugin Claude Code qui permet à un PM ou un designer d'apporter des modifications au front-end d'une app en langage naturel, tout en renforçant l'usage du design system. Le code généré est production-ready et prêt pour la review d'un ingénieur avant merge.",
+        "Un plugin Claude Code qui permet à un PM ou un designer d'apporter des modifications au front-end d'une app en langage naturel, dans le cadre du design system. Un ingénieur relit le code généré avant le merge.",
     },
     "couples-card": {
-      tagline: "Une mécanique de révélation asymétrique",
+      tagline: "Un jeu de cartes pour couples",
       description:
         "Un jeu de cartes pour couples basé sur une révélation simultanée sur un spectre. 5 piliers, un système de couleurs par intensité, des cartes spéciales. Actuellement en phase de design des cartes.",
     },
     "legal-music": {
-      tagline: "Une commande, un track prêt à mixer",
+      tagline: "Des plateformes musicales à rekordbox en une commande",
       description:
-        "Un pipeline qui trouve un morceau sur un réseau P2P, le télécharge dans la meilleure qualité disponible, le convertit en lossless et le range dans ma bibliothèque DJ : genre, playlist, tag d'énergie. Une commande, zéro clic.",
+        "Un pipeline qui trouve un morceau sur un réseau P2P, le télécharge dans la meilleure qualité disponible, le convertit en lossless et le range dans ma bibliothèque DJ : genre, playlist, tag d'énergie. Le tout en une commande.",
     },
     "job-search": {
       tagline: "Une interface France Travail épurée",
@@ -367,7 +367,7 @@ export const projectText: Record<
         "App qui agrège conférences et événements culturels de Paris depuis les open data de la ville et du ministère de la Culture. Filtres, vue semaine, export iCal.",
     },
     "interior-design": {
-      tagline: "Mon appartement, designé en public",
+      tagline: "Un appartement parisien",
       description:
         "Le design d'intérieur en cours de mon appartement, inspiré de Verner Panton, Tadao Ando et Jean-Pierre Garrauld. Une page dédiée où les visiteurs upvotent les photos, faisant remonter les meilleures.",
     },
@@ -377,9 +377,9 @@ export const projectText: Record<
         "Un jeu social entre potes. Un défi par jour : repérez un ___. Trouvez-le dans la vraie vie, capturez-le avec les deux caméras à la fois (la cible et votre visage), et postez. Vous ne voyez les spots des autres qu'une fois le vôtre posté.",
     },
     days: {
-      tagline: "Un chiffre, les jours qui comptent",
+      tagline: "Compter les jours, à rebours ou depuis",
       description:
-        "Un compteur de jours très épuré pour iOS. Comptez à rebours vers une date ou comptez les jours écoulés depuis, avec un anneau, des widgets sur l'écran d'accueil et l'écran verrouillé, et une notification discrète à chaque palier. Pas de compte, pas de publicité, tout reste sur le téléphone.",
+        "Un compteur de jours pour iOS. Comptez à rebours vers une date ou comptez les jours écoulés depuis, avec un anneau, des widgets sur l'écran d'accueil et l'écran verrouillé, et une notification à chaque palier. Pas de compte, pas de publicité, tout reste sur le téléphone.",
     },
     "making-of": {
       tagline: "Le portfolio, expliqué par lui-même",
@@ -401,17 +401,17 @@ export const projectText: Record<
     "builder-flow": {
       tagline: "El front-end, al alcance de PMs y diseñadores",
       description:
-        "Un plugin de Claude Code que permite a un PM o un diseñador aportar modificaciones al front-end de una app en lenguaje natural, reforzando el uso del design system. El código generado es production-ready y está listo para la review de un ingeniero antes del merge.",
+        "Un plugin de Claude Code que permite a un PM o un diseñador aportar modificaciones al front-end de una app en lenguaje natural, dentro del design system. Un ingeniero revisa el código generado antes del merge.",
     },
     "couples-card": {
-      tagline: "Una mecánica de revelación asimétrica",
+      tagline: "Un juego de cartas para parejas",
       description:
         "Un juego de cartas para parejas basado en una revelación simultánea sobre un espectro. 5 pilares, un sistema de colores por intensidad, cartas especiales. Actualmente en fase de diseño de cartas.",
     },
     "legal-music": {
-      tagline: "Un comando, un track listo para pinchar",
+      tagline: "De las plataformas de música a rekordbox en un comando",
       description:
-        "Un pipeline que encuentra un track en una red P2P, lo descarga en la mejor calidad disponible, lo convierte a lossless y lo archiva en mi biblioteca DJ: género, playlist, etiqueta de energía. Un comando, cero clics.",
+        "Un pipeline que encuentra un track en una red P2P, lo descarga en la mejor calidad disponible, lo convierte a lossless y lo archiva en mi biblioteca DJ: género, playlist, etiqueta de energía. Todo con un solo comando.",
     },
     "job-search": {
       tagline: "Una interfaz de France Travail más limpia",
@@ -429,7 +429,7 @@ export const projectText: Record<
         "App que agrega conferencias y eventos culturales de París desde los open data de la ciudad y del ministerio de Cultura. Filtros, vista semanal, exportación iCal.",
     },
     "interior-design": {
-      tagline: "Mi apartamento, diseñado en público",
+      tagline: "Un apartamento parisino",
       description:
         "El diseño interior en curso de mi apartamento, inspirado en Verner Panton, Tadao Ando y Jean-Pierre Garrauld. Una página dedicada donde los visitantes votan las fotos, subiendo las mejores.",
     },
@@ -439,9 +439,9 @@ export const projectText: Record<
         "Un juego social entre amigos. Un reto al día: encuentre un ___. Búsquelo en la vida real, captúrelo con las dos cámaras a la vez (el objetivo y su cara), y publíquelo. Solo ve los spots de los demás cuando ya ha publicado el suyo.",
     },
     days: {
-      tagline: "Un número, los días que importan",
+      tagline: "Cuenta los días, hacia atrás o hacia delante",
       description:
-        "Un contador de días muy limpio para iOS. Cuente hacia atrás hasta una fecha o cuente los días desde una, con un anillo, widgets en la pantalla de inicio y en la de bloqueo, y una notificación discreta en cada hito. Sin cuenta, sin publicidad, todo se queda en el teléfono.",
+        "Un contador de días para iOS. Cuente hacia atrás hasta una fecha o cuente los días desde una, con un anillo, widgets en la pantalla de inicio y en la de bloqueo, y una notificación en cada hito. Sin cuenta, sin publicidad, todo se queda en el teléfono.",
     },
     "making-of": {
       tagline: "El portafolio, explicado por sí mismo",
@@ -851,7 +851,7 @@ export const highlightText: Record<
     title: "Builder",
     tagline: "A Claude Code plugin",
     blurb:
-      "The Builder plugin lets a PM or designer make front-end changes while reinforcing the design system. A ratified token contract, changes tiered by risk, and production-ready code an engineer only has to review and merge.",
+      "The Builder plugin lets a PM or designer make front-end changes within the design system. Changes follow the design tokens and are sorted by risk. An engineer reviews and merges the result.",
     ctaPrimary: "Launch demo",
     ctaSecondary: "See details",
   },
@@ -860,7 +860,7 @@ export const highlightText: Record<
     title: "Builder",
     tagline: "Un plugin Claude Code",
     blurb:
-      "Le plugin Builder permet à un PM ou un designer d'apporter des modifications au front-end tout en renforçant l'usage du design system. Un contrat de tokens validé, des changements classés par niveau de risque, et du code production-ready qu'un ingénieur n'a plus qu'à reviewer et à merger.",
+      "Le plugin Builder permet à un PM ou un designer d'apporter des modifications au front-end dans le cadre du design system. Les changements suivent les design tokens et sont classés par niveau de risque. Un ingénieur relit et merge le résultat.",
     ctaPrimary: "Lancer demo",
     ctaSecondary: "Voir les détails",
   },
@@ -869,7 +869,7 @@ export const highlightText: Record<
     title: "Builder",
     tagline: "Un plugin de Claude Code",
     blurb:
-      "El plugin Builder permite a un PM o un diseñador aportar modificaciones al front-end reforzando el uso del design system. Un contrato de tokens ratificado, cambios clasificados por nivel de riesgo, y código production-ready que un ingeniero solo tiene que revisar y mergear.",
+      "El plugin Builder permite a un PM o un diseñador aportar modificaciones al front-end dentro del design system. Los cambios siguen los design tokens y se clasifican por nivel de riesgo. Un ingeniero revisa y mergea el resultado.",
     ctaPrimary: "Lanzar demo",
     ctaSecondary: "Ver detalles",
   },
@@ -1813,19 +1813,19 @@ export const spotaHighlightText: Record<
   { eyebrow: string; lede: string; cta: string; finePrint: string }
 > = {
   en: {
-    eyebrow: "A daily dare for you and your crew",
+    eyebrow: "A daily photo game for friend groups",
     lede: "One prompt a day. Find it in the real world, capture it, back camera for the target, front camera for you. Post yours to unlock what your crew spotted.",
     cta: "Get the beta",
     finePrint: "iOS, via TestFlight · ages 13+",
   },
   fr: {
-    eyebrow: "Un défi par jour, pour toi et ta bande",
+    eyebrow: "Un jeu photo quotidien pour les groupes d'amis",
     lede: "Un prompt par jour. Trouve-le dans la vraie vie, capture-le, caméra arrière pour la cible, caméra avant pour toi. Publie le tien pour découvrir ce que ta bande a repéré.",
     cta: "Accéder à la beta",
     finePrint: "iOS, via TestFlight · 13 ans et plus",
   },
   es: {
-    eyebrow: "Un reto diario para ti y tu grupo",
+    eyebrow: "Un juego de fotos diario para grupos de amigos",
     lede: "Un prompt al día. Encuéntralo en la vida real, captúralo, cámara trasera para el objetivo, cámara frontal para ti. Publica el tuyo para ver lo que encontró tu grupo.",
     cta: "Acceder a la beta",
     finePrint: "iOS, via TestFlight · 13 años o más",
