@@ -46,13 +46,12 @@ function Figure({ label, caption }: { label: string; caption?: string }) {
       <div
         className="flex items-center justify-center px-6 py-14 text-center"
         style={{
-          border: "1px dashed var(--border-strong)",
           borderRadius: "var(--radius-lg)",
           background: "var(--accent-subtle)",
         }}
       >
         <span
-          className="text-[10px] uppercase tracking-widest font-semibold"
+          className="text-xs font-medium"
           style={{ color: "var(--text-muted)" }}
         >
           {label}
@@ -77,12 +76,14 @@ export function NrcContent() {
       <main className="max-w-3xl mx-auto px-6 pt-10 pb-24">
         <div className="mb-10 flex items-center justify-between">
           <BackHome />
-          <span className="pill">{t.period}</span>
+          <span className="text-sm" style={{ color: "var(--text-muted)" }}>
+            {t.period}
+          </span>
         </div>
 
         {/* Hero */}
         <p
-          className="text-xs uppercase tracking-widest font-semibold mb-4"
+          className="text-sm font-semibold mb-4"
           style={{ color: "var(--accent)" }}
         >
           {t.kicker}
@@ -93,13 +94,9 @@ export function NrcContent() {
         <p className="text-lg leading-relaxed max-w-2xl" style={{ color: "var(--text-muted)" }}>
           {t.intro}
         </p>
-        <div className="flex flex-wrap gap-2 mt-6">
-          {t.stack.map((s) => (
-            <span key={s} className="pill">
-              {s}
-            </span>
-          ))}
-        </div>
+        <p className="mt-6 text-sm" style={{ color: "var(--text-muted)" }}>
+          {t.stack.join(" · ")}
+        </p>
 
         {/* 1. L'equipe */}
         <section className="pt-14">
@@ -107,39 +104,40 @@ export function NrcContent() {
 
           <NrcOrgChart />
 
-          <div className="grid gap-3 sm:grid-cols-3 mt-8">
-            {t.team.strategy.map((s) => (
-              <div key={s.title} className="surface px-5 py-5">
-                <h3 className="font-display text-base font-bold mb-1.5">{s.title}</h3>
-                <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-                  {s.body}
-                </p>
+          <div className="grid gap-8 mt-12">
+            {t.team.strategy.map((s, i) => (
+              <div key={s.title} className="grid grid-cols-[3.5rem_1fr] items-baseline">
+                <span className="font-display text-3xl font-bold" style={{ color: "var(--accent)" }}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3 className="font-display text-lg font-bold mb-1.5">{s.title}</h3>
+                  <p className="text-sm leading-relaxed max-w-xl" style={{ color: "var(--text-muted)" }}>
+                    {s.body}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
 
           <NrcRoadmap />
 
-          <div
-            className="mt-3.5 px-5 py-3.5 text-sm"
-            style={{
-              background: "var(--accent-subtle)",
-              border: "1px solid var(--border)",
-              borderRadius: "var(--radius)",
-              color: "var(--text-muted)",
-            }}
-          >
-            <b style={{ color: "var(--text)" }}>{t.team.asideBold}</b>
-            {t.team.aside}
+          <div className="mt-16">
+            <p className="font-display text-2xl sm:text-3xl font-bold leading-snug">
+              {t.team.asideBold.trim()}
+            </p>
+            <p className="mt-4 text-sm leading-relaxed max-w-2xl" style={{ color: "var(--text-muted)" }}>
+              {t.team.aside}
+            </p>
           </div>
         </section>
 
         {/* 2. Le design system */}
         <section className="pt-14">
           <SectionTitle title={t.system.title} sub={t.system.sub} />
-          <div className="grid gap-2.5">
+          <div className="grid gap-6">
             {t.system.items.map((i) => (
-              <div key={i.title} className="surface px-5 py-4">
+              <div key={i.title}>
                 <h3 className="text-base font-semibold">{i.title}</h3>
                 <p className="text-sm mt-0.5" style={{ color: "var(--text-muted)" }}>
                   {i.body}
@@ -147,7 +145,7 @@ export function NrcContent() {
               </div>
             ))}
           </div>
-          <div className="mt-8 surface p-5">
+          <div className="mt-8 panel p-5">
             <div className="flex gap-1.5" aria-hidden>
               {TEASER_SHADES.map((n) => (
                 <div
@@ -191,9 +189,9 @@ export function NrcContent() {
         {/* 3. Les cas produit */}
         <section className="pt-14">
           <SectionTitle title={t.cases.title} sub={t.cases.sub} />
-          <div className="grid gap-8">
+          <div className="grid gap-16">
             {t.cases.items.map((c) => (
-              <article key={c.n} className="surface px-5 py-6 sm:px-7">
+              <article key={c.n}>
                 <div className="flex items-baseline gap-3 mb-2">
                   <span
                     className="font-display font-bold text-sm"
@@ -221,15 +219,7 @@ export function NrcContent() {
                   </p>
                 )}
                 {c.result && (
-                  <p
-                    className="mt-4 px-4 py-3 text-sm font-semibold"
-                    style={{
-                      background: "var(--accent-subtle)",
-                      border: "1px solid var(--border)",
-                      borderRadius: "var(--radius)",
-                      color: "var(--text)",
-                    }}
-                  >
+                  <p className="mt-4 text-sm font-semibold" style={{ color: "var(--text)" }}>
                     {c.result}
                   </p>
                 )}
@@ -251,11 +241,7 @@ export function NrcContent() {
             {t.analytics.points.map((p) => (
               <div
                 key={p}
-                className="flex gap-4 items-baseline px-5 py-4"
-                style={{
-                  border: "1px dashed var(--border-strong)",
-                  borderRadius: "var(--radius-lg)",
-                }}
+                className="flex gap-4 items-baseline py-2"
               >
                 <span className="font-bold shrink-0" style={{ color: "var(--accent)" }}>
                   →

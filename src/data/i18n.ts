@@ -76,7 +76,7 @@ export const ui: Record<Locale, UI> = {
     overlayTitle: "Ce portfolio est en construction, mais déjà en ligne.",
     overlayBodyPre: "Vous êtes la",
     overlayBodyPost:
-      "personne à le visiter. Faites le tour, et contactez-moi si quelque chose vous parle.",
+      "personne à le visiter. Faites un tour, et contactez-moi si quelque chose vous parle.",
     overlayCta: "Visiter",
     makingOfWidget: "Comment ce portfolio a été construit",
     caseStudy: "Lire le case study",
@@ -102,9 +102,9 @@ export const ui: Record<Locale, UI> = {
 
 // Intro localisée (profile.intro).
 export const introText: Record<Locale, string> = {
-  en: "Hello, I'm Clément, a product designer with 10+ years across product, business and design systems. I worked in healthcare SaaS for the past 6 years, built the design function at NRC Health (Nasdaq: NRC) from scratch and led a team of three, from research and design to production and analytics. Before that I founded a coding campus in Mexico City and ran marketing and sales projects at Devialet. So I always start from the business question.",
-  fr: "Bonjour, je suis Clément, Product designer avec 10+ ans d'expérience entre produit, business et design systems. J'ai travaillé dans le SaaS santé ces 6 dernières années, monté la fonction design de NRC Health (Nasdaq: NRC) à partir de zéro et dirigé une équipe de trois personnes, de la recherche et du design jusqu'à la production et aux analytics. Avant cela, j'ai fondé un campus de code à Mexico et mené des projets marketing et ventes chez Devialet. Je pars donc toujours de la question business.",
-  es: "Hola, soy Clément, product designer con más de 10 años de experiencia entre producto, business y design systems. Trabajé en SaaS de salud durante los últimos 6 años, construí la función de diseño de NRC Health (Nasdaq: NRC) desde cero y lideré un equipo de tres personas, desde la investigación y el diseño hasta la producción y los analytics. Antes fundé un campus de código en Ciudad de México y llevé proyectos de marketing y ventas en Devialet. Por eso siempre parto de la pregunta de negocio.",
+  en: "Hello, I'm Clément, a product designer with 10+ years across product, business and design systems. I worked in healthcare SaaS for the past 5 years, built the design function at NRC Health (Nasdaq: NRC) from scratch and led a team of three, from research and design to production and analytics. Before that I founded a coding campus in Mexico City and ran marketing and sales projects at Devialet. So I always start from the business question.",
+  fr: "Bonjour, je suis Clément, Product designer avec plus de 10 ans d'expérience entre produit, business et design systems. J'ai travaillé sur des SaaS spécialisés dans la santé ces 5 dernières années, monté la fonction design de NRC Health (Nasdaq: NRC) à partir de zéro et dirigé une équipe de trois personnes, de la recherche et du design jusqu'à la production et aux analytics. Avant cela, j'ai fondé un campus de code à Mexico et mené des projets marketing et ventes chez Devialet. Je pars donc toujours de la question business.",
+  es: "Hola, soy Clément, product designer con más de 10 años de experiencia entre producto, business y design systems. Trabajé en SaaS especializados en salud durante los últimos 5 años, construí la función de diseño de NRC Health (Nasdaq: NRC) desde cero y lideré un equipo de tres personas, desde la investigación y el diseño hasta la producción y los analytics. Antes fundé un campus de código en Ciudad de México y gestioné proyectos de marketing y ventas en Devialet. Por eso siempre parto de la pregunta de negocio.",
 };
 
 // Texte localisé des expériences — index aligné sur `work` dans content.ts :
@@ -115,7 +115,7 @@ export const workText: Record<
 > = {
   en: {
     nrc: {
-      role: "Product Design Lead",
+      role: "Design Manager",
       bullets: [
         "Recruited and led NRC Health's first Design team, two Product Designers and an Analytics Specialist, serving all four product suites: Consumer, Patient, Market Insights and Employee Experience.",
         "Created a multi-product design system, design tokens and a semantic layer based on the Flowbite library, unifying the experience across every product and bridging design with a multi-stack production environment (Angular, Vue, legacy). Built an AI-assisted design-to-code workflow that lets non-technical profiles ship UX/UI changes safely.",
@@ -166,7 +166,7 @@ export const workText: Record<
   },
   fr: {
     nrc: {
-      role: "Product Design Lead",
+      role: "Design Manager",
       bullets: [
         "Recrutement et management de la première équipe Design de NRC Health, composée de deux Product Designers et d'un Analytics Specialist, au service des quatre suites produits : Consumer, Patient, Market Insights et Employee Experience.",
         "Création d'un design system multi-produits, de design tokens et d'une semantic layer basée sur la librairie Flowbite, unifiant l'expérience utilisateur à travers l'ensemble des produits et assurant le lien entre le design et un environnement de production multi-stack (Angular, Vue, legacy). Développement d'un workflow design-to-code assisté par IA permettant à des profils non techniques de déployer des évolutions UX/UI en toute sécurité.",
@@ -217,7 +217,7 @@ export const workText: Record<
   },
   es: {
     nrc: {
-      role: "Product Design Lead",
+      role: "Design Manager",
       bullets: [
         "Contraté y gestioné el primer equipo de Diseño de NRC Health, formado por dos Product Designers y un Analytics Specialist, al servicio de las cuatro suites de producto: Consumer, Patient, Market Insights y Employee Experience.",
         "Creé un design system multi-producto, design tokens y una semantic layer basada en la librería Flowbite, unificando la experiencia de usuario en todos los productos y conectando el diseño con un entorno de producción multi-stack (Angular, Vue, legacy). Desarrollé un workflow design-to-code asistido por IA que permite a perfiles no técnicos desplegar cambios de UX/UI con total seguridad.",
@@ -228,8 +228,8 @@ export const workText: Record<
     episource: {
       role: "Senior → Lead Product Designer · Design System",
       bullets: [
-        "Coordiné la investigación de usuario a escala de varios productos: MCC/epiCoder, epiAnalyst, epiEncounter y HRA. Fui ascendido a Lead Product Designer tras 12 meses.",
-        "Creé las bibliotecas de componentes en Figma e integré design tokens en producción para el despliegue del design system en toda la suite de producto (Q4 2021 - Q2 2022). Después me hice cargo del diseño de Provider Direct Messaging, una integración EHR bidireccional desarrollada con UHC y piloteada para Q1 2024.",
+        "Coordiné la investigación de usuarios a escala de varios productos: MCC/epiCoder, epiAnalyst, epiEncounter y HRA. Fui ascendido a Lead Product Designer tras 12 meses.",
+        "Creé las bibliotecas de componentes en Figma e integré design tokens en producción para el despliegue del design system en toda la suite de producto (Q4 2021 - Q2 2022). Después me hice cargo del diseño de Provider Direct Messaging, una integración EHR bidireccional desarrollada con UHC y pilotada para Q1 2024.",
         "Dirigí el proyecto de autocoding médico Click to Code, la interfaz de coding asistida por IA basada en NLP, desde el alpha hasta producción (Q1 2022). Un rediseño mayor (V2.0), validado con 897 usuarios, alcanzó 88 % de aceptación y 80 % de satisfacción, y se volvió una pieza central de la estrategia de autocoding de Episource, con un objetivo de 500 000 a 750 000 historiales al año.",
       ],
     },
@@ -377,7 +377,7 @@ export const projectText: Record<
         "Un jeu social entre potes. Un défi par jour : repérez un ___. Trouvez-le dans la vraie vie, capturez-le avec les deux caméras à la fois (la cible et votre visage), et postez. Vous ne voyez les spots des autres qu'une fois le vôtre posté.",
     },
     days: {
-      tagline: "Compter les jours, à rebours ou depuis",
+      tagline: "Compte à rebours et jours écoulés",
       description:
         "Un compteur de jours pour iOS. Comptez à rebours vers une date ou comptez les jours écoulés depuis, avec un anneau, des widgets sur l'écran d'accueil et l'écran verrouillé, et une notification à chaque palier. Pas de compte, pas de publicité, tout reste sur le téléphone.",
     },
@@ -439,7 +439,7 @@ export const projectText: Record<
         "Un juego social entre amigos. Un reto al día: encuentre un ___. Búsquelo en la vida real, captúrelo con las dos cámaras a la vez (el objetivo y su cara), y publíquelo. Solo ve los spots de los demás cuando ya ha publicado el suyo.",
     },
     days: {
-      tagline: "Cuenta los días, hacia atrás o hacia delante",
+      tagline: "Cuenta atrás y días transcurridos",
       description:
         "Un contador de días para iOS. Cuente hacia atrás hasta una fecha o cuente los días desde una, con un anillo, widgets en la pantalla de inicio y en la de bloqueo, y una notificación en cada hito. Sin cuenta, sin publicidad, todo se queda en el teléfono.",
     },
@@ -1304,7 +1304,7 @@ export const nrcText: Record<
     figureLabel: string;
     team: {
       title: string;
-      org: { top: string[]; lead: string; reports: string[] };
+      org: { top: string[]; lead: string; reports: string[]; peers: string[] };
       strategy: { title: string; body: string }[];
       roadmap: { label: string; items: { category: string; title: string }[] }[];
       asideBold: string;
@@ -1337,7 +1337,7 @@ export const nrcText: Record<
   }
 > = {
   en: {
-    kicker: "Product Design Lead · Nasdaq: NRC",
+    kicker: "Design Manager · Nasdaq: NRC",
     period: "2024 → today",
     title: "Building the design function at NRC Health",
     intro:
@@ -1348,8 +1348,9 @@ export const nrcText: Record<
       title: "1. Building the team",
       org: {
         top: ["CTO", "CPO", "C-suite"],
-        lead: "Design Lead",
-        reports: ["Product Designer", "Design System", "Analytics"],
+        lead: "Design Manager",
+        reports: ["Product Designers", "Design System Manager", "Analytics Specialist"],
+        peers: ["Developers", "PMs"],
       },
       strategy: [
         {
@@ -1367,7 +1368,7 @@ export const nrcText: Record<
       ],
       roadmap: [
         {
-          label: "Completed",
+          label: "Done",
           items: [
             { category: "Design system", title: "Design system foundation" },
             { category: "Product design", title: "Product quick wins, started" },
@@ -1491,19 +1492,20 @@ export const nrcText: Record<
     backHome: "Back to the portfolio",
   },
   fr: {
-    kicker: "Product Design Lead · Nasdaq: NRC",
+    kicker: "Design Manager · Nasdaq: NRC",
     period: "2024 → aujourd'hui",
     title: "Monter la fonction design chez NRC Health",
     intro:
-      "NRC Health accompagne les hôpitaux et les groupes de santé américains dans la collecte, l'analyse et l'exploitation des données d'expérience patient et de leurs employés, grâce à quatre suites de produits, un business de plusieurs centaines de millions de dollars de revenus. À mon arrivée, il n'y avait pas d'équipe design. Cette page raconte la suite : l'équipe, l'organisation, le design system, et 3 use cases pour illustrer comment nous avons travaillé ces 2 dernières années.",
+      "NRC Health accompagne les hôpitaux et les systèmes de santé américains dans la collecte, l'analyse et l'exploitation des données d'expérience de leurs patients et de leurs collaborateurs, grâce à quatre suites produit, pour un business de plusieurs centaines de millions de dollars de chiffre d'affaires. À mon arrivée, il n'y avait pas d'équipe design. Cette page raconte la suite : l'équipe, l'organisation, le design system, et trois use cases pour illustrer comment nous avons travaillé ces deux dernières années.",
     stack: ["SaaS", "Healthcare", "Patient Experience", "Employee Experience", "Design to Code", "Management", "IA", "Analytics"],
     figureLabel: "Visuel à venir",
     team: {
       title: "1. Monter l'équipe",
       org: {
         top: ["CTO", "CPO", "C-suite"],
-        lead: "Design Lead",
-        reports: ["Product Designer", "Design System", "Analytics"],
+        lead: "Design Manager",
+        reports: ["Product Designers", "Design System Manager", "Analytics Specialist"],
+        peers: ["Developers", "PMs"],
       },
       strategy: [
         {
@@ -1512,7 +1514,7 @@ export const nrcText: Record<
         },
         {
           title: "Livrer des quick wins d'abord",
-          body: "Une fonction qui vient de naître n'a aucun crédit. Les premières livraisons ont donc été petites, visibles et rapides, parce que c'est ce qui achète le droit d'aborder les sujets plus gros ensuite.",
+          body: "Une fonction qui vient de naître n'a aucune crédibilité. Les premières livraisons ont donc été petites, visibles et rapides, parce que c'est ainsi qu'on gagne le droit d'aborder les sujets plus gros ensuite.",
         },
         {
           title: "Mutualiser la couche transverse",
@@ -1521,28 +1523,28 @@ export const nrcText: Record<
       ],
       roadmap: [
         {
-          label: "Terminé",
+          label: "Done",
           items: [
             { category: "Design system", title: "Fondations du design system" },
             { category: "Product design", title: "Premiers quick wins produit" },
           ],
         },
         {
-          label: "Maintenant",
+          label: "Now",
           items: [
             { category: "Strategy · Innovation", title: "Stratégie de la suite produit" },
             { category: "Product design", title: "Cohérence produit, les bases" },
           ],
         },
         {
-          label: "Ensuite",
+          label: "Next",
           items: [
             { category: "Design system", title: "Design system en ligne" },
             { category: "Team growth", title: "Développeur design system" },
           ],
         },
         {
-          label: "Plus tard",
+          label: "Future",
           items: [
             { category: "Product design", title: "Cohérence produit, avancée" },
             { category: "Strategy · Innovation", title: "Identité de marque" },
@@ -1562,7 +1564,7 @@ export const nrcText: Record<
           body: "Plutôt que reconstruire les primitives, ajouter par-dessus une couche sémantique propre à l'entreprise et à ses besoins.",
         },
         {
-          title: "Rendre les design tokens agnostiques",
+          title: "Rendre les design tokens agnostiques de la stack",
           body: "Pour couvrir des environnements hétérogènes : Angular, Vue et le code legacy consomment les mêmes tokens.",
         },
         {
@@ -1570,12 +1572,12 @@ export const nrcText: Record<
           body: "Navigation, filtres et template général des pages sont communs aux produits, ce qui facilite le développement d'une part, l'onboarding et l'usage d'autre part.",
         },
         {
-          title: "Faire de Figma et Storybook la source commune de vérité",
+          title: "Faire de Figma et Storybook la source de vérité commune",
           body: "Design et engineering regardent le même composant au même moment, ce qui met fin au débat entre ce qui a été designé et ce qui a été livré.",
         },
         {
           title: "Expérimenter la génération de code assistée par IA",
-          body: "Un workflow design-to-code qui permet à des profils non techniques de livrer des changements cohérents avec le design system, et de générer du code prêt à être reviewé par les développeurs.",
+          body: "Un workflow design-to-code qui permet à des profils non techniques de livrer des changements cohérents avec le design system, et de générer du code prêt pour la review des développeurs.",
         },
       ],
       builderCta: "Lire le case study sur le plugin Builder (inspiré du travail effectué chez NRC)",
@@ -1590,10 +1592,10 @@ export const nrcText: Record<
           n: "a",
           name: "Refondre la suite Patient Experience",
           problem:
-            "Le produit le plus ancien du portefeuille, sédimenté par des années d'itérations sans réelle stratégie produit suivie, et alourdi par la dette technique. Les hôpitaux s'appuient dessus tous les jours, la refonte ne devait perturber aucun de leurs workflows.",
+            "Le produit le plus ancien du portefeuille, sédimenté par des années d'itérations sans réelle stratégie produit suivie, et alourdi par la dette technique. Les hôpitaux s'appuient dessus tous les jours : la refonte ne devait perturber aucun de leurs workflows.",
           moves: [
             "Traiter la suite par phases plutôt qu'en un chantier unique, chacune avec son périmètre et ses critères de réussite.",
-            "Ouvrir chaque phase par une séquence de recherche utilisateurs, pour confirmer plus finement les problèmes découverts en amont.",
+            "Ouvrir chaque phase par une séquence de recherche utilisateur, pour confirmer plus finement les problèmes découverts en amont.",
             "Travailler en binôme avec une squad de développeurs front-end dédiée, basée au Vietnam, ce qui raccourcit le trajet entre une décision de design et sa mise en production.",
             "Laisser le produit utilisable à chaque palier, de sorte que le chantier puisse s'interrompre ou se réordonner sans laisser une suite à moitié refondue.",
           ],
@@ -1607,14 +1609,14 @@ export const nrcText: Record<
           n: "b",
           name: "L'email de prise de contact",
           problem:
-            "Ces emails convertissaient à 8%, ce qui est correct, mais l'email ressemblait à un scam, sans hiérarchie de lecture, et où aucune des règles UX de base n'était respectée.",
+            "Ces emails convertissaient à 8 %, ce qui est correct, mais l'email ressemblait à un scam, sans hiérarchie de lecture et sans aucune règle UX de base.",
           moves: [
             "Recenser 101 quick wins à travers l'ensemble des produits, puis les prioriser. Celui-ci sort en tête : la portée la plus large pour le coût de changement le plus faible.",
-            "Reconstruire le mail autour d'une action unique, au lieu d'un mur de contenu.",
+            "Reconstruire l'email autour d'une action unique, au lieu d'un mur de contenu.",
             "Livrer directement via le pipeline design-to-code, sans passer par une spec.",
             "Présenter le résultat au comité de direction, avant et après côte à côte.",
           ],
-          result: "+24% de taux de clic.",
+          result: "+24 % de taux de clic.",
           figure: "L'email, avant et après",
         },
         {
@@ -1623,29 +1625,29 @@ export const nrcText: Record<
           problem:
             "Les fonctionnalités d'IA se multipliaient un peu partout dans le portefeuille, chacune avec son point d'entrée et sa propre définition.",
           moves: [
-            "Regrouper l'ensemble sous Huey : un seul assistant fédérant les fonctions IA, une déclinaison de features et de composants intelligents, commun à toutes les suites.",
-            "Arbitrer trois points d'entrée et pas davantage : un agent d'interrogation directe des données, un composant widget qui pousse de l'information (Résumés, insight, next logical actions...), et des fonctionnalités intégrées aux produits là où le travail se fait déjà (assistant de rédaction, traitement des incidents, ambient listening...).",
+            "Regrouper l'ensemble sous Huey : un seul assistant qui fédère les fonctions IA, décliné en features et en composants intelligents communs à toutes les suites.",
+            "Arbitrer trois points d'entrée et pas davantage : un agent d'interrogation directe des données, un composant widget qui pousse de l'information (résumés, insights, prochaines actions logiques...), et des fonctionnalités intégrées aux produits là où le travail se fait déjà (assistant de rédaction, traitement des incidents, ambient listening...).",
             "Faire du point d'entrée une décision produit, et non un choix repris à zéro à chaque fonctionnalité.",
           ],
-          result: "L'ambient listening, par exemple, a fait passer la documentation infirmière de 55% à 90%.",
+          result: "L'ambient listening, par exemple, a fait passer la documentation infirmière de 55 % à 90 %.",
           figure: "Huey, les trois points d'entrée",
         },
       ],
     },
     analytics: {
       title: "4. Analytics",
-      body: "Un SaaS peut livrer pendant des années sans jamais savoir quelles fonctionnalités méritent d'exister. Construire les analytics produit avec le Produit, l'Engineering et le comité de direction a fait basculer les décisions design de l'argumentaire vers la mesure.",
+      body: "Un produit SaaS peut évoluer pendant des années sans jamais savoir quelles fonctionnalités méritent d'exister. Construire les analytics produit avec les équipes Produit, Engineering et le comité de direction a fait basculer les décisions design de l'opinion à la mesure.",
       points: [
         "Adosser chaque décision design à de la recherche et à de l'A/B testing, pour qu'un changement parte avec une hypothèse mesurable.",
         "Définir les KPI par fonctionnalité, jamais par release.",
-        "Intégrer un Analytics Specialist à l'équipe design, afin d'embarquer la pratique data oriented au coeur du design.",
+        "Intégrer un Analytics Specialist à l'équipe design, afin de placer une pratique data-driven au cœur du design.",
       ],
     },
     contactCta: "Parler de ce travail",
     backHome: "Retour au portfolio",
   },
   es: {
-    kicker: "Product Design Lead · Nasdaq: NRC",
+    kicker: "Design Manager · Nasdaq: NRC",
     period: "2024 → hoy",
     title: "Construir la función de diseño en NRC Health",
     intro:
@@ -1656,8 +1658,9 @@ export const nrcText: Record<
       title: "1. Construir el equipo",
       org: {
         top: ["CTO", "CPO", "C-suite"],
-        lead: "Design Lead",
-        reports: ["Product Designer", "Design System", "Analytics"],
+        lead: "Design Manager",
+        reports: ["Product Designers", "Design System Manager", "Analytics Specialist"],
+        peers: ["Developers", "PMs"],
       },
       strategy: [
         {
@@ -1669,34 +1672,34 @@ export const nrcText: Record<
           body: "Una función recién nacida no tiene crédito. Por eso las primeras entregas fueron pequeñas, visibles y rápidas: es lo que da derecho a abordar después los temas de mayor calado.",
         },
         {
-          title: "Mutualizar la capa transversal",
+          title: "Centralizar la capa transversal",
           body: "Design system, analytics y front-end se tratan como un todo.",
         },
       ],
       roadmap: [
         {
-          label: "Completado",
+          label: "Done",
           items: [
             { category: "Design system", title: "Bases del design system" },
             { category: "Product design", title: "Primeros quick wins de producto" },
           ],
         },
         {
-          label: "Ahora",
+          label: "Now",
           items: [
             { category: "Strategy · Innovation", title: "Estrategia de la suite de producto" },
             { category: "Product design", title: "Consistencia de producto, básica" },
           ],
         },
         {
-          label: "Próximo",
+          label: "Next",
           items: [
             { category: "Design system", title: "Design system online" },
             { category: "Team growth", title: "Desarrollador de design system" },
           ],
         },
         {
-          label: "Futuro",
+          label: "Future",
           items: [
             { category: "Product design", title: "Consistencia de producto, avanzada" },
             { category: "Strategy · Innovation", title: "Identidad de marca" },
@@ -1720,7 +1723,7 @@ export const nrcText: Record<
           body: "Para cubrir entornos heterogéneos: Angular, Vue y el código legacy consumen los mismos tokens.",
         },
         {
-          title: "Mutualizar los patrones",
+          title: "Compartir los patrones",
           body: "Navegación, filtros y plantilla general de página son comunes a todos los productos, lo que facilita el desarrollo por un lado, y el onboarding y el uso por otro.",
         },
         {
@@ -1777,7 +1780,7 @@ export const nrcText: Record<
           problem:
             "Las funcionalidades de IA se multiplicaban por toda la cartera, cada una con su propio punto de entrada y su propia definición.",
           moves: [
-            "Reunir todo bajo Huey: un único asistente que federa las funciones de IA, declinado en features y componentes inteligentes comunes a todas las suites.",
+            "Reunir todo bajo Huey: un único asistente que unifica las funciones de IA, extendido en features y componentes inteligentes comunes a todas las suites.",
             "Fijar tres puntos de entrada, ni uno más: un agente para consultar los datos directamente, un componente widget que empuja información (resúmenes, insights, próximas acciones lógicas...) y funcionalidades integradas en los productos allí donde ya se trabaja (asistente de redacción, gestión de incidencias, ambient listening...).",
             "Hacer del punto de entrada una decisión de producto, y no una elección que se replantea desde cero con cada funcionalidad.",
           ],
