@@ -63,7 +63,6 @@ function Avatar({ company, image }: { company: string; image?: string }) {
         height: 52,
         fontSize: "0.95rem",
         background: "var(--accent-subtle)",
-        border: "1px solid var(--border)",
         color: "var(--accent)",
       }}
       aria-hidden
@@ -88,7 +87,6 @@ export function Work() {
     <section
       id="work"
       className="max-w-6xl mx-auto px-6 py-16"
-      style={{ borderTop: "1px solid var(--border)" }}
     >
       <div className="mb-8">
         <h2 className="font-display text-2xl sm:text-3xl font-bold">{t.workTitle}</h2>
@@ -113,10 +111,9 @@ export function Work() {
           return (
             <article
               key={w.company + w.period}
-              className={`surface p-6 sm:p-7 flex flex-col${index === 0 ? " card-featured" : ""}${
+              className={`panel p-6 sm:p-7 flex flex-col${index === 0 ? " card-featured" : ""}${
                 w.link ? " card-link relative" : ""
               }`}
-              style={{ boxShadow: "var(--shadow)" }}
             >
               {/* Lien étiré : la carte entière mène au case study. Rien
                   d'autre n'est cliquable dedans, pas de lien imbriqué. */}
@@ -160,17 +157,11 @@ export function Work() {
               </ul>
 
               {impact && impact.length > 0 && (
-                <div
-                  className="mb-4 rounded-lg p-3"
-                  style={{ background: "var(--accent-subtle)", border: "1px solid var(--border)" }}
-                >
-                  <p
-                    className="text-[10px] uppercase tracking-wider mb-1.5 font-semibold"
-                    style={{ color: "var(--accent)" }}
-                  >
+                <div className="mb-4">
+                  <p className="text-sm mb-1.5 font-semibold" style={{ color: "var(--accent)" }}>
                     {t.impactLabel}
                   </p>
-                  <ul className="text-xs space-y-1" style={{ color: "var(--text)" }}>
+                  <ul className="text-sm space-y-1" style={{ color: "var(--text)" }}>
                     {impact.map((i) => (
                       <li key={i}>{i}</li>
                     ))}
@@ -178,17 +169,9 @@ export function Work() {
                 </div>
               )}
 
-              <div className="mt-auto flex flex-wrap gap-1.5 pt-2">
-                {w.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-[10px] uppercase tracking-wider px-2 py-1 rounded"
-                    style={{ background: "var(--tag-bg)", color: "var(--tag-text)" }}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+              <p className="mt-auto pt-2 text-xs" style={{ color: "var(--text-muted)" }}>
+                {w.tags.join(" · ")}
+              </p>
             </article>
           );
         })}

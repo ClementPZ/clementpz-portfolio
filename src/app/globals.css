@@ -12,23 +12,23 @@
 :root,
 [data-theme="signature"] {
   --brand: #54255a;
-  --bg: #130a15;
-  --bg-elev: #1d1020;
-  --bg-card: #1a0e1c;
+  --bg: #141015;
+  --bg-elev: #211a23;
+  --bg-card: #211a23;
   --text: #f5eff6; /* blanc micro-teinté aubergine */
   --text-muted: #a897ac; /* mauve-gris désaturé */
-  --accent: #b370c0; /* orchidée dérivée du brand, contraste sur dark */
+  --accent: #c2a0cb; /* mauve doux dérivé du brand, moins saturé sur dark */
   --accent-text: #14060f;
-  --accent-subtle: rgba(84, 37, 90, 0.22);
+  --accent-subtle: rgba(245, 239, 246, 0.07);
   --card-feature: #54255a;
   --card-feature-text: #ffffff;
-  --tag-bg: rgba(179, 112, 192, 0.14);
-  --tag-text: #d3a6dd;
-  --btn-accent-bg: #b370c0;
+  --tag-bg: rgba(194, 160, 203, 0.14);
+  --tag-text: #d3bcd9;
+  --btn-accent-bg: #c2a0cb;
   --btn-accent-text: #14060f;
   --border: rgba(245, 239, 246, 0.09);
   --border-strong: rgba(245, 239, 246, 0.2);
-  --shadow: 0 10px 30px rgba(15, 4, 18, 0.6);
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   --radius: 10px;
   --radius-lg: 18px;
   --radius-btn: 999px;
@@ -78,16 +78,9 @@
   background-attachment: fixed;
 }
 
-/* SIGNATURE — gradient aubergine : halo radial en haut + fondu vers near-black */
+/* SIGNATURE — fond plat, near-black chaud, sans halo */
 [data-theme="signature"] body {
-  background: radial-gradient(
-      1100px 560px at 72% -12%,
-      rgba(84, 37, 90, 0.55) 0%,
-      rgba(84, 37, 90, 0.12) 42%,
-      transparent 68%
-    ),
-    linear-gradient(180deg, #180b1b 0%, #100710 100%);
-  background-attachment: fixed;
+  background: #141015;
 }
 
 /* SIGNATURE — card featured = gradient aubergine profond */
@@ -586,6 +579,25 @@ a {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
+}
+
+/* Panneau sans bordure : un aplat teinté, la hiérarchie vient de l'espace. */
+.panel {
+  background: var(--bg-elev);
+  border-radius: var(--radius-lg);
+  transition: background 0.2s ease;
+}
+
+.panel.card-featured {
+  background: var(--card-feature);
+}
+
+.panel.card-link:hover {
+  background: color-mix(in oklab, var(--bg-elev) 88%, var(--text));
+}
+
+.panel.card-featured.card-link:hover {
+  background: color-mix(in oklab, var(--card-feature) 88%, white);
 }
 
 .pill {
