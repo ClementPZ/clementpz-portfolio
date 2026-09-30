@@ -10,7 +10,7 @@ export const profile = {
   shortName: "Clément PZ",
   tagline: "Product Design × AI",
   intro:
-    "Hello, I'm Clément, a product designer with 10+ years of experience across product, business, design systems and innovation. I built the design function at NRC Health (Nasdaq: NRC) from scratch, and today I lead a team of three, from research to production to analytics. My role as a sales and marketing project manager at Devialet, various entrepreneurial projects, then founding a coding campus in Mexico City shaped my business-first approach, which guides how I do product today.",
+    "Hello, I'm Clément, a product designer with 10+ years across product, business and design systems. I worked in healthcare SaaS for the past 6 years, built the design function at NRC Health (Nasdaq: NRC) from scratch and led a team of three, from research and design to production and analytics. Before that I founded a coding campus in Mexico City and ran marketing and sales projects at Devialet. So I always start from the business question.",
   email: "clementpicardzivy@gmail.com",
   links: {
     linkedin: "https://www.linkedin.com/in/clément-picard-zivy-b6930155/",
