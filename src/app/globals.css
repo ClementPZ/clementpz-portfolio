@@ -15,6 +15,7 @@
   --bg: #141015;
   --bg-elev: #211a23;
   --bg-card: #211a23;
+  --bg-raised: #322a36; /* boite posee sur un panneau */
   --text: #f5eff6; /* blanc micro-teinté aubergine */
   --text-muted: #a897ac; /* mauve-gris désaturé */
   --accent: #c2a0cb; /* mauve doux dérivé du brand, moins saturé sur dark */
@@ -42,6 +43,7 @@
   --bg: #faf6fb; /* blanc micro-teinté aubergine */
   --bg-elev: #f3ecf4;
   --bg-card: #ffffff;
+  --bg-raised: #ffffff; /* boite posee sur un panneau */
   --text: #241726; /* near-black teinté aubergine */
   --text-muted: #6b5a6f;
   --accent: #6a2d75;
@@ -586,6 +588,11 @@ a {
   background: var(--bg-elev);
   border-radius: var(--radius-lg);
   transition: background 0.2s ease;
+}
+
+/* Boite posee sur un panneau (organigramme). */
+.panel-box {
+  fill: var(--bg-raised);
 }
 
 .panel.card-featured {
