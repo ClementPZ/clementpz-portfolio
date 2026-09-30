@@ -32,15 +32,28 @@ export function NrcRoadmap() {
             }}
           />
           <h4 className="text-sm font-semibold mb-3">{col.label}</h4>
-          <div className="grid gap-4">
-            {col.items.map((item) => (
-              <div key={item.title}>
-                <p className="text-xs font-semibold mb-1" style={{ color: "var(--accent)" }}>
-                  {item.category}
-                </p>
-                <p className="text-sm font-medium">{item.title}</p>
-              </div>
-            ))}
+          <div className="grid gap-5">
+            {col.items
+              .reduce<{ category: string; titles: string[] }[]>((groups, item) => {
+                const last = groups[groups.length - 1];
+                if (last && last.category === item.category) last.titles.push(item.title);
+                else groups.push({ category: item.category, titles: [item.title] });
+                return groups;
+              }, [])
+              .map((g) => (
+                <div key={g.category}>
+                  <p className="text-xs font-semibold mb-1.5" style={{ color: "var(--accent)" }}>
+                    {g.category}
+                  </p>
+                  <ul className="grid gap-2">
+                    {g.titles.map((title) => (
+                      <li key={title} className="text-sm leading-snug">
+                        {title}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
           </div>
         </div>
       ))}

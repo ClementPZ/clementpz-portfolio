@@ -28,15 +28,15 @@ export function BuilderDiagram() {
         .bd-t{fill:var(--text);}
         .bd-m{fill:var(--text-muted);}
         .bd-a{fill:var(--accent);}
-        .bd-node{fill:var(--bg-card);stroke:var(--border-strong);stroke-width:1;}
-        .bd-soft{fill:var(--bg-elev);stroke:var(--border);stroke-width:1;}
-        .bd-spine{stroke:var(--border-strong);stroke-width:2;fill:none;}
-        .bd-dot{stroke:var(--border-strong);stroke-width:1.5;stroke-dasharray:2 4;fill:none;}
-        .bd-pill{fill:var(--accent-subtle);stroke:var(--accent);stroke-width:1;}
+        .bd-node{fill:var(--bg-raised);stroke:var(--border-strong);stroke-width:1;}
+        .bd-soft{fill:var(--bg-raised);stroke:var(--border-strong);stroke-width:1;}
+        .bd-spine{stroke:var(--border-strong);stroke-width:1;fill:none;}
+        .bd-dot{stroke:var(--border-strong);stroke-width:1;stroke-dasharray:2 4;fill:none;}
+        .bd-pill{fill:var(--bg-raised);stroke:var(--border-strong);stroke-width:1;}
       `}</style>
 
       <rect className="bd-pill" x="114" y="22" width="300" height="44" rx="22" />
-      <text className="bd-a" x="264" y="49" textAnchor="middle" fontSize="14" fontWeight="700">{t.request}</text>
+      <text className="bd-t" x="264" y="49" textAnchor="middle" fontSize="14" fontWeight="700">{t.request}</text>
       <line className="bd-spine" x1="264" y1="66" x2="264" y2="88" markerEnd="url(#ah)" />
 
       <rect className="bd-node" x="40" y="90" width="448" height="66" rx="16" />
@@ -44,8 +44,7 @@ export function BuilderDiagram() {
       <text className="bd-m" x="264" y="142" textAnchor="middle" fontSize="12.5">{t.orchestratorSub}</text>
       <line className="bd-spine" x1="264" y1="156" x2="264" y2="180" markerEnd="url(#ah)" />
 
-      <rect className="bd-soft" x="40" y="182" width="448" height="192" rx="16" />
-      <text className="bd-m" x="60" y="205" fontSize="11.5" fontWeight="600" letterSpacing="1">{t.tiersLabel}</text>
+      <text className="bd-m" x="60" y="205" fontSize="11.5" fontWeight="600">{t.tiersLabel}</text>
       <text className="bd-m" x="472" y="205" textAnchor="end" fontSize="11.5">{t.doubtLabel}</text>
 
       <rect className="bd-node" x="56" y="216" width="416" height="44" rx="10" />
@@ -71,7 +70,7 @@ export function BuilderDiagram() {
       <line className="bd-spine" x1="264" y1="462" x2="264" y2="484" markerEnd="url(#ah)" />
 
       <rect className="bd-pill" x="114" y="486" width="300" height="44" rx="22" />
-      <text className="bd-a" x="264" y="513" textAnchor="middle" fontSize="14" fontWeight="700">{t.diff}</text>
+      <text className="bd-t" x="264" y="513" textAnchor="middle" fontSize="14" fontWeight="700">{t.diff}</text>
 
       <line className="bd-dot" x1="488" y1="123" x2="520" y2="123" />
       <rect className="bd-soft" x="520" y="98" width="208" height="50" rx="12" />

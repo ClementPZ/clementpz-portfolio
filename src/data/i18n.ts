@@ -914,7 +914,6 @@ export const builderText: Record<
     title: string;
     intro: string;
     sections: { heading: string; body: string }[];
-    contactCta: string;
     backHome: string;
   }
 > = {
@@ -922,11 +921,11 @@ export const builderText: Record<
     kicker: "Claude Code plugin",
     title: "Builder",
     intro:
-      "A tool that lets non-engineers produce front-end code that is production-ready and consistent with the design system. A PM or designer describes the interface change they want, and the plugin generates the matching code, ready for an engineer to review before merge.",
+      "A tool that lets PMs and designers make front-end changes that are production-ready and consistent with the design system. They describe the change they want, and the plugin generates the matching code for an engineer to review before merge.",
     sections: [
       {
         heading: "The problem",
-        body: "PMs and designers are often the first to spot UX and UI problems, and the best placed to solve them. Today the fix goes through an engineer, or through a codegen tool that drifts fast and loses visual consistency. Builder hands that resolution back to the people whose value it is, without ever leaving the design system.",
+        body: "PMs and designers are often the first to spot UX and UI problems, and the best placed to solve them. Today the fix goes through an engineer, or through a codegen tool that drifts fast and loses visual consistency. Builder lets them make the fix themselves, inside the design system.",
       },
       {
         heading: "How it works",
@@ -941,18 +940,17 @@ export const builderText: Record<
         body: "Builder ships as a versioned Claude Code plugin (v0.2.1), installable from a marketplace, not a homemade script. Inside: one orchestrator, three agents, one validator. The orchestrator, the skill itself, takes the plain-language request, tiers it by risk and holds the gates. The three agents only run when needed: a setup agent extracts the contract from the repo and the design system, a context agent runs a narrow scan when a change calls for it, an executor agent applies the ratified plan on the heavier changes. At the end of the chain, a deterministic validator, code and not an agent, checks every diff: nothing off-token, project lint and typecheck green.",
       },
     ],
-    contactCta: "Contact me",
     backHome: "Back to the portfolio",
   },
   fr: {
     kicker: "Plugin Claude Code",
     title: "Builder",
     intro:
-      "Un outil qui permet aux non-ingénieurs de produire du code front-end, production-ready et cohérent avec le design system. Un PM ou un designer décrit la modification d'interface souhaitée, et le plugin génère le code correspondant, prêt pour la review d'un ingénieur avant merge.",
+      "Un outil qui permet aux PM et aux designers d'apporter des modifications front-end, production-ready et cohérentes avec le design system. Ils décrivent la modification souhaitée, et le plugin génère le code correspondant, à faire relire par un ingénieur avant le merge.",
     sections: [
       {
         heading: "Le problème",
-        body: "Les PM et les designers sont souvent les premiers à repérer les problèmes d'UX et d'UI, et ceux qui savent le mieux les résoudre. Aujourd'hui l'exécution passe par un ingénieur, ou par un codegen qui dérive vite et perd la cohérence visuelle. Builder remet cette résolution entre les mains de ceux dont c'est la valeur ajoutée, sans sortir du design system.",
+        body: "Les PM et les designers sont souvent les premiers à repérer les problèmes d'UX et d'UI, et ceux qui savent le mieux les résoudre. Aujourd'hui la correction passe par un ingénieur, ou par un codegen qui dérive vite et perd la cohérence visuelle. Builder leur permet de faire la correction eux-mêmes, en utilisant le design system.",
       },
       {
         heading: "Comment ça marche",
@@ -960,25 +958,24 @@ export const builderText: Record<
       },
       {
         heading: "Par paliers de risque",
-        body: "T1 a trait aux changements simples : une couleur, un espacement, un label, une variante. T2 compose une nouvelle UI à partir de patterns déjà présents dans l'app. T3, dès qu'il y a de la logique, de la donnée ou de l'auth, le plugin s'arrête et prépare un handoff propre pour l'ingénieur. En cas de doute, il monte toujours d'un cran, jamais l'inverse.",
+        body: "T1 couvre les changements simples : une couleur, un espacement, un label, une variante. T2 compose une nouvelle UI à partir de patterns déjà présents dans l'app. T3, dès qu'il y a de la logique, de la donnée ou de l'auth, le plugin s'arrête et prépare un handoff propre pour l'ingénieur. En cas de doute, il monte toujours d'un cran, jamais l'inverse.",
       },
       {
         heading: "L'architecture",
-        body: "Builder est un plugin Claude Code versionné (v0.2.1), installable depuis un marketplace, pas un script maison. Dedans : un orchestrateur, trois agents, un validateur. L'orchestrateur, le skill lui-même, reçoit la demande en langage naturel, la classe par niveau de risque et tient les gates. Les trois agents ne se lancent qu'au besoin : un agent de setup extrait le contrat depuis le repo et le design system, un agent de contexte fait un scan ciblé quand une modification l'exige, un agent d'exécution applique le plan validé sur les changements les plus lourds. En bout de chaîne, un validateur déterministe, du code et pas un agent, vérifie chaque diff : rien hors tokens, lint et typecheck du projet qui passent.",
+        body: "Builder est un plugin Claude Code versionné (v0.2.1), installable depuis un marketplace, pas un script maison. Dedans : un orchestrateur, trois agents, un validateur. L'orchestrateur, le skill lui-même, reçoit la demande en langage naturel, la classe par niveau de risque et garde les gates. Les trois agents ne se lancent qu'au besoin : un agent de setup extrait le contrat depuis le repo et le design system, un agent de contexte fait un scan ciblé quand une modification l'exige, un agent d'exécution applique le plan validé sur les changements les plus lourds. En bout de chaîne, un validateur déterministe, du code et pas un agent, vérifie chaque diff : rien hors tokens, lint et typecheck du projet qui passent.",
       },
     ],
-    contactCta: "Contactez-moi",
     backHome: "Retour au portfolio",
   },
   es: {
     kicker: "Plugin de Claude Code",
     title: "Builder",
     intro:
-      "Una herramienta que permite a los no ingenieros producir código front-end, production-ready y coherente con el design system. Un PM o un diseñador describe la modificación de interfaz deseada, y el plugin genera el código correspondiente, listo para la review de un ingeniero antes del merge.",
+      "Una herramienta que permite a PM y diseñadores hacer cambios de front-end production-ready y coherentes con el design system. Describen el cambio que quieren, y el plugin genera el código correspondiente para que un ingeniero lo revise antes del merge.",
     sections: [
       {
         heading: "El problema",
-        body: "Los PM y los diseñadores suelen ser los primeros en detectar los problemas de UX y de UI, y los que mejor saben resolverlos. Hoy la ejecución pasa por un ingeniero, o por un codegen que se desvía rápido y pierde la coherencia visual. Builder devuelve esa resolución a quienes aportan justamente ese valor, sin salir del design system.",
+        body: "Los PM y los diseñadores suelen ser los primeros en detectar los problemas de UX y de UI, y los que mejor saben resolverlos. Hoy la ejecución pasa por un ingeniero, o por un codegen que se desvía rápido y pierde la coherencia visual. Builder les permite hacer la corrección ellos mismos, dentro del design system.",
       },
       {
         heading: "Cómo funciona",
@@ -990,10 +987,9 @@ export const builderText: Record<
       },
       {
         heading: "La arquitectura",
-        body: "Builder es un plugin de Claude Code versionado (v0.2.1), instalable desde un marketplace, no un script casero. Dentro: un orquestador, tres agentes, un validador. El orquestador, el skill en sí, recibe la petición en lenguaje natural, la clasifica por nivel de riesgo y sostiene los gates. Los tres agentes solo se lanzan cuando hace falta: un agente de setup extrae el contrato desde el repo y el design system, un agente de contexto hace un escaneo puntual cuando un cambio lo exige, un agente de ejecución aplica el plan validado en los cambios más pesados. Al final de la cadena, un validador determinista, código y no un agente, verifica cada diff: nada fuera de tokens, lint y typecheck del proyecto en verde.",
+        body: "Builder es un plugin de Claude Code versionado (v0.2.1), instalable desde un marketplace, no un script casero. Dentro: un orquestador, tres agentes, un validador. El orquestador, el skill en sí, recibe la petición en lenguaje natural, la clasifica por nivel de riesgo y controla los gates. Los tres agentes solo se lanzan cuando hace falta: un agente de setup extrae el contrato desde el repo y el design system, un agente de contexto hace un escaneo puntual cuando un cambio lo exige, un agente de ejecución aplica el plan validado en los cambios más pesados. Al final de la cadena, un validador determinista, código y no un agente, verifica cada diff: nada fuera de tokens, lint y typecheck del proyecto en verde.",
       },
     ],
-    contactCta: "Contáctame",
     backHome: "Volver al portafolio",
   },
 };
@@ -1118,7 +1114,7 @@ export const builderDiagramText: Record<
     request: "Natural-language request",
     orchestrator: "Orchestrator",
     orchestratorSub: "the skill · tiers by risk · holds the gates",
-    tiersLabel: "THREE RISK TIERS",
+    tiersLabel: "Three risk tiers",
     doubtLabel: "doubt promotes a tier ↑",
     t1: "Tokens",
     t1Sub: "color, spacing, label · direct, no agent",
@@ -1144,8 +1140,8 @@ export const builderDiagramText: Record<
       "Une demande en langage naturel passe par l'orchestrateur, qui la classe en trois paliers de risque, avant un validateur déterministe qui produit un diff prêt pour la review d'un ingénieur. Trois agents et deux gates humaines interviennent au besoin.",
     request: "Demande en langage naturel",
     orchestrator: "Orchestrateur",
-    orchestratorSub: "le skill · classe par palier · tient les gates",
-    tiersLabel: "TROIS PALIERS DE RISQUE",
+    orchestratorSub: "le skill · classe par palier · garde les gates",
+    tiersLabel: "Trois paliers de risque",
     doubtLabel: "le doute monte d'un cran ↑",
     t1: "Tokens",
     t1Sub: "couleur, espacement, label · en direct, sans agent",
@@ -1171,8 +1167,8 @@ export const builderDiagramText: Record<
       "Una petición en lenguaje natural pasa por el orquestador, que la clasifica en tres niveles de riesgo, antes de un validador determinista que produce un diff listo para la review de un ingeniero. Tres agentes y dos gates humanas intervienen cuando hace falta.",
     request: "Petición en lenguaje natural",
     orchestrator: "Orquestador",
-    orchestratorSub: "el skill · clasifica por nivel · sostiene los gates",
-    tiersLabel: "TRES NIVELES DE RIESGO",
+    orchestratorSub: "el skill · clasifica por nivel · controla los gates",
+    tiersLabel: "Tres niveles de riesgo",
     doubtLabel: "la duda sube un nivel ↑",
     t1: "Tokens",
     t1Sub: "color, espaciado, label · en directo, sin agente",
@@ -1328,6 +1324,7 @@ export const nrcText: Record<
         moves: string[];
         status?: { label: string; body: string };
         result?: string;
+        more?: { body: string; cta: string };
         figure: string;
       }[];
     };
@@ -1370,29 +1367,46 @@ export const nrcText: Record<
         {
           label: "Done",
           items: [
-            { category: "Design system", title: "Design system foundation" },
-            { category: "Product design", title: "Product quick wins, started" },
+            { category: "Design system", title: "Design system foundations: Figma library launched, adopted by all four suites and Huey" },
+            { category: "Product design", title: "First product quick wins" },
+            { category: "Huey", title: "Design principles defined and presented (Relevant, Inviting, Adaptive)" },
+            { category: "Analytics", title: "Amplitude auto-capture in place" },
           ],
         },
         {
           label: "Now",
           items: [
-            { category: "Strategy · Innovation", title: "Product suite strategy" },
-            { category: "Product design", title: "Product consistency, basics" },
+            { category: "Design system", title: "Components built in Storybook by the Vietnam dev squad, then integrated phase by phase into the legacy product through the Patient Experience redesign" },
+            { category: "Product design", title: "Patient Experience redesign" },
+            { category: "Product design", title: "Product consistency, the basics: Unified Login, App Switcher, user management on tokens, cross-product Executive Dashboard" },
+            { category: "Huey", title: "Cross-product rollout sequencing" },
+            { category: "Analytics", title: "Custom tracking, product by product, and wider auto-capture" },
+            { category: "Strategy · Innovation", title: "Product suite strategy: executive mandate for design system adoption, quarterly cross-product planning cadence, roadmap aligned with the product tenets" },
           ],
         },
         {
           label: "Next",
           items: [
-            { category: "Design system", title: "Online design system" },
-            { category: "Team growth", title: "Design system developer" },
+            { category: "Design system", title: "Online design system: documentation and adoption guides, integration hackathons with developers, design review process" },
+            { category: "Design system", title: "MCP and AI agent workflow, from a personal setup to a team capability" },
+            { category: "Product design", title: "Quick wins on Market Insights, Consumer Insights, reporting and Rounding" },
+            { category: "Huey", title: "General capabilities (data query, insights, actions), analytics-ready components by design" },
+            { category: "Analytics", title: "Requirements for data bridges (Amplitude, CRM, support tools), trial of analytics add-ons" },
+            { category: "Team growth", title: "Clear career paths (designer, senior, lead)" },
+            { category: "Team growth", title: "Monthly brown-bag lunch in rotation, annual onsite" },
+            { category: "Team growth", title: "Conference and training budget" },
           ],
         },
         {
           label: "Future",
           items: [
-            { category: "Product design", title: "Product consistency, advanced" },
-            { category: "Strategy · Innovation", title: "Brand identity" },
+            { category: "Design system", title: "Tokens integrated in every product, a prerequisite for the rebrand" },
+            { category: "Product design", title: "Product consistency, advanced: Explore Trends folded into Market Insights, component adoption across all products" },
+            { category: "Huey", title: "Use cases per product: Ask Huey for Patient Experience, Market Insights report summaries, Rounding agent" },
+            { category: "Analytics", title: "AI insights repository consolidating customer feedback" },
+            { category: "Strategy · Innovation", title: "Brand identity and rebrand" },
+            { category: "Strategy · Innovation", title: "3 to 5 day AI-athons with cross-functional teams" },
+            { category: "Strategy · Innovation", title: "CX explorations" },
           ],
         },
       ],
@@ -1475,6 +1489,10 @@ export const nrcText: Record<
             "Make the entry point a product decision, rather than a choice revisited from scratch with every feature.",
           ],
           result: "Ambient listening, for example, raised nurse documentation from 55% to 90%.",
+          more: {
+            body: "The research behind it distilled into three principles every Huey interaction has to pass: inviting, relevant, adaptive. They became an evaluation test, then a marker and a drawer shared by every product.",
+            cta: "Read the full Huey case",
+          },
           figure: "Huey, the three entry points",
         },
       ],
@@ -1525,29 +1543,46 @@ export const nrcText: Record<
         {
           label: "Done",
           items: [
-            { category: "Design system", title: "Fondations du design system" },
+            { category: "Design system", title: "Fondations du design system : bibliothèque Figma lancée, adoptée par les quatre suites et Huey" },
             { category: "Product design", title: "Premiers quick wins produit" },
+            { category: "Huey", title: "Principes de design définis et présentés (Relevant, Inviting, Adaptive)" },
+            { category: "Analytics", title: "Auto-capture Amplitude en place" },
           ],
         },
         {
           label: "Now",
           items: [
-            { category: "Strategy · Innovation", title: "Stratégie de la suite produit" },
-            { category: "Product design", title: "Cohérence produit, les bases" },
+            { category: "Design system", title: "Composants créés dans Storybook par la squad dev du Vietnam, puis intégrés phase par phase dans le produit legacy via la refonte Patient Experience" },
+            { category: "Product design", title: "Refonte Patient Experience" },
+            { category: "Product design", title: "Cohérence produit, les bases : Unified Login, App Switcher, gestion des utilisateurs avec les tokens, Executive Dashboard cross-produit" },
+            { category: "Huey", title: "Séquencement du déploiement cross-produit" },
+            { category: "Analytics", title: "Tracking custom produit par produit et extension de l'auto-capture" },
+            { category: "Strategy · Innovation", title: "Stratégie de la suite produit : mandat exécutif pour l'adoption du design system, cadence de planification cross-produit trimestrielle, roadmap alignée sur les tenets produit" },
           ],
         },
         {
           label: "Next",
           items: [
-            { category: "Design system", title: "Design system en ligne" },
-            { category: "Team growth", title: "Développeur design system" },
+            { category: "Design system", title: "Design system en ligne : documentation et guides d'adoption, hackathons d'intégration avec les devs, processus de design review" },
+            { category: "Design system", title: "Workflow MCP + agent IA, de l'expérience personnelle à la capacité d'équipe" },
+            { category: "Product design", title: "Quick wins sur Market Insights, Consumer Insights, le reporting et Rounding" },
+            { category: "Huey", title: "Intégration des capacités générales (interrogation des données, insights, actions), composants analytics-ready by design" },
+            { category: "Analytics", title: "Exigences des ponts de données (Amplitude, CRM, outils de support), test d'add-ons analytics" },
+            { category: "Team growth", title: "Parcours de carrière clairs (designer, senior, lead)" },
+            { category: "Team growth", title: "BBL mensuel en rotation, onsite annuel" },
+            { category: "Team growth", title: "Budget conférences et formation" },
           ],
         },
         {
           label: "Future",
           items: [
-            { category: "Product design", title: "Cohérence produit, avancée" },
-            { category: "Strategy · Innovation", title: "Identité de marque" },
+            { category: "Design system", title: "Tokens intégrés dans tous les produits, prérequis du rebrand" },
+            { category: "Product design", title: "Cohérence produit, avancée : Explore Trends intégré dans Market Insights, adoption des composants sur tous les produits" },
+            { category: "Huey", title: "Cas d'usage par produit : Ask Huey pour Patient Experience, résumés de rapports Market Insights, agent Rounding" },
+            { category: "Analytics", title: "Repository d'insights IA consolidant le feedback client" },
+            { category: "Strategy · Innovation", title: "Identité de marque et rebrand" },
+            { category: "Strategy · Innovation", title: "AI-athons de 3 à 5 jours avec des équipes cross-fonctionnelles" },
+            { category: "Strategy · Innovation", title: "Explorations CX" },
           ],
         },
       ],
@@ -1630,6 +1665,10 @@ export const nrcText: Record<
             "Faire du point d'entrée une décision produit, et non un choix repris à zéro à chaque fonctionnalité.",
           ],
           result: "L'ambient listening, par exemple, a fait passer la documentation infirmière de 55 % à 90 %.",
+          more: {
+            body: "La recherche derrière ce choix s'est condensée en trois principes que toute interaction Huey doit passer : invitant, pertinent, adaptatif. Ils sont devenus un test d'évaluation, puis un marqueur et un drawer communs à tous les produits.",
+            cta: "Lire le cas Huey en entier",
+          },
           figure: "Huey, les trois points d'entrée",
         },
       ],
@@ -1680,29 +1719,46 @@ export const nrcText: Record<
         {
           label: "Done",
           items: [
-            { category: "Design system", title: "Bases del design system" },
+            { category: "Design system", title: "Bases del design system: biblioteca de Figma lanzada, adoptada por las cuatro suites y Huey" },
             { category: "Product design", title: "Primeros quick wins de producto" },
+            { category: "Huey", title: "Principios de diseño definidos y presentados (Relevant, Inviting, Adaptive)" },
+            { category: "Analytics", title: "Auto-captura de Amplitude en marcha" },
           ],
         },
         {
           label: "Now",
           items: [
-            { category: "Strategy · Innovation", title: "Estrategia de la suite de producto" },
-            { category: "Product design", title: "Consistencia de producto, básica" },
+            { category: "Design system", title: "Componentes creados en Storybook por el squad de desarrollo de Vietnam, e integrados fase por fase en el producto legacy a través del rediseño de Patient Experience" },
+            { category: "Product design", title: "Rediseño de Patient Experience" },
+            { category: "Product design", title: "Consistencia de producto, lo básico: Unified Login, App Switcher, gestión de usuarios con tokens, Executive Dashboard entre productos" },
+            { category: "Huey", title: "Secuenciación del despliegue entre productos" },
+            { category: "Analytics", title: "Tracking custom producto por producto y ampliación de la auto-captura" },
+            { category: "Strategy · Innovation", title: "Estrategia de la suite de producto: mandato ejecutivo para la adopción del design system, cadencia trimestral de planificación entre productos, roadmap alineado con los tenets de producto" },
           ],
         },
         {
           label: "Next",
           items: [
-            { category: "Design system", title: "Design system online" },
-            { category: "Team growth", title: "Desarrollador de design system" },
+            { category: "Design system", title: "Design system online: documentación y guías de adopción, hackathons de integración con los desarrolladores, proceso de design review" },
+            { category: "Design system", title: "Workflow MCP + agente de IA, de la experiencia personal a la capacidad del equipo" },
+            { category: "Product design", title: "Quick wins en Market Insights, Consumer Insights, reporting y Rounding" },
+            { category: "Huey", title: "Integración de capacidades generales (consulta de datos, insights, acciones), componentes analytics-ready by design" },
+            { category: "Analytics", title: "Requisitos de los puentes de datos (Amplitude, CRM, herramientas de soporte), prueba de add-ons de analytics" },
+            { category: "Team growth", title: "Trayectorias de carrera claras (diseñador, senior, lead)" },
+            { category: "Team growth", title: "BBL mensual en rotación, onsite anual" },
+            { category: "Team growth", title: "Presupuesto para conferencias y formación" },
           ],
         },
         {
           label: "Future",
           items: [
-            { category: "Product design", title: "Consistencia de producto, avanzada" },
-            { category: "Strategy · Innovation", title: "Identidad de marca" },
+            { category: "Design system", title: "Tokens integrados en todos los productos, requisito previo del rebrand" },
+            { category: "Product design", title: "Consistencia de producto, avanzada: Explore Trends integrado en Market Insights, adopción de componentes en todos los productos" },
+            { category: "Huey", title: "Casos de uso por producto: Ask Huey para Patient Experience, resúmenes de informes de Market Insights, agente de Rounding" },
+            { category: "Analytics", title: "Repositorio de insights de IA que consolida el feedback de clientes" },
+            { category: "Strategy · Innovation", title: "Identidad de marca y rebrand" },
+            { category: "Strategy · Innovation", title: "AI-athons de 3 a 5 días con equipos multifuncionales" },
+            { category: "Strategy · Innovation", title: "Exploraciones de CX" },
           ],
         },
       ],
@@ -1785,6 +1841,10 @@ export const nrcText: Record<
             "Hacer del punto de entrada una decisión de producto, y no una elección que se replantea desde cero con cada funcionalidad.",
           ],
           result: "El ambient listening, por ejemplo, elevó la documentación de enfermería del 55% al 90%.",
+          more: {
+            body: "La investigación detrás de esta decisión se condensó en tres principios que toda interacción con Huey debe superar: invitante, relevante, adaptable. Se convirtieron en un test de evaluación y luego en un marcador y un drawer comunes a todos los productos.",
+            cta: "Leer el caso Huey completo",
+          },
           figure: "Huey, los tres puntos de entrada",
         },
       ],
@@ -1990,6 +2050,415 @@ export const nrcSystemText: Record<
       notBuilt: "Aún sin construir: Alert, Table, Tabs, Modal, Avatar.",
     },
     groups: { Actions: "Acciones", Forms: "Formularios", Navigation: "Navegación", Surfaces: "Superficies", Feedback: "Retroalimentación" },
+    backCase: "Volver al case study NRC",
+  },
+};
+
+// ============================================================================
+// Page /nrc/huey : le cas Huey, developpe (EN/FR/ES). Source : le canvas de
+// design "Huey, case study". Les noms de produits NRC y sont remplaces par des
+// equivalents generiques, aucun chiffre hors le 55 % -> 90 % deja publie sur
+// /nrc.
+// ============================================================================
+
+export const nrcHueyText: Record<
+  Locale,
+  {
+    kicker: string;
+    period: string;
+    title: string;
+    intro: string;
+    meta: { label: string; value: string }[];
+    role: { title: string; items: { verb: string; rest: string }[] };
+    map: {
+      title: string;
+      body: string;
+      axes: { top: string; bottom: string; left: string; right: string };
+      quadrants: { title: string; body: string }[];
+      questions: { label: string; tags: string[] }[];
+      context: { label: string; big: string; sub: string };
+    };
+    principles: {
+      title: string;
+      body: string;
+      items: { n: string; name: string; tagline: string; body: string }[];
+    };
+    test: { title: string; body: string; items: { q: string; tag: string }[] };
+    ui: {
+      title: string;
+      body: string;
+      markerLabel: string;
+      markerNames: string[];
+      drawerLabel: string;
+      mockDisclaimer: string;
+      mockUser: string;
+      mockAsk: string;
+      annotations: { label: string; body: string }[];
+    };
+    outcome: { title: string; body: string };
+    contactCta: string;
+    backCase: string;
+  }
+> = {
+  en: {
+    kicker: "NRC Health",
+    period: "Research · Design principles · AI experience",
+    title: "Huey: one AI presence across a whole platform",
+    intro:
+      "Huey is NRC Health's AI assistant. As it spread across products, each team was inventing its own way to surface AI. The goal: unify how users meet and use AI across the whole platform.",
+    meta: [
+      { label: "Role", value: "Lead Product Designer" },
+      { label: "Team", value: "2 product designers, 1 UX researcher" },
+      {
+        label: "Products",
+        value: "Results dashboard, engagement tracking, rating scorecards, regulatory surveys, feedback management",
+      },
+      { label: "Deliverables", value: "Touchpoint map, 3 principles, evaluation test, marker and drawer" },
+    ],
+    role: {
+      title: "My role",
+      items: [
+        { verb: "Led", rest: "the research workshop with the design team" },
+        { verb: "Framed", rest: "the problem along two axes: who triggers Huey, and what the user is trying to do" },
+        { verb: "Synthesized", rest: "the touchpoints into three design principles and wrote them" },
+        { verb: "Turned", rest: "the principles into an evaluation test and a first UI pattern" },
+      ],
+    },
+    map: {
+      title: "Mapping touchpoints",
+      body: "We mapped where users would want Huey, what should trigger it, and in which context: exploring data, monitoring, or problem-solving. The answer to context was \"all of them\". So the question became how Huey shows up, not where.",
+      axes: { top: "User-initiated", bottom: "Auto-triggered", left: "Exploratory", right: "Action-oriented" },
+      quadrants: [
+        { title: "Enhanced search", body: "Chat and explore, insights from data" },
+        { title: "Manual", body: "\"Explain this\", \"Dive into this\" on contextual items" },
+        { title: "Aggregator", body: "Correlate data, create summaries" },
+        { title: "Automatic", body: "Summaries and alerts inside existing workflows" },
+      ],
+      questions: [
+        {
+          label: "Where would users want Huey?",
+          tags: [
+            "On every page",
+            "Integrated in existing flows, as a copilot",
+            "Summarize ratings and comments",
+            "Sentiment in survey responses",
+          ],
+        },
+        {
+          label: "What would trigger it?",
+          tags: [
+            "User triggered, mostly",
+            "Integrated in page templates, by design",
+            "On-screen alerts and notifications",
+            "Outreach by email or app",
+          ],
+        },
+      ],
+      context: {
+        label: "What's the context?",
+        big: "All of them.",
+        sub: "Exploring data, monitoring, problem-solving.",
+      },
+    },
+    principles: {
+      title: "Three principles",
+      body: "The touchpoints collapsed into three qualities every Huey interaction must have. Each one got a visual signifier, so the principles could live in the UI and not only in a document.",
+      items: [
+        {
+          n: "#1",
+          name: "Inviting",
+          tagline: "Always reachable, never intrusive",
+          body: "Huey invites engagement through clear, discoverable patterns without demanding attention. An approachable presence that supports rather than interrupts.",
+        },
+        {
+          n: "#2",
+          name: "Relevant",
+          tagline: "On point and user-centered",
+          body: "Huey reads data state, workflow stage and task intent. AI appears when it adds value, with actionable insights and next steps rather than generic answers.",
+        },
+        {
+          n: "#3",
+          name: "Adaptive",
+          tagline: "Adjusting its level of presence",
+          body: "Huey integrates into existing workflows through familiar UI patterns. It adapts presence and persistence to context, fitting the tool to the user's intent.",
+        },
+      ],
+    },
+    test: {
+      title: "Principles as a test",
+      body: "The principles verify designs rather than being bent to fit them. Any Huey marker, feature, pattern or interaction has to pass all three to be ready to integrate.",
+      items: [
+        { q: "Is it relevant to this specific context and user need?", tag: "Relevant" },
+        { q: "Is it inviting without being intrusive or demanding?", tag: "Inviting" },
+        { q: "Does it adapt to existing workflows rather than create friction?", tag: "Adaptive" },
+      ],
+    },
+    ui: {
+      title: "From principles to UI",
+      body: "The signifiers became the Huey marker, explored in weight and color variants. The drawer gives every product the same anatomy for AI conversations.",
+      markerLabel: "Marker explorations",
+      markerNames: ["Inviting", "Relevant", "Adaptive"],
+      drawerLabel: "Huey drawer, anatomy",
+      mockDisclaimer: "AI-generated content may contain errors.",
+      mockUser: "[User question]",
+      mockAsk: "Ask Huey",
+      annotations: [
+        { label: "Actions", body: "More, pop out, close" },
+        { label: "Disclaimer", body: "Transparency on AI" },
+        { label: "Content", body: "Answers, insights, next steps" },
+        { label: "Feedback", body: "Rate each answer" },
+        { label: "Search", body: "Ask in natural language" },
+      ],
+    },
+    outcome: {
+      title: "Outcome",
+      body: "The principles became the shared test for any Huey marker, feature, pattern or interaction, and the drawer gave every product the same anatomy for AI conversations. Under the same Huey umbrella, ambient listening raised nurse documentation from 55% to 90%.",
+    },
+    contactCta: "Talk about this work",
+    backCase: "Back to the NRC case study",
+  },
+  fr: {
+    kicker: "NRC Health",
+    period: "Recherche · Principes de design · Expérience IA",
+    title: "Huey : une seule présence IA sur toute une plateforme",
+    intro:
+      "Huey est l'assistant IA de NRC Health. En se diffusant dans les produits, chaque équipe inventait sa propre façon de faire apparaître l'IA. L'objectif : unifier la manière dont les utilisateurs rencontrent et utilisent l'IA sur toute la plateforme.",
+    meta: [
+      { label: "Rôle", value: "Lead Product Designer" },
+      { label: "Équipe", value: "2 product designers, 1 UX researcher" },
+      {
+        label: "Produits",
+        value: "Tableau de bord de résultats, suivi d'engagement, tableaux de scores, enquêtes réglementaires, gestion du feedback",
+      },
+      { label: "Livrables", value: "Carte des points de contact, 3 principes, test d'évaluation, marqueur et drawer" },
+    ],
+    role: {
+      title: "Mon rôle",
+      items: [
+        { verb: "Animé", rest: "l'atelier de recherche avec l'équipe design" },
+        { verb: "Cadré", rest: "le problème sur deux axes : qui déclenche Huey, et ce que l'utilisateur cherche à faire" },
+        { verb: "Synthétisé", rest: "les points de contact en trois principes de design, et rédigé ces principes" },
+        { verb: "Transformé", rest: "les principes en test d'évaluation et en premier pattern d'interface" },
+      ],
+    },
+    map: {
+      title: "Cartographier les points de contact",
+      body: "Nous avons cartographié où les utilisateurs voudraient Huey, ce qui devrait le déclencher, et dans quel contexte : explorer des données, surveiller, résoudre un problème. La réponse sur le contexte était « tous ». La question est donc devenue comment Huey apparaît, et non où.",
+      axes: {
+        top: "Déclenché par l'utilisateur",
+        bottom: "Déclenché automatiquement",
+        left: "Exploratoire",
+        right: "Orienté action",
+      },
+      quadrants: [
+        { title: "Recherche enrichie", body: "Discuter et explorer, insights issus des données" },
+        { title: "Manuel", body: "« Explique-moi ça », « Creuse ça » sur des éléments contextuels" },
+        { title: "Agrégateur", body: "Croiser les données, créer des synthèses" },
+        { title: "Automatique", body: "Résumés et alertes au cœur des workflows existants" },
+      ],
+      questions: [
+        {
+          label: "Où les utilisateurs voudraient-ils Huey ?",
+          tags: [
+            "Sur chaque page",
+            "Intégré aux parcours existants, comme copilote",
+            "Résumer notes et commentaires",
+            "Sentiment dans les réponses aux enquêtes",
+          ],
+        },
+        {
+          label: "Qu'est-ce qui le déclencherait ?",
+          tags: [
+            "L'utilisateur, surtout",
+            "Intégré aux gabarits de page, par conception",
+            "Alertes et notifications à l'écran",
+            "Relances par e-mail ou par l'app",
+          ],
+        },
+      ],
+      context: {
+        label: "Quel contexte ?",
+        big: "Tous.",
+        sub: "Explorer des données, surveiller, résoudre un problème.",
+      },
+    },
+    principles: {
+      title: "Trois principes",
+      body: "Les points de contact se sont condensés en trois qualités que chaque interaction Huey doit avoir. Chacune a reçu un signifiant visuel, pour que les principes vivent dans l'interface et pas seulement dans un document.",
+      items: [
+        {
+          n: "#1",
+          name: "Invitant",
+          tagline: "Toujours accessible, jamais intrusif",
+          body: "Huey invite à l'échange par des patterns clairs et faciles à découvrir, sans exiger l'attention. Une présence accessible qui soutient plutôt qu'elle n'interrompt.",
+        },
+        {
+          n: "#2",
+          name: "Pertinent",
+          tagline: "Juste et centré sur l'utilisateur",
+          body: "Huey lit l'état des données, l'étape du workflow et l'intention de la tâche. L'IA apparaît quand elle apporte de la valeur, avec des insights actionnables et des prochaines étapes plutôt que des réponses génériques.",
+        },
+        {
+          n: "#3",
+          name: "Adaptatif",
+          tagline: "Ajuste son niveau de présence",
+          body: "Huey s'intègre aux workflows existants par des patterns d'interface familiers. Il adapte sa présence et sa persistance au contexte, en ajustant l'outil à l'intention de l'utilisateur.",
+        },
+      ],
+    },
+    test: {
+      title: "Les principes comme test",
+      body: "Les principes servent à vérifier les designs, on ne les plie pas pour les faire coller. Tout marqueur, feature, pattern ou interaction Huey doit passer les trois pour être prêt à l'intégration.",
+      items: [
+        { q: "Est-ce pertinent pour ce contexte précis et ce besoin utilisateur ?", tag: "Pertinent" },
+        { q: "Est-ce invitant sans être intrusif ni exigeant ?", tag: "Invitant" },
+        { q: "Est-ce que cela s'adapte aux workflows existants au lieu de créer de la friction ?", tag: "Adaptatif" },
+      ],
+    },
+    ui: {
+      title: "Des principes à l'interface",
+      body: "Les signifiants sont devenus le marqueur Huey, exploré en variations de graisse et de couleur. Le drawer donne à chaque produit la même anatomie pour les conversations avec l'IA.",
+      markerLabel: "Explorations du marqueur",
+      markerNames: ["Invitant", "Pertinent", "Adaptatif"],
+      drawerLabel: "Drawer Huey, anatomie",
+      mockDisclaimer: "Le contenu généré par l'IA peut contenir des erreurs.",
+      mockUser: "[Question de l'utilisateur]",
+      mockAsk: "Demander à Huey",
+      annotations: [
+        { label: "Actions", body: "Plus, détacher, fermer" },
+        { label: "Avertissement", body: "Transparence sur l'IA" },
+        { label: "Contenu", body: "Réponses, insights, prochaines étapes" },
+        { label: "Feedback", body: "Noter chaque réponse" },
+        { label: "Recherche", body: "Poser sa question en langage naturel" },
+      ],
+    },
+    outcome: {
+      title: "Résultat",
+      body: "Les principes sont devenus le test commun de tout marqueur, feature, pattern ou interaction Huey, et le drawer a donné à chaque produit la même anatomie pour les conversations avec l'IA. Sous le même parapluie Huey, l'ambient listening a fait passer la documentation infirmière de 55 % à 90 %.",
+    },
+    contactCta: "Parler de ce travail",
+    backCase: "Retour au case study NRC",
+  },
+  es: {
+    kicker: "NRC Health",
+    period: "Investigación · Principios de diseño · Experiencia IA",
+    title: "Huey: una sola presencia de IA en toda una plataforma",
+    intro:
+      "Huey es el asistente de IA de NRC Health. Al extenderse por los productos, cada equipo inventaba su propia forma de mostrar la IA. El objetivo: unificar cómo los usuarios encuentran y usan la IA en toda la plataforma.",
+    meta: [
+      { label: "Rol", value: "Lead Product Designer" },
+      { label: "Equipo", value: "2 product designers, 1 UX researcher" },
+      {
+        label: "Productos",
+        value: "Panel de resultados, seguimiento del compromiso, tableros de puntuación, encuestas regulatorias, gestión del feedback",
+      },
+      { label: "Entregables", value: "Mapa de puntos de contacto, 3 principios, test de evaluación, marcador y drawer" },
+    ],
+    role: {
+      title: "Mi rol",
+      items: [
+        { verb: "Dirigí", rest: "el taller de investigación con el equipo de diseño" },
+        { verb: "Planteé", rest: "el problema en dos ejes: quién activa a Huey y qué intenta hacer el usuario" },
+        { verb: "Sinteticé", rest: "los puntos de contacto en tres principios de diseño y los redacté" },
+        { verb: "Convertí", rest: "los principios en un test de evaluación y un primer patrón de interfaz" },
+      ],
+    },
+    map: {
+      title: "Mapear los puntos de contacto",
+      body: "Mapeamos dónde querrían los usuarios a Huey, qué debería activarlo y en qué contexto: explorar datos, monitorizar o resolver problemas. La respuesta sobre el contexto fue «todos». Así que la pregunta pasó a ser cómo aparece Huey, no dónde.",
+      axes: {
+        top: "Iniciado por el usuario",
+        bottom: "Activado automáticamente",
+        left: "Exploratorio",
+        right: "Orientado a la acción",
+      },
+      quadrants: [
+        { title: "Búsqueda mejorada", body: "Conversar y explorar, insights a partir de los datos" },
+        { title: "Manual", body: "«Explícame esto», «Profundiza en esto» sobre elementos contextuales" },
+        { title: "Agregador", body: "Cruzar datos, crear resúmenes" },
+        { title: "Automático", body: "Resúmenes y alertas dentro de los flujos existentes" },
+      ],
+      questions: [
+        {
+          label: "¿Dónde querrían los usuarios a Huey?",
+          tags: [
+            "En cada página",
+            "Integrado en los flujos existentes, como copiloto",
+            "Resumir valoraciones y comentarios",
+            "Sentimiento en las respuestas de encuestas",
+          ],
+        },
+        {
+          label: "¿Qué lo activaría?",
+          tags: [
+            "El usuario, sobre todo",
+            "Integrado en las plantillas de página, por diseño",
+            "Alertas y notificaciones en pantalla",
+            "Contacto por correo o app",
+          ],
+        },
+      ],
+      context: {
+        label: "¿Cuál es el contexto?",
+        big: "Todos.",
+        sub: "Explorar datos, monitorizar, resolver problemas.",
+      },
+    },
+    principles: {
+      title: "Tres principios",
+      body: "Los puntos de contacto se condensaron en tres cualidades que toda interacción con Huey debe tener. Cada una recibió un significante visual, para que los principios vivieran en la interfaz y no solo en un documento.",
+      items: [
+        {
+          n: "#1",
+          name: "Invitante",
+          tagline: "Siempre al alcance, nunca intrusivo",
+          body: "Huey invita a interactuar mediante patrones claros y fáciles de descubrir, sin exigir atención. Una presencia cercana que apoya en lugar de interrumpir.",
+        },
+        {
+          n: "#2",
+          name: "Relevante",
+          tagline: "Certero y centrado en el usuario",
+          body: "Huey lee el estado de los datos, la etapa del flujo y la intención de la tarea. La IA aparece cuando aporta valor, con insights accionables y próximos pasos en lugar de respuestas genéricas.",
+        },
+        {
+          n: "#3",
+          name: "Adaptable",
+          tagline: "Ajusta su nivel de presencia",
+          body: "Huey se integra en los flujos existentes mediante patrones de interfaz familiares. Adapta su presencia y su persistencia al contexto, ajustando la herramienta a la intención del usuario.",
+        },
+      ],
+    },
+    test: {
+      title: "Los principios como test",
+      body: "Los principios sirven para verificar los diseños, no se doblan para que encajen. Cualquier marcador, feature, patrón o interacción de Huey debe cumplir los tres para estar listo para integrarse.",
+      items: [
+        { q: "¿Es relevante para este contexto y esta necesidad concretos del usuario?", tag: "Relevante" },
+        { q: "¿Invita sin ser intrusivo ni exigente?", tag: "Invitante" },
+        { q: "¿Se adapta a los flujos existentes en lugar de crear fricción?", tag: "Adaptable" },
+      ],
+    },
+    ui: {
+      title: "De los principios a la interfaz",
+      body: "Los significantes se convirtieron en el marcador de Huey, explorado en variantes de grosor y color. El drawer da a cada producto la misma anatomía para las conversaciones con la IA.",
+      markerLabel: "Exploraciones del marcador",
+      markerNames: ["Invitante", "Relevante", "Adaptable"],
+      drawerLabel: "Drawer de Huey, anatomía",
+      mockDisclaimer: "El contenido generado por IA puede contener errores.",
+      mockUser: "[Pregunta del usuario]",
+      mockAsk: "Pregunta a Huey",
+      annotations: [
+        { label: "Acciones", body: "Más, abrir aparte, cerrar" },
+        { label: "Aviso", body: "Transparencia sobre la IA" },
+        { label: "Contenido", body: "Respuestas, insights, próximos pasos" },
+        { label: "Feedback", body: "Valorar cada respuesta" },
+        { label: "Búsqueda", body: "Preguntar en lenguaje natural" },
+      ],
+    },
+    outcome: {
+      title: "Resultado",
+      body: "Los principios se convirtieron en el test común de cualquier marcador, feature, patrón o interacción de Huey, y el drawer dio a cada producto la misma anatomía para las conversaciones con la IA. Bajo el mismo paraguas de Huey, el ambient listening elevó la documentación de enfermería del 55% al 90%.",
+    },
+    contactCta: "Hablar de este trabajo",
     backCase: "Volver al case study NRC",
   },
 };
