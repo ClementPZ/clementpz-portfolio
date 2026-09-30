@@ -53,7 +53,7 @@ export function RecentProjects() {
       id="recent"
       ref={sectionRef}
       className="py-16"
-      style={{ borderTop: "1px solid var(--border)", scrollMarginTop: 88 }}
+      style={{ scrollMarginTop: 88 }}
     >
       <div className="max-w-6xl mx-auto px-6 flex items-baseline justify-between mb-8">
         <div>
@@ -105,7 +105,6 @@ export function RecentProjects() {
           // si sa marque impose sa propre hiérarchie (p.brand).
           const badgeBg = p.brand?.badgeBg ?? "rgba(255,255,255,0.22)";
           const badgeText = p.brand?.badgeText ?? "#ffffff";
-          const tagBg = p.brand?.tagBg ?? "rgba(255,255,255,0.14)";
           const motifColor = p.brand?.motif ?? "#cafe00";
           return (
             <SwiperSlide key={p.name} style={{ width: 320 }}>
@@ -116,7 +115,6 @@ export function RecentProjects() {
                   background: `linear-gradient(150deg, ${p.accent} 0%, ${p.accent2} 100%)`,
                   color: "#ffffff",
                   boxShadow: "0 22px 50px rgba(15, 4, 18, 0.55)",
-                  border: "1px solid rgba(255,255,255,0.1)",
                 }}
               >
                 {p.image && (
@@ -138,7 +136,7 @@ export function RecentProjects() {
                 )}
 
                 <span
-                  className="absolute top-5 right-5 z-10 text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full"
+                  className="absolute top-5 right-5 z-10 text-xs font-medium px-2.5 py-1 rounded-full"
                   style={{
                     // Pas de backdrop-filter ici : dans le contexte 3D de Swiper,
                     // il crée un contexte d'empilement qui échappe au clipping de
@@ -182,17 +180,9 @@ export function RecentProjects() {
                   >
                     {lx?.description}
                   </p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {p.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-[10px] uppercase tracking-wider px-2 py-1 rounded"
-                        style={{ background: tagBg, color: "#ffffff" }}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                  <p className="text-xs" style={{ color: "rgba(255,255,255,0.72)" }}>
+                    {p.tags.join(" · ")}
+                  </p>
                 </div>
               </article>
             </SwiperSlide>

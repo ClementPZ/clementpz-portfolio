@@ -41,7 +41,6 @@ export function Stack() {
     <section
       id="stack"
       className="max-w-6xl mx-auto px-6 py-16"
-      style={{ borderTop: "1px solid var(--border)" }}
     >
       <div className="mb-8">
         <h2 className="font-display text-2xl sm:text-3xl font-bold">{t.stackTitle}</h2>
