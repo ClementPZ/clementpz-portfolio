@@ -72,7 +72,7 @@ export const work: WorkItem[] = [
   },
   {
     id: "episource",
-    company: "Episource · Optum (NYSE: UNH, UnitedHealth Group)",
+    company: "Episource · Optum (NYSE: UNH)",
     period: "2021 - 2024",
     location: "Los Angeles, Remote",
     tags: ["Healthcare", "AI", "Design System", "Enterprise", "NLP"],
