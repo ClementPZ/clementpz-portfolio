@@ -10,7 +10,7 @@ export const profile = {
   shortName: "Clément PZ",
   tagline: "Product Design × AI",
   intro:
-    "Hello, I'm Clément, a product designer with 10+ years across product, business and design systems. I worked in healthcare SaaS for the past 5 years, built the design function at NRC Health (Nasdaq: NRC) from scratch and led a team of three, from research and design to production and analytics. Before that I founded a coding campus in Mexico City and ran marketing and sales projects at Devialet. So I always start from the business question.",
+    "Hello, I'm Clément, a product designer with 10+ years across product, business and design systems. I worked in healthcare SaaS for the past 5 years, built the design function at Nasdaq-listed NRC Health from scratch and led a team of three, from research and design to production and analytics. Before that I founded a coding campus in Mexico City and ran marketing and sales projects at Devialet. So I always start from the business question.",
   email: "clementpicardzivy@gmail.com",
   links: {
     linkedin: "https://www.linkedin.com/in/clément-picard-zivy-b6930155/",
@@ -135,7 +135,7 @@ export const recommendations: Reco[] = [
     author: "V. Ramnathan",
     title: "CPO @ NRC Health",
     quote:
-      "Clément built our design function from nothing, hired the team, and set the bar for how design worked across all four product lines. He was as comfortable in C-suite product strategy conversations as he was shipping production design and AI tooling. I'd hire him again.",
+      "Clément built our design function from nothing, hired the team, and set the bar for how design worked across all four product lines. He was as comfortable in C-suite product strategy conversations as he was shipping production design and AI tooling. Whatever team he joins next just got stronger.",
     linkedin: "https://www.linkedin.com/in/vinithacramnathan/",
     pinnedTo: "nrc",
   },
