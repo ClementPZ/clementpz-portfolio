@@ -12,9 +12,9 @@ import {
 } from "./SpotaShared";
 
 // Bloc SpotA de la section Highlights. C'est le hero de /spota rejoue en
-// carte: meme titre qui se tape, meme lede, meme CTA lime, mais une vraie
-// photo (main + iPhone, ecran SpotA compose dedans) plutot que la coque
-// dessinee en CSS de /spota, cf. hand-mockup.png. La carte porte l'identite
+// carte: meme titre qui se tape, meme lede, meme CTA lime, mais un rendu
+// iPhone (ecran SpotA compose dedans) plutot que la coque dessinee en CSS
+// de /spota, cf. iphone-mockup.png. La carte porte l'identite
 // de l'app, noir et lime et violet, comme la carte Builder porte son
 // violet: une couleur de marque est une donnee, pas un token de theme, donc
 // elle ne change pas entre le mode sombre et le mode clair.
@@ -40,15 +40,13 @@ export function SpotaFeature() {
       </div>
 
       <div className="spota-feature-stage">
-        {/* Vraie photo (main + iPhone) composee avec l'ecran SpotA reel,
-            remplace la coque dessinee en CSS : plus realiste, sans les
-            soucis de recadrage de cette derniere. Mockup Designbolts,
-            licence perso + commercial, ecran remplace par le notre. */}
+        {/* Rendu iPhone 17 Pro (Apple Design Resources, bezel officiel) avec
+            l'ecran SpotA reel compose dedans, sans main. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           className="spota-hand-shot"
-          src="/spota/hand-mockup.png"
-          alt="SpotA hero: a hand holding an iPhone showing the member page, a crew member's spot of the day"
+          src="/spota/iphone-mockup.png"
+          alt="SpotA on an iPhone: the daily prompt over the back camera, with the front camera inset"
         />
       </div>
 
@@ -112,7 +110,7 @@ export function SpotaFeature() {
         .spota-feature .spota-btn:hover { filter: brightness(1.06); }
         .spota-feature .spota-fine-print { font-size: 12.5px; color: rgba(255,255,255,0.38); }
         .spota-feature-stage { display: flex; align-items: center; justify-content: center; padding: 12px; }
-        .spota-hand-shot { width: min(420px, 78vw); height: auto; display: block; }
+        .spota-hand-shot { width: min(270px, 62vw); height: auto; display: block; filter: drop-shadow(0 24px 40px rgba(0,0,0,0.55)); }
       `}</style>
     </div>
   );
