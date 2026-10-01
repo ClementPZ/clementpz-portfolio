@@ -48,8 +48,8 @@ export function Zigzag({ color = SPOT }: { color?: string }) {
 // "Sammy's spot" + zigzag, incrustation selfie cerclee de vert, rail
 // d'actions a droite. La coque gardee autour est le seul habillage, le
 // cadre degrade qui tourne, signature de la page /spota. Le bloc SpotA de
-// la home (SpotaFeature) utilise une vraie photo montee a part, pas ce
-// composant : voir /spota/hand-mockup.png.
+// la home (SpotaFeature) utilise un rendu iPhone monte a part, pas ce
+// composant : voir /spota/iphone-mockup.png.
 export function PhoneMock() {
   return (
     <div className="spota-phone">
