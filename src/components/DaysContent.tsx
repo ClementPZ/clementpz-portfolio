@@ -17,6 +17,9 @@ import Link from "next/link";
 
 const CONTACT = "clementpicardzivy@gmail.com";
 
+// Sans code de pays: Apple redirige vers la vitrine du visiteur.
+const APP_STORE = "https://apps.apple.com/app/id6816046229";
+
 const CONTACT_MAILTO =
   "mailto:" +
   CONTACT +
@@ -77,8 +80,8 @@ export function DaysContent() {
             </Link>
             <div className="days-wordmark">DAYS</div>
           </div>
-          <a className="days-nav-cta" href={CONTACT_MAILTO}>
-            Contact
+          <a className="days-nav-cta" href={APP_STORE}>
+            App Store
           </a>
         </nav>
 
@@ -90,7 +93,12 @@ export function DaysContent() {
             date and a mode, and the number updates by itself, on your home screen and your
             lock screen too.
           </p>
-          <p className="days-fine-print">iOS 17 and up · coming soon to the App Store</p>
+          <div className="days-hero-ctas">
+            <a className="days-btn" href={APP_STORE}>
+              Get it on the App Store
+            </a>
+          </div>
+          <p className="days-fine-print">iPhone · iOS 17 and up · Free</p>
           <div className="days-stage">
             <Ring />
           </div>
