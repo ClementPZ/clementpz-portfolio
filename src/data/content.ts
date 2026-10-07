@@ -312,7 +312,7 @@ export const recentProjects: RecentProject[] = [
   {
     id: "days",
     name: "Days",
-    status: "in progress",
+    status: "live",
     tags: ["Swift", "SwiftUI", "WidgetKit"],
     accent: "#4f52e6",
     accent2: "#0b0e17",
