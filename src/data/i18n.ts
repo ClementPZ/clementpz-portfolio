@@ -2107,8 +2107,8 @@ export const nrcHueyText: Record<
     intro:
       "Huey is NRC Health's AI assistant. As it spread across products, each team was inventing its own way to surface AI. The goal: unify how users meet and use AI across the whole platform.",
     meta: [
-      { label: "Role", value: "Lead Product Designer" },
-      { label: "Team", value: "2 product designers, 1 UX researcher" },
+      { label: "Role", value: "Design Manager" },
+      { label: "Team", value: "2 product designers, 1 analytics specialist" },
       {
         label: "Products",
         value: "Results dashboard, engagement tracking, rating scorecards, regulatory surveys, feedback management",
@@ -2212,7 +2212,7 @@ export const nrcHueyText: Record<
     },
     outcome: {
       title: "Outcome",
-      body: "The three principles now serve as the common test for everything Huey shows on screen, and the drawer gives every product the same structure for talking to the AI. Within Huey, ambient listening raised nurse documentation from 55% to 90%.",
+      body: "The three principles served as the grid for evaluating Huey markers, features and interactions, and the drawer gives every product the same structure for talking to the AI. Within Huey, ambient listening raised nurse documentation from 55% to 90%.",
     },
     contactCta: "Talk about this work",
     backCase: "Back to the NRC case study",
@@ -2224,8 +2224,8 @@ export const nrcHueyText: Record<
     intro:
       "Huey est l'assistant IA de NRC Health. En se diffusant dans les produits, chaque équipe inventait sa propre façon de faire apparaître l'IA. L'objectif : unifier la manière dont les utilisateurs rencontrent et utilisent l'IA sur toute la plateforme.",
     meta: [
-      { label: "Rôle", value: "Lead Product Designer" },
-      { label: "Équipe", value: "2 product designers, 1 UX researcher" },
+      { label: "Rôle", value: "Design Manager" },
+      { label: "Équipe", value: "2 product designers, 1 analytics specialist" },
       {
         label: "Produits",
         value: "Tableau de bord de résultats, suivi d'engagement, tableaux de scores, enquêtes réglementaires, gestion du feedback",
@@ -2334,7 +2334,7 @@ export const nrcHueyText: Record<
     },
     outcome: {
       title: "Résultat",
-      body: "Les trois principes servent de test commun à tout ce que Huey affiche, et le drawer donne à chaque produit la même structure pour dialoguer avec l'IA. Au sein de Huey, l'ambient listening a fait passer la documentation des infirmières de 55 % à 90 %.",
+      body: "Les trois principes ont servi de grille pour évaluer les marqueurs, features et interactions de Huey, et le drawer donne à chaque produit la même structure pour dialoguer avec l'IA. Au sein de Huey, l'ambient listening a fait passer la documentation des infirmières de 55 % à 90 %.",
     },
     contactCta: "Parler de ce travail",
     backCase: "Retour au case study NRC",
@@ -2346,8 +2346,8 @@ export const nrcHueyText: Record<
     intro:
       "Huey es el asistente de IA de NRC Health. Al extenderse por los productos, cada equipo inventaba su propia forma de mostrar la IA. El objetivo: unificar cómo los usuarios encuentran y usan la IA en toda la plataforma.",
     meta: [
-      { label: "Rol", value: "Lead Product Designer" },
-      { label: "Equipo", value: "2 product designers, 1 UX researcher" },
+      { label: "Rol", value: "Design Manager" },
+      { label: "Equipo", value: "2 product designers, 1 analytics specialist" },
       {
         label: "Productos",
         value: "Panel de resultados, seguimiento del compromiso, tableros de puntuación, encuestas regulatorias, gestión del feedback",
@@ -2456,7 +2456,7 @@ export const nrcHueyText: Record<
     },
     outcome: {
       title: "Resultado",
-      body: "Los tres principios sirven como test común para todo lo que Huey muestra en pantalla, y el drawer da a cada producto la misma estructura para conversar con la IA. Dentro de Huey, el ambient listening elevó la documentación de enfermería del 55% al 90%.",
+      body: "Los tres principios sirvieron de criterio para evaluar los marcadores, features e interacciones de Huey, y el drawer da a cada producto la misma estructura para conversar con la IA. Dentro de Huey, el ambient listening elevó la documentación de enfermería del 55% al 90%.",
     },
     contactCta: "Hablar de este trabajo",
     backCase: "Volver al case study NRC",
