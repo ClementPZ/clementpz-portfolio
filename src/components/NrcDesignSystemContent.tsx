@@ -11,7 +11,7 @@ import { useLocale } from "./LocaleProvider";
 import { FlowbiteIconBrowser } from "./FlowbiteIconBrowser";
 
 // Extraction Flowbite, sous /nrc. Meme coquille que /nrc : Nav, BackHome (vers
-// /nrc), pilule, Footer, max-w-3xl. Les valeurs de l'extraction (couleurs,
+// /nrc), période en texte discret, Footer, max-w-3xl. Les valeurs de l'extraction (couleurs,
 // ombres, apercus) sont des DONNEES copiees de la source, donc en dur par
 // nature, comme les couleurs d'identite des cartes projet. Tout le reste de la
 // page passe par les variables du site. Notes d'usage et guides en anglais.
@@ -93,7 +93,7 @@ function Guide({ text }: { text: string }) {
 
 function ColorCard({ c }: { c: FlowbiteColor }) {
   return (
-    <div className="surface flex gap-3 p-3">
+    <div className="flex gap-3">
       <div
         className="shrink-0"
         style={{
@@ -140,12 +140,14 @@ export function NrcDesignSystemContent() {
       <main className="max-w-3xl mx-auto px-6 pt-10 pb-24">
         <div className="mb-10 flex items-center justify-between">
           <BackHome href="/nrc" label={t.backCase} />
-          <span className="pill">{t.period}</span>
+          <span className="text-xs" style={{ color: "var(--text-muted)" }}>
+            {t.period}
+          </span>
         </div>
 
         {/* Hero */}
         <p
-          className="text-xs uppercase tracking-widest font-semibold mb-4"
+          className="text-sm font-semibold mb-4"
           style={{ color: "var(--accent)" }}
         >
           {t.kicker}
@@ -156,15 +158,7 @@ export function NrcDesignSystemContent() {
         <p className="text-lg leading-relaxed max-w-2xl" style={{ color: "var(--text-muted)" }}>
           {t.intro}
         </p>
-        <div
-          className="mt-6 px-5 py-3.5 text-sm"
-          style={{
-            background: "var(--accent-subtle)",
-            border: "1px solid var(--border)",
-            borderRadius: "var(--radius)",
-            color: "var(--text-muted)",
-          }}
-        >
+        <p className="mt-6 text-sm leading-relaxed max-w-2xl" style={{ color: "var(--text-muted)" }}>
           <b style={{ color: "var(--text)" }}>{t.disclaimerBold}</b>
           {t.disclaimer}{" "}
           <a
@@ -176,7 +170,7 @@ export function NrcDesignSystemContent() {
           >
             {t.sourceLabel}
           </a>
-        </div>
+        </p>
 
         {/* Couleur */}
         <section className="pt-14">
@@ -185,7 +179,7 @@ export function NrcDesignSystemContent() {
             {hues.map(({ hue, colors }) => (
               <div key={hue}>
                 <h3
-                  className="text-xs uppercase tracking-widest font-semibold mb-2.5"
+                  className="text-sm font-semibold mb-3 capitalize"
                   style={{ color: "var(--text-muted)" }}
                 >
                   {hue}
@@ -207,14 +201,14 @@ export function NrcDesignSystemContent() {
             {flowbite.type.map((g) => (
               <div key={g.name}>
                 <h3
-                  className="text-xs uppercase tracking-widest font-semibold mb-2.5"
+                  className="text-sm font-semibold mb-2.5"
                   style={{ color: "var(--text-muted)" }}
                 >
                   {g.name} · {flowbite.family}
                 </h3>
-                <div className="grid gap-2.5">
+                <div className="grid gap-5">
                   {g.styles.map((s) => (
-                    <div key={s.name} className="surface px-5 py-4">
+                    <div key={s.name}>
                       <p
                         className="overflow-hidden text-ellipsis whitespace-nowrap"
                         style={{
@@ -240,9 +234,9 @@ export function NrcDesignSystemContent() {
         {/* Espacements */}
         <section className="pt-14">
           <SectionTitle title={t.spacing.title} sub={t.spacing.sub} />
-          <div className="grid gap-2.5">
+          <div className="grid gap-5">
             {flowbite.spacing.map((s) => (
-              <div key={s.name} className="surface px-5 py-3.5">
+              <div key={s.name}>
                 <div className="flex items-center gap-3">
                   <span className="text-sm font-semibold shrink-0 w-20">{s.name}</span>
                   <span
@@ -274,9 +268,9 @@ export function NrcDesignSystemContent() {
         {/* Arrondis */}
         <section className="pt-14">
           <SectionTitle title={t.radius.title} sub={t.radius.sub} />
-          <div className="grid gap-2.5 grid-cols-2 sm:grid-cols-3">
+          <div className="grid gap-6 grid-cols-2 sm:grid-cols-3">
             {flowbite.radius.map((r) => (
-              <div key={r.name} className="surface p-4">
+              <div key={r.name}>
                 <div
                   aria-hidden
                   style={{
@@ -342,14 +336,14 @@ export function NrcDesignSystemContent() {
               return (
                 <div key={group}>
                   <h3
-                    className="text-xs uppercase tracking-widest font-semibold mb-3"
+                    className="text-sm font-semibold mb-3"
                     style={{ color: "var(--text-muted)" }}
                   >
                     {t.groups[group] ?? group}
                   </h3>
                   <div className="grid gap-6">
                     {items.map((c) => (
-                      <article key={c.name} className="surface px-5 py-5 sm:px-6">
+                      <article key={c.name} className="panel p-5 sm:p-6">
                         <h4 className="font-display text-lg font-bold mb-2">{c.name}</h4>
                         <Guide text={c.guide} />
                         <iframe
@@ -359,7 +353,6 @@ export function NrcDesignSystemContent() {
                           className="w-full mt-5"
                           style={{
                             height: c.height,
-                            border: "1px solid var(--border)",
                             borderRadius: "var(--radius)",
                             background: flowbiteGround,
                           }}

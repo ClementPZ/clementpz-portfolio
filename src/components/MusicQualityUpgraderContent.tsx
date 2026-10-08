@@ -9,6 +9,8 @@ import { useLocale } from "./LocaleProvider";
 
 // Case study Music Quality Upgrader — suit le sélecteur de langue (EN/FR/ES).
 // Contenu localisé dans i18n.ts → musicQualityUpgraderText[locale].
+// Même langage que /nrc : pas de cartes ni de bordures, des rangées numérotées
+// posées sur la page, un texte discret au lieu de pilules.
 
 function Code({ children }: { children: React.ReactNode }) {
   return (
@@ -17,7 +19,6 @@ function Code({ children }: { children: React.ReactNode }) {
       style={{
         fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
         background: "var(--accent-subtle)",
-        border: "1px solid var(--border)",
         color: "var(--tag-text)",
       }}
     >
@@ -30,10 +31,36 @@ function SectionTitle({ title, sub }: { title: string; sub: string }) {
   return (
     <>
       <h2 className="font-display text-2xl font-bold mb-2">{title}</h2>
-      <p className="text-sm max-w-xl mb-7" style={{ color: "var(--text-muted)" }}>
+      <p className="text-sm max-w-xl mb-8" style={{ color: "var(--text-muted)" }}>
         {sub}
       </p>
     </>
+  );
+}
+
+// Rangée numérotée : le numéro en accent, un titre, un texte. Sert aux étapes
+// et aux itérations.
+function Row({
+  n,
+  title,
+  children,
+}: {
+  n: string;
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="grid grid-cols-[3.5rem_1fr] items-baseline">
+      <span className="font-display text-3xl font-bold" style={{ color: "var(--accent)" }}>
+        {n}
+      </span>
+      <div>
+        <h3 className="font-display text-lg font-bold mb-1.5">{title}</h3>
+        <div className="text-sm leading-relaxed max-w-xl" style={{ color: "var(--text-muted)" }}>
+          {children}
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -41,39 +68,22 @@ type Flow = (typeof musicQualityUpgraderText)["en"]["flow"];
 
 function FlowSection({ flow }: { flow: Flow }) {
   return (
-    <section className="pt-12">
+    <section className="pt-16">
       <SectionTitle title={flow.title} sub={flow.sub} />
-      <div className="grid gap-2.5">
+      <div className="grid gap-8">
         {flow.steps.map((s) => (
-          <div key={s.n} className="surface flex flex-col sm:flex-row gap-1 sm:gap-4 px-5 py-4">
-            <span
-              className="font-display font-bold text-sm shrink-0 w-7"
-              style={{ color: "var(--accent)" }}
-            >
-              {s.n}
-            </span>
-            <div>
-              <h3 className="text-base font-semibold">{s.title}</h3>
-              <p className="text-sm mt-0.5" style={{ color: "var(--text-muted)" }}>
-                {s.code && <Code>{s.code}</Code>}
-                {s.body}
-              </p>
-            </div>
-          </div>
+          <Row key={s.n} n={s.n} title={s.title}>
+            <p>
+              {s.code && <Code>{s.code}</Code>}
+              {s.body}
+            </p>
+          </Row>
         ))}
       </div>
-      <div
-        className="mt-3.5 px-5 py-3.5 text-sm"
-        style={{
-          background: "var(--accent-subtle)",
-          border: "1px solid var(--border)",
-          borderRadius: "var(--radius)",
-          color: "var(--text-muted)",
-        }}
-      >
+      <p className="mt-10 text-sm leading-relaxed max-w-xl" style={{ color: "var(--text-muted)" }}>
         <b style={{ color: "var(--text)" }}>{flow.asideBold}</b>
         {flow.aside}
-      </div>
+      </p>
     </section>
   );
 }
@@ -88,7 +98,9 @@ export function MusicQualityUpgraderContent() {
       <main className="max-w-3xl mx-auto px-6 pt-10 pb-24">
         <div className="mb-10 flex items-center justify-between">
           <BackHome />
-          <span className="pill">{t.period}</span>
+          <span className="text-xs" style={{ color: "var(--text-muted)" }}>
+            {t.period}
+          </span>
         </div>
 
         {/* Hero */}
@@ -100,64 +112,37 @@ export function MusicQualityUpgraderContent() {
           <b style={{ color: "var(--text)" }}>{t.introBold}</b>
           {t.introPost}
         </p>
-        <div className="flex flex-wrap gap-2 mt-6">
-          {t.stack.map((s) => (
-            <span key={s} className="pill">
-              {s}
-            </span>
-          ))}
-        </div>
+        <p className="mt-6 text-sm" style={{ color: "var(--text-muted)" }}>
+          {t.stack.join(" · ")}
+        </p>
 
         {/* Boucle d'upgrade, puis entrée d'un nouveau morceau */}
         <FlowSection flow={t.upgrade} />
         <FlowSection flow={t.flow} />
 
         {/* Outils */}
-        <section className="pt-12">
+        <section className="pt-16">
           <SectionTitle title={t.tools.title} sub={t.tools.sub} />
-          <table className="w-full border-collapse text-sm">
-            <thead>
-              <tr>
-                {t.tools.cols.map((h) => (
-                  <th
-                    key={h}
-                    className="text-left text-xs uppercase tracking-wider font-semibold pb-2.5 px-3"
-                    style={{ color: "var(--text-muted)" }}
-                  >
-                    {h}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {t.tools.rows.map((tl) => (
-                <tr key={tl.name}>
-                  <td
-                    className="px-3 py-3 font-semibold whitespace-nowrap align-top"
-                    style={{ borderTop: "1px solid var(--border)" }}
-                  >
-                    {tl.name}
-                  </td>
-                  <td
-                    className="px-3 py-3 align-top"
-                    style={{ borderTop: "1px solid var(--border)", color: "var(--text-muted)" }}
-                  >
-                    {tl.role}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <dl className="grid gap-6">
+            {t.tools.rows.map((tl) => (
+              <div key={tl.name} className="grid gap-1 sm:grid-cols-[11rem_1fr] sm:gap-6">
+                <dt className="text-sm font-semibold">{tl.name}</dt>
+                <dd className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
+                  {tl.role}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </section>
 
         {/* Modes */}
-        <section className="pt-12">
+        <section className="pt-16">
           <SectionTitle title={t.modes.title} sub={t.modes.sub} />
-          <div className="grid gap-3 sm:grid-cols-2">
-            {t.modes.items.map((m, i) => (
-              <div key={m.title} className={`surface px-5 py-5${i === 0 ? " card-featured" : ""}`}>
-                <h3 className="font-display text-base font-bold mb-1.5">{m.title}</h3>
-                <p className="text-sm mb-3" style={{ color: "var(--text-muted)" }}>
+          <div className="grid gap-8 sm:grid-cols-2">
+            {t.modes.items.map((m) => (
+              <div key={m.title}>
+                <h3 className="font-display text-lg font-bold mb-1.5">{m.title}</h3>
+                <p className="text-sm leading-relaxed mb-3" style={{ color: "var(--text-muted)" }}>
                   {m.body}
                 </p>
                 <Code>{m.cmd}</Code>
@@ -167,52 +152,29 @@ export function MusicQualityUpgraderContent() {
         </section>
 
         {/* Versions */}
-        <section className="pt-12">
+        <section className="pt-16">
           <SectionTitle title={t.versions.title} sub={t.versions.sub} />
-          <div className="grid gap-2.5">
+          <div className="grid gap-8">
             {t.versions.items.map((v) => (
-              <div key={v.v} className="surface grid sm:grid-cols-[64px_1fr] gap-2 sm:gap-4 px-5 py-4">
-                <span className="font-display font-bold" style={{ color: "var(--accent)" }}>
-                  {v.v}
-                </span>
-                <div>
-                  <h3 className="text-base font-semibold mb-1.5">{v.title}</h3>
-                  <div className="flex flex-wrap gap-1.5">
-                    {v.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs px-2.5 py-1 rounded-full"
-                        style={{ background: "var(--tag-bg)", color: "var(--tag-text)" }}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              <Row key={v.v} n={v.v} title={v.title}>
+                <p>{v.tags.join(" · ")}</p>
+              </Row>
             ))}
           </div>
         </section>
 
         {/* Roadmap */}
-        <section className="pt-12">
+        <section className="pt-16">
           <SectionTitle title={t.roadmap.title} sub={t.roadmap.sub} />
-          <div className="grid gap-2.5">
+          <div className="grid gap-6">
             {t.roadmap.items.map((r) => (
-              <div
-                key={r.title}
-                className="flex gap-4 items-baseline px-5 py-4"
-                style={{
-                  border: "1px dashed var(--border-strong)",
-                  borderRadius: "var(--radius-lg)",
-                }}
-              >
-                <span className="font-bold shrink-0" style={{ color: "var(--accent)" }}>
+              <div key={r.title} className="grid grid-cols-[3.5rem_1fr] items-baseline">
+                <span className="font-display text-xl font-bold" style={{ color: "var(--accent)" }}>
                   →
                 </span>
                 <div>
                   <h3 className="text-base font-semibold">{r.title}</h3>
-                  <p className="text-sm mt-0.5" style={{ color: "var(--text-muted)" }}>
+                  <p className="text-sm leading-relaxed max-w-xl mt-0.5" style={{ color: "var(--text-muted)" }}>
                     {r.body}
                   </p>
                 </div>
@@ -222,17 +184,9 @@ export function MusicQualityUpgraderContent() {
         </section>
 
         {/* Note légale */}
-        <div
-          className="mt-14 px-5 py-3.5 text-xs"
-          style={{
-            background: "var(--bg-card)",
-            border: "1px solid var(--border)",
-            borderRadius: "var(--radius)",
-            color: "var(--text-muted)",
-          }}
-        >
+        <p className="mt-16 text-xs leading-relaxed max-w-xl" style={{ color: "var(--text-muted)" }}>
           {t.legal}
-        </div>
+        </p>
 
         <div className="mt-10">
           <Link href="/" className="btn-ghost">
