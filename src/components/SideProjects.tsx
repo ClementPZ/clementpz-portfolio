@@ -81,7 +81,6 @@ function BuilderFeature() {
 // Visuel d'une carte. Days et l'appartement ont le leur, les autres un
 // emplacement "visuel à venir" comme sur /nrc.
 function CardVisual({ p, ratio }: { p: RecentProject; ratio: string }) {
-  const { t } = useLocale();
   const box: React.CSSProperties = { aspectRatio: ratio, borderRadius: "var(--radius-lg)" };
 
   if (p.id === "days") {
@@ -118,16 +117,8 @@ function CardVisual({ p, ratio }: { p: RecentProject; ratio: string }) {
     );
   }
 
-  return (
-    <div
-      className="flex items-center justify-center px-6 text-center"
-      style={{ ...box, background: "var(--accent-subtle)" }}
-    >
-      <span className="text-xs font-medium" style={{ color: "var(--text-muted)" }}>
-        {t.visualLabel}
-      </span>
-    </div>
-  );
+  // Pas de visuel : la carte commence par son titre, sans cadre vide.
+  return null;
 }
 
 // Carte projet : visuel, nom (avec un point à ses couleurs), état, une phrase,

@@ -76,7 +76,8 @@ function Avatar({ company, image }: { company: string; image?: string }) {
 
 // Rayon des cartes d'expérience et de leurs visuels, 8px au plus.
 const CARD_RADIUS = 8;
-// Carte passée en pleine largeur dans "Expériences passées", photo à gauche.
+// Carte pleine largeur posée juste sous NRC, photo à gauche : les deux
+// expériences santé se lisent avant les side projects.
 const WIDE_ID = "episource";
 
 type LocalizedWork = (typeof workText)[Locale][WorkItem["id"]];
@@ -161,6 +162,7 @@ function CardLink({ w }: { w: WorkItem }) {
 export function LastExperience() {
   const { locale, t } = useLocale();
   const w = work.find((x) => x.id === "nrc");
+  const wide = work.find((x) => x.id === WIDE_ID);
   const lx = workText[locale].nrc;
   // Ordre des cartes : la citation épinglée à NRC d'abord, puis les autres.
   const pinnedByWork = new Map(
@@ -187,11 +189,39 @@ export function LastExperience() {
         <CardLink w={w} />
         <div className="flex flex-col">
           <ExperienceText w={w} lx={lx} />
+          {w.link && (
+            <p className="mt-5 text-sm font-semibold" style={{ color: "var(--text)" }}>
+              {t.caseStudy} →
+            </p>
+          )}
         </div>
         <div className="relative z-20 self-center">
           <BeforeAfterSlider text={nrcVisuals[locale].slider} breakout={false} />
+          <p className="text-xs mt-2" style={{ color: "var(--text-muted)" }}>
+            {nrcVisuals[locale].disclaimer}
+          </p>
         </div>
       </article>
+
+      {wide && (
+        <article
+          className="panel p-6 sm:p-10 grid gap-8 md:grid-cols-2 md:gap-12 items-center mt-5"
+          style={{ borderRadius: CARD_RADIUS }}
+        >
+          {wide.photo && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={wide.photo}
+              alt={wide.company}
+              className="w-full object-cover"
+              style={{ aspectRatio: "3 / 2", borderRadius: CARD_RADIUS }}
+            />
+          )}
+          <div className="flex flex-col">
+            <ExperienceText w={wide} lx={workText[locale][wide.id]} />
+          </div>
+        </article>
+      )}
 
       {quotes.length > 0 && (
         <div className="grid gap-10 sm:grid-cols-2 mt-14">
@@ -207,7 +237,7 @@ export function LastExperience() {
 export function PastExperiences() {
   const { locale, t } = useLocale();
   const localized = workText[locale];
-  const past = work.filter((x) => x.id !== "nrc");
+  const past = work.filter((x) => x.id !== "nrc" && x.id !== WIDE_ID);
 
   return (
     <section id="past" className="max-w-6xl mx-auto px-6 py-12 sm:py-16">
@@ -217,33 +247,14 @@ export function PastExperiences() {
 
       <div className="grid gap-5 sm:grid-cols-2">
         {past.map((w) => {
-          const wide = w.id === WIDE_ID;
           return (
             <article
               key={w.company + w.period}
-              className={`panel p-6 sm:p-7${
-                wide ? " sm:col-span-2 sm:p-10 grid gap-8 md:grid-cols-2 md:gap-12 items-center" : " flex flex-col"
-              }${w.link ? " relative" : ""}`}
+              className={`panel p-6 sm:p-7 flex flex-col${w.link ? " relative" : ""}`}
               style={{ borderRadius: CARD_RADIUS }}
             >
               <CardLink w={w} />
-              {wide ? (
-                <>
-                  {w.photo && (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={w.photo}
-                      alt={w.company}
-                      className="w-full object-cover"
-                      style={{ aspectRatio: "3 / 2", borderRadius: CARD_RADIUS }}
-                    />
-                  )}
-                  <div className="flex flex-col">
-                    <ExperienceText w={w} lx={localized[w.id]} />
-                  </div>
-                </>
-              ) : (
-                <ExperienceText w={w} lx={localized[w.id]}>
+              <ExperienceText w={w} lx={localized[w.id]}>
                   {w.photo && (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
@@ -253,8 +264,7 @@ export function PastExperiences() {
                       style={{ aspectRatio: "3 / 2", borderRadius: CARD_RADIUS }}
                     />
                   )}
-                </ExperienceText>
-              )}
+              </ExperienceText>
             </article>
           );
         })}
