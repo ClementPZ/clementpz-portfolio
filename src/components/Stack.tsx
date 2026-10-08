@@ -79,7 +79,17 @@ export function Stack() {
 
         {calloutOpen && !fixed && (
           <div className="stack-egg-callout" role="status">
-            <span className="stack-egg-badge">{egg.badge}</span>
+            <div className="stack-egg-head">
+              <span className="stack-egg-badge">{egg.badge}</span>
+              <button
+                type="button"
+                className="stack-egg-dismiss"
+                aria-label={egg.dismissAria}
+                onClick={() => setCalloutOpen(false)}
+              >
+                ×
+              </button>
+            </div>
             <p>{egg.body}</p>
             <div className="stack-egg-actions">
               <button
@@ -91,14 +101,6 @@ export function Stack() {
                 }}
               >
                 {egg.cta}
-              </button>
-              <button
-                type="button"
-                className="stack-egg-dismiss"
-                aria-label={egg.dismissAria}
-                onClick={() => setCalloutOpen(false)}
-              >
-                ×
               </button>
             </div>
           </div>

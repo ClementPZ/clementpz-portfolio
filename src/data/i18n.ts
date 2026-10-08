@@ -52,7 +52,7 @@ export const ui: Record<Locale, UI> = {
   en: {
     getInTouch: "Get in touch",
     stackTitle: "My day-to-day stack",
-    workTitle: "Recent experience",
+    workTitle: "Recent experiences",
     pastTitle: "Earlier experience",
     impactLabel: "Business impact",
     recentTitle: "Past 6 months side projects",
@@ -90,7 +90,7 @@ export const ui: Record<Locale, UI> = {
   es: {
     getInTouch: "Contactarme",
     stackTitle: "Mi stack del día a día",
-    workTitle: "Experiencia reciente",
+    workTitle: "Experiencias recientes",
     pastTitle: "Experiencias anteriores",
     impactLabel: "Impacto de negocio",
     recentTitle: "Side projects de los últimos 6 meses",
@@ -110,9 +110,9 @@ export const ui: Record<Locale, UI> = {
 
 // Intro localisée (profile.intro).
 export const introText: Record<Locale, string> = {
-  en: "Hello, I'm Clément, a product designer with 10+ years across product, business and design systems. At Nasdaq-listed NRC Health I built the design function from scratch and led a team of three. Two results from that work: nurse-rounding documentation up from 55% to 90%, and a 24% lift in outreach-email click-through. Before that, an AI coding interface at Episource validated with 897 users, a coding campus founded in Mexico City, and marketing and sales projects at Devialet.",
-  fr: "Bonjour, je suis Clément, Product designer avec plus de 10 ans d'expérience entre produit, business et design systems. Chez NRC Health, cotée au Nasdaq, j'ai monté la fonction design à partir de zéro et dirigé une équipe de trois personnes. Deux résultats de ce travail : une documentation des rondes infirmières passée de 55 % à 90 %, et +24 % de taux de clic sur les emails d'outreach. Avant cela, une interface de coding assistée par IA chez Episource, validée auprès de 897 utilisateurs, un campus de code fondé à Mexico et des projets marketing et ventes chez Devialet.",
-  es: "Hola, soy Clément, product designer con más de 10 años de experiencia entre producto, business y design systems. En NRC Health, cotizada en Nasdaq, construí la función de diseño desde cero y lideré un equipo de tres personas. Dos resultados de ese trabajo: la documentación de las rondas de enfermería pasó del 55 % al 90 %, y la tasa de clics de los emails de outreach subió un 24 %. Antes, una interfaz de coding asistida por IA en Episource, validada con 897 usuarios, un campus de código fundado en Ciudad de México y proyectos de marketing y ventas en Devialet.",
+  en: "Hello, I'm Clément, a product designer with 10+ years across product, business and design systems. I built the design function at Nasdaq-listed NRC Health from scratch, redesigned its main product and led a team of three. Two results from that work: nurse-rounding documentation up from 55% to 90%, and a 24% lift in outreach-email click-through. Before that, an AI coding interface at Episource validated with 897 users, a coding campus founded in Mexico City, and marketing and sales projects at Devialet.",
+  fr: "Bonjour, je suis Clément, Product designer avec plus de 10 ans d'expérience entre produit, business et design systems. J'ai monté la fonction design de zéro chez NRC Health, cotée au Nasdaq, refondu son produit principal et dirigé une équipe de trois personnes. Deux résultats de ce travail : une documentation des rondes infirmières passée de 55 % à 90 %, et +24 % de taux de clic sur les emails d'outreach. Avant cela, une interface de coding assistée par IA chez Episource, validée auprès de 897 utilisateurs, un campus de code fondé à Mexico et des projets marketing et ventes chez Devialet.",
+  es: "Hola, soy Clément, product designer con más de 10 años de experiencia entre producto, business y design systems. Construí la función de diseño desde cero en NRC Health, cotizada en Nasdaq, rediseñé su producto principal y lideré un equipo de tres personas. Dos resultados de ese trabajo: la documentación de las rondas de enfermería pasó del 55 % al 90 %, y la tasa de clics de los emails de outreach subió un 24 %. Antes, una interfaz de coding asistida por IA en Episource, validada con 897 usuarios, un campus de código fundado en Ciudad de México y proyectos de marketing y ventas en Devialet.",
 };
 
 // Texte localisé des expériences — index aligné sur `work` dans content.ts :
@@ -1260,34 +1260,38 @@ export const stackEggText: Record<
     overlayLead: string;
     fixedFooter: string;
     close: string;
+    relaunch: string;
   }
 > = {
   en: {
-    badge: "Bad UX!",
+    badge: "UX Issue",
     body: "These are tags, not buttons. But they react on hover, as if they were clickable.",
     cta: "Correct with Builder",
     dismissAria: "Dismiss",
     overlayLead: "Watch Builder fix it, live.",
     fixedFooter: "Fixed. Hover away, nothing happens now.",
     close: "Close",
+    relaunch: "Relaunch demo",
   },
   fr: {
-    badge: "Mauvaise UX !",
+    badge: "Problème d'UX",
     body: "Ce sont des tags, pas des boutons. Mais ils réagissent au survol, comme s'ils étaient cliquables.",
     cta: "Corriger avec Builder",
     dismissAria: "Fermer",
     overlayLead: "Builder corrige ça, en direct.",
     fixedFooter: "Corrigé. Passez la souris, il ne se passe plus rien.",
     close: "Fermer",
+    relaunch: "Relancer la démo",
   },
   es: {
-    badge: "Mala UX",
+    badge: "Problema de UX",
     body: "Son tags, no botones. Pero reaccionan al pasar el cursor, como si fueran clicables.",
     cta: "Corregir con Builder",
     dismissAria: "Cerrar",
     overlayLead: "Builder corrigiéndolo, en vivo.",
     fixedFooter: "Corregido. Pase el cursor, ya no reacciona.",
     close: "Cerrar",
+    relaunch: "Relanzar la demo",
   },
 };
 

@@ -78,8 +78,8 @@ function BuilderFeature() {
   );
 }
 
-// Visuel d'une carte. Days et l'appartement ont le leur, les autres un
-// emplacement "visuel à venir" comme sur /nrc.
+// Visuel d'une carte. Days a le sien, une carte qui porte `image` aussi, les
+// autres n'ont pas de cadre.
 function CardVisual({ p, ratio }: { p: RecentProject; ratio: string }) {
   const box: React.CSSProperties = { aspectRatio: ratio, borderRadius: "var(--radius-lg)" };
 
@@ -122,20 +122,32 @@ function CardVisual({ p, ratio }: { p: RecentProject; ratio: string }) {
 }
 
 // Carte projet : visuel, nom (avec un point à ses couleurs), état, une phrase,
-// la description en taille medium seulement, tags en texte discret.
-function ProjectCard({ p, size }: { p: RecentProject; size: "medium" | "small" }) {
+// la description, tags en texte discret. "wide" : pleine ligne, visuel à gauche
+// et texte à droite (comme la carte Episource), empilés sur mobile.
+function ProjectCard({
+  p,
+  wide = false,
+  className = "",
+}: {
+  p: RecentProject;
+  wide?: boolean;
+  className?: string;
+}) {
   const { locale } = useLocale();
   const lx = projectText[locale][p.id];
   const status = statusText[locale][p.status];
-  const medium = size === "medium";
 
   return (
-    <article className={`panel p-4 sm:p-5 flex flex-col${p.link ? " card-link relative" : ""}`}>
+    <article
+      className={`panel p-4 sm:p-5 ${
+        wide ? "grid gap-6 md:grid-cols-2 md:gap-10 items-center" : "flex flex-col"
+      }${p.link ? " card-link relative" : ""} ${className}`}
+    >
       {p.link && (
         <Link href={p.link} aria-label={p.name} className="absolute inset-0 z-10 rounded-[inherit]" />
       )}
-      <CardVisual p={p} ratio={medium ? "16 / 9" : "16 / 6"} />
-      <div className="px-1 pt-5 pb-1 flex flex-col flex-1">
+      <CardVisual p={p} ratio="16 / 9" />
+      <div className={`px-1 pb-1 flex flex-col flex-1 ${wide ? "" : "pt-5"}`}>
         <div className="flex items-baseline justify-between gap-4">
           <h3 className="font-display text-xl font-bold flex items-center gap-2.5">
             <span
@@ -154,11 +166,9 @@ function ProjectCard({ p, size }: { p: RecentProject; size: "medium" | "small" }
           </span>
         </div>
         <p className="text-sm font-medium mt-2">{lx?.tagline}</p>
-        {medium && (
-          <p className="text-sm leading-relaxed mt-2" style={{ color: "var(--text-muted)" }}>
-            {lx?.description}
-          </p>
-        )}
+        <p className="text-sm leading-relaxed mt-2" style={{ color: "var(--text-muted)" }}>
+          {lx?.description}
+        </p>
         <p className="mt-auto pt-4 text-xs" style={{ color: "var(--text-muted)" }}>
           {p.tags.join(" · ")}
         </p>
@@ -168,8 +178,8 @@ function ProjectCard({ p, size }: { p: RecentProject; size: "medium" | "small" }
 }
 
 // Section Side projects de la home. Ordre dans `sideProjectIds` : les deux
-// premiers ont leur grande carte (Builder, SpotA), les deux suivants passent
-// en taille medium, le reste en petit.
+// premiers ont leur grande carte (Builder, SpotA), puis une ligne à deux
+// cartes (1/3, 2/3), puis une dernière carte seule sur sa ligne.
 export function SideProjects() {
   const { locale } = useLocale();
   const title = highlightText[locale].sectionTitle;
@@ -177,6 +187,8 @@ export function SideProjects() {
     .slice(2)
     .map((id) => recentProjects.find((p) => p.id === id))
     .filter((p): p is RecentProject => Boolean(p));
+  const pair = cards.slice(0, 2);
+  const last = cards.slice(2);
 
   return (
     <section id="featured" className="max-w-6xl mx-auto px-6 py-12 sm:py-16">
@@ -189,11 +201,17 @@ export function SideProjects() {
         <SpotaFeature />
       </div>
 
-      <div className="grid gap-5 md:grid-cols-2 mt-6">
-        {cards.map((p, i) => (
-          <ProjectCard key={p.id} p={p} size={i < 2 ? "medium" : "small"} />
+      <div className="grid gap-5 md:grid-cols-3 mt-6">
+        {pair.map((p, i) => (
+          <ProjectCard key={p.id} p={p} className={i === 1 ? "md:col-span-2" : ""} />
         ))}
       </div>
+
+      {last.map((p) => (
+        <div key={p.id} className="mt-5">
+          <ProjectCard p={p} wide />
+        </div>
+      ))}
     </section>
   );
 }

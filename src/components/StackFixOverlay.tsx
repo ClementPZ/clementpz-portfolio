@@ -17,11 +17,9 @@ type Kind = "prompt" | "run" | "ok" | "gate" | "badge" | "done";
 type Line = { kind: Kind; text: string };
 
 // Script en anglais (convention CLI), cf. BuilderDemo.
+const PROMPT = '"the stack tags react on hover but aren\'t interactive, fix the affordance"';
 const SCRIPT: Line[] = [
-  {
-    kind: "prompt",
-    text: '"the stack tags react on hover but aren\'t interactive, fix the affordance"',
-  },
+  { kind: "prompt", text: PROMPT },
   { kind: "run", text: "Triage" },
   { kind: "badge", text: "T1 · token-level change" },
   { kind: "run", text: "Plan · 1 file · globals.css" },
@@ -30,6 +28,9 @@ const SCRIPT: Line[] = [
   { kind: "ok", text: "nothing off-token · lint · typecheck" },
   { kind: "done", text: "Diff ready for engineer review" },
 ];
+
+const TYPE_MS = 44; // par lettre du prompt, deux fois plus lent que la carte Builder
+const STEP_MS = 480; // entre deux lignes suivantes
 
 const MARK: Record<Kind, string> = {
   prompt: "›",
@@ -50,23 +51,41 @@ export function StackFixOverlay({
   const { locale } = useLocale();
   const t = stackEggText[locale];
   const [count, setCount] = useState(0);
+  const [typed, setTyped] = useState(0);
+  // Compteur de lectures : "Relaunch demo" l'incrémente pour rejouer le script.
+  const [run, setRun] = useState(1);
   const doneBtnRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
     if (reduced) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
+      setTyped(PROMPT.length);
       setCount(SCRIPT.length);
       return;
     }
-    let i = 0;
-    const id = window.setInterval(() => {
-      i += 1;
-      setCount(i);
-      if (i >= SCRIPT.length) window.clearInterval(id);
-    }, 480);
-    return () => window.clearInterval(id);
-  }, []);
+    let cancelled = false;
+    let timer: number | undefined;
+    const wait = (ms: number) => new Promise<void>((r) => (timer = window.setTimeout(r, ms)));
+    setTyped(0);
+    setCount(1);
+    (async () => {
+      for (let c = 1; c <= PROMPT.length; c++) {
+        await wait(TYPE_MS);
+        if (cancelled) return;
+        setTyped(c);
+      }
+      for (let i = 2; i <= SCRIPT.length; i++) {
+        await wait(STEP_MS);
+        if (cancelled) return;
+        setCount(i);
+      }
+    })();
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timer);
+    };
+  }, [run]);
 
   const lines = SCRIPT.slice(0, count);
   const finished = count >= SCRIPT.length;
@@ -119,7 +138,16 @@ export function StackFixOverlay({
                       fontWeight: l.kind === "done" ? 600 : 400,
                     }}
                   >
-                    {l.text}
+                    {l.kind === "prompt" ? (
+                      <>
+                        {l.text.slice(0, typed)}
+                        {/* Le reste est invisible : la ligne garde sa hauteur
+                            finale pendant la frappe, la fenêtre ne bouge pas. */}
+                        <span style={{ visibility: "hidden" }}>{l.text.slice(typed)}</span>
+                      </>
+                    ) : (
+                      l.text
+                    )}
                   </span>
                 </div>
               )
@@ -140,6 +168,14 @@ export function StackFixOverlay({
               style={{ marginTop: 16, width: "100%", justifyContent: "center" }}
             >
               {t.close}
+            </button>
+            <button
+              type="button"
+              onClick={() => setRun((n) => n + 1)}
+              className="btn-ghost"
+              style={{ marginTop: 10, width: "100%", justifyContent: "center" }}
+            >
+              {t.relaunch}
             </button>
           </>
         ) : (
