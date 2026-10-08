@@ -975,7 +975,7 @@ export const builderText: Record<
     sections: [
       {
         heading: "El problema",
-        body: "Los PM y los diseñadores suelen ser los primeros en detectar los problemas de UX y de UI, y los que mejor saben resolverlos. Hoy la ejecución pasa por un ingeniero, o por un codegen que se desvía rápido y pierde la coherencia visual. Builder les permite hacer la corrección ellos mismos, dentro del design system.",
+        body: "Los PM y los diseñadores suelen ser los primeros en detectar los problemas de UX y de UI, y los que mejor saben resolverlos. Hoy la corrección pasa por un ingeniero, o por un codegen que se desvía rápido y pierde la coherencia visual. Builder les permite hacer la corrección ellos mismos, dentro del design system.",
       },
       {
         heading: "Cómo funciona",
@@ -2212,7 +2212,7 @@ export const nrcHueyText: Record<
     },
     outcome: {
       title: "Outcome",
-      body: "The principles became the shared test for any Huey marker, feature, pattern or interaction, and the drawer gave every product the same anatomy for AI conversations. Under the same Huey umbrella, ambient listening raised nurse documentation from 55% to 90%.",
+      body: "The three principles now serve as the common test for everything Huey shows on screen, and the drawer gives every product the same structure for talking to the AI. Within Huey, ambient listening raised nurse documentation from 55% to 90%.",
     },
     contactCta: "Talk about this work",
     backCase: "Back to the NRC case study",
@@ -2334,7 +2334,7 @@ export const nrcHueyText: Record<
     },
     outcome: {
       title: "Résultat",
-      body: "Les principes sont devenus le test commun de tout marqueur, feature, pattern ou interaction Huey, et le drawer a donné à chaque produit la même anatomie pour les conversations avec l'IA. Sous le même parapluie Huey, l'ambient listening a fait passer la documentation infirmière de 55 % à 90 %.",
+      body: "Les trois principes servent de test commun à tout ce que Huey affiche, et le drawer donne à chaque produit la même structure pour dialoguer avec l'IA. Au sein de Huey, l'ambient listening a fait passer la documentation des infirmières de 55 % à 90 %.",
     },
     contactCta: "Parler de ce travail",
     backCase: "Retour au case study NRC",
@@ -2456,7 +2456,7 @@ export const nrcHueyText: Record<
     },
     outcome: {
       title: "Resultado",
-      body: "Los principios se convirtieron en el test común de cualquier marcador, feature, patrón o interacción de Huey, y el drawer dio a cada producto la misma anatomía para las conversaciones con la IA. Bajo el mismo paraguas de Huey, el ambient listening elevó la documentación de enfermería del 55% al 90%.",
+      body: "Los tres principios sirven como test común para todo lo que Huey muestra en pantalla, y el drawer da a cada producto la misma estructura para conversar con la IA. Dentro de Huey, el ambient listening elevó la documentación de enfermería del 55% al 90%.",
     },
     contactCta: "Hablar de este trabajo",
     backCase: "Volver al case study NRC",
