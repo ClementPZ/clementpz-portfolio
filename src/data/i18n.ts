@@ -618,7 +618,7 @@ export const musicQualityUpgraderText: Record<
     stack: string[];
     upgrade: MusicFlow;
     flow: MusicFlow;
-    tools: { title: string; sub: string; cols: [string, string]; rows: MusicRow[] };
+    tools: { title: string; sub: string; rows: MusicRow[] };
     modes: { title: string; sub: string; items: MusicMode[] };
     versions: { title: string; sub: string; items: MusicVersion[] };
     roadmap: { title: string; sub: string; items: MusicRoad[] };
@@ -668,7 +668,6 @@ export const musicQualityUpgraderText: Record<
     tools: {
       title: "The tools",
       sub: "The core flow only needs Docker and the Python standard library.",
-      cols: ["Component", "Role"],
       rows: [
         { name: "meshd (CLI)", role: "A single-file Python orchestrator, around 3,000 lines. Drives the daemon's REST API and the Music app via AppleScript." },
         { name: "P2P daemon", role: "Self-hosted SoundMesh client in Docker, local REST API for search and transfers." },
@@ -748,7 +747,6 @@ export const musicQualityUpgraderText: Record<
     tools: {
       title: "Les outils",
       sub: "Le cœur du flow ne dépend que de Docker et de la bibliothèque standard Python.",
-      cols: ["Composant", "Rôle"],
       rows: [
         { name: "meshd (CLI)", role: "Orchestrateur Python d'environ 3 000 lignes, un seul fichier. Pilote l'API REST du daemon et l'app Musique via AppleScript." },
         { name: "Daemon P2P", role: "Client SoundMesh auto-hébergé dans Docker, API REST locale pour la recherche et les transferts." },
@@ -828,7 +826,6 @@ export const musicQualityUpgraderText: Record<
     tools: {
       title: "Las herramientas",
       sub: "El núcleo del flow solo depende de Docker y de la biblioteca estándar de Python.",
-      cols: ["Componente", "Rol"],
       rows: [
         { name: "meshd (CLI)", role: "Orquestador Python de un solo archivo, alrededor de 3000 líneas. Pilota la API REST del daemon y la app Música vía AppleScript." },
         { name: "Daemon P2P", role: "Cliente SoundMesh autoalojado en Docker, API REST local para búsqueda y transferencias." },
@@ -1477,7 +1474,7 @@ export const nrcText: Record<
         },
       ],
       builderCta: "Read the Builder plugin case study (inspired by the work done at NRC)",
-      teaserCaption: "Flowbite, the open-source base of the system, extracted into tokens and 16 live components.",
+      teaserCaption: "Flowbite, the open-source base of the system, extracted into tokens and 19 live components.",
       exploreCta: "Explore the extracted design system",
     },
     cases: {
@@ -1653,7 +1650,7 @@ export const nrcText: Record<
         },
       ],
       builderCta: "Lire le case study sur le plugin Builder (inspiré du travail effectué chez NRC)",
-      teaserCaption: "Flowbite, la base open source du système, extraite en tokens et 16 composants vivants.",
+      teaserCaption: "Flowbite, la base open source du système, extraite en tokens et 19 composants vivants.",
       exploreCta: "Explorer le design system extrait",
     },
     cases: {
@@ -1829,7 +1826,7 @@ export const nrcText: Record<
         },
       ],
       builderCta: "Leer el case study del plugin Builder (inspirado en el trabajo realizado en NRC)",
-      teaserCaption: "Flowbite, la base de código abierto del sistema, extraída en tokens y 16 componentes vivos.",
+      teaserCaption: "Flowbite, la base de código abierto del sistema, extraída en tokens y 19 componentes vivos.",
       exploreCta: "Explorar el design system extraído",
     },
     cases: {
@@ -2003,7 +2000,7 @@ export const nrcSystemText: Record<
     },
     components: {
       title: "Components",
-      sub: "Twenty-one components, all live. Hover, focus and click inside the previews.",
+      sub: "Nineteen components, all live. Hover, focus and click inside the previews.",
       notBuilt: "Not built yet: Alert, Table, Tabs, Modal, Avatar.",
     },
     groups: { Actions: "Actions", Forms: "Forms", Navigation: "Navigation", Surfaces: "Surfaces", Feedback: "Feedback" },
@@ -2043,7 +2040,7 @@ export const nrcSystemText: Record<
     },
     components: {
       title: "Composants",
-      sub: "Vingt et un composants, tous vivants. Survolez, mettez le focus et cliquez dans les aperçus.",
+      sub: "Dix-neuf composants, tous vivants. Survolez, mettez le focus et cliquez dans les aperçus.",
       notBuilt: "Pas encore construits : Alert, Table, Tabs, Modal, Avatar.",
     },
     groups: { Actions: "Actions", Forms: "Formulaires", Navigation: "Navigation", Surfaces: "Surfaces", Feedback: "Retours" },
@@ -2083,7 +2080,7 @@ export const nrcSystemText: Record<
     },
     components: {
       title: "Componentes",
-      sub: "Veintiún componentes, todos vivos. Pasa el cursor, enfoca y haz clic dentro de las vistas previas.",
+      sub: "Diecinueve componentes, todos vivos. Pasa el cursor, enfoca y haz clic dentro de las vistas previas.",
       notBuilt: "Aún sin construir: Alert, Table, Tabs, Modal, Avatar.",
     },
     groups: { Actions: "Acciones", Forms: "Formularios", Navigation: "Navegación", Surfaces: "Superficies", Feedback: "Retroalimentación" },

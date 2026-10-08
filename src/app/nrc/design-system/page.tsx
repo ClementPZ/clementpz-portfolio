@@ -4,7 +4,7 @@ import { NrcDesignSystemContent } from "../../../components/NrcDesignSystemConte
 export const metadata: Metadata = {
   title: "Flowbite design system · Clément PZ",
   description:
-    "The open-source Flowbite design system extracted and documented: tokens copied from the source and 16 live components with usage guides. Not NRC's internal system.",
+    "The open-source Flowbite design system extracted and documented: tokens copied from the source and 19 live components with usage guides. Not NRC's internal system.",
 };
 
 export default function NrcDesignSystemPage() {
