@@ -40,7 +40,7 @@ export function Stack() {
   return (
     <section
       id="stack"
-      className="max-w-6xl mx-auto px-6 py-16"
+      className="max-w-6xl mx-auto px-6 py-20 sm:py-28"
     >
       <div className="mb-8">
         <h2 className="font-display text-2xl sm:text-3xl font-bold">{t.stackTitle}</h2>

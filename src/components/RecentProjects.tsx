@@ -52,7 +52,7 @@ export function RecentProjects() {
     <section
       id="recent"
       ref={sectionRef}
-      className="py-16"
+      className="py-20 sm:py-28"
       style={{ scrollMarginTop: 88 }}
     >
       <div className="max-w-6xl mx-auto px-6 flex items-baseline justify-between mb-8">

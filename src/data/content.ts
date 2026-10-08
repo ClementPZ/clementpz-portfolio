@@ -270,23 +270,12 @@ export const recentProjects: RecentProject[] = [
   },
   {
     id: "legal-music",
-    name: "Music Downloader",
+    name: "Music Quality Upgrader",
     status: "private-live",
     tags: ["Automation", "Audio", "Pipeline"],
     accent: "#059669",
     accent2: "#022c22",
-    link: "/music-downloader",
-  },
-  // Carte méta : le portfolio comme projet du portfolio. Seule carte aux
-  // couleurs de l'identité (aubergine signature) → visuellement "spéciale".
-  {
-    id: "making-of",
-    name: "This Very Portfolio",
-    status: "live",
-    tags: ["Meta", "Hackathon Mode", "Claude Code"],
-    accent: "#54255a",
-    accent2: "#1a0e1c",
-    link: "/making-of",
+    link: "/music-quality-upgrader",
   },
   {
     id: "interior-design",

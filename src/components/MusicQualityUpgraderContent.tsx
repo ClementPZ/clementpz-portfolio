@@ -4,11 +4,11 @@ import Link from "next/link";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { BackHome } from "./BackHome";
-import { musicDownloaderText } from "../data/i18n";
+import { musicQualityUpgraderText } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
 
-// Case study Music Downloader — suit le sélecteur de langue (EN/FR/ES).
-// Contenu localisé dans i18n.ts → musicDownloaderText[locale].
+// Case study Music Quality Upgrader — suit le sélecteur de langue (EN/FR/ES).
+// Contenu localisé dans i18n.ts → musicQualityUpgraderText[locale].
 
 function Code({ children }: { children: React.ReactNode }) {
   return (
@@ -37,9 +37,50 @@ function SectionTitle({ title, sub }: { title: string; sub: string }) {
   );
 }
 
-export function MusicDownloaderContent() {
+type Flow = (typeof musicQualityUpgraderText)["en"]["flow"];
+
+function FlowSection({ flow }: { flow: Flow }) {
+  return (
+    <section className="pt-12">
+      <SectionTitle title={flow.title} sub={flow.sub} />
+      <div className="grid gap-2.5">
+        {flow.steps.map((s) => (
+          <div key={s.n} className="surface flex flex-col sm:flex-row gap-1 sm:gap-4 px-5 py-4">
+            <span
+              className="font-display font-bold text-sm shrink-0 w-7"
+              style={{ color: "var(--accent)" }}
+            >
+              {s.n}
+            </span>
+            <div>
+              <h3 className="text-base font-semibold">{s.title}</h3>
+              <p className="text-sm mt-0.5" style={{ color: "var(--text-muted)" }}>
+                {s.code && <Code>{s.code}</Code>}
+                {s.body}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div
+        className="mt-3.5 px-5 py-3.5 text-sm"
+        style={{
+          background: "var(--accent-subtle)",
+          border: "1px solid var(--border)",
+          borderRadius: "var(--radius)",
+          color: "var(--text-muted)",
+        }}
+      >
+        <b style={{ color: "var(--text)" }}>{flow.asideBold}</b>
+        {flow.aside}
+      </div>
+    </section>
+  );
+}
+
+export function MusicQualityUpgraderContent() {
   const { locale } = useLocale();
-  const t = musicDownloaderText[locale];
+  const t = musicQualityUpgraderText[locale];
 
   return (
     <div id="top">
@@ -67,41 +108,9 @@ export function MusicDownloaderContent() {
           ))}
         </div>
 
-        {/* Flow */}
-        <section className="pt-12">
-          <SectionTitle title={t.flow.title} sub={t.flow.sub} />
-          <div className="grid gap-2.5">
-            {t.flow.steps.map((s) => (
-              <div key={s.n} className="surface flex flex-col sm:flex-row gap-1 sm:gap-4 px-5 py-4">
-                <span
-                  className="font-display font-bold text-sm shrink-0 w-7"
-                  style={{ color: "var(--accent)" }}
-                >
-                  {s.n}
-                </span>
-                <div>
-                  <h3 className="text-base font-semibold">{s.title}</h3>
-                  <p className="text-sm mt-0.5" style={{ color: "var(--text-muted)" }}>
-                    {s.code && <Code>{s.code}</Code>}
-                    {s.body}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div
-            className="mt-3.5 px-5 py-3.5 text-sm"
-            style={{
-              background: "var(--accent-subtle)",
-              border: "1px solid var(--border)",
-              borderRadius: "var(--radius)",
-              color: "var(--text-muted)",
-            }}
-          >
-            <b style={{ color: "var(--text)" }}>{t.flow.asideBold}</b>
-            {t.flow.aside}
-          </div>
-        </section>
+        {/* Boucle d'upgrade, puis entrée d'un nouveau morceau */}
+        <FlowSection flow={t.upgrade} />
+        <FlowSection flow={t.flow} />
 
         {/* Outils */}
         <section className="pt-12">
@@ -144,7 +153,7 @@ export function MusicDownloaderContent() {
         {/* Modes */}
         <section className="pt-12">
           <SectionTitle title={t.modes.title} sub={t.modes.sub} />
-          <div className="grid gap-3 sm:grid-cols-3">
+          <div className="grid gap-3 sm:grid-cols-2">
             {t.modes.items.map((m, i) => (
               <div key={m.title} className={`surface px-5 py-5${i === 0 ? " card-featured" : ""}`}>
                 <h3 className="font-display text-base font-bold mb-1.5">{m.title}</h3>
