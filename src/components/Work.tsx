@@ -83,15 +83,20 @@ const WIDE_ID = "episource";
 type LocalizedWork = (typeof workText)[Locale][WorkItem["id"]];
 
 // Corps commun d'une carte d'expérience : entête, rôle, lieu, puis `children`
-// (le visuel quand il s'empile), puces, impact et tags.
+// (le visuel quand il s'empile), puces, impact et tags. `columns` met les
+// puces sur deux colonnes, `action` se pose à droite de la ligne des tags.
 function ExperienceText({
   w,
   lx,
   children,
+  columns = false,
+  action,
 }: {
   w: WorkItem;
   lx: LocalizedWork | undefined;
   children?: React.ReactNode;
+  columns?: boolean;
+  action?: React.ReactNode;
 }) {
   const { t } = useLocale();
   const bullets = lx?.bullets ?? [];
@@ -116,7 +121,12 @@ function ExperienceText({
 
       {children}
 
-      <ul className="text-sm leading-relaxed mb-4 space-y-2 pl-4" style={{ listStyle: "disc" }}>
+      <ul
+        className={`text-sm leading-relaxed mb-4 pl-4 ${
+          columns ? "md:columns-2 md:gap-x-12 [&>li]:mb-2 [&>li]:break-inside-avoid" : "space-y-2"
+        }`}
+        style={{ listStyle: "disc" }}
+      >
         {bullets.map((b) => (
           <li key={b}>{b}</li>
         ))}
@@ -135,9 +145,12 @@ function ExperienceText({
         </div>
       )}
 
-      <p className="mt-auto pt-2 text-xs" style={{ color: "var(--text-muted)" }}>
-        {w.tags.join(" · ")}
-      </p>
+      <div className="mt-auto pt-2 flex items-end justify-between gap-4">
+        <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+          {w.tags.join(" · ")}
+        </p>
+        {action}
+      </div>
     </>
   );
 }
@@ -157,8 +170,8 @@ function CardLink({ w }: { w: WorkItem }) {
 }
 
 // Dernière expérience seule, pleine largeur, puis les deux recommandations en
-// conclusion. Le visuel de droite est le comparateur avant/après de /nrc, posé
-// au-dessus du lien étiré de la carte (z-20) pour rester glissable.
+// conclusion. Le comparateur avant/après de /nrc se pose entre l'entête et les
+// puces, au-dessus du lien étiré de la carte (z-20) pour rester glissable.
 export function LastExperience() {
   const { locale, t } = useLocale();
   const w = work.find((x) => x.id === "nrc");
@@ -181,26 +194,29 @@ export function LastExperience() {
       </div>
 
       <article
-        className={`panel card-featured p-6 sm:p-10 grid gap-8 md:grid-cols-2 md:gap-12${
-          w.link ? " relative" : ""
-        }`}
+        className={`panel card-featured p-6 sm:p-10 flex flex-col${w.link ? " relative" : ""}`}
         style={{ borderRadius: CARD_RADIUS }}
       >
         <CardLink w={w} />
-        <div className="flex flex-col">
-          <ExperienceText w={w} lx={lx} />
-          {w.link && (
-            <p className="mt-5 text-sm font-semibold" style={{ color: "var(--text)" }}>
-              {t.caseStudy} →
+        <ExperienceText
+          w={w}
+          lx={lx}
+          columns
+          action={
+            w.link && (
+              <p className="text-sm font-semibold whitespace-nowrap" style={{ color: "var(--text)" }}>
+                {t.caseStudy} →
+              </p>
+            )
+          }
+        >
+          <div className="relative z-20 mb-6">
+            <BeforeAfterSlider text={nrcVisuals[locale].slider} breakout={false} />
+            <p className="text-xs mt-2" style={{ color: "var(--text-muted)" }}>
+              {nrcVisuals[locale].disclaimer}
             </p>
-          )}
-        </div>
-        <div className="relative z-20 self-center">
-          <BeforeAfterSlider text={nrcVisuals[locale].slider} breakout={false} />
-          <p className="text-xs mt-2" style={{ color: "var(--text-muted)" }}>
-            {nrcVisuals[locale].disclaimer}
-          </p>
-        </div>
+          </div>
+        </ExperienceText>
       </article>
 
       {wide && (

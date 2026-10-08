@@ -689,6 +689,14 @@ a {
   animation: stack-egg-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+.stack-egg-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
 .stack-egg-badge {
   display: inline-flex;
   align-items: center;
@@ -700,7 +708,6 @@ a {
   font-weight: 700;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  margin-bottom: 8px;
 }
 
 .stack-egg-callout p {
@@ -713,11 +720,11 @@ a {
 .stack-egg-actions {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 10px;
 }
 
 .stack-egg-dismiss {
-  margin-left: auto;
   width: 28px;
   height: 28px;
   display: inline-flex;
@@ -769,6 +776,16 @@ a {
 
 .btn-ghost:hover {
   background: var(--bg-elev);
+}
+
+/* Dans le verre du disclaimer ou de l'overlay, --bg-elev se lit presque blanc
+   en clair : un voile du texte, légèrement plus sombre, au survol et au clic. */
+.overlay-glass .btn-ghost:hover {
+  background: color-mix(in oklab, var(--text) 8%, transparent);
+}
+
+.overlay-glass .btn-ghost:active {
+  background: color-mix(in oklab, var(--text) 14%, transparent);
 }
 
 /* Carte entierement cliquable (lien etire). Le seul retour au survol est une

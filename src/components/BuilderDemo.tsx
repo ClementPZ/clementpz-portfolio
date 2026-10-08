@@ -4,7 +4,7 @@
 // (gradient d'identité aubergine, texte blanc) : les couleurs sont donc des
 // blancs translucides + un vert léger, comme le reste de la carte,
 // indépendants du thème dark/light. Contenu terminal en anglais (CLI).
-// Le script se joue seul la première fois que le terminal entre à l'écran (le
+// Le script se joue seul la première fois que le visiteur arrive dans la section (le
 // prompt se tape lettre par lettre), puis le parent (SideProjects) incrémente
 // `trigger` au clic sur "Lancer demo" pour le rejouer.
 import { useEffect, useRef, useState } from "react";
@@ -57,10 +57,12 @@ export function BuilderDemo({ trigger }: { trigger: number }) {
   const [inView, setInView] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
 
-  // Lance la première lecture quand le terminal est à moitié visible.
+  // Lance la première lecture dès que le visiteur arrive dans la section (son
+  // haut passe le bas de l'écran), pas quand le terminal est déjà à moitié vu.
   useEffect(() => {
     const el = rootRef.current;
-    if (!el || typeof IntersectionObserver === "undefined") {
+    const target = el?.closest("section") ?? el;
+    if (!target || typeof IntersectionObserver === "undefined") {
       setInView(true);
       return;
     }
@@ -71,9 +73,9 @@ export function BuilderDemo({ trigger }: { trigger: number }) {
           io.disconnect();
         }
       },
-      { threshold: 0.5 }
+      { rootMargin: "0px 0px -15% 0px" }
     );
-    io.observe(el);
+    io.observe(target);
     return () => io.disconnect();
   }, []);
 
