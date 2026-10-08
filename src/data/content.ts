@@ -64,7 +64,7 @@ export const work: WorkItem[] = [
   {
     id: "nrc",
     company: "NRC Health (Nasdaq: NRC)",
-    period: "2024 - Present",
+    period: "2024 - 2026",
     location: "Lincoln, USA · Paris",
     tags: ["Healthcare", "SaaS", "Design System", "Lead", "AI"],
     photo: "/work/nrc.jpg",
