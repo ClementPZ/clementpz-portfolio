@@ -5,9 +5,8 @@ import { PullToRefresh } from "../components/PullToRefresh";
 import { Nav } from "../components/Nav";
 import { Hero } from "../components/Hero";
 import { Stack } from "../components/Stack";
-import { Highlight } from "../components/Highlight";
 import { LastExperience, PastExperiences } from "../components/Work";
-import { RecentProjects } from "../components/RecentProjects";
+import { SideProjects } from "../components/SideProjects";
 import { Footer } from "../components/Footer";
 
 // Séparateur discret entre sections, aligné sur la colonne de contenu.
@@ -32,8 +31,7 @@ export default function Home() {
           <SectionRule />
           <LastExperience />
           <SectionRule />
-          <Highlight />
-          <RecentProjects />
+          <SideProjects />
           <SectionRule />
           <PastExperiences />
         </main>

@@ -1,10 +1,10 @@
 "use client";
 
-// Démo Builder, façon terminal Claude Code. Vit DANS la carte Highlight
+// Démo Builder, façon terminal Claude Code. Vit DANS la carte Builder de SideProjects
 // (gradient d'identité aubergine, texte blanc) : les couleurs sont donc des
 // blancs translucides + un vert léger, comme le reste de la carte,
 // indépendants du thème dark/light. Contenu terminal en anglais (CLI).
-// Piloté depuis l'extérieur : le parent (Highlight) incrémente `trigger` au
+// Piloté depuis l'extérieur : le parent (SideProjects) incrémente `trigger` au
 // clic sur "Lancer demo" ; ce composant (re)joue le script à chaque changement.
 import { useEffect, useRef, useState } from "react";
 

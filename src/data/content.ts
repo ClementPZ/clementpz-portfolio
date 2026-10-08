@@ -192,8 +192,21 @@ export type RecentProject = {
   };
 };
 
-// Ordre d'affichage gauche → droite dans le carrousel. Builder Flow est au
-// centre : le carrousel s'ouvre centré dessus (initialSlide dans RecentProjects).
+// Fiches projet (couleurs d'identité, statut, lien). Le carrousel qui les
+// affichait est retiré : seuls les ids de `sideProjectIds` paraissent sur la
+// home, les autres restent ici en données.
+// Section Side projects de la home, dans l'ordre d'affichage. Les deux premiers
+// ont leur grande carte (SpotA, Builder), les deux suivants une carte medium,
+// le reste des petites cartes (voir SideProjects.tsx).
+export const sideProjectIds: ProjectId[] = [
+  "spota",
+  "builder-flow",
+  "days",
+  "legal-music",
+  "interior-design",
+  "remarkable-calendar-sync",
+];
+
 export const recentProjects: RecentProject[] = [
   {
     id: "dj-energy",
