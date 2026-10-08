@@ -224,18 +224,11 @@ export function NrcContent() {
                   </p>
                 )}
                 {c.more && (
-                  <div className="mt-4">
-                    <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
-                      {c.more.body}
-                    </p>
-                    <Link
-                      href="/nrc/huey"
-                      className="inline-block mt-2 text-sm font-semibold hover:underline"
-                      style={{ color: "var(--accent)" }}
-                    >
-                      {c.more.cta} →
-                    </Link>
-                  </div>
+                  // Pas de lien vers /nrc/huey pour l'instant : la page reste en ligne
+                  // mais n'est joignable que par son URL (decision du 8 oct).
+                  <p className="mt-4 text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
+                    {c.more.body}
+                  </p>
                 )}
                 <div className="mt-5">
                   <Figure label={t.figureLabel} caption={c.figure} />
