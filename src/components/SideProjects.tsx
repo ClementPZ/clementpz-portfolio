@@ -180,7 +180,7 @@ export function SideProjects() {
     .filter((p): p is RecentProject => Boolean(p));
 
   return (
-    <section id="featured" className="max-w-6xl mx-auto px-6 py-20 sm:py-28">
+    <section id="featured" className="max-w-6xl mx-auto px-6 py-12 sm:py-16">
       <div className="mb-8">
         <h2 className="font-display text-2xl sm:text-3xl font-bold">{title}</h2>
       </div>
