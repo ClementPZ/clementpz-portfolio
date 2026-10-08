@@ -22,7 +22,7 @@ export function RemarkableCalendarSyncContent() {
           <BackHome />
         </div>
         <p
-          className="text-xs uppercase tracking-widest font-semibold mb-4"
+          className="text-sm font-semibold mb-4"
           style={{ color: "var(--accent)" }}
         >
           {t.kicker}

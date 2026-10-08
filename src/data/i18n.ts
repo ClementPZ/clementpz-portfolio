@@ -1058,11 +1058,11 @@ export const remarkableCalendarSyncText: Record<
       },
       {
         heading: "How it works",
-        body: "A scheduled job reads the calendar in read-only mode, builds a week view sized to the device, and replaces the page on the tablet in place, so notes already written on it stay when the calendar changes underneath.",
+        body: "Every hour from 6:00 to 23:00, a job on GitHub Actions reads the calendar in read-only mode, builds a portrait week page at the tablet's size, and replaces the single week file on the device. The new week starts blank on Monday, and the old one goes to the tablet's trash.",
       },
       {
         heading: "Where it stands",
-        body: "Running end to end on my own Paper Pro since September 2026, personal use for now. Sharing it with a second person, then opening it up further, is the direction, not yet built.",
+        body: "Running on my own Paper Pro since 21 September 2026, personal use for now. Sharing it with a second person, then opening it up further, is the direction, not yet built.",
       },
     ],
     backHome: "Back to the portfolio",
@@ -1079,11 +1079,11 @@ export const remarkableCalendarSyncText: Record<
       },
       {
         heading: "Comment ça marche",
-        body: "Une tâche planifiée lit l'agenda en lecture seule, construit une vue semaine au format de l'appareil, et remplace la page sur la tablette sur place, pour que les notes déjà écrites dessus restent quand l'agenda change en dessous.",
+        body: "Toutes les heures, de 6 h à 23 h, une tâche sur GitHub Actions lit l'agenda en lecture seule, construit une page semaine en portrait au format de la tablette, et remplace l'unique fichier de la semaine sur l'appareil. La nouvelle semaine démarre vierge le lundi, et l'ancienne part à la corbeille de la tablette.",
       },
       {
         heading: "Où ça en est",
-        body: "Fonctionne de bout en bout sur ma propre Paper Pro depuis septembre 2026, usage personnel pour l'instant. Le partager avec une deuxième personne, puis l'ouvrir plus largement, c'est la direction prise, pas encore construite.",
+        body: "Fonctionne sur ma propre Paper Pro depuis le 21 septembre 2026, usage personnel pour l'instant. Le partager avec une deuxième personne, puis l'ouvrir plus largement, c'est la direction prise, pas encore construite.",
       },
     ],
     backHome: "Retour au portfolio",
@@ -1100,11 +1100,11 @@ export const remarkableCalendarSyncText: Record<
       },
       {
         heading: "Cómo funciona",
-        body: "Una tarea programada lee el calendario en modo solo lectura, arma una vista semanal al formato del dispositivo, y reemplaza la página en la tablet en el mismo lugar, para que las notas ya escritas en ella se mantengan cuando el calendario cambia debajo.",
+        body: "Cada hora, de 6:00 a 23:00, una tarea en GitHub Actions lee el calendario en modo solo lectura, arma una página semanal en vertical al tamaño de la tablet, y reemplaza el único archivo de la semana en el dispositivo. La nueva semana empieza en blanco el lunes, y la anterior va a la papelera de la tablet.",
       },
       {
         heading: "En qué punto está",
-        body: "Funciona de principio a fin en mi propia Paper Pro desde septiembre de 2026, uso personal por ahora. Compartirlo con una segunda persona, y luego abrirlo más, es la dirección tomada, todavía sin construir.",
+        body: "Funciona en mi propia Paper Pro desde el 21 de septiembre de 2026, uso personal por ahora. Compartirlo con una segunda persona, y luego abrirlo más, es la dirección tomada, todavía sin construir.",
       },
     ],
     backHome: "Volver al portafolio",
