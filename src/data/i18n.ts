@@ -34,6 +34,7 @@ type UI = {
   getInTouch: string;
   stackTitle: string;
   workTitle: string;
+  pastTitle: string;
   impactLabel: string;
   recentTitle: string;
   recentSub: string;
@@ -50,7 +51,8 @@ export const ui: Record<Locale, UI> = {
   en: {
     getInTouch: "Get in touch",
     stackTitle: "My day-to-day stack",
-    workTitle: "Experiences",
+    workTitle: "Last experience",
+    pastTitle: "Past experiences",
     impactLabel: "Business impact",
     recentTitle: "Past 6 months side projects",
     recentSub:
@@ -67,7 +69,8 @@ export const ui: Record<Locale, UI> = {
   fr: {
     getInTouch: "Me contacter",
     stackTitle: "Ma stack au quotidien",
-    workTitle: "Expériences",
+    workTitle: "Dernière expérience",
+    pastTitle: "Expériences passées",
     impactLabel: "Impact business",
     recentTitle: "Side projects des 6 derniers mois",
     recentSub:
@@ -84,7 +87,8 @@ export const ui: Record<Locale, UI> = {
   es: {
     getInTouch: "Contactarme",
     stackTitle: "Mi stack del día a día",
-    workTitle: "Experiencias",
+    workTitle: "Última experiencia",
+    pastTitle: "Experiencias anteriores",
     impactLabel: "Impacto de negocio",
     recentTitle: "Side projects de los últimos 6 meses",
     recentSub:
@@ -285,9 +289,9 @@ export const projectText: Record<
         "A card game for couples built on a simultaneous reveal on a spectrum. 5 pillars, an intensity-based color system, special cards. Currently in card-design phase.",
     },
     "legal-music": {
-      tagline: "Music platforms to rekordbox in one command",
+      tagline: "Swap MP3s for lossless files, playlist by playlist",
       description:
-        "A pipeline that finds a track on a P2P network, downloads the best quality available, converts it to lossless and files it into my DJ library: genre, playlist, energy tag. All from a single command.",
+        "A pipeline that checks every track of a playlist, searches for a better file, files it where the old one was and moves the old one to a review playlist. It also downloads new tracks, from a single command.",
     },
     "job-search": {
       tagline: "A cleaner France Travail interface",
@@ -347,9 +351,9 @@ export const projectText: Record<
         "Un jeu de cartes pour couples basé sur une révélation simultanée sur un spectre. 5 piliers, un système de couleurs par intensité, des cartes spéciales. Actuellement en phase de design des cartes.",
     },
     "legal-music": {
-      tagline: "Des plateformes musicales à rekordbox en une commande",
+      tagline: "Remplacer les MP3 par du lossless, playlist par playlist",
       description:
-        "Un pipeline qui trouve un morceau sur un réseau P2P, le télécharge dans la meilleure qualité disponible, le convertit en lossless et le range dans ma bibliothèque DJ : genre, playlist, tag d'énergie. Le tout en une commande.",
+        "Un pipeline qui vérifie chaque morceau d'une playlist, cherche un meilleur fichier, le range là où se trouvait l'ancien et déplace l'ancien dans une playlist de review. Il télécharge aussi les nouveaux morceaux, en une commande.",
     },
     "job-search": {
       tagline: "Une interface France Travail épurée",
@@ -409,9 +413,9 @@ export const projectText: Record<
         "Un juego de cartas para parejas basado en una revelación simultánea sobre un espectro. 5 pilares, un sistema de colores por intensidad, cartas especiales. Actualmente en fase de diseño de cartas.",
     },
     "legal-music": {
-      tagline: "De las plataformas de música a rekordbox en un comando",
+      tagline: "Cambiar los MP3 por lossless, playlist por playlist",
       description:
-        "Un pipeline que encuentra un track en una red P2P, lo descarga en la mejor calidad disponible, lo convierte a lossless y lo archiva en mi biblioteca DJ: género, playlist, etiqueta de energía. Todo con un solo comando.",
+        "Un pipeline que verifica cada track de una playlist, busca un archivo mejor, lo archiva donde estaba el antiguo y mueve el antiguo a una playlist de review. También descarga tracks nuevos, con un solo comando.",
     },
     "job-search": {
       tagline: "Una interfaz de France Travail más limpia",
@@ -589,7 +593,7 @@ export const makingOfText: Record<
 };
 
 // ============================================================================
-// Page /music-downloader — case study du pipeline musique (EN / FR / ES).
+// Page /music-quality-upgrader — case study du pipeline musique (EN / FR / ES).
 // ============================================================================
 
 type MusicStep = { n: string; title: string; body: string; code?: string };
@@ -597,8 +601,9 @@ type MusicRow = { name: string; role: string };
 type MusicMode = { title: string; body: string; cmd: string };
 type MusicVersion = { v: string; title: string; tags: string[] };
 type MusicRoad = { title: string; body: string };
+type MusicFlow = { title: string; sub: string; steps: MusicStep[]; asideBold: string; aside: string };
 
-export const musicDownloaderText: Record<
+export const musicQualityUpgraderText: Record<
   Locale,
   {
     period: string;
@@ -607,13 +612,8 @@ export const musicDownloaderText: Record<
     introBold: string;
     introPost: string;
     stack: string[];
-    flow: {
-      title: string;
-      sub: string;
-      steps: MusicStep[];
-      asideBold: string;
-      aside: string;
-    };
+    upgrade: MusicFlow;
+    flow: MusicFlow;
     tools: { title: string; sub: string; cols: [string, string]; rows: MusicRow[] };
     modes: { title: string; sub: string; items: MusicMode[] };
     versions: { title: string; sub: string; items: MusicVersion[] };
@@ -624,48 +624,61 @@ export const musicDownloaderText: Record<
 > = {
   en: {
     period: "2025 - 2026",
-    title: "Music Downloader",
+    title: "Music Quality Upgrader",
     introPre:
-      "I DJ, and I used to spend hours finding tracks, checking their quality, converting, tagging and filing them. This project cuts all of that to ",
-    introBold: "one command",
+      "I DJ, and part of my library was MP3s picked up in a hurry. This tool checks the quality of every track in a playlist, searches for a better file, files it where the old one was and moves the old one to a ",
+    introBold: "review playlist",
     introPost:
-      ": the track is found on SoundMesh, a peer-to-peer network, downloaded at the best available quality, converted to lossless, imported into my library and filed by genre and energy level, ready for rekordbox.",
-    stack: ["Python", "Docker", "ffmpeg", "AppleScript", "librosa"],
+      ". The same code also brings in new tracks: found on SoundMesh, a peer-to-peer network, downloaded at the best available quality, converted to lossless and filed in their playlist, ready for rekordbox.",
+    stack: ["Python", "Docker", "ffmpeg", "AppleScript"],
+    upgrade: {
+      title: "The upgrade loop",
+      sub: "One playlist in, better files out. The old file is never deleted.",
+      steps: [
+        { n: "01", title: "Pick a playlist", code: "meshd upgrade-batch --playlist=X", body: " runs a dry run first: the list of candidates, the plan and the estimated time. Nothing changes until I add --apply." },
+        { n: "02", title: "Check the quality of every track", body: "Everything below lossless is a candidate, MP3 320 included. Already lossless or already upgraded: skipped." },
+        { n: "03", title: "Search for a better file", body: "A track under 320 kbps accepts lossless or MP3 320. A 320 MP3 accepts lossless only. The search widens step by step, and a match check discards files that are not the right track." },
+        { n: "04", title: "Download and convert", body: "If a source fails, the next one takes over. FLAC and WAV become AIFF, metadata travels with the file." },
+        { n: "05", title: "File the new track where the old one was", body: "The new file joins every playlist of the old one, before the old one leaves them. Genre is forced on the new file." },
+        { n: "06", title: "Move the old file to review", body: "The old file goes to a playlist of legacy files to review and delete by hand. It is never deleted automatically." },
+        { n: "07", title: "Nothing found", body: "A 320 MP3 stays as it is, and the miss is logged. Below 320, the track joins the retry queue and the nightly job tries again." },
+      ],
+      asideBold: "How a run ends",
+      aside: " With one recap line: upgraded, no lossless found, pending, errors. Past ten tracks, the batch runs in the background and its status is one command away.",
+    },
     flow: {
-      title: "The flow",
+      title: "How a new track gets in",
       sub: "One command, seven steps, zero intervention. Each step was hardened against a problem hit in real use.",
       steps: [
-        { n: "01", title: "One command", code: 'meshd track "Artist" "Title" "Genre"', body: " is the only input needed." },
-        { n: "02", title: "Library check", body: "Already lossless: it stops there. Only in MP3: it switches to the upgrade flow. No duplicates." },
+        { n: "01", title: "One command", code: 'meshd track "Artist" "Title" "Playlist"', body: " is the only input needed." },
+        { n: "02", title: "Library check", body: "Already lossless: it stops there. Only in MP3: it switches to the upgrade loop. No duplicates." },
         { n: "03", title: "Escalating search", body: "A precise query first, then wider and wider until a valid source shows up. The network connection repairs itself if it drops." },
         { n: "04", title: "Quality and error filter", body: "Lossless first, MP3 320 accepted, everything else rejected. A match check discards files that are not the right track (unwanted remix, another title by the same artist)." },
         { n: "05", title: "Download with fallback", body: "If a source rejects or blocks, the next one takes over, up to five tries. Metadata (genre, artist, title) travels with the file." },
         { n: "06", title: "Automatic conversion and import", body: "FLAC and WAV become AIFF (lossless, readable by the decks), MP3 320 is kept as is. The file lands in the Music app import folder, which ingests it on its own." },
-        { n: "07", title: "Filing", body: "Genre tagged, added to the matching playlist, energy tag (E1 warm-up, E2 mid, E3 peak): the track is ready to play." },
+        { n: "07", title: "Filing", body: "Genre tagged from the playlist name, track added to that playlist: it is ready to play." },
       ],
       asideBold: "What if the track can't be found?",
       aside: " It joins a persistent queue. A nightly job retries the entries that are due: rarities eventually resolve as other peers come online.",
     },
     tools: {
       title: "The tools",
-      sub: "The core flow only needs Docker and the Python standard library. Audio analysis is the only module with scientific dependencies.",
+      sub: "The core flow only needs Docker and the Python standard library.",
       cols: ["Component", "Role"],
       rows: [
         { name: "meshd (CLI)", role: "A single-file Python orchestrator, around 3,000 lines. Drives the daemon's REST API and the Music app via AppleScript." },
         { name: "P2P daemon", role: "Self-hosted SoundMesh client in Docker, local REST API for search and transfers." },
         { name: "Conversion hook", role: "Shell script triggered on every finished download: ffmpeg transcode, real bitrate check, MIME check, metadata." },
         { name: "Music app", role: "Watched folder for automatic import; reads and writes genres, playlists and tags via AppleScript." },
-        { name: "Energy engine", role: "librosa analysis of the full track, intra-genre percentile score, E1/E2/E3 buckets and vocal detection. A homegrown alternative to a paid tool." },
         { name: "Queue", role: "Retry with a file lock, normalized keys (artist order, accents) and due dates: no duplicates, no network spam." },
       ],
     },
     modes: {
-      title: "Three modes",
-      sub: "The same code serves three distinct uses.",
+      title: "Two modes",
+      sub: "The same code serves two distinct uses.",
       items: [
-        { title: "Download", body: "Acquire a new track, from search to filing.", cmd: 'meshd track "Artist" "Title" "Genre"' },
         { title: "Upgrade", body: "Replace the library's MP3s with lossless, playlists preserved; the old file goes to a review list, never deleted blindly.", cmd: "meshd upgrade-batch --playlist=X --apply" },
-        { title: "Score energy", body: "Rate each track E1/E2/E3 to build sets, with cached analyses.", cmd: "meshd energy-analyze --genre=X --apply" },
+        { title: "Download", body: "Acquire a new track, from search to filing.", cmd: 'meshd track "Artist" "Title" "Playlist"' },
       ],
     },
     versions: {
@@ -673,7 +686,7 @@ export const musicDownloaderText: Record<
       sub: "Each version closed a family of problems seen in real use, no speculative features.",
       items: [
         { v: "v1", title: "Foundations", tags: ["API search and download", "quality filter", "session cache"] },
-        { v: "v2", title: "Automation", tags: ["conversion hook", "embedded metadata", "playlist by genre", "multi-source fallback", "lossless upgrade flow", "energy classification"] },
+        { v: "v2", title: "Automation", tags: ["conversion hook", "embedded metadata", "playlist by genre", "multi-source fallback", "lossless upgrade flow"] },
         { v: "v3", title: "Robustness", tags: ["upstream de-duplication", "escalating search", "auto-reconnect", "bad-file guard", "normalized queue", "dated nightly retry", "secrets out of code"] },
       ],
     },
@@ -682,59 +695,70 @@ export const musicDownloaderText: Record<
       sub: "The owned backlog: leads identified, noted, and deliberately left aside until the pain justifies them.",
       items: [
         { title: "Search by compilation", body: "When a single can't be found on its own, look for it through the artist's known albums and compilations already in the library." },
-        { title: "Validate energy by ear", body: "Build a reference set per genre (tracks whose bucket is certain) to measure the score's correlation cleanly, and improve the heterogeneous genres where the current model slips." },
-        { title: "Crowd-sourced signal", body: "Cross the energy score with track positions in public sets: a track played late by many DJs is probably a peak." },
         { title: "Package and share", body: "Extract the personal config, document the install and publish the tool so another DJ can deploy it." },
       ],
     },
     legal:
-      "SoundMesh is presented here as a generic peer-to-peer network for freely licensed, self-produced audio. The engineering described (self-hosted daemon, REST orchestration, conversion pipeline, library integration, energy classification) is independent of the source and applies to any catalog the user can legitimately access.",
+      "SoundMesh is presented here as a generic peer-to-peer network for freely licensed, self-produced audio. The engineering described (self-hosted daemon, REST orchestration, conversion pipeline, library integration) is independent of the source and applies to any catalog the user can legitimately access.",
     backHome: "Back to the portfolio",
   },
   fr: {
     period: "2025 - 2026",
-    title: "Music Downloader",
+    title: "Music Quality Upgrader",
     introPre:
-      "Je mixe, et je passais des heures à chercher des tracks, vérifier leur qualité, les convertir, les taguer et les ranger. Ce projet réduit tout ça à ",
-    introBold: "une commande",
+      "Je mixe, et une partie de ma bibliothèque était faite de MP3 récupérés à la va-vite. Cet outil vérifie la qualité de chaque morceau d'une playlist, cherche un meilleur fichier, le range là où se trouvait l'ancien et déplace l'ancien dans une ",
+    introBold: "playlist de review",
     introPost:
-      " : le morceau est trouvé sur SoundMesh, un réseau peer-to-peer, téléchargé dans la meilleure qualité disponible, converti en lossless, importé dans ma bibliothèque et rangé par genre et niveau d'énergie, prêt pour rekordbox.",
-    stack: ["Python", "Docker", "ffmpeg", "AppleScript", "librosa"],
+      ". Le même code fait aussi entrer les nouveaux morceaux : trouvés sur SoundMesh, un réseau peer-to-peer, téléchargés dans la meilleure qualité disponible, convertis en lossless et rangés dans leur playlist, prêts pour rekordbox.",
+    stack: ["Python", "Docker", "ffmpeg", "AppleScript"],
+    upgrade: {
+      title: "La boucle d'upgrade",
+      sub: "Une playlist en entrée, de meilleurs fichiers en sortie. L'ancien fichier n'est jamais supprimé.",
+      steps: [
+        { n: "01", title: "Choisir une playlist", code: "meshd upgrade-batch --playlist=X", body: " lance d'abord un dry-run : la liste des candidats, le plan et le temps estimé. Rien ne change tant que je n'ajoute pas --apply." },
+        { n: "02", title: "Vérifier la qualité de chaque morceau", body: "Tout ce qui est sous le lossless est candidat, MP3 320 compris. Déjà lossless ou déjà upgradé : ignoré." },
+        { n: "03", title: "Chercher un meilleur fichier", body: "Un morceau sous 320 kbps accepte du lossless ou du MP3 320. Un MP3 320 n'accepte que du lossless. La recherche s'élargit par paliers, et un contrôle de correspondance écarte les fichiers qui ne sont pas le bon morceau." },
+        { n: "04", title: "Télécharger et convertir", body: "Si une source échoue, la suivante prend le relais. FLAC et WAV sont convertis en AIFF, les métadonnées voyagent avec le fichier." },
+        { n: "05", title: "Ranger le nouveau là où était l'ancien", body: "Le nouveau fichier rejoint toutes les playlists de l'ancien, avant que celui-ci ne les quitte. Le genre est forcé sur le nouveau fichier." },
+        { n: "06", title: "Déplacer l'ancien en review", body: "L'ancien fichier part dans une playlist de fichiers legacy à relire et supprimer à la main. Il n'est jamais supprimé automatiquement." },
+        { n: "07", title: "Rien trouvé", body: "Un MP3 320 reste tel quel, et l'échec est loggé. Sous 320, le morceau rejoint la file d'attente et le job nocturne retente." },
+      ],
+      asideBold: "Comment se termine un run",
+      aside: " Par une ligne de récap : upgradés, sans lossless trouvé, en attente, erreurs. Au-delà de dix morceaux, le batch tourne en arrière-plan et son avancement est à une commande.",
+    },
     flow: {
-      title: "Le flow",
+      title: "Comment un nouveau morceau entre",
       sub: "Une commande, sept étapes, zéro intervention. Chaque étape a été durcie contre un problème réellement rencontré à l'usage.",
       steps: [
-        { n: "01", title: "Une commande", code: 'meshd track "Artiste" "Titre" "Genre"', body: " : c'est le seul input nécessaire." },
-        { n: "02", title: "Vérification de la bibliothèque", body: "Le morceau existe déjà en lossless : on s'arrête là. Il existe en MP3 : on bascule sur le flow upgrade. Pas de doublons." },
+        { n: "01", title: "Une commande", code: 'meshd track "Artiste" "Titre" "Playlist"', body: " : c'est le seul input nécessaire." },
+        { n: "02", title: "Vérification de la bibliothèque", body: "Le morceau existe déjà en lossless : on s'arrête là. Il existe en MP3 : on bascule sur la boucle d'upgrade. Pas de doublons." },
         { n: "03", title: "Recherche en escalade", body: "Requête précise d'abord, puis de plus en plus large jusqu'à trouver une source valide. La connexion au réseau se répare toute seule si elle est tombée." },
         { n: "04", title: "Filtre qualité et anti-erreur", body: "Lossless en priorité, MP3 320 accepté, tout le reste refusé. Un contrôle de correspondance écarte les fichiers qui ne sont pas le bon morceau (remix non demandé, autre titre du même artiste)." },
         { n: "05", title: "Téléchargement avec repli", body: "Si une source rejette ou bloque, la suivante prend le relais, jusqu'à cinq tentatives. Les métadonnées (genre, artiste, titre) voyagent avec le fichier." },
         { n: "06", title: "Conversion et import automatiques", body: "FLAC et WAV sont convertis en AIFF (lossless, lisible par les platines), le MP3 320 est gardé tel quel. Le fichier est déposé dans le dossier d'import de l'app Musique, qui l'ingère seule." },
-        { n: "07", title: "Rangement", body: "Genre tagué, ajout à la playlist correspondante, tag d'énergie (E1 warm-up, E2 mid, E3 peak) : le morceau est prêt à jouer." },
+        { n: "07", title: "Rangement", body: "Genre tagué d'après le nom de la playlist, morceau ajouté à cette playlist : il est prêt à jouer." },
       ],
       asideBold: "Et si le morceau est introuvable ?",
       aside: " Il rejoint une file d'attente persistante. Un job nocturne retente les entrées arrivées à échéance : les raretés finissent par se résoudre quand d'autres pairs se connectent.",
     },
     tools: {
       title: "Les outils",
-      sub: "Le cœur du flow ne dépend que de Docker et de la bibliothèque standard Python. L'analyse audio est le seul module avec des dépendances scientifiques.",
+      sub: "Le cœur du flow ne dépend que de Docker et de la bibliothèque standard Python.",
       cols: ["Composant", "Rôle"],
       rows: [
         { name: "meshd (CLI)", role: "Orchestrateur Python d'environ 3 000 lignes, un seul fichier. Pilote l'API REST du daemon et l'app Musique via AppleScript." },
         { name: "Daemon P2P", role: "Client SoundMesh auto-hébergé dans Docker, API REST locale pour la recherche et les transferts." },
         { name: "Hook de conversion", role: "Script shell déclenché à chaque téléchargement terminé : transcodage ffmpeg, contrôle du bitrate réel, vérification MIME, métadonnées." },
         { name: "App Musique", role: "Dossier surveillé pour l'import automatique ; lecture et écriture des genres, playlists et tags via AppleScript." },
-        { name: "Moteur d'énergie", role: "Analyse librosa du morceau entier, score par percentile intra-genre, buckets E1/E2/E3 et détection de voix. Alternative maison à un outil payant." },
         { name: "File d'attente", role: "Retry avec verrou fichier, clés normalisées (ordre des artistes, accents) et dates d'échéance : pas de doublons, pas de spam réseau." },
       ],
     },
     modes: {
-      title: "Trois modes",
-      sub: "Le même code sert trois usages distincts.",
+      title: "Deux modes",
+      sub: "Le même code sert deux usages distincts.",
       items: [
-        { title: "Télécharger", body: "Acquérir un nouveau morceau, de la recherche au rangement.", cmd: 'meshd track "Artiste" "Titre" "Genre"' },
         { title: "Upgrader", body: "Remplacer les MP3 de la bibliothèque par du lossless, playlists préservées, l'ancien fichier part en liste de review, jamais supprimé à l'aveugle.", cmd: "meshd upgrade-batch --playlist=X --apply" },
-        { title: "Classer l'énergie", body: "Scorer chaque morceau en E1/E2/E3 pour construire des sets, avec cache des analyses.", cmd: "meshd energy-analyze --genre=X --apply" },
+        { title: "Télécharger", body: "Acquérir un nouveau morceau, de la recherche au rangement.", cmd: 'meshd track "Artiste" "Titre" "Playlist"' },
       ],
     },
     versions: {
@@ -742,7 +766,7 @@ export const musicDownloaderText: Record<
       sub: "Chaque version a fermé une famille de problèmes constatés en usage réel, pas de features spéculatives.",
       items: [
         { v: "v1", title: "Fondations", tags: ["recherche et téléchargement via API", "filtre qualité", "cache de session"] },
-        { v: "v2", title: "Automatisation", tags: ["hook de conversion", "métadonnées embarquées", "playlist par genre", "repli multi-sources", "flow upgrade lossless", "classification d'énergie"] },
+        { v: "v2", title: "Automatisation", tags: ["hook de conversion", "métadonnées embarquées", "playlist par genre", "repli multi-sources", "flow upgrade lossless"] },
         { v: "v3", title: "Robustesse", tags: ["anti-doublons en amont", "recherche en escalade", "reconnexion auto", "anti-mauvais-fichier", "file d'attente normalisée", "retry nocturne daté", "secrets sortis du code"] },
       ],
     },
@@ -751,59 +775,70 @@ export const musicDownloaderText: Record<
       sub: "Le backlog assumé : des pistes identifiées, notées, et volontairement laissées de côté tant que la douleur ne le justifie pas.",
       items: [
         { title: "Recherche par compilation", body: "Quand un single est introuvable seul, le chercher via les albums et compilations connus de l'artiste déjà présents dans la bibliothèque." },
-        { title: "Valider l'énergie à l'oreille", body: "Constituer un set de référence par genre (morceaux dont le bucket est certain) pour mesurer proprement la corrélation du score, et améliorer les genres hétérogènes où le modèle actuel décroche." },
-        { title: "Signal crowd-sourcé", body: "Croiser le score d'énergie avec la position des morceaux dans des sets publics : un track joué en fin de set par beaucoup de DJs est probablement un peak." },
         { title: "Packager et partager", body: "Extraire la configuration personnelle, documenter l'installation et publier l'outil pour qu'un autre DJ puisse le déployer chez lui." },
       ],
     },
     legal:
-      "SoundMesh est présenté ici comme un réseau peer-to-peer générique pour de l'audio librement licencié et auto-produit. L'ingénierie décrite (daemon auto-hébergé, orchestration REST, pipeline de conversion, intégration bibliothèque, classification d'énergie) est indépendante de la source et s'applique à tout catalogue auquel l'utilisateur a légitimement accès.",
+      "SoundMesh est présenté ici comme un réseau peer-to-peer générique pour de l'audio librement licencié et auto-produit. L'ingénierie décrite (daemon auto-hébergé, orchestration REST, pipeline de conversion, intégration bibliothèque) est indépendante de la source et s'applique à tout catalogue auquel l'utilisateur a légitimement accès.",
     backHome: "Retour au portfolio",
   },
   es: {
     period: "2025 - 2026",
-    title: "Music Downloader",
+    title: "Music Quality Upgrader",
     introPre:
-      "Mezclo, y pasaba horas buscando tracks, verificando su calidad, convirtiéndolos, etiquetándolos y archivándolos. Este proyecto reduce todo eso a ",
-    introBold: "un comando",
+      "Mezclo, y parte de mi biblioteca eran MP3 conseguidos con prisa. Esta herramienta verifica la calidad de cada track de una playlist, busca un archivo mejor, lo archiva donde estaba el antiguo y mueve el antiguo a una ",
+    introBold: "playlist de review",
     introPost:
-      ": el track se encuentra en SoundMesh, una red peer-to-peer, se descarga en la mejor calidad disponible, se convierte a lossless, se importa en mi biblioteca y se archiva por género y nivel de energía, listo para rekordbox.",
-    stack: ["Python", "Docker", "ffmpeg", "AppleScript", "librosa"],
+      ". El mismo código también incorpora los tracks nuevos: se encuentran en SoundMesh, una red peer-to-peer, se descargan en la mejor calidad disponible, se convierten a lossless y se archivan en su playlist, listos para rekordbox.",
+    stack: ["Python", "Docker", "ffmpeg", "AppleScript"],
+    upgrade: {
+      title: "El bucle de upgrade",
+      sub: "Una playlist de entrada, mejores archivos de salida. El archivo antiguo nunca se borra.",
+      steps: [
+        { n: "01", title: "Elegir una playlist", code: "meshd upgrade-batch --playlist=X", body: " lanza primero un dry-run: la lista de candidatos, el plan y el tiempo estimado. Nada cambia hasta que añado --apply." },
+        { n: "02", title: "Verificar la calidad de cada track", body: "Todo lo que está por debajo de lossless es candidato, MP3 320 incluido. Ya lossless o ya mejorado: se omite." },
+        { n: "03", title: "Buscar un archivo mejor", body: "Un track por debajo de 320 kbps acepta lossless o MP3 320. Un MP3 320 solo acepta lossless. La búsqueda se amplía por etapas, y un control de coincidencia descarta los archivos que no son el track correcto." },
+        { n: "04", title: "Descargar y convertir", body: "Si una fuente falla, la siguiente toma el relevo. FLAC y WAV se convierten a AIFF, los metadatos viajan con el archivo." },
+        { n: "05", title: "Archivar el nuevo donde estaba el antiguo", body: "El archivo nuevo entra en todas las playlists del antiguo, antes de que este las abandone. El género se fuerza en el archivo nuevo." },
+        { n: "06", title: "Mover el antiguo a review", body: "El archivo antiguo va a una playlist de archivos legacy para revisar y borrar a mano. Nunca se borra automáticamente." },
+        { n: "07", title: "Nada encontrado", body: "Un MP3 320 se queda como está, y el fallo se registra. Por debajo de 320, el track entra en la cola y el job nocturno vuelve a intentarlo." },
+      ],
+      asideBold: "Cómo termina una ejecución",
+      aside: " Con una línea de resumen: mejorados, sin lossless encontrado, pendientes, errores. A partir de diez tracks, el lote corre en segundo plano y su estado queda a un comando.",
+    },
     flow: {
-      title: "El flow",
+      title: "Cómo entra un track nuevo",
       sub: "Un comando, siete pasos, cero intervención. Cada paso fue endurecido contra un problema encontrado en uso real.",
       steps: [
-        { n: "01", title: "Un comando", code: 'meshd track "Artista" "Título" "Género"', body: " es el único input necesario." },
-        { n: "02", title: "Verificación de la biblioteca", body: "Ya existe en lossless: se detiene ahí. Existe en MP3: pasa al flow de upgrade. Sin duplicados." },
+        { n: "01", title: "Un comando", code: 'meshd track "Artista" "Título" "Playlist"', body: " es el único input necesario." },
+        { n: "02", title: "Verificación de la biblioteca", body: "Ya existe en lossless: se detiene ahí. Existe en MP3: pasa al bucle de upgrade. Sin duplicados." },
         { n: "03", title: "Búsqueda en escalada", body: "Consulta precisa primero, luego cada vez más amplia hasta encontrar una fuente válida. La conexión a la red se repara sola si se cae." },
         { n: "04", title: "Filtro de calidad y anti-error", body: "Lossless primero, MP3 320 aceptado, el resto rechazado. Un control de coincidencia descarta los archivos que no son el track correcto (remix no pedido, otro título del mismo artista)." },
         { n: "05", title: "Descarga con respaldo", body: "Si una fuente rechaza o bloquea, la siguiente toma el relevo, hasta cinco intentos. Los metadatos (género, artista, título) viajan con el archivo." },
         { n: "06", title: "Conversión e importación automáticas", body: "FLAC y WAV se convierten a AIFF (lossless, legible por las platinas), el MP3 320 se conserva tal cual. El archivo se deja en la carpeta de importación de Música, que lo ingiere sola." },
-        { n: "07", title: "Archivado", body: "Género etiquetado, añadido a la playlist correspondiente, etiqueta de energía (E1 warm-up, E2 mid, E3 peak): el track está listo para sonar." },
+        { n: "07", title: "Archivado", body: "Género etiquetado a partir del nombre de la playlist, track añadido a esa playlist: está listo para sonar." },
       ],
       asideBold: "¿Y si el track no se encuentra?",
       aside: " Entra en una cola persistente. Un job nocturno reintenta las entradas vencidas: las rarezas terminan por resolverse cuando otros pares se conectan.",
     },
     tools: {
       title: "Las herramientas",
-      sub: "El núcleo del flow solo depende de Docker y de la biblioteca estándar de Python. El análisis de audio es el único módulo con dependencias científicas.",
+      sub: "El núcleo del flow solo depende de Docker y de la biblioteca estándar de Python.",
       cols: ["Componente", "Rol"],
       rows: [
         { name: "meshd (CLI)", role: "Orquestador Python de un solo archivo, alrededor de 3000 líneas. Pilota la API REST del daemon y la app Música vía AppleScript." },
         { name: "Daemon P2P", role: "Cliente SoundMesh autoalojado en Docker, API REST local para búsqueda y transferencias." },
         { name: "Hook de conversión", role: "Script shell disparado en cada descarga terminada: transcodificación ffmpeg, control del bitrate real, verificación MIME, metadatos." },
         { name: "App Música", role: "Carpeta vigilada para importación automática; lee y escribe géneros, playlists y etiquetas vía AppleScript." },
-        { name: "Motor de energía", role: "Análisis librosa del track entero, puntuación por percentil intra-género, buckets E1/E2/E3 y detección de voz. Alternativa propia a una herramienta de pago." },
         { name: "Cola", role: "Reintento con bloqueo de archivo, claves normalizadas (orden de artistas, acentos) y fechas de vencimiento: sin duplicados, sin spam de red." },
       ],
     },
     modes: {
-      title: "Tres modos",
-      sub: "El mismo código sirve tres usos distintos.",
+      title: "Dos modos",
+      sub: "El mismo código sirve dos usos distintos.",
       items: [
-        { title: "Descargar", body: "Adquirir un nuevo track, de la búsqueda al archivado.", cmd: 'meshd track "Artista" "Título" "Género"' },
         { title: "Mejorar", body: "Reemplazar los MP3 de la biblioteca por lossless, playlists preservadas; el archivo antiguo va a una lista de review, nunca borrado a ciegas.", cmd: "meshd upgrade-batch --playlist=X --apply" },
-        { title: "Clasificar energía", body: "Puntuar cada track en E1/E2/E3 para construir sets, con caché de análisis.", cmd: "meshd energy-analyze --genre=X --apply" },
+        { title: "Descargar", body: "Adquirir un nuevo track, de la búsqueda al archivado.", cmd: 'meshd track "Artista" "Título" "Playlist"' },
       ],
     },
     versions: {
@@ -811,7 +846,7 @@ export const musicDownloaderText: Record<
       sub: "Cada versión cerró una familia de problemas vistos en uso real, sin features especulativas.",
       items: [
         { v: "v1", title: "Fundaciones", tags: ["búsqueda y descarga vía API", "filtro de calidad", "caché de sesión"] },
-        { v: "v2", title: "Automatización", tags: ["hook de conversión", "metadatos embebidos", "playlist por género", "respaldo multi-fuente", "flow de upgrade lossless", "clasificación de energía"] },
+        { v: "v2", title: "Automatización", tags: ["hook de conversión", "metadatos embebidos", "playlist por género", "respaldo multi-fuente", "flow de upgrade lossless"] },
         { v: "v3", title: "Robustez", tags: ["de-duplicación en origen", "búsqueda en escalada", "reconexión automática", "guardia anti-archivo-malo", "cola normalizada", "reintento nocturno con fecha", "secretos fuera del código"] },
       ],
     },
@@ -820,13 +855,11 @@ export const musicDownloaderText: Record<
       sub: "El backlog asumido: pistas identificadas, anotadas y dejadas de lado a propósito hasta que el dolor lo justifique.",
       items: [
         { title: "Búsqueda por compilación", body: "Cuando un single no se encuentra solo, buscarlo a través de los álbumes y compilaciones conocidos del artista ya presentes en la biblioteca." },
-        { title: "Validar la energía de oído", body: "Formar un set de referencia por género (tracks cuyo bucket es seguro) para medir limpiamente la correlación del score, y mejorar los géneros heterogéneos donde el modelo actual falla." },
-        { title: "Señal crowd-sourced", body: "Cruzar el score de energía con la posición de los tracks en sets públicos: un track puesto al final por muchos DJs probablemente es un peak." },
         { title: "Empaquetar y compartir", body: "Extraer la configuración personal, documentar la instalación y publicar la herramienta para que otro DJ pueda desplegarla." },
       ],
     },
     legal:
-      "SoundMesh se presenta aquí como una red peer-to-peer genérica para audio de licencia libre y autoproducido. La ingeniería descrita (daemon autoalojado, orquestación REST, pipeline de conversión, integración con la biblioteca, clasificación de energía) es independiente de la fuente y se aplica a cualquier catálogo al que el usuario tenga acceso legítimo.",
+      "SoundMesh se presenta aquí como una red peer-to-peer genérica para audio de licencia libre y autoproducido. La ingeniería descrita (daemon autoalojado, orquestación REST, pipeline de conversión, integración con la biblioteca) es independiente de la fuente y se aplica a cualquier catálogo al que el usuario tenga acceso legítimo.",
     backHome: "Volver al portafolio",
   },
 };

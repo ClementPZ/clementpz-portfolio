@@ -11,7 +11,7 @@ site follows.
 - **Home**: an introduction, the day to day stack, a featured project, a
   carousel of recent side projects, and the work history with recommendations.
 - **Case studies**: `/nrc` for the design function at NRC Health, `/builder`
-  for a Claude Code plugin, `/music-downloader` for a music pipeline,
+  for a Claude Code plugin, `/music-quality-upgrader` for a music pipeline,
   `/making-of` for this site explained as a project of its own.
 - **Two pages that break the mould on purpose**: `/spota`, a product landing
   for a social game, and `/interior`, a votable photo gallery.

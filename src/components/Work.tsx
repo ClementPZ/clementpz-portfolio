@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { work, recommendations, type Reco } from "../data/content";
-import { workText } from "../data/i18n";
+import { work, recommendations, type Reco, type WorkItem } from "../data/content";
+import { workText, type Locale } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
 
 // Monogramme placeholder (remplacé par un logo via w.image plus tard).
@@ -72,74 +72,153 @@ function Avatar({ company, image }: { company: string; image?: string }) {
   );
 }
 
-export function Work() {
+type LocalizedWork = (typeof workText)[Locale][WorkItem["id"]];
+
+// Corps commun d'une carte d'expérience : entête, rôle, lieu, puis `children`
+// (le visuel quand il s'empile), puces, impact et tags.
+function ExperienceText({
+  w,
+  lx,
+  children,
+}: {
+  w: WorkItem;
+  lx: LocalizedWork | undefined;
+  children?: React.ReactNode;
+}) {
+  const { t } = useLocale();
+  const bullets = lx?.bullets ?? [];
+  const impact = lx?.impact;
+  return (
+    <>
+      <header className="flex items-center gap-3 mb-3">
+        <Avatar company={w.company} image={w.image} />
+        <div className="flex-1 flex items-baseline justify-between gap-4">
+          <h3 className="font-display text-xl font-bold">{w.company}</h3>
+          <span className="text-xs whitespace-nowrap" style={{ color: "var(--text-muted)" }}>
+            {w.period}
+          </span>
+        </div>
+      </header>
+      <p className="text-sm font-medium mb-1" style={{ color: "var(--accent)" }}>
+        {lx?.role}
+      </p>
+      <p className="text-xs mb-4" style={{ color: "var(--text-muted)" }}>
+        {w.location}
+      </p>
+
+      {children}
+
+      <ul className="text-sm leading-relaxed mb-4 space-y-2 pl-4" style={{ listStyle: "disc" }}>
+        {bullets.map((b) => (
+          <li key={b}>{b}</li>
+        ))}
+      </ul>
+
+      {impact && impact.length > 0 && (
+        <div className="mb-4">
+          <p className="text-sm mb-1.5 font-semibold" style={{ color: "var(--accent)" }}>
+            {t.impactLabel}
+          </p>
+          <ul className="text-sm space-y-1" style={{ color: "var(--text)" }}>
+            {impact.map((i) => (
+              <li key={i}>{i}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <p className="mt-auto pt-2 text-xs" style={{ color: "var(--text-muted)" }}>
+        {w.tags.join(" · ")}
+      </p>
+    </>
+  );
+}
+
+// Lien étiré : la carte entière mène au case study. Rien d'autre n'est
+// cliquable dedans, pas de lien imbriqué.
+function CardLink({ w }: { w: WorkItem }) {
+  const { t } = useLocale();
+  if (!w.link) return null;
+  return (
+    <Link
+      href={w.link}
+      aria-label={`${w.company}, ${t.caseStudy}`}
+      className="absolute inset-0 z-10 rounded-[inherit]"
+    />
+  );
+}
+
+// Dernière expérience seule, pleine largeur, puis les deux recommandations en
+// conclusion. Le visuel de droite (photo pour l'instant) sera remplacé.
+export function LastExperience() {
   const { locale, t } = useLocale();
-  const localized = workText[locale];
+  const w = work.find((x) => x.id === "nrc");
+  const lx = workText[locale].nrc;
+  // Ordre des cartes : la citation épinglée à NRC d'abord, puis les autres.
   const pinnedByWork = new Map(
     recommendations.filter((r) => r.quote && r.pinnedTo).map((r) => [r.pinnedTo, r])
   );
-  const topQuotes = [
-    ...work.map((w) => pinnedByWork.get(w.id)).filter((r): r is Reco => Boolean(r)),
+  const quotes = [
+    ...work.map((x) => pinnedByWork.get(x.id)).filter((r): r is Reco => Boolean(r)),
     ...recommendations.filter((r) => r.quote && !r.pinnedTo),
   ];
+  if (!w) return null;
 
   return (
-    <section
-      id="work"
-      className="max-w-6xl mx-auto px-6 py-16"
-    >
+    <section id="work" className="max-w-6xl mx-auto px-6 py-20 sm:py-28">
       <div className="mb-8">
         <h2 className="font-display text-2xl sm:text-3xl font-bold">{t.workTitle}</h2>
       </div>
 
-      {/* Quotes — traitement éditorial, sans card, posé sur le fond.
-          Ordonnées sur les colonnes de leur carte pour rester flush avec elle. */}
-      {topQuotes.length > 0 && (
-        <div className="grid gap-10 sm:grid-cols-2 mb-14">
-          {topQuotes.map((r) => (
+      <article
+        className={`panel card-featured p-6 sm:p-10 grid gap-8 md:grid-cols-2 md:gap-12${
+          w.link ? " card-link relative" : ""
+        }`}
+      >
+        <CardLink w={w} />
+        <div className="flex flex-col">
+          <ExperienceText w={w} lx={lx} />
+        </div>
+        {w.photo && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={w.photo}
+            alt={w.company}
+            className="w-full h-full min-h-64 rounded-lg object-cover"
+          />
+        )}
+      </article>
+
+      {quotes.length > 0 && (
+        <div className="grid gap-10 sm:grid-cols-2 mt-14">
+          {quotes.map((r) => (
             <Quote key={r.author} r={r} />
           ))}
         </div>
       )}
+    </section>
+  );
+}
 
-      {/* Expériences */}
+export function PastExperiences() {
+  const { locale, t } = useLocale();
+  const localized = workText[locale];
+  const past = work.filter((x) => x.id !== "nrc");
+
+  return (
+    <section id="past" className="max-w-6xl mx-auto px-6 py-20 sm:py-28">
+      <div className="mb-8">
+        <h2 className="font-display text-2xl sm:text-3xl font-bold">{t.pastTitle}</h2>
+      </div>
+
       <div className="grid gap-5 sm:grid-cols-2">
-        {work.map((w, index) => {
-          const lx = localized[w.id];
-          const bullets = lx?.bullets ?? [];
-          const impact = lx?.impact;
-          return (
-            <article
-              key={w.company + w.period}
-              className={`panel p-6 sm:p-7 flex flex-col${index === 0 ? " card-featured" : ""}${
-                w.link ? " card-link relative" : ""
-              }`}
-            >
-              {/* Lien étiré : la carte entière mène au case study. Rien
-                  d'autre n'est cliquable dedans, pas de lien imbriqué. */}
-              {w.link && (
-                <Link
-                  href={w.link}
-                  aria-label={`${w.company}, ${t.caseStudy}`}
-                  className="absolute inset-0 z-10 rounded-[inherit]"
-                />
-              )}
-              <header className="flex items-center gap-3 mb-3">
-                <Avatar company={w.company} image={w.image} />
-                <div className="flex-1 flex items-baseline justify-between gap-4">
-                  <h3 className="font-display text-xl font-bold">{w.company}</h3>
-                  <span className="text-xs whitespace-nowrap" style={{ color: "var(--text-muted)" }}>
-                    {w.period}
-                  </span>
-                </div>
-              </header>
-              <p className="text-sm font-medium mb-1" style={{ color: "var(--accent)" }}>
-                {lx?.role}
-              </p>
-              <p className="text-xs mb-4" style={{ color: "var(--text-muted)" }}>
-                {w.location}
-              </p>
-
+        {past.map((w) => (
+          <article
+            key={w.company + w.period}
+            className={`panel p-6 sm:p-7 flex flex-col${w.link ? " card-link relative" : ""}`}
+          >
+            <CardLink w={w} />
+            <ExperienceText w={w} lx={localized[w.id]}>
               {w.photo && (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
@@ -149,32 +228,9 @@ export function Work() {
                   style={{ aspectRatio: "3 / 2" }}
                 />
               )}
-
-              <ul className="text-sm leading-relaxed mb-4 space-y-2 pl-4" style={{ listStyle: "disc" }}>
-                {bullets.map((b) => (
-                  <li key={b}>{b}</li>
-                ))}
-              </ul>
-
-              {impact && impact.length > 0 && (
-                <div className="mb-4">
-                  <p className="text-sm mb-1.5 font-semibold" style={{ color: "var(--accent)" }}>
-                    {t.impactLabel}
-                  </p>
-                  <ul className="text-sm space-y-1" style={{ color: "var(--text)" }}>
-                    {impact.map((i) => (
-                      <li key={i}>{i}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              <p className="mt-auto pt-2 text-xs" style={{ color: "var(--text-muted)" }}>
-                {w.tags.join(" · ")}
-              </p>
-            </article>
-          );
-        })}
+            </ExperienceText>
+          </article>
+        ))}
       </div>
     </section>
   );

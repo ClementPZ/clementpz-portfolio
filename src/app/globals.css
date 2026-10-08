@@ -577,6 +577,13 @@ a {
   -webkit-backdrop-filter: blur(12px) saturate(150%);
 }
 
+/* Séparateur de section : un filet discret, pas une bordure de boite. */
+.section-rule {
+  border: 0;
+  height: 1px;
+  background: var(--border);
+}
+
 .surface {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -627,7 +634,7 @@ a {
    STACK EASTER EGG — les tags "day-to-day stack" imitent des boutons (hover +
    curseur) ; cliquer déclenche un callout "Bad UX!" → Builder "corrige"
    l'affordance (StackFixOverlay). Une fois fixé, le hover ne réagit plus,
-   scopé à #stack pour ne pas toucher .pill ailleurs (music-downloader, PTR).
+   scopé à #stack pour ne pas toucher .pill ailleurs (music-quality-upgrader, PTR).
    ============================================================================ */
 
 #stack .pill[data-fixed="true"] {

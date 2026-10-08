@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { profile } from "../data/content";
 import { introText } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
@@ -46,14 +45,6 @@ export function Hero() {
         >
           GitHub
         </a>
-        {/* Widget méta : mène au making of, aligné sur les autres CTAs.
-            id = cible d'ancrage du curseur Carol (LiveCursors). */}
-        <Link href="/making-of" id="cta-makingof" className="btn-ghost">
-          {t.makingOfWidget}
-          <span aria-hidden style={{ color: "var(--text-muted)" }}>
-            →
-          </span>
-        </Link>
       </div>
     </section>
   );

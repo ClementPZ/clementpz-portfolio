@@ -6,9 +6,18 @@ import { Nav } from "../components/Nav";
 import { Hero } from "../components/Hero";
 import { Stack } from "../components/Stack";
 import { Highlight } from "../components/Highlight";
-import { Work } from "../components/Work";
+import { LastExperience, PastExperiences } from "../components/Work";
 import { RecentProjects } from "../components/RecentProjects";
 import { Footer } from "../components/Footer";
+
+// Séparateur discret entre sections, aligné sur la colonne de contenu.
+function SectionRule() {
+  return (
+    <div className="max-w-6xl mx-auto px-6">
+      <hr className="section-rule" />
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -19,10 +28,14 @@ export default function Home() {
         <Nav />
         <main>
           <Hero />
-          <Highlight />
           <Stack />
-          <Work />
+          <SectionRule />
+          <LastExperience />
+          <SectionRule />
+          <Highlight />
           <RecentProjects />
+          <SectionRule />
+          <PastExperiences />
         </main>
         <Footer />
         {/* Dans #page-shift (transformé → stacking context) pour que la nav

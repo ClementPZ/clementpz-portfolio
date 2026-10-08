@@ -32,7 +32,7 @@ references already in the codebase:
 - **Light** (`/builder` pattern, `builderText` in `i18n.ts`): kicker, title,
   intro, a handful of short sections (heading + body), a back-home link. Fits
   a pitch, a concept, or a project not yet built out.
-- **Rich** (`/music-downloader` pattern, `musicDownloaderText` in `i18n.ts`):
+- **Rich** (`/music-quality-upgrader` pattern, `musicQualityUpgraderText` in `i18n.ts`):
   hero with stack pills, then structured sections, steps, tables, grids,
   roadmap. Fits a working pipeline with real detail to show.
 - **App landing** (`/spota` pattern, `src/app/spota/NOTES.md`): a product

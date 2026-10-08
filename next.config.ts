@@ -6,7 +6,13 @@ const nextConfig: NextConfig = {
       // Ancienne page statique (supprimée), remplacée par la route Next.
       {
         source: "/music-downloader.html",
-        destination: "/music-downloader",
+        destination: "/music-quality-upgrader",
+        permanent: true,
+      },
+      // Page renommée : l'ancienne adresse reste valide.
+      {
+        source: "/music-downloader",
+        destination: "/music-quality-upgrader",
         permanent: true,
       },
     ];

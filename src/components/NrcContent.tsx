@@ -12,7 +12,7 @@ import { flowbite, flowbiteGround } from "../data/flowbiteSystem";
 import { useLocale } from "./LocaleProvider";
 import { fireConfetti } from "../lib/confetti";
 
-// Case study NRC Health. Meme coquille que /music-downloader : Nav, BackHome,
+// Case study NRC Health. Meme coquille que /music-quality-upgrader : Nav, BackHome,
 // pilule de periode, Footer, largeur max-w-3xl.
 //
 // Les visuels n'existent pas encore : Figure rend un cadre en pointilles qui
