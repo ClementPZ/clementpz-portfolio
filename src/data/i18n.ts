@@ -1449,12 +1449,12 @@ export const nrcText: Record<
         "The team stays shared rather than embedded: product teams call on design the way they call on any other function, but design's cross-cutting responsibilities, team cohesion and the design system chief among them, are what keep the whole product suite coherent. That structure is what makes design a driver of product and business strategy, not a downstream service.",
     },
     system: {
-      title: "2. The design system",
+      title: "3. The design system",
       sub: "Four products, several front-end stacks, one design system.",
       items: [
         {
           title: "Build on Flowbite",
-          body: "Rather than rebuilding primitives, add a semantic layer on top, shaped around the company and its needs.",
+          body: "Rather than rebuilding primitives, add a semantic layer on top, shaped around the company and its needs. There was no time to build a full design team from scratch: an existing library meant fast integration and quick wins that solved identified user problems and proved value early.",
         },
         {
           title: "Make design tokens stack-agnostic",
@@ -1478,7 +1478,7 @@ export const nrcText: Record<
       exploreCta: "Explore the extracted design system",
     },
     cases: {
-      title: "3. Three product cases",
+      title: "2. Three product cases",
       sub: "Three problems of a different nature: redesigning the company's most profitable product, lifting conversion on a major data-collection channel, and a strategic call on AI.",
       items: [
         {
@@ -1625,12 +1625,12 @@ export const nrcText: Record<
         "L'équipe reste partagée plutôt qu'intégrée dans un produit : les équipes produit font appel au design comme à n'importe quelle autre fonction, mais ce sont les responsabilités transverses du design, la cohésion de l'équipe et le design system en tête, qui maintiennent la cohérence de toute la suite produit. Cette structure fait du design un moteur de la stratégie produit et business, pas un service en aval.",
     },
     system: {
-      title: "2. Le design system",
+      title: "3. Le design system",
       sub: "Quatre produits, plusieurs stacks front, un seul design system.",
       items: [
         {
           title: "S'appuyer sur Flowbite",
-          body: "Plutôt que reconstruire les primitives, ajouter par-dessus une couche sémantique propre à l'entreprise et à ses besoins.",
+          body: "Plutôt que reconstruire les primitives, ajouter par-dessus une couche sémantique propre à l'entreprise et à ses besoins. Pas le temps de monter une équipe design complète de zéro : une bibliothèque existante permettait une intégration rapide et des quick wins qui résolvaient des problèmes utilisateurs identifiés et prouvaient la valeur dès le début.",
         },
         {
           title: "Rendre les design tokens agnostiques de la stack",
@@ -1654,7 +1654,7 @@ export const nrcText: Record<
       exploreCta: "Explorer le design system extrait",
     },
     cases: {
-      title: "3. Trois cas produit",
+      title: "2. Trois cas produit",
       sub: "Trois sujets de nature différente : la refonte du produit le plus rentable de l'entreprise, la conversion d'un canal majeur d'acquisition de données, et un arbitrage stratégique sur l'IA.",
       items: [
         {
@@ -1801,12 +1801,12 @@ export const nrcText: Record<
         "El equipo se mantiene compartido en lugar de integrado en un producto: los equipos de producto recurren al diseño como a cualquier otra función, pero son las capas transversales del diseño, con la cohesión del equipo y el design system a la cabeza, las que mantienen la coherencia de toda la suite de producto. Esa estructura es lo que convierte al diseño en un motor de la estrategia de producto y de negocio, no en un servicio subordinado.",
     },
     system: {
-      title: "2. El design system",
+      title: "3. El design system",
       sub: "Cuatro productos, varios stacks de front-end, un solo design system.",
       items: [
         {
           title: "Apoyarse en Flowbite",
-          body: "En lugar de reconstruir las primitivas, añadir encima una capa semántica propia, pensada para la empresa y sus necesidades.",
+          body: "En lugar de reconstruir las primitivas, añadir encima una capa semántica propia, pensada para la empresa y sus necesidades. No había tiempo para crear un equipo de diseño completo desde cero: una librería existente permitía una integración rápida y quick wins que resolvían problemas de usuario identificados y demostraban valor desde el principio.",
         },
         {
           title: "Hacer los design tokens agnósticos",
@@ -1830,7 +1830,7 @@ export const nrcText: Record<
       exploreCta: "Explorar el design system extraído",
     },
     cases: {
-      title: "3. Tres casos de producto",
+      title: "2. Tres casos de producto",
       sub: "Tres temas de naturaleza distinta: el rediseño del producto más rentable de la empresa, la conversión de un canal clave de captación de datos y una decisión estratégica sobre la IA.",
       items: [
         {
@@ -1912,20 +1912,20 @@ export const spotaHighlightText: Record<
   en: {
     eyebrow: "A daily photo game for friend groups",
     lede: "One prompt a day. Find it in the real world, capture it, back camera for the target, front camera for you. Post yours to unlock what your crew spotted.",
-    cta: "Get the beta",
-    finePrint: "iOS, via TestFlight · ages 13+",
+    cta: "Get the app",
+    finePrint: "iOS · ages 13+",
   },
   fr: {
     eyebrow: "Un jeu photo quotidien pour les groupes d'amis",
     lede: "Un prompt par jour. Trouve-le dans la vraie vie, capture-le, caméra arrière pour la cible, caméra avant pour toi. Publie le tien pour découvrir ce que ta bande a repéré.",
-    cta: "Accéder à la beta",
-    finePrint: "iOS, via TestFlight · 13 ans et plus",
+    cta: "Télécharger l'app",
+    finePrint: "iOS · 13 ans et plus",
   },
   es: {
     eyebrow: "Un juego de fotos diario para grupos de amigos",
     lede: "Un prompt al día. Encuéntralo en la vida real, captúralo, cámara trasera para el objetivo, cámara frontal para ti. Publica el tuyo para ver lo que encontró tu grupo.",
-    cta: "Acceder a la beta",
-    finePrint: "iOS, via TestFlight · 13 años o más",
+    cta: "Descargar la app",
+    finePrint: "iOS · 13 años o más",
   },
 };
 

@@ -4,20 +4,20 @@
 // (gradient d'identité aubergine, texte blanc) : les couleurs sont donc des
 // blancs translucides + un vert léger, comme le reste de la carte,
 // indépendants du thème dark/light. Contenu terminal en anglais (CLI).
-// Piloté depuis l'extérieur : le parent (SideProjects) incrémente `trigger` au
-// clic sur "Lancer demo" ; ce composant (re)joue le script à chaque changement.
+// Le script se joue seul la première fois que le terminal entre à l'écran (le
+// prompt se tape lettre par lettre), puis le parent (SideProjects) incrémente
+// `trigger` au clic sur "Lancer demo" pour le rejouer.
 import { useEffect, useRef, useState } from "react";
 
 type Kind = "prompt" | "run" | "ok" | "gate" | "badge" | "done";
 type Line = { kind: Kind; text: string };
 
-// Un seul scénario : le changement de bouton (T1). Le prompt détaille le
-// problème et l'intention pour que la démo se comprenne seule, sans légende.
+// Un seul scénario : la hiérarchie des deux actions d'une page (T1). Le prompt
+// donne le problème et l'intention pour que la démo se comprenne seule.
+const PROMPT =
+  "\"There are 2 primary actions on the new feature page. The hierarchy is 'Launch' as the main action, 'Export' as secondary.\"";
 const SCRIPT: Line[] = [
-  {
-    kind: "prompt",
-    text: '"the secondary button is as visually strong as the primary one and competes for attention, reduce its weight (ghost style, no fill) so the primary CTA stands out"',
-  },
+  { kind: "prompt", text: PROMPT },
   { kind: "run", text: "Triage" },
   { kind: "badge", text: "T1 · token-level change" },
   { kind: "run", text: "Plan · 1 file · Button.tsx" },
@@ -48,38 +48,75 @@ function markColor(kind: Kind): string {
   return MUTED;
 }
 
+const TYPE_MS = 22; // par lettre du prompt
+const STEP_MS = 520; // entre deux lignes suivantes
+
 export function BuilderDemo({ trigger }: { trigger: number }) {
   const [count, setCount] = useState(0);
-  const timerRef = useRef<number | null>(null);
+  const [typed, setTyped] = useState(0);
+  const [inView, setInView] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  // Lance la première lecture quand le terminal est à moitié visible.
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") {
+      setInView(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.5 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  // 0 = au repos, 1 = lecture automatique, 2+ = un clic sur "Lancer demo".
+  const run = trigger > 0 ? trigger + 1 : inView ? 1 : 0;
 
   useEffect(() => {
-    if (trigger === 0) return; // pas encore lancée : terminal au repos
-    if (timerRef.current !== null) window.clearInterval(timerRef.current);
+    if (run === 0) return;
     const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
     if (reduced) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
+      setTyped(PROMPT.length);
       setCount(SCRIPT.length);
       return;
     }
-    setCount(0);
-    let i = 0;
-    timerRef.current = window.setInterval(() => {
-      i += 1;
-      setCount(i);
-      if (i >= SCRIPT.length && timerRef.current !== null) {
-        window.clearInterval(timerRef.current);
-        timerRef.current = null;
+    let cancelled = false;
+    let timer: number | undefined;
+    const wait = (ms: number) => new Promise<void>((r) => (timer = window.setTimeout(r, ms)));
+    setTyped(0);
+    setCount(1);
+    (async () => {
+      for (let c = 1; c <= PROMPT.length; c++) {
+        await wait(TYPE_MS);
+        if (cancelled) return;
+        setTyped(c);
       }
-    }, 520);
+      for (let i = 2; i <= SCRIPT.length; i++) {
+        await wait(STEP_MS);
+        if (cancelled) return;
+        setCount(i);
+      }
+    })();
     return () => {
-      if (timerRef.current !== null) window.clearInterval(timerRef.current);
+      cancelled = true;
+      window.clearTimeout(timer);
     };
-  }, [trigger]);
+  }, [run]);
 
   const idle = count === 0;
 
   return (
     <div
+      ref={rootRef}
       className="w-full rounded-xl overflow-hidden font-mono text-[13px] leading-relaxed"
       style={{
         background: "rgba(10,6,14,0.55)",
@@ -131,7 +168,16 @@ export function BuilderDemo({ trigger }: { trigger: number }) {
                       fontWeight: l.kind === "done" ? 600 : 400,
                     }}
                   >
-                    {l.text}
+                    {l.kind === "prompt" ? (
+                      <>
+                        {l.text.slice(0, typed)}
+                        {/* Le reste est rendu invisible : la ligne garde sa
+                            hauteur finale pendant la frappe. */}
+                        <span style={{ visibility: "hidden" }}>{l.text.slice(typed)}</span>
+                      </>
+                    ) : (
+                      l.text
+                    )}
                   </span>
                 </>
               )}

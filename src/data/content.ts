@@ -135,7 +135,7 @@ export const recommendations: Reco[] = [
     author: "V. Ramnathan",
     title: "CPO @ NRC Health",
     quote:
-      "Clément built our design function from nothing, hired the team, and set the bar for how design worked across all four product lines. He was as comfortable in C-suite product strategy conversations as he was shipping production design and AI tooling. Whatever team he joins next just got stronger.",
+      "Clément built our design function from nothing, hired the team, and set the bar across all four product lines. As comfortable in C-suite strategy conversations as he was shipping production design and AI tooling.",
     linkedin: "https://www.linkedin.com/in/vinithacramnathan/",
     pinnedTo: "nrc",
   },
@@ -196,11 +196,11 @@ export type RecentProject = {
 // affichait est retiré : seuls les ids de `sideProjectIds` paraissent sur la
 // home, les autres restent ici en données.
 // Section Side projects de la home, dans l'ordre d'affichage. Les deux premiers
-// ont leur grande carte (SpotA, Builder), les deux suivants une carte medium,
+// ont leur grande carte (Builder, SpotA), les deux suivants une carte medium,
 // le reste des petites cartes (voir SideProjects.tsx).
 export const sideProjectIds: ProjectId[] = [
-  "spota",
   "builder-flow",
+  "spota",
   "days",
   "legal-music",
   "interior-design",

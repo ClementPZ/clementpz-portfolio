@@ -135,61 +135,7 @@ export function NrcContent() {
           </div>
         </section>
 
-        {/* 2. Le design system */}
-        <section className="pt-14">
-          <SectionTitle title={t.system.title} sub={t.system.sub} />
-          <div className="grid gap-6">
-            {t.system.items.map((i) => (
-              <div key={i.title}>
-                <h3 className="text-base font-semibold">{i.title}</h3>
-                <p className="text-base mt-0.5" style={{ color: "var(--text-muted)" }}>
-                  {i.body}
-                </p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-8 panel p-5">
-            <div className="flex gap-1.5" aria-hidden>
-              {TEASER_SHADES.map((n) => (
-                <div
-                  key={n}
-                  className="flex-1"
-                  style={{
-                    height: 40,
-                    borderRadius: "var(--radius)",
-                    background: flowbite.colors.find((c) => c.name === n)?.value,
-                  }}
-                />
-              ))}
-            </div>
-            <div className="grid gap-3 sm:grid-cols-2 items-start mt-3">
-              {TEASER_PREVIEWS.map(({ name, height }) => (
-                <iframe
-                  key={name}
-                  src={`/flowbite/components/${name}.html`}
-                  title={name}
-                  loading="lazy"
-                  scrolling="no"
-                  className="w-full"
-                  style={{
-                    height,
-                    border: "1px solid var(--border)",
-                    borderRadius: "var(--radius)",
-                    background: flowbiteGround,
-                  }}
-                />
-              ))}
-            </div>
-            <p className="text-sm mt-4" style={{ color: "var(--text-muted)" }}>
-              {t.system.teaserCaption}
-            </p>
-            <Link href="/nrc/design-system" className="btn-accent mt-4">
-              {t.system.exploreCta} →
-            </Link>
-          </div>
-        </section>
-
-        {/* 3. Les cas produit */}
+        {/* 2. Les cas produit */}
         <section className="pt-14">
           <SectionTitle title={t.cases.title} sub={t.cases.sub} />
           <p className="text-sm max-w-xl -mt-4 mb-7" style={{ color: "var(--text-muted)" }}>
@@ -258,6 +204,60 @@ export function NrcContent() {
                 )}
               </article>
             ))}
+          </div>
+        </section>
+
+        {/* 3. Le design system */}
+        <section className="pt-14">
+          <SectionTitle title={t.system.title} sub={t.system.sub} />
+          <div className="grid gap-6">
+            {t.system.items.map((i) => (
+              <div key={i.title}>
+                <h3 className="text-base font-semibold">{i.title}</h3>
+                <p className="text-base mt-0.5" style={{ color: "var(--text-muted)" }}>
+                  {i.body}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 panel p-5">
+            <div className="flex gap-1.5" aria-hidden>
+              {TEASER_SHADES.map((n) => (
+                <div
+                  key={n}
+                  className="flex-1"
+                  style={{
+                    height: 40,
+                    borderRadius: "var(--radius)",
+                    background: flowbite.colors.find((c) => c.name === n)?.value,
+                  }}
+                />
+              ))}
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2 items-start mt-3">
+              {TEASER_PREVIEWS.map(({ name, height }) => (
+                <iframe
+                  key={name}
+                  src={`/flowbite/components/${name}.html`}
+                  title={name}
+                  loading="lazy"
+                  scrolling="no"
+                  className="w-full"
+                  style={{
+                    height,
+                    border: "1px solid var(--border)",
+                    borderRadius: "var(--radius)",
+                    background: flowbiteGround,
+                  }}
+                />
+              ))}
+            </div>
+            <p className="text-sm mt-4" style={{ color: "var(--text-muted)" }}>
+              {t.system.teaserCaption}
+            </p>
+            <Link href="/nrc/design-system" className="btn-accent mt-4">
+              {t.system.exploreCta} →
+            </Link>
           </div>
         </section>
 
