@@ -45,6 +45,7 @@ type UI = {
   overlayCta: string;
   makingOfWidget: string;
   caseStudy: string;
+  visualLabel: string;
 };
 
 export const ui: Record<Locale, UI> = {
@@ -65,6 +66,7 @@ export const ui: Record<Locale, UI> = {
     overlayCta: "Visit",
     makingOfWidget: "How this portfolio was built",
     caseStudy: "Read the case study",
+    visualLabel: "Visual to come",
   },
   fr: {
     getInTouch: "Me contacter",
@@ -83,6 +85,7 @@ export const ui: Record<Locale, UI> = {
     overlayCta: "Visiter",
     makingOfWidget: "Comment ce portfolio a été construit",
     caseStudy: "Lire le case study",
+    visualLabel: "Visuel à venir",
   },
   es: {
     getInTouch: "Contactarme",
@@ -101,6 +104,7 @@ export const ui: Record<Locale, UI> = {
     overlayCta: "Visitar",
     makingOfWidget: "Cómo se construyó este portafolio",
     caseStudy: "Leer el case study",
+    visualLabel: "Visual pendiente",
   },
 };
 
@@ -880,7 +884,7 @@ export const highlightText: Record<
   }
 > = {
   en: {
-    sectionTitle: "Highlights",
+    sectionTitle: "Side projects",
     title: "Builder",
     tagline: "A Claude Code plugin",
     blurb:
@@ -889,7 +893,7 @@ export const highlightText: Record<
     ctaSecondary: "See details",
   },
   fr: {
-    sectionTitle: "Highlights",
+    sectionTitle: "Side projects",
     title: "Builder",
     tagline: "Un plugin Claude Code",
     blurb:
@@ -898,7 +902,7 @@ export const highlightText: Record<
     ctaSecondary: "Voir les détails",
   },
   es: {
-    sectionTitle: "Destacados",
+    sectionTitle: "Side projects",
     title: "Builder",
     tagline: "Un plugin de Claude Code",
     blurb:
@@ -1493,7 +1497,7 @@ export const nrcText: Record<
           ],
           status: {
             label: "Where it stands: ",
-            body: "phase 1 shipped, design tokens and primitive components (buttons, input fields). Phase 2 shipped, the navigation bar. Phase 3 shipped, the filter system. Tables and data visualization remain.",
+            body: "phase 0 shipped, two quick wins on the legacy screen, favorite reports on top and a report search. Phase 1 shipped, design tokens and primitive components (buttons, input fields). Phase 2 shipped, the navigation bar. Phase 3 shipped, the filter system. Tables and data visualization remain.",
           },
           figure: "Before and after, one phase of the suite",
         },
@@ -1669,7 +1673,7 @@ export const nrcText: Record<
           ],
           status: {
             label: "Où ça en est : ",
-            body: "phase 1 livrée, design tokens et composants primitifs (boutons, champs de saisie). Phase 2 livrée, barre de navigation. Phase 3 livrée, système de filtres. Restent les tables et la data visualization.",
+            body: "phase 0 livrée, deux quick wins sur l'écran legacy, les rapports favoris en haut et une recherche de rapports. Phase 1 livrée, design tokens et composants primitifs (boutons, champs de saisie). Phase 2 livrée, barre de navigation. Phase 3 livrée, système de filtres. Restent les tables et la data visualization.",
           },
           figure: "Avant et après, une phase de la suite",
         },
@@ -1845,7 +1849,7 @@ export const nrcText: Record<
           ],
           status: {
             label: "Estado actual: ",
-            body: "fase 1 entregada, design tokens y componentes primitivos (botones, campos de entrada). Fase 2 entregada, la barra de navegación. Fase 3 entregada, el sistema de filtros. Quedan las tablas y la visualización de datos.",
+            body: "fase 0 entregada, dos quick wins en la pantalla legacy, los informes favoritos arriba y una búsqueda de informes. Fase 1 entregada, design tokens y componentes primitivos (botones, campos de entrada). Fase 2 entregada, la barra de navegación. Fase 3 entregada, el sistema de filtros. Quedan las tablas y la visualización de datos.",
           },
           figure: "Antes y después, una fase de la suite",
         },

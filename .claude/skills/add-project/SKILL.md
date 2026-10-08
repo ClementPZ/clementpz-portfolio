@@ -1,16 +1,16 @@
 ---
 name: add-project
-description: Add a project to the portfolio, card and page together. Use when Clément wants a project added to the recent-projects carousel, e.g. "ajoute X au portfolio", "on montre X sur le portfolio", "nouveau projet sur le portfolio".
+description: Add a project to the portfolio, card and page together. Use when Clément wants a project added to the home side projects, e.g. "ajoute X au portfolio", "on montre X sur le portfolio", "nouveau projet sur le portfolio".
 ---
 
 # Add a project
 
-Adds one project to the portfolio end to end: its carousel card and its own
+Adds one project to the portfolio end to end: its side-project card and its own
 dedicated page, in the same pass. Replaces the old card-only flow. Ask for
 whatever is missing below, one question at a time, do not guess a field the
 user has not given.
 
-## 1. Card
+## 1. Card (data for the home side-projects section)
 
 1. **Name** and a **one-line pitch** (English, source for the three locales).
 2. **Status**: `concept`, `concept-wip`, `fail`, `private-live`, `in progress`,
@@ -52,14 +52,16 @@ In order:
    `ProjectId` union in `src/data/content.ts`. Add it to that union: this is
    what makes a missing translation fail the build instead of shipping
    quietly.
-2. Add the entry to `recentProjects`, placed as the new last card unless the
+2. Add the entry to `recentProjects`, then its id to `sideProjectIds` (same
+   file) so it shows on the home: after the first two it renders as a medium or
+   small card, placed as the new last card unless the
    user asks for a position.
 3. Add `projectText[locale][id]` for `en`, `fr`, and `es` in
    `src/data/i18n.ts`: a `tagline` and a `description`, written in each
    language's own voice, not a word-for-word translation. No em dash (see
    `CLAUDE.md`, "Règles strictes").
 4. Write the page copy as its own locale block in `i18n.ts`, shaped like
-   `builderText` or `musicDownloaderText` depending on the chosen template,
+   `builderText` or `musicQualityUpgraderText` depending on the chosen template,
    for `en`, `fr`, and `es`.
 5. Create the route `src/app/<id>/page.tsx` (metadata + Content component)
    and the component `src/components/<PascalCaseId>Content.tsx`, built on the

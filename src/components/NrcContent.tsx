@@ -8,6 +8,8 @@ import { NrcOrgChart } from "./NrcOrgChart";
 import { NrcRoadmap } from "./NrcRoadmap";
 import { profile } from "../data/content";
 import { nrcText, accessMailtoHref } from "../data/i18n";
+import { nrcVisuals } from "../data/nrcVisuals";
+import { BeforeAfterSlider, ScreenStep } from "./NrcVisuals";
 import { flowbite, flowbiteGround } from "../data/flowbiteSystem";
 import { useLocale } from "./LocaleProvider";
 import { fireConfetti } from "../lib/confetti";
@@ -15,9 +17,9 @@ import { fireConfetti } from "../lib/confetti";
 // Case study NRC Health. Meme coquille que /music-quality-upgrader : Nav, BackHome,
 // pilule de periode, Footer, largeur max-w-3xl.
 //
-// Les visuels n'existent pas encore : Figure rend un cadre en pointilles qui
-// nomme ce qui doit y aller. Remplacer un cadre = echanger le composant contre
-// une <img>, sans toucher au reste. Seul l'organigramme est vraiment dessine.
+// Cas a et c : visuels dans NrcVisuals (exports du canvas, textes dans
+// nrcVisuals.ts). Cas b : pas de source, Figure rend un cadre qui nomme ce qui
+// doit y aller. Remplacer un cadre = echanger le composant contre une <img>.
 
 // Apercu du design system extrait : une bande de teintes et deux composants
 // vivants et compacts, la page complete est /nrc/design-system.
@@ -69,6 +71,7 @@ function Figure({ label, caption }: { label: string; caption?: string }) {
 export function NrcContent() {
   const { locale } = useLocale();
   const t = nrcText[locale];
+  const v = nrcVisuals[locale];
 
   return (
     <div id="top">
@@ -189,6 +192,9 @@ export function NrcContent() {
         {/* 3. Les cas produit */}
         <section className="pt-14">
           <SectionTitle title={t.cases.title} sub={t.cases.sub} />
+          <p className="text-sm max-w-xl -mt-4 mb-7" style={{ color: "var(--text-muted)" }}>
+            {v.disclaimer}
+          </p>
           <div className="grid gap-16">
             {t.cases.items.map((c) => (
               <article key={c.n}>
@@ -230,9 +236,26 @@ export function NrcContent() {
                     {c.more.body}
                   </p>
                 )}
-                <div className="mt-5">
-                  <Figure label={t.figureLabel} caption={c.figure} />
-                </div>
+                {c.n === "a" && (
+                  <div className="mt-6 grid gap-12">
+                    <BeforeAfterSlider text={v.slider} />
+                    {v.steps.map((step) => (
+                      <ScreenStep key={step.id} step={step} fullSize={v.fullSize} />
+                    ))}
+                  </div>
+                )}
+                {c.n === "c" && (
+                  <div className="mt-6 grid gap-12">
+                    {v.huey.map((step) => (
+                      <ScreenStep key={step.id} step={step} fullSize={v.fullSize} />
+                    ))}
+                  </div>
+                )}
+                {c.n !== "a" && c.n !== "c" && (
+                  <div className="mt-5">
+                    <Figure label={t.figureLabel} caption={c.figure} />
+                  </div>
+                )}
               </article>
             ))}
           </div>
