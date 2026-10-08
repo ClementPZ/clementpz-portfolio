@@ -74,6 +74,11 @@ function Avatar({ company, image }: { company: string; image?: string }) {
   );
 }
 
+// Rayon des cartes d'expérience et de leurs visuels, 8px au plus.
+const CARD_RADIUS = 8;
+// Carte passée en pleine largeur dans "Expériences passées", photo à gauche.
+const WIDE_ID = "episource";
+
 type LocalizedWork = (typeof workText)[Locale][WorkItem["id"]];
 
 // Corps commun d'une carte d'expérience : entête, rôle, lieu, puis `children`
@@ -175,8 +180,9 @@ export function LastExperience() {
 
       <article
         className={`panel card-featured p-6 sm:p-10 grid gap-8 md:grid-cols-2 md:gap-12${
-          w.link ? " card-link relative" : ""
+          w.link ? " relative" : ""
         }`}
+        style={{ borderRadius: CARD_RADIUS }}
       >
         <CardLink w={w} />
         <div className="flex flex-col">
@@ -210,25 +216,48 @@ export function PastExperiences() {
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
-        {past.map((w) => (
-          <article
-            key={w.company + w.period}
-            className={`panel p-6 sm:p-7 flex flex-col${w.link ? " card-link relative" : ""}`}
-          >
-            <CardLink w={w} />
-            <ExperienceText w={w} lx={localized[w.id]}>
-              {w.photo && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={w.photo}
-                  alt={w.company}
-                  className="w-full mb-4 rounded-lg object-cover"
-                  style={{ aspectRatio: "3 / 2" }}
-                />
+        {past.map((w) => {
+          const wide = w.id === WIDE_ID;
+          return (
+            <article
+              key={w.company + w.period}
+              className={`panel p-6 sm:p-7${
+                wide ? " sm:col-span-2 sm:p-10 grid gap-8 md:grid-cols-2 md:gap-12 items-center" : " flex flex-col"
+              }${w.link ? " relative" : ""}`}
+              style={{ borderRadius: CARD_RADIUS }}
+            >
+              <CardLink w={w} />
+              {wide ? (
+                <>
+                  {w.photo && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={w.photo}
+                      alt={w.company}
+                      className="w-full object-cover"
+                      style={{ aspectRatio: "3 / 2", borderRadius: CARD_RADIUS }}
+                    />
+                  )}
+                  <div className="flex flex-col">
+                    <ExperienceText w={w} lx={localized[w.id]} />
+                  </div>
+                </>
+              ) : (
+                <ExperienceText w={w} lx={localized[w.id]}>
+                  {w.photo && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={w.photo}
+                      alt={w.company}
+                      className="w-full mb-4 object-cover"
+                      style={{ aspectRatio: "3 / 2", borderRadius: CARD_RADIUS }}
+                    />
+                  )}
+                </ExperienceText>
               )}
-            </ExperienceText>
-          </article>
-        ))}
+            </article>
+          );
+        })}
       </div>
     </section>
   );
