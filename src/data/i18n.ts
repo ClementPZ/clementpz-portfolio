@@ -152,9 +152,9 @@ export const workText: Record<
       bullets: [
         "Launched Le Wagon's Mexico City campus, the first in Latin America.",
         "Secured 15 commercial partners (ITAM, Start-Up Mexico, Numa).",
-        "Taught UI/UX fundamentals across 4 cohorts.",
+        "Taught UI/UX fundamentals across 5 batches.",
       ],
-      impact: ["4 cohorts · 40 students · 15 web products shipped"],
+      impact: ["5 batches · 61 students · 15 web products shipped"],
     },
     welcomhere: {
       role: "Co-founder · Product & Business Development",
@@ -203,9 +203,9 @@ export const workText: Record<
       bullets: [
         "Lancement du campus Le Wagon de Mexico, le premier d'Amérique latine.",
         "Signature de 15 partenaires commerciaux, dont ITAM, Start-Up Mexico et Numa.",
-        "Enseignement des fondamentaux UI/UX sur 4 promotions.",
+        "Enseignement des fondamentaux UI/UX sur 5 promotions.",
       ],
-      impact: ["4 promotions · 40 étudiants · 15 produits web livrés"],
+      impact: ["5 promotions · 61 étudiants · 15 produits web livrés"],
     },
     welcomhere: {
       role: "Co-fondateur · Product & Business Development",
@@ -254,9 +254,9 @@ export const workText: Record<
       bullets: [
         "Lancé el campus de Le Wagon en Ciudad de México, el primero de América Latina.",
         "Aseguré 15 socios comerciales (ITAM, Start-Up Mexico, Numa).",
-        "Enseñé fundamentos de UI/UX en 4 promociones.",
+        "Enseñé fundamentos de UI/UX en 5 promociones.",
       ],
-      impact: ["4 promociones · 40 estudiantes · 15 productos web entregados"],
+      impact: ["5 promociones · 61 estudiantes · 15 productos web entregados"],
     },
     welcomhere: {
       role: "Cofundador · Product & Business Development",
@@ -955,7 +955,7 @@ export const builderText: Record<
     kicker: "Claude Code plugin",
     title: "Builder",
     intro:
-      "A tool that lets PMs and designers make front-end changes that are production-ready and consistent with the design system. They describe the change they want, and the plugin generates the matching code for an engineer to review before merge.",
+      "A tool that lets PMs and designers make front-end changes that stay consistent with the design system. They describe the change they want, and the plugin generates the matching code for an engineer to review before merge.",
     sections: [
       {
         heading: "The problem",
@@ -971,7 +971,7 @@ export const builderText: Record<
       },
       {
         heading: "The architecture",
-        body: "Builder ships as a versioned Claude Code plugin (v0.2.1), installable from a marketplace, not a homemade script. Inside: one orchestrator, three agents, one validator. The orchestrator, the skill itself, takes the plain-language request, tiers it by risk and holds the gates. The three agents only run when needed: a setup agent extracts the contract from the repo and the design system, a context agent runs a narrow scan when a change calls for it, an executor agent applies the ratified plan on the heavier changes. At the end of the chain, a deterministic validator, code and not an agent, checks every diff: nothing off-token, project lint and typecheck green.",
+        body: "Builder is a versioned Claude Code plugin (v0.2.1), installable from a marketplace. The orchestrator takes the request, tiers it by risk and holds the two human gates. Three agents run only when a change needs them. At the end, a validator that is plain code checks every diff: nothing off-token, project lint and typecheck green.",
       },
     ],
     backHome: "Back to the portfolio",
@@ -980,7 +980,7 @@ export const builderText: Record<
     kicker: "Plugin Claude Code",
     title: "Builder",
     intro:
-      "Un outil qui permet aux PM et aux designers d'apporter des modifications front-end, production-ready et cohérentes avec le design system. Ils décrivent la modification souhaitée, et le plugin génère le code correspondant, à faire relire par un ingénieur avant le merge.",
+      "Un outil qui permet aux PM et aux designers d'apporter des modifications front-end qui restent cohérentes avec le design system. Ils décrivent la modification souhaitée, et le plugin génère le code correspondant, à faire relire par un ingénieur avant le merge.",
     sections: [
       {
         heading: "Le problème",
@@ -996,7 +996,7 @@ export const builderText: Record<
       },
       {
         heading: "L'architecture",
-        body: "Builder est un plugin Claude Code versionné (v0.2.1), installable depuis un marketplace, pas un script maison. Dedans : un orchestrateur, trois agents, un validateur. L'orchestrateur, le skill lui-même, reçoit la demande en langage naturel, la classe par niveau de risque et garde les gates. Les trois agents ne se lancent qu'au besoin : un agent de setup extrait le contrat depuis le repo et le design system, un agent de contexte fait un scan ciblé quand une modification l'exige, un agent d'exécution applique le plan validé sur les changements les plus lourds. En bout de chaîne, un validateur déterministe, du code et pas un agent, vérifie chaque diff : rien hors tokens, lint et typecheck du projet qui passent.",
+        body: "Builder est un plugin Claude Code versionné (v0.2.1), installable depuis un marketplace. L'orchestrateur reçoit la demande, la classe par niveau de risque et garde les deux gates humaines. Trois agents ne se lancent que si un changement en a besoin. En bout de chaîne, un validateur écrit en code vérifie chaque diff : rien hors tokens, lint et typecheck du projet qui passent.",
       },
     ],
     backHome: "Retour au portfolio",
@@ -1005,7 +1005,7 @@ export const builderText: Record<
     kicker: "Plugin de Claude Code",
     title: "Builder",
     intro:
-      "Una herramienta que permite a PM y diseñadores hacer cambios de front-end production-ready y coherentes con el design system. Describen el cambio que quieren, y el plugin genera el código correspondiente para que un ingeniero lo revise antes del merge.",
+      "Una herramienta que permite a PM y diseñadores hacer cambios de front-end que se mantienen coherentes con el design system. Describen el cambio que quieren, y el plugin genera el código correspondiente para que un ingeniero lo revise antes del merge.",
     sections: [
       {
         heading: "El problema",
@@ -1021,7 +1021,7 @@ export const builderText: Record<
       },
       {
         heading: "La arquitectura",
-        body: "Builder es un plugin de Claude Code versionado (v0.2.1), instalable desde un marketplace, no un script casero. Dentro: un orquestador, tres agentes, un validador. El orquestador, el skill en sí, recibe la petición en lenguaje natural, la clasifica por nivel de riesgo y controla los gates. Los tres agentes solo se lanzan cuando hace falta: un agente de setup extrae el contrato desde el repo y el design system, un agente de contexto hace un escaneo puntual cuando un cambio lo exige, un agente de ejecución aplica el plan validado en los cambios más pesados. Al final de la cadena, un validador determinista, código y no un agente, verifica cada diff: nada fuera de tokens, lint y typecheck del proyecto en verde.",
+        body: "Builder es un plugin de Claude Code versionado (v0.2.1), instalable desde un marketplace. El orquestador recibe la petición, la clasifica por nivel de riesgo y controla los dos gates humanos. Tres agentes solo se lanzan cuando un cambio los necesita. Al final, un validador escrito en código verifica cada diff: nada fuera de tokens, lint y typecheck del proyecto en verde.",
       },
     ],
     backHome: "Volver al portafolio",
@@ -1369,10 +1369,10 @@ export const nrcText: Record<
 > = {
   en: {
     kicker: "Design Manager · Nasdaq: NRC",
-    period: "2024 → today",
+    period: "2024 → 2026",
     title: "Building the design function at NRC Health",
     intro:
-      "NRC Health helps US hospitals and health systems collect, analyze and act on the experience data of their patients and their employees, through four product suites, a business worth several hundred million dollars in revenue. When I joined, there was no design team. This page covers what came next: the team, the organization, the design system, and three use cases that show how we worked over the past two years.",
+      "NRC Health helps US hospitals and health systems collect, analyze and act on the experience data of their patients and their employees, through four product suites, a business of about $140 million in annual revenue. When I joined, there was no design team. This page covers what came next: the team, the organization, the design system, and three use cases that show how we worked over the past two years.",
     stack: ["SaaS", "Healthcare", "Patient Experience", "Employee Experience", "Design to Code", "Management", "AI", "Analytics"],
     figureLabel: "Visual to come",
     team: {
@@ -1380,13 +1380,13 @@ export const nrcText: Record<
       org: {
         top: ["CTO", "CPO", "C-suite"],
         lead: "Design Manager",
-        reports: ["Product Designers", "Design System Manager", "Analytics Specialist"],
+        reports: ["Senior Product Designer", "Product Designer", "Analytics Specialist"],
         peers: ["Developers", "PMs"],
       },
       strategy: [
         {
-          title: "Assign one designer per suite",
-          body: "Four suites, a team of three. Each suite has its own named designer instead of a shared queue, and every product team knows who to go to.",
+          title: "Name a designer for each suite",
+          body: "Four suites, two product designers. Each suite has a named designer instead of a shared queue, and every product team knows who to go to.",
         },
         {
           title: "Ship quick wins first",
@@ -1394,7 +1394,7 @@ export const nrcText: Record<
         },
         {
           title: "Pool the cross-product layer",
-          body: "Design system, analytics and front-end are handled as one whole.",
+          body: "Design system, analytics and front-end are handled as one whole. The senior designer later took over the design system from me.",
         },
       ],
       roadmap: [
@@ -1502,14 +1502,14 @@ export const nrcText: Record<
           n: "b",
           name: "The outreach email",
           problem:
-            "These emails converted at 8%, which is decent, but the email looked like a scam, with no reading hierarchy and not a single basic UX rule respected.",
+            "These emails had an 8% click-through rate, which is decent, but the email had no reading hierarchy and no clear main action, so it was easy to mistake for spam.",
           moves: [
             "List 101 quick wins across every product, then prioritize them. This one came out on top: the widest reach for the lowest cost of change.",
             "Rebuild the email around a single action, instead of a wall of content.",
             "Ship it straight through the design-to-code pipeline, with no spec in between.",
             "Present the result to the executive committee, before and after side by side.",
           ],
-          result: "+24% click-through rate.",
+          result: "Click-through rate from 8% to 9.9%, a 24% lift. On more than 100,000 emails a day, that is about 1,900 more clicks every day.",
           figure: "The email, before and after",
         },
         {
@@ -1545,10 +1545,10 @@ export const nrcText: Record<
   },
   fr: {
     kicker: "Design Manager · Nasdaq: NRC",
-    period: "2024 → aujourd'hui",
+    period: "2024 → 2026",
     title: "Monter la fonction design chez NRC Health",
     intro:
-      "NRC Health accompagne les hôpitaux et les systèmes de santé américains dans la collecte, l'analyse et l'exploitation des données d'expérience de leurs patients et de leurs collaborateurs, grâce à quatre suites produit, pour un business de plusieurs centaines de millions de dollars de chiffre d'affaires. À mon arrivée, il n'y avait pas d'équipe design. Cette page raconte la suite : l'équipe, l'organisation, le design system, et trois use cases pour illustrer comment nous avons travaillé ces deux dernières années.",
+      "NRC Health accompagne les hôpitaux et les systèmes de santé américains dans la collecte, l'analyse et l'exploitation des données d'expérience de leurs patients et de leurs collaborateurs, grâce à quatre suites produit, pour un business d'environ 140 millions de dollars de chiffre d'affaires annuel. À mon arrivée, il n'y avait pas d'équipe design. Cette page raconte la suite : l'équipe, l'organisation, le design system, et trois use cases pour illustrer comment nous avons travaillé ces deux dernières années.",
     stack: ["SaaS", "Healthcare", "Patient Experience", "Employee Experience", "Design to Code", "Management", "IA", "Analytics"],
     figureLabel: "Visuel à venir",
     team: {
@@ -1556,13 +1556,13 @@ export const nrcText: Record<
       org: {
         top: ["CTO", "CPO", "C-suite"],
         lead: "Design Manager",
-        reports: ["Product Designers", "Design System Manager", "Analytics Specialist"],
+        reports: ["Senior Product Designer", "Product Designer", "Analytics Specialist"],
         peers: ["Developers", "PMs"],
       },
       strategy: [
         {
-          title: "Nommer un designer par suite",
-          body: "Quatre suites, une équipe de trois. Chaque suite a son designer identifié plutôt qu'une file d'attente partagée, et chaque équipe produit sait à qui s'adresser.",
+          title: "Nommer un designer pour chaque suite",
+          body: "Quatre suites, deux product designers. Chaque suite a son designer identifié plutôt qu'une file d'attente partagée, et chaque équipe produit sait à qui s'adresser.",
         },
         {
           title: "Livrer des quick wins d'abord",
@@ -1570,7 +1570,7 @@ export const nrcText: Record<
         },
         {
           title: "Mutualiser la couche transverse",
-          body: "Design system, analytics et front-end sont traités comme un tout.",
+          body: "Design system, analytics et front-end sont traités comme un tout. Le designer senior a ensuite repris le design system après moi.",
         },
       ],
       roadmap: [
@@ -1678,14 +1678,14 @@ export const nrcText: Record<
           n: "b",
           name: "L'email de prise de contact",
           problem:
-            "Ces emails convertissaient à 8 %, ce qui est correct, mais l'email ressemblait à un scam, sans hiérarchie de lecture et sans aucune règle UX de base.",
+            "Ces emails avaient un taux de clic de 8 %, ce qui est correct, mais l'email n'avait ni hiérarchie de lecture ni action principale claire, et se confondait facilement avec du spam.",
           moves: [
             "Recenser 101 quick wins à travers l'ensemble des produits, puis les prioriser. Celui-ci sort en tête : la portée la plus large pour le coût de changement le plus faible.",
             "Reconstruire l'email autour d'une action unique, au lieu d'un mur de contenu.",
             "Livrer directement via le pipeline design-to-code, sans passer par une spec.",
             "Présenter le résultat au comité de direction, avant et après côte à côte.",
           ],
-          result: "+24 % de taux de clic.",
+          result: "Taux de clic de 8 % à 9,9 %, soit +24 %. Sur plus de 100 000 emails par jour, cela fait environ 1 900 clics de plus chaque jour.",
           figure: "L'email, avant et après",
         },
         {
@@ -1721,10 +1721,10 @@ export const nrcText: Record<
   },
   es: {
     kicker: "Design Manager · Nasdaq: NRC",
-    period: "2024 → hoy",
+    period: "2024 → 2026",
     title: "Construir la función de diseño en NRC Health",
     intro:
-      "NRC Health acompaña a hospitales y sistemas de salud de Estados Unidos en la recopilación, el análisis y el aprovechamiento de los datos de experiencia de sus pacientes y de sus empleados, a través de cuatro suites de producto, un negocio de varios cientos de millones de dólares en ingresos. Cuando llegué, no había equipo de diseño. Esta página cuenta lo que vino después: el equipo, la organización, el design system y tres casos de uso que ilustran cómo trabajamos estos dos últimos años.",
+      "NRC Health acompaña a hospitales y sistemas de salud de Estados Unidos en la recopilación, el análisis y el aprovechamiento de los datos de experiencia de sus pacientes y de sus empleados, a través de cuatro suites de producto, un negocio de unos 140 millones de dólares de ingresos anuales. Cuando llegué, no había equipo de diseño. Esta página cuenta lo que vino después: el equipo, la organización, el design system y tres casos de uso que ilustran cómo trabajamos estos dos últimos años.",
     stack: ["SaaS", "Healthcare", "Patient Experience", "Employee Experience", "Design to Code", "Management", "IA", "Analytics"],
     figureLabel: "Visual pendiente",
     team: {
@@ -1732,13 +1732,13 @@ export const nrcText: Record<
       org: {
         top: ["CTO", "CPO", "C-suite"],
         lead: "Design Manager",
-        reports: ["Product Designers", "Design System Manager", "Analytics Specialist"],
+        reports: ["Senior Product Designer", "Product Designer", "Analytics Specialist"],
         peers: ["Developers", "PMs"],
       },
       strategy: [
         {
-          title: "Asignar un diseñador por suite",
-          body: "Cuatro suites, un equipo de tres. Cada suite tiene su diseñador de referencia en lugar de una cola compartida, y cada equipo de producto sabe a quién acudir.",
+          title: "Nombrar un diseñador para cada suite",
+          body: "Cuatro suites, dos product designers. Cada suite tiene su diseñador de referencia en lugar de una cola compartida, y cada equipo de producto sabe a quién acudir.",
         },
         {
           title: "Entregar quick wins primero",
@@ -1746,7 +1746,7 @@ export const nrcText: Record<
         },
         {
           title: "Centralizar la capa transversal",
-          body: "Design system, analytics y front-end se tratan como un todo.",
+          body: "Design system, analytics y front-end se tratan como un todo. El diseñador senior asumió después el design system que yo llevaba.",
         },
       ],
       roadmap: [
@@ -1854,14 +1854,14 @@ export const nrcText: Record<
           n: "b",
           name: "El email de contacto",
           problem:
-            "Estos emails convertían al 8%, una cifra correcta, pero el email parecía fraudulento, sin jerarquía de lectura y sin respetar ninguna regla básica de UX.",
+            "Estos emails tenían una tasa de clics del 8%, una cifra correcta, pero el email no tenía jerarquía de lectura ni una acción principal clara, y se confundía fácilmente con spam.",
           moves: [
             "Identificar 101 quick wins en todos los productos y priorizarlos. Este quedó primero: el mayor alcance con el menor coste de cambio.",
             "Reconstruir el email en torno a una única acción, en lugar de un muro de contenido.",
             "Entregarlo directamente a través del pipeline design-to-code, sin pasar por una spec.",
             "Presentar el resultado al comité de dirección, con el antes y el después lado a lado.",
           ],
-          result: "+24% de tasa de clics.",
+          result: "Tasa de clics del 8% al 9,9%, un 24% más. Con más de 100 000 emails al día, son unos 1900 clics más cada día.",
           figure: "El email, antes y después",
         },
         {

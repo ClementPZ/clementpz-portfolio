@@ -7,7 +7,7 @@ import { BackHome } from "./BackHome";
 import { NrcOrgChart } from "./NrcOrgChart";
 import { NrcRoadmap } from "./NrcRoadmap";
 import { profile } from "../data/content";
-import { nrcText, accessMailtoHref } from "../data/i18n";
+import { nrcText } from "../data/i18n";
 import { nrcVisuals } from "../data/nrcVisuals";
 import { BeforeAfterSlider, ScreenStep } from "./NrcVisuals";
 import { flowbite, flowbiteGround } from "../data/flowbiteSystem";
@@ -115,7 +115,7 @@ export function NrcContent() {
                 </span>
                 <div>
                   <h3 className="font-display text-lg font-bold mb-1.5">{s.title}</h3>
-                  <p className="text-sm leading-relaxed max-w-xl" style={{ color: "var(--text-muted)" }}>
+                  <p className="text-base leading-relaxed max-w-xl" style={{ color: "var(--text-muted)" }}>
                     {s.body}
                   </p>
                 </div>
@@ -129,7 +129,7 @@ export function NrcContent() {
             <p className="font-display text-2xl sm:text-3xl font-bold leading-snug">
               {t.team.asideBold.trim()}
             </p>
-            <p className="mt-4 text-sm leading-relaxed max-w-2xl" style={{ color: "var(--text-muted)" }}>
+            <p className="mt-4 text-base leading-relaxed max-w-2xl" style={{ color: "var(--text-muted)" }}>
               {t.team.aside}
             </p>
           </div>
@@ -142,7 +142,7 @@ export function NrcContent() {
             {t.system.items.map((i) => (
               <div key={i.title}>
                 <h3 className="text-base font-semibold">{i.title}</h3>
-                <p className="text-sm mt-0.5" style={{ color: "var(--text-muted)" }}>
+                <p className="text-base mt-0.5" style={{ color: "var(--text-muted)" }}>
                   {i.body}
                 </p>
               </div>
@@ -207,11 +207,11 @@ export function NrcContent() {
                   </span>
                   <h3 className="font-display text-lg font-bold">{c.name}</h3>
                 </div>
-                <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
+                <p className="text-base leading-relaxed" style={{ color: "var(--text-muted)" }}>
                   {c.problem}
                 </p>
                 <ul
-                  className="text-sm leading-relaxed mt-4 space-y-2 pl-4"
+                  className="text-base leading-relaxed mt-4 space-y-2 pl-4"
                   style={{ listStyle: "disc", color: "var(--text-muted)" }}
                 >
                   {c.moves.map((m) => (
@@ -219,20 +219,20 @@ export function NrcContent() {
                   ))}
                 </ul>
                 {c.status && (
-                  <p className="mt-4 text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
+                  <p className="mt-4 text-base leading-relaxed" style={{ color: "var(--text-muted)" }}>
                     <b style={{ color: "var(--text)" }}>{c.status.label}</b>
                     {c.status.body}
                   </p>
                 )}
                 {c.result && (
-                  <p className="mt-4 text-sm font-semibold" style={{ color: "var(--text)" }}>
+                  <p className="mt-4 text-base font-semibold" style={{ color: "var(--text)" }}>
                     {c.result}
                   </p>
                 )}
                 {c.more && (
                   // Pas de lien vers /nrc/huey pour l'instant : la page reste en ligne
                   // mais n'est joignable que par son URL (decision du 8 oct).
-                  <p className="mt-4 text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
+                  <p className="mt-4 text-base leading-relaxed" style={{ color: "var(--text-muted)" }}>
                     {c.more.body}
                   </p>
                 )}
@@ -276,7 +276,7 @@ export function NrcContent() {
                 <span className="font-bold shrink-0" style={{ color: "var(--accent)" }}>
                   →
                 </span>
-                <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+                <p className="text-base" style={{ color: "var(--text-muted)" }}>
                   {p}
                 </p>
               </div>
@@ -290,7 +290,7 @@ export function NrcContent() {
             {t.system.builderCta}
           </Link>
           <a
-            href={accessMailtoHref(profile.email, locale)}
+            href={`mailto:${profile.email}`}
             onClick={(e) => fireConfetti(e.currentTarget)}
             className="hover:underline"
             style={{ color: "var(--accent)" }}
