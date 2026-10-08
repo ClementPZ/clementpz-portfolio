@@ -18,42 +18,30 @@ function BuilderFeature() {
   const { locale } = useLocale();
   const t = highlightText[locale];
   // Compteur incrémenté à chaque clic "Lancer demo" : BuilderDemo (re)joue son
-  // script à chaque changement de valeur (0 = jamais lancée, repos).
+  // script à chaque changement de valeur (0 = pas de clic encore). La première
+  // lecture, elle, part toute seule quand le terminal entre à l'écran.
   const [demoTrigger, setDemoTrigger] = useState(0);
 
   return (
     <div
-      className="rounded-2xl overflow-hidden grid md:grid-cols-2 gap-8 p-8 sm:p-10"
+      className="relative rounded-2xl overflow-hidden grid md:grid-cols-2 gap-8 p-8 sm:p-10"
       style={{
         background: `linear-gradient(150deg, ${accent} 0%, ${accent2} 100%)`,
         color: "#ffffff",
         boxShadow: "var(--shadow)",
       }}
     >
-      {/* Texte + CTAs */}
+      {/* Carte entière cliquable (lien étiré), seul retour au survol : le
+          curseur. Les boutons de la démo passent au-dessus (z-20). */}
+      <Link
+        href="/builder"
+        aria-label={`${t.title}, ${t.ctaSecondary}`}
+        className="absolute inset-0 z-10 rounded-[inherit]"
+      />
+
+      {/* Texte */}
       <div className="flex flex-col justify-center">
-        {/* Les 2 CTA vivent groupés sur la ligne du titre, poussés à droite. */}
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <h3 className="font-display text-3xl sm:text-4xl font-bold leading-tight">{t.title}</h3>
-          <div className="flex flex-wrap items-center gap-3">
-            <button
-              type="button"
-              onClick={() => setDemoTrigger((n) => n + 1)}
-              className="inline-flex shrink-0 items-center px-5 py-3 rounded-full text-sm font-semibold"
-              style={{ background: "#ffffff", color: accent2 }}
-            >
-              {t.ctaPrimary}
-            </button>
-            <Link
-              href="/builder"
-              className="inline-flex shrink-0 items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold"
-              style={{ border: "1px solid rgba(255,255,255,0.5)", color: "#ffffff" }}
-            >
-              {t.ctaSecondary}
-              <span aria-hidden>→</span>
-            </Link>
-          </div>
-        </div>
+        <h3 className="font-display text-3xl sm:text-4xl font-bold leading-tight">{t.title}</h3>
         <p className="text-sm font-medium mt-1" style={{ color: "rgba(255,255,255,0.85)" }}>
           {t.tagline}
         </p>
@@ -62,9 +50,29 @@ function BuilderFeature() {
         </p>
       </div>
 
-      {/* Démo : moitié droite sur desktop, empilée en dessous sur mobile */}
-      <div className="flex items-center">
+      {/* Démo : moitié droite sur desktop, empilée en dessous sur mobile. Les
+          2 CTA sont sous le terminal, alignés à droite, "Voir le détail" à
+          gauche de "Lancer la démo". */}
+      <div className="flex flex-col justify-center gap-5">
         <BuilderDemo trigger={demoTrigger} />
+        <div className="relative z-20 flex flex-wrap items-center justify-end gap-3">
+          <Link
+            href="/builder"
+            className="inline-flex shrink-0 items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold"
+            style={{ border: "1px solid rgba(255,255,255,0.5)", color: "#ffffff" }}
+          >
+            {t.ctaSecondary}
+            <span aria-hidden>→</span>
+          </Link>
+          <button
+            type="button"
+            onClick={() => setDemoTrigger((n) => n + 1)}
+            className="inline-flex shrink-0 items-center px-5 py-3 rounded-full text-sm font-semibold"
+            style={{ background: "#ffffff", color: accent2 }}
+          >
+            {t.ctaPrimary}
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -169,7 +177,7 @@ function ProjectCard({ p, size }: { p: RecentProject; size: "medium" | "small" }
 }
 
 // Section Side projects de la home. Ordre dans `sideProjectIds` : les deux
-// premiers ont leur grande carte (SpotA, Builder), les deux suivants passent
+// premiers ont leur grande carte (Builder, SpotA), les deux suivants passent
 // en taille medium, le reste en petit.
 export function SideProjects() {
   const { locale } = useLocale();
@@ -186,8 +194,8 @@ export function SideProjects() {
       </div>
 
       <div className="grid gap-6">
-        <SpotaFeature />
         <BuilderFeature />
+        <SpotaFeature />
       </div>
 
       <div className="grid gap-5 md:grid-cols-2 mt-6">

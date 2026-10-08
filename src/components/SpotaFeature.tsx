@@ -18,12 +18,19 @@ import {
 // de l'app, noir et lime et violet, comme la carte Builder porte son
 // violet: une couleur de marque est une donnee, pas un token de theme, donc
 // elle ne change pas entre le mode sombre et le mode clair.
+// Lien de la fiche App Store, vide tant que l'app n'est pas publiée : le
+// bouton reste affiché mais ne mène nulle part.
+const APP_STORE_URL = "";
+
 export function SpotaFeature() {
   const { locale } = useLocale();
   const t = spotaHighlightText[locale];
 
   return (
     <div className="spota-feature">
+      {/* Carte entière cliquable (lien étiré vers /spota), pas d'effet au
+          survol hors curseur. Le bouton App Store passe au-dessus. */}
+      <Link href="/spota" aria-label="SpotA" className="spota-card-link" />
       <div className="spota-feature-copy">
         <div className="spota-eyebrow">{t.eyebrow}</div>
         {/* Le titre reste en anglais: "Today: spot a ..." fait entrer le nom
@@ -32,9 +39,9 @@ export function SpotaFeature() {
         <SpotaHeadline />
         <p className="spota-lede">{t.lede}</p>
         <div className="spota-feature-ctas">
-          <Link className="spota-btn" href="/spota">
+          <a className="spota-btn" href={APP_STORE_URL || undefined}>
             {t.cta}
-          </Link>
+          </a>
           <span className="spota-fine-print">{t.finePrint}</span>
         </div>
       </div>
@@ -61,10 +68,14 @@ export function SpotaFeature() {
           align-items: center;
           padding: 40px;
           border-radius: 18px;
-          background: #000;
+          position: relative;
+          /* Aubergine-anthracite plutôt que noir pur : moins dur sur la page,
+             le lime et le violet de l'app restent les accents. */
+          background-color: #1c1625;
           background-image:
-            radial-gradient(760px 380px at 8% -20%, rgba(153,34,255,0.20), transparent 62%),
-            radial-gradient(560px 320px at 100% 8%, rgba(202,254,0,0.07), transparent 58%);
+            radial-gradient(760px 380px at 8% -20%, rgba(153,34,255,0.26), transparent 62%),
+            radial-gradient(560px 320px at 100% 8%, rgba(202,254,0,0.08), transparent 58%),
+            linear-gradient(150deg, #34283f 0%, #1c1625 100%);
           color: #fff;
           font-family: var(--font-dm-sans), system-ui, sans-serif;
           box-shadow: var(--shadow);
@@ -98,6 +109,8 @@ export function SpotaFeature() {
           margin: 32px 0 0; max-width: 46ch;
           font-size: 16px; line-height: 1.55; color: rgba(255,255,255,0.7);
         }
+        .spota-card-link { position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+        .spota-feature-copy, .spota-feature-stage { position: relative; z-index: 2; pointer-events: none; }
         .spota-feature-ctas { margin-top: 26px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
         .spota-feature .spota-btn {
           display: inline-flex; align-items: center; justify-content: center;
@@ -105,10 +118,10 @@ export function SpotaFeature() {
           font-weight: 800; font-size: 16px; text-decoration: none;
           /* Lime, pas violet: le CTA de l'app est lime, et l'encre sombre sur
              violet tombe a 3.76:1 en 16px/800, sous le plancher AA. */
-          border: none; cursor: pointer; background: var(--self); color: var(--spot-ink);
+          border: none; cursor: pointer; background: var(--self); color: var(--spot-ink); pointer-events: auto;
         }
         .spota-feature .spota-btn:hover { filter: brightness(1.06); }
-        .spota-feature .spota-fine-print { font-size: 12.5px; color: rgba(255,255,255,0.38); }
+        .spota-feature .spota-fine-print { font-size: 12.5px; color: rgba(255,255,255,0.5); }
         .spota-feature-stage { display: flex; align-items: center; justify-content: center; padding: 12px; }
         .spota-hand-shot { width: min(270px, 62vw); height: auto; display: block; filter: drop-shadow(0 24px 40px rgba(0,0,0,0.55)); }
       `}</style>
