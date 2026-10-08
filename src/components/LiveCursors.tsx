@@ -195,8 +195,7 @@ export function LiveCursors() {
       rafs.push(requestAnimationFrame(step));
     };
 
-    // Carol n'entre qu'APRÈS le clic "Visit" du disclaimer. Si le disclaimer a
-    // déjà été vu cette session (il ne réapparaît pas), elle entre directement.
+    // Plus de disclaimer à attendre : Carol entre directement après le montage.
     let started = false;
     const startCarol = () => {
       if (started) return;
@@ -212,19 +211,9 @@ export function LiveCursors() {
       }
     };
 
-    let alreadySeen = false;
-    try {
-      alreadySeen = !!sessionStorage.getItem("disclaimer-seen");
-    } catch {}
-
-    if (alreadySeen) {
-      timers.push(window.setTimeout(startCarol, 800));
-    } else {
-      window.addEventListener("disclaimer-dismissed", startCarol, { once: true });
-    }
+    timers.push(window.setTimeout(startCarol, 800));
 
     return () => {
-      window.removeEventListener("disclaimer-dismissed", startCarol);
       rafs.forEach(cancelAnimationFrame);
       timers.forEach(clearTimeout);
       cleanups.forEach((fn) => fn());

@@ -1,4 +1,3 @@
-import { DisclaimerOverlay } from "../components/DisclaimerOverlay";
 import { BackToTop } from "../components/BackToTop";
 import { LiveCursors } from "../components/LiveCursors";
 import { PullToRefresh } from "../components/PullToRefresh";
@@ -21,20 +20,19 @@ function SectionRule() {
 export default function Home() {
   return (
     <>
-      <DisclaimerOverlay />
       <PullToRefresh />
       <div id="page-shift">
         <Nav />
         <main>
           <Hero />
           <SectionRule />
-          <Stack />
-          <SectionRule />
           <LastExperience />
           <SectionRule />
           <SideProjects />
           <SectionRule />
           <PastExperiences />
+          <SectionRule />
+          <Stack />
         </main>
         <Footer tight />
         {/* Dans #page-shift (transformé → stacking context) pour que la nav

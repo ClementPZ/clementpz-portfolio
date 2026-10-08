@@ -86,7 +86,7 @@ export function DaysContent() {
         </nav>
 
         <header className="days-hero">
-          <div className="days-eyebrow">A very clean day counter</div>
+          <div className="days-eyebrow">A day counter for iOS</div>
           <h1>One number. The days that matter.</h1>
           <p className="days-lede">
             Count down to a date, or count up the days since one. Every counter is a title, a
