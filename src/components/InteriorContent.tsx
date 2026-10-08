@@ -59,7 +59,7 @@ export function InteriorContent() {
           <BackHome />
         </div>
         <p
-          className="text-xs uppercase tracking-widest font-semibold mb-4"
+          className="text-sm font-semibold mb-4"
           style={{ color: "var(--accent)" }}
         >
           {t.kicker}
@@ -83,7 +83,6 @@ export function InteriorContent() {
                 type="button"
                 onClick={(e) => vote(p.id, e.currentTarget)}
                 className="group relative rounded-2xl overflow-hidden aspect-[3/2] text-left"
-                style={{ border: "1px solid var(--border)" }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
