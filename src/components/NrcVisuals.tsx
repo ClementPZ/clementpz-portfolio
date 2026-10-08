@@ -17,7 +17,7 @@ const RATIO = "1545 / 880";
 // Cadre commun des captures : un filet et une ombre douce, rayon leger. Le
 // fond blanc est celui des images, il evite un liseré sombre au bord en dark.
 const FRAME: React.CSSProperties = {
-  borderRadius: 12,
+  borderRadius: 8,
   background: "#ffffff",
   border: "1px solid var(--border-strong)",
   boxShadow: "var(--shadow)",
@@ -38,6 +38,12 @@ export function BeforeAfterSlider({
   const box = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
 
+  // Rend la selection de texte a la page quand le glisser se termine.
+  function endDrag() {
+    dragging.current = false;
+    document.body.style.userSelect = "";
+  }
+
   function moveTo(clientX: number) {
     const el = box.current;
     if (!el) return;
@@ -50,7 +56,7 @@ export function BeforeAfterSlider({
 
   return (
     <figure className={`m-0 ${breakout ? BREAKOUT : ""}`}>
-      <div className="flex items-center justify-between text-xs font-medium mb-2.5 px-1">
+      <div className="flex items-center justify-between text-xs font-medium mb-2.5">
         <span
           style={{ color: beforeShown ? "var(--text)" : "var(--text-muted)", transition: "color 0.2s" }}
         >
@@ -72,6 +78,10 @@ export function BeforeAfterSlider({
           touchAction: "pan-y",
         }}
         onPointerDown={(e) => {
+          // Sans ca, glisser jusqu'au bout selectionne le texte de la carte.
+          e.preventDefault();
+          window.getSelection()?.removeAllRanges();
+          document.body.style.userSelect = "none";
           dragging.current = true;
           try {
             e.currentTarget.setPointerCapture(e.pointerId);
@@ -83,12 +93,10 @@ export function BeforeAfterSlider({
         onPointerMove={(e) => {
           if (dragging.current) moveTo(e.clientX);
         }}
-        onPointerUp={() => {
-          dragging.current = false;
-        }}
-        onPointerCancel={() => {
-          dragging.current = false;
-        }}
+        onPointerUp={endDrag}
+        onPointerCancel={endDrag}
+        onLostPointerCapture={endDrag}
+        onMouseDown={(e) => e.preventDefault()}
       >
         <img
           src="/nrc/before.webp"
