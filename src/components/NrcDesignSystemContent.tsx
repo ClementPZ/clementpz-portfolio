@@ -206,7 +206,7 @@ export function NrcDesignSystemContent() {
                 >
                   {g.name} · {flowbite.family}
                 </h3>
-                <div className="grid gap-5">
+                <div className="grid grid-cols-1 gap-5">
                   {g.styles.map((s) => (
                     <div key={s.name}>
                       <p

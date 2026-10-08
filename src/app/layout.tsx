@@ -6,6 +6,7 @@ import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
 import { LocaleProvider } from "../components/LocaleProvider";
 import { profile, defaultTheme } from "../data/content";
+import { introText } from "../data/i18n";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -27,19 +28,20 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: `${profile.name} · ${profile.tagline}`,
-  description: profile.intro,
+  description: introText.en,
   metadataBase: new URL("https://clementpz.com"),
+  alternates: { canonical: "/" },
   openGraph: {
     title: `${profile.name} · ${profile.tagline}`,
-    description: profile.intro,
+    description: introText.en,
     type: "website",
-    locale: "fr_FR",
+    locale: "en_US",
     siteName: profile.name,
   },
   twitter: {
     card: "summary_large_image",
     title: `${profile.name} · ${profile.tagline}`,
-    description: profile.intro,
+    description: introText.en,
   },
 };
 
@@ -52,7 +54,7 @@ export default function RootLayout({
   // côté client après hydration sans flicker grâce à un script inline.
   return (
     <html
-      lang="fr"
+      lang="en"
       data-theme={defaultTheme}
       className={`${sora.variable} ${dmSans.variable}`}
       suppressHydrationWarning

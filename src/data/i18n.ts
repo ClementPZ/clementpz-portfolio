@@ -39,10 +39,6 @@ type UI = {
   recentTitle: string;
   recentSub: string;
   recoTitle: string;
-  overlayTitle: string;
-  overlayBodyPre: string; // avant le numéro
-  overlayBodyPost: string; // après le numéro
-  overlayCta: string;
   makingOfWidget: string;
   caseStudy: string;
   visualLabel: string;
@@ -59,11 +55,6 @@ export const ui: Record<Locale, UI> = {
     recentSub:
       "Side projects in progress.",
     recoTitle: "Recommendations",
-    overlayTitle: "This portfolio is under construction, but already online.",
-    overlayBodyPre: "You're the",
-    overlayBodyPost:
-      "person to visit. Have a tour, and reach out if anything catches your eye.",
-    overlayCta: "Visit",
     makingOfWidget: "How this portfolio was built",
     caseStudy: "Read the case study",
     visualLabel: "Visual to come",
@@ -78,11 +69,6 @@ export const ui: Record<Locale, UI> = {
     recentSub:
       "Des side projects en cours.",
     recoTitle: "Recommandations",
-    overlayTitle: "Ce portfolio est en construction, mais déjà en ligne.",
-    overlayBodyPre: "Vous êtes la",
-    overlayBodyPost:
-      "personne à le visiter. Faites un tour, et contactez-moi si quelque chose vous parle.",
-    overlayCta: "Visiter",
     makingOfWidget: "Comment ce portfolio a été construit",
     caseStudy: "Lire le case study",
     visualLabel: "Visuel à venir",
@@ -97,11 +83,6 @@ export const ui: Record<Locale, UI> = {
     recentSub:
       "Side projects en marcha.",
     recoTitle: "Recomendaciones",
-    overlayTitle: "Este portafolio está en construcción, pero ya en línea.",
-    overlayBodyPre: "Eres la",
-    overlayBodyPost:
-      "persona en visitarlo. Date una vuelta, y escríbeme si algo te llama la atención.",
-    overlayCta: "Visitar",
     makingOfWidget: "Cómo se construyó este portafolio",
     caseStudy: "Leer el case study",
     visualLabel: "Visual pendiente",
@@ -126,7 +107,7 @@ export const workText: Record<
       role: "Design Manager",
       bullets: [
         "Recruited and led NRC Health's first design team, two Product Designers and an Analytics Specialist, across all four product suites.",
-        "Created a multi-product design system on Flowbite: design tokens and a semantic layer shared by Angular, Vue and legacy front-ends.",
+        "Created a multi-product design system on Flowbite: design tokens and a semantic layer shared by Angular, Vue and legacy front-ends, adopted by all four suites.",
         "Built an AI-assisted design-to-code workflow, so non-technical profiles can propose UX/UI changes that a developer reviews.",
         "Led the design of the company's AI features, including the Huey assistant and an ambient-listening tool that raised nurse-rounding documentation from 55% to 90%.",
         "Set up product analytics with Product, Engineering and the C-suite, and validated design decisions with research and A/B tests: +24% click-through on outreach emails.",
@@ -178,7 +159,7 @@ export const workText: Record<
       role: "Design Manager",
       bullets: [
         "Recrutement et management de la première équipe Design de NRC Health, deux Product Designers et un Analytics Specialist, sur les quatre suites produit.",
-        "Création d'un design system multi-produits sur Flowbite : design tokens et semantic layer partagés par les front-ends Angular, Vue et legacy.",
+        "Création d'un design system multi-produits sur Flowbite : design tokens et semantic layer partagés par les front-ends Angular, Vue et legacy, adopté par les quatre suites.",
         "Mise en place d'un workflow design-to-code assisté par IA, pour que des profils non techniques proposent des changements UX/UI relus par un développeur.",
         "Pilotage du design des fonctionnalités IA de l'entreprise, dont l'assistant Huey et un outil d'ambient listening qui a fait passer la documentation des rondes infirmières de 55 % à 90 %.",
         "Mise en place des analytics produit avec les équipes Produit, Engineering et le C-level, et validation des décisions design par la recherche et l'A/B testing : +24 % de taux de clic sur les emails d'outreach.",
@@ -230,7 +211,7 @@ export const workText: Record<
       role: "Design Manager",
       bullets: [
         "Contraté y lideré el primer equipo de Diseño de NRC Health, dos Product Designers y un Analytics Specialist, en las cuatro suites de producto.",
-        "Creé un design system multi-producto sobre Flowbite: design tokens y una semantic layer compartidos por los front-ends Angular, Vue y legacy.",
+        "Creé un design system multi-producto sobre Flowbite: design tokens y una semantic layer compartidos por los front-ends Angular, Vue y legacy, adoptado por las cuatro suites.",
         "Monté un workflow design-to-code asistido por IA, para que perfiles no técnicos propongan cambios de UX/UI que revisa un desarrollador.",
         "Dirigí el diseño de las funcionalidades de IA de la empresa, entre ellas el asistente Huey y una herramienta de ambient listening que elevó la documentación de las rondas de enfermería del 55 % al 90 %.",
         "Implanté los analytics de producto con Producto, Engineering y el C-level, y validé las decisiones de diseño con investigación y A/B testing: +24 % de tasa de clics en los emails de outreach.",
@@ -298,7 +279,7 @@ export const projectText: Record<
     "legal-music": {
       tagline: "Swap MP3s for lossless files, playlist by playlist",
       description:
-        "A pipeline that checks every track of a playlist, searches for a better file, files it where the old one was and moves the old one to a review playlist. It also downloads new tracks, from a single command.",
+        "A pipeline that audits a DJ library for low-quality files, finds better ones and swaps them in. It runs a dry run first and never deletes anything on its own: old files go to a review playlist.",
     },
     "job-search": {
       tagline: "A cleaner France Travail interface",
@@ -360,7 +341,7 @@ export const projectText: Record<
     "legal-music": {
       tagline: "Remplacer les MP3 par du lossless, playlist par playlist",
       description:
-        "Un pipeline qui vérifie chaque morceau d'une playlist, cherche un meilleur fichier, le range là où se trouvait l'ancien et déplace l'ancien dans une playlist de review. Il télécharge aussi les nouveaux morceaux, en une commande.",
+        "Un pipeline qui audite une bibliothèque de DJ à la recherche de fichiers de basse qualité, trouve de meilleures versions et les remplace. Il commence par un dry run et ne supprime jamais rien tout seul : les anciens fichiers vont dans une playlist de review.",
     },
     "job-search": {
       tagline: "Une interface France Travail épurée",
@@ -422,7 +403,7 @@ export const projectText: Record<
     "legal-music": {
       tagline: "Cambiar los MP3 por lossless, playlist por playlist",
       description:
-        "Un pipeline que verifica cada track de una playlist, busca un archivo mejor, lo archiva donde estaba el antiguo y mueve el antiguo a una playlist de review. También descarga tracks nuevos, con un solo comando.",
+        "Un pipeline que audita una biblioteca de DJ en busca de archivos de baja calidad, encuentra versiones mejores y las sustituye. Empieza con un dry run y nunca borra nada por su cuenta: los archivos antiguos van a una playlist de review.",
     },
     "job-search": {
       tagline: "Una interfaz de France Travail más limpia",
@@ -452,7 +433,7 @@ export const projectText: Record<
     days: {
       tagline: "Cuenta atrás y días transcurridos",
       description:
-        "Un contador de días para iOS. Cuente hacia atrás hasta una fecha o cuente los días desde una, con un anillo, widgets en la pantalla de inicio y en la de bloqueo, y una notificación en cada hito. Sin cuenta, sin publicidad, todo se queda en el teléfono.",
+        "Un contador de días para iOS. Cuenta hacia atrás hasta una fecha o cuenta los días desde una, con un anillo, widgets en la pantalla de inicio y en la de bloqueo, y una notificación en cada hito. Sin cuenta, sin publicidad, todo se queda en el teléfono.",
     },
     "making-of": {
       tagline: "El portafolio, explicado por sí mismo",
@@ -898,7 +879,7 @@ export const highlightText: Record<
     tagline: "Un plugin Claude Code",
     blurb:
       "Le plugin Builder permet à un PM ou un designer d'apporter des modifications au front-end dans le cadre du design system. Les changements suivent les design tokens et sont classés par niveau de risque. Un ingénieur relit et merge le résultat.",
-    ctaPrimary: "Lancer demo",
+    ctaPrimary: "Lancer la démo",
     ctaSecondary: "Voir les détails",
   },
   es: {
@@ -907,7 +888,7 @@ export const highlightText: Record<
     tagline: "Un plugin de Claude Code",
     blurb:
       "El plugin Builder permite a un PM o un diseñador aportar modificaciones al front-end dentro del design system. Los cambios siguen los design tokens y se clasifican por nivel de riesgo. Un ingeniero revisa y mergea el resultado.",
-    ctaPrimary: "Lanzar demo",
+    ctaPrimary: "Lanzar la demo",
     ctaSecondary: "Ver detalles",
   },
 };
@@ -1630,7 +1611,7 @@ export const nrcText: Record<
         },
         {
           n: "b",
-          name: "L'email de prise de contact",
+          name: "L'email d'outreach",
           problem:
             "Ces emails avaient un taux de clic de 8 %, ce qui est correct, mais l'email n'avait ni hiérarchie de lecture ni action principale claire, et se confondait facilement avec du spam.",
           moves: [
@@ -1663,7 +1644,7 @@ export const nrcText: Record<
     },
     analytics: {
       title: "4. Analytics",
-      body: "Les analytics produit ont été construits avec les équipes Produit, Engineering et le comité de direction, pour qu'une décision design puisse se vérifier sur un chiffre. L'email de prise de contact ci-dessus en est l'exemple : une hypothèse, un A/B test, +24 % mesurés.",
+      body: "Les analytics produit ont été construits avec les équipes Produit, Engineering et le comité de direction, pour qu'une décision design puisse se vérifier sur un chiffre. L'email d'outreach ci-dessus en est l'exemple : une hypothèse, un A/B test, +24 % mesurés.",
       points: [
         "Adosser chaque décision design à de la recherche et à de l'A/B testing, pour qu'un changement parte avec une hypothèse mesurable.",
         "Définir les KPI par fonctionnalité, jamais par release.",
@@ -1831,19 +1812,19 @@ export const spotaHighlightText: Record<
   en: {
     eyebrow: "A daily photo game for friend groups",
     lede: "One prompt a day. Find it in the real world, capture it, back camera for the target, front camera for you. Post yours to unlock what your crew spotted.",
-    cta: "Get the app",
+    cta: "Request the beta",
     finePrint: "iOS · ages 13+",
   },
   fr: {
     eyebrow: "Un jeu photo quotidien pour les groupes d'amis",
     lede: "Un prompt par jour. Trouve-le dans la vraie vie, capture-le, caméra arrière pour la cible, caméra avant pour toi. Publie le tien pour découvrir ce que ta bande a repéré.",
-    cta: "Télécharger l'app",
+    cta: "Demander la bêta",
     finePrint: "iOS · 13 ans et plus",
   },
   es: {
     eyebrow: "Un juego de fotos diario para grupos de amigos",
     lede: "Un prompt al día. Encuéntralo en la vida real, captúralo, cámara trasera para el objetivo, cámara frontal para ti. Publica el tuyo para ver lo que encontró tu grupo.",
-    cta: "Descargar la app",
+    cta: "Pedir la beta",
     finePrint: "iOS · 13 años o más",
   },
 };

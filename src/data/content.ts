@@ -8,9 +8,7 @@
 export const profile = {
   name: "Clément Picard-Zivy",
   shortName: "Clément PZ",
-  tagline: "Product Design × AI",
-  intro:
-    "Hello, I'm Clément, a product designer with 10+ years across product, business and design systems. At Nasdaq-listed NRC Health I built the design function from scratch and led a team of three. Two results from that work: nurse-rounding documentation up from 55% to 90%, and a 24% lift in outreach-email click-through. Before that, an AI coding interface at Episource validated with 897 users, a coding campus founded in Mexico City, and marketing and sales projects at Devialet.",
+  tagline: "Design Management × Product × AI",
   email: "clementpicardzivy@gmail.com",
   links: {
     linkedin: "https://www.linkedin.com/in/clément-picard-zivy-b6930155/",
