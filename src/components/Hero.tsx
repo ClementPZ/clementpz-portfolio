@@ -8,7 +8,7 @@ import { fireConfetti } from "../lib/confetti";
 export function Hero() {
   const { locale, t } = useLocale();
   return (
-    <section id="top" className="max-w-6xl mx-auto px-6 pt-20 pb-24 sm:pt-32 sm:pb-32">
+    <section id="top" className="max-w-6xl mx-auto px-6 pt-20 pb-12 sm:pt-32 sm:pb-16">
       <h1 className="font-display font-extrabold text-5xl sm:text-7xl md:text-8xl hero-tagline">
         {profile.tagline}
       </h1>

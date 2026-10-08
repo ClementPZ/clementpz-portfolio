@@ -239,15 +239,15 @@ export function NrcContent() {
                 {c.n === "a" && (
                   <div className="mt-6 grid gap-12">
                     <BeforeAfterSlider text={v.slider} />
-                    {v.steps.map((step) => (
-                      <ScreenStep key={step.id} step={step} fullSize={v.fullSize} />
+                    {v.steps.map((step, i) => (
+                      <ScreenStep key={step.id} step={step} index={i} fullSize={v.fullSize} />
                     ))}
                   </div>
                 )}
                 {c.n === "c" && (
                   <div className="mt-6 grid gap-12">
-                    {v.huey.map((step) => (
-                      <ScreenStep key={step.id} step={step} fullSize={v.fullSize} />
+                    {v.huey.map((step, i) => (
+                      <ScreenStep key={step.id} step={step} index={i} fullSize={v.fullSize} />
                     ))}
                   </div>
                 )}

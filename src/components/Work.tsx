@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { work, recommendations, type Reco, type WorkItem } from "../data/content";
 import { workText, type Locale } from "../data/i18n";
+import { nrcVisuals } from "../data/nrcVisuals";
 import { useLocale } from "./LocaleProvider";
+import { BeforeAfterSlider } from "./NrcVisuals";
 
 // Monogramme placeholder (remplacé par un logo via w.image plus tard).
 function initials(company: string): string {
@@ -149,7 +151,8 @@ function CardLink({ w }: { w: WorkItem }) {
 }
 
 // Dernière expérience seule, pleine largeur, puis les deux recommandations en
-// conclusion. Le visuel de droite (photo pour l'instant) sera remplacé.
+// conclusion. Le visuel de droite est le comparateur avant/après de /nrc, posé
+// au-dessus du lien étiré de la carte (z-20) pour rester glissable.
 export function LastExperience() {
   const { locale, t } = useLocale();
   const w = work.find((x) => x.id === "nrc");
@@ -165,7 +168,7 @@ export function LastExperience() {
   if (!w) return null;
 
   return (
-    <section id="work" className="max-w-6xl mx-auto px-6 py-20 sm:py-28">
+    <section id="work" className="max-w-6xl mx-auto px-6 py-12 sm:py-16">
       <div className="mb-8">
         <h2 className="font-display text-2xl sm:text-3xl font-bold">{t.workTitle}</h2>
       </div>
@@ -179,14 +182,9 @@ export function LastExperience() {
         <div className="flex flex-col">
           <ExperienceText w={w} lx={lx} />
         </div>
-        {w.photo && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={w.photo}
-            alt={w.company}
-            className="w-full h-full min-h-64 rounded-lg object-cover"
-          />
-        )}
+        <div className="relative z-20 self-center">
+          <BeforeAfterSlider text={nrcVisuals[locale].slider} breakout={false} />
+        </div>
       </article>
 
       {quotes.length > 0 && (
@@ -206,7 +204,7 @@ export function PastExperiences() {
   const past = work.filter((x) => x.id !== "nrc");
 
   return (
-    <section id="past" className="max-w-6xl mx-auto px-6 py-20 sm:py-28">
+    <section id="past" className="max-w-6xl mx-auto px-6 py-12 sm:py-16">
       <div className="mb-8">
         <h2 className="font-display text-2xl sm:text-3xl font-bold">{t.pastTitle}</h2>
       </div>

@@ -1,20 +1,39 @@
 "use client";
 
+/* eslint-disable @next/next/no-img-element -- exports du canvas deja en webp, tailles connues */
+
 import { useRef, useState } from "react";
 import type { NrcVisualText, VisualStep } from "../data/nrcVisuals";
 
-// Visuels de /nrc : un comparateur avant/apres et des ecrans commentes.
-// Les images sont des exports du canvas (public/nrc/<id>.webp), 1545 x 880.
-// Le numero d'une note reprend celui du marqueur dessine sur l'image, d'ou la
-// couleur bleue du canvas, en dur : c'est la couleur des marqueurs de l'image.
+// Visuels de /nrc et de la carte NRC de la home : un comparateur avant/apres et
+// des ecrans commentes. Les images sont des exports du canvas
+// (public/nrc/<id>.webp), 1545 x 880. Le numero d'une note reprend celui du
+// marqueur dessine sur l'image, d'ou la couleur bleue du canvas, en dur : c'est
+// la couleur des marqueurs de l'image.
 
 const MARKER = "oklch(56% 0.1 255)";
 const RATIO = "1545 / 880";
 
+// Cadre commun des captures : un filet et une ombre douce, rayon leger. Le
+// fond blanc est celui des images, il evite un liseré sombre au bord en dark.
+const FRAME: React.CSSProperties = {
+  borderRadius: 12,
+  background: "#ffffff",
+  border: "1px solid var(--border-strong)",
+  boxShadow: "var(--shadow)",
+};
+
 // Les ecrans sont plus lisibles plus larges que la colonne de texte.
 const BREAKOUT = "lg:-mx-24";
 
-export function BeforeAfterSlider({ text }: { text: NrcVisualText["slider"] }) {
+export function BeforeAfterSlider({
+  text,
+  breakout = true,
+}: {
+  text: NrcVisualText["slider"];
+  // false dans une carte de la home, ou la colonne est deja celle du visuel.
+  breakout?: boolean;
+}) {
   const [pos, setPos] = useState(50);
   const box = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
@@ -26,15 +45,29 @@ export function BeforeAfterSlider({ text }: { text: NrcVisualText["slider"] }) {
     setPos(Math.min(100, Math.max(0, ((clientX - r.left) / r.width) * 100)));
   }
 
+  // L'etiquette du cote le plus visible passe en texte plein.
+  const beforeShown = pos > 50;
+
   return (
-    <figure className={`m-0 ${BREAKOUT}`}>
+    <figure className={`m-0 ${breakout ? BREAKOUT : ""}`}>
+      <div className="flex items-center justify-between text-xs font-medium mb-2.5 px-1">
+        <span
+          style={{ color: beforeShown ? "var(--text)" : "var(--text-muted)", transition: "color 0.2s" }}
+        >
+          {text.before}
+        </span>
+        <span
+          style={{ color: beforeShown ? "var(--text-muted)" : "var(--text)", transition: "color 0.2s" }}
+        >
+          {text.after}
+        </span>
+      </div>
       <div
         ref={box}
         className="relative select-none overflow-hidden"
         style={{
+          ...FRAME,
           aspectRatio: RATIO,
-          borderRadius: "var(--radius-lg)",
-          background: "#ffffff",
           cursor: "ew-resize",
           touchAction: "pan-y",
         }}
@@ -77,19 +110,6 @@ export function BeforeAfterSlider({ text }: { text: NrcVisualText["slider"] }) {
           style={{ clipPath: `inset(0 0 0 ${pos}%)` }}
         />
 
-        <span
-          className="absolute top-3 left-3 text-xs font-medium px-2 py-1"
-          style={{ background: "rgba(0,0,0,0.6)", color: "#ffffff", borderRadius: 6 }}
-        >
-          {text.before}
-        </span>
-        <span
-          className="absolute top-3 right-3 text-xs font-medium px-2 py-1"
-          style={{ background: "rgba(0,0,0,0.6)", color: "#ffffff", borderRadius: 6 }}
-        >
-          {text.after}
-        </span>
-
         <div
           role="slider"
           tabIndex={0}
@@ -104,7 +124,7 @@ export function BeforeAfterSlider({ text }: { text: NrcVisualText["slider"] }) {
             else return;
             e.preventDefault();
           }}
-          className="absolute top-0 bottom-0 flex items-center justify-center outline-none"
+          className="nrc-slider-handle absolute top-0 bottom-0 flex items-center justify-center outline-none"
           style={{ left: `${pos}%`, width: 44, marginLeft: -22 }}
         >
           <span
@@ -114,7 +134,7 @@ export function BeforeAfterSlider({ text }: { text: NrcVisualText["slider"] }) {
           />
           <span
             aria-hidden="true"
-            className="relative flex items-center justify-center"
+            className="nrc-slider-knob relative flex items-center justify-center"
             style={{
               width: 36,
               height: 36,
@@ -136,25 +156,103 @@ export function BeforeAfterSlider({ text }: { text: NrcVisualText["slider"] }) {
           </span>
         </div>
       </div>
-      <figcaption className="text-sm mt-3 lg:mx-24" style={{ color: "var(--text-muted)" }}>
+      <figcaption
+        className={`text-sm mt-3 ${breakout ? "lg:mx-24" : ""}`}
+        style={{ color: "var(--text-muted)" }}
+      >
         {text.caption}
       </figcaption>
     </figure>
   );
 }
 
-export function ScreenStep({ step, fullSize }: { step: VisualStep; fullSize: string }) {
-  const src = `/nrc/${step.id}.webp`;
+// Visionneuse plein ecran : un <dialog> natif, Echap et clic hors de l'image
+// ferment, le focus est rendu au bouton d'ouverture par le navigateur.
+function Lightbox({
+  dlg,
+  src,
+  alt,
+}: {
+  dlg: React.RefObject<HTMLDialogElement | null>;
+  src: string;
+  alt: string;
+}) {
   return (
-    <figure className="m-0">
-      <h4 className="font-display text-base font-bold mb-3">{step.title}</h4>
-      <a
-        href={src}
-        target="_blank"
-        rel="noopener noreferrer"
-        title={fullSize}
-        className={`block overflow-hidden ${BREAKOUT}`}
-        style={{ borderRadius: "var(--radius-lg)", background: "#ffffff" }}
+    <dialog
+      ref={dlg}
+      className="nrc-lightbox"
+      aria-label={alt}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) dlg.current?.close();
+      }}
+    >
+      <img src={src} alt={alt} style={{ borderRadius: 12 }} />
+      <button
+        type="button"
+        onClick={() => dlg.current?.close()}
+        aria-label="Close"
+        className="nrc-lightbox-close"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M6 6l12 12M18 6 6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+      </button>
+    </dialog>
+  );
+}
+
+function ExpandIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function ScreenStep({
+  step,
+  fullSize,
+  index,
+}: {
+  step: VisualStep;
+  fullSize: string;
+  index: number;
+}) {
+  const src = `/nrc/${step.id}.webp`;
+  const dlg = useRef<HTMLDialogElement>(null);
+  const open = () => dlg.current?.showModal();
+  return (
+    <figure className={`m-0 ${BREAKOUT}`}>
+      <div className="flex items-center justify-between gap-3 mb-3">
+        <div className="flex items-baseline gap-3">
+          <span className="font-display font-bold text-sm" style={{ color: "var(--accent)" }}>
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <h4 className="font-display text-lg font-bold">{step.title}</h4>
+        </div>
+        <button
+          type="button"
+          onClick={open}
+          className="inline-flex items-center gap-1.5 text-xs font-medium hover:underline"
+          style={{ color: "var(--text-muted)" }}
+        >
+          <ExpandIcon />
+          {fullSize}
+        </button>
+      </div>
+      <button
+        type="button"
+        onClick={open}
+        aria-label={fullSize}
+        tabIndex={-1}
+        className="nrc-shot block w-full p-0 overflow-hidden"
+        style={{ ...FRAME, cursor: "zoom-in" }}
       >
         <img
           src={src}
@@ -164,10 +262,19 @@ export function ScreenStep({ step, fullSize }: { step: VisualStep; fullSize: str
           loading="lazy"
           className="block w-full h-auto"
         />
-      </a>
-      <ol className="grid gap-5 sm:grid-cols-2 mt-5 list-none p-0">
+      </button>
+      <Lightbox dlg={dlg} src={src} alt={step.alt} />
+      <ol
+        className={`grid gap-3 mt-4 list-none p-0 sm:grid-cols-2 ${
+          step.notes.length === 3 ? "lg:grid-cols-3" : ""
+        }`}
+      >
         {step.notes.map((n, i) => (
-          <li key={n.heading} className="flex gap-3">
+          <li
+            key={n.heading}
+            className="flex gap-3 p-4"
+            style={{ background: "var(--bg-elev)", borderRadius: 12 }}
+          >
             <span
               aria-hidden="true"
               className="flex items-center justify-center shrink-0 text-xs font-semibold"
@@ -175,11 +282,15 @@ export function ScreenStep({ step, fullSize }: { step: VisualStep; fullSize: str
             >
               {i + 1}
             </span>
-            <div className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
-              <b style={{ color: "var(--text)" }}>{n.heading}</b>
+            <div className="text-sm leading-relaxed min-w-0" style={{ color: "var(--text-muted)" }}>
+              <b className="block" style={{ color: "var(--text)" }}>
+                {n.heading}
+              </b>
               {n.lines.map((l) => (
-                <p key={l.label} className="mt-1">
-                  <span style={{ color: "var(--text)" }}>{l.label}. </span>
+                <p key={l.label} className="mt-1.5">
+                  <span className="font-semibold" style={{ color: "var(--text)" }}>
+                    {l.label}.{" "}
+                  </span>
                   {l.body}
                 </p>
               ))}

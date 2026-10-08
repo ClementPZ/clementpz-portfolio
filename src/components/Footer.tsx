@@ -3,11 +3,11 @@
 import { profile } from "../data/content";
 import { fireConfetti } from "../lib/confetti";
 
-export function Footer() {
+export function Footer({ tight = false }: { tight?: boolean }) {
   const year = new Date().getFullYear();
   return (
     <footer
-      className="mt-16 py-6"
+      className={`${tight ? "mt-4" : "mt-16"} py-6`}
       style={{ borderTop: "1px solid var(--border)", background: "var(--bg-elev)" }}
     >
       <div className="max-w-6xl mx-auto px-6 flex items-start justify-between gap-6">

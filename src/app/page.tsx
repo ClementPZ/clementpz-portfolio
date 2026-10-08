@@ -27,6 +27,7 @@ export default function Home() {
         <Nav />
         <main>
           <Hero />
+          <SectionRule />
           <Stack />
           <SectionRule />
           <LastExperience />
@@ -35,7 +36,7 @@ export default function Home() {
           <SectionRule />
           <PastExperiences />
         </main>
-        <Footer />
+        <Footer tight />
         {/* Dans #page-shift (transformé → stacking context) pour que la nav
             z-50 reste au-dessus du curseur z-40 au scroll. */}
         <LiveCursors />
