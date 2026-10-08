@@ -18,8 +18,7 @@ import { fireConfetti } from "../lib/confetti";
 // pilule de periode, Footer, largeur max-w-3xl.
 //
 // Cas a et c : visuels dans NrcVisuals (exports du canvas, textes dans
-// nrcVisuals.ts). Cas b : pas de source, Figure rend un cadre qui nomme ce qui
-// doit y aller. Remplacer un cadre = echanger le composant contre une <img>.
+// nrcVisuals.ts). Cas b : pas de source, donc pas de visuel.
 
 // Apercu du design system extrait : une bande de teintes et deux composants
 // vivants et compacts, la page complete est /nrc/design-system.
@@ -39,32 +38,6 @@ function SectionTitle({ title, sub }: { title: string; sub?: string }) {
         </p>
       )}
     </>
-  );
-}
-
-function Figure({ label, caption }: { label: string; caption?: string }) {
-  return (
-    <figure className="m-0">
-      <div
-        className="flex items-center justify-center px-6 py-14 text-center"
-        style={{
-          borderRadius: "var(--radius-lg)",
-          background: "var(--accent-subtle)",
-        }}
-      >
-        <span
-          className="text-xs font-medium"
-          style={{ color: "var(--text-muted)" }}
-        >
-          {label}
-        </span>
-      </div>
-      {caption && (
-        <figcaption className="text-sm mt-3" style={{ color: "var(--text-muted)" }}>
-          {caption}
-        </figcaption>
-      )}
-    </figure>
   );
 }
 
@@ -195,11 +168,6 @@ export function NrcContent() {
                     {v.huey.map((step, i) => (
                       <ScreenStep key={step.id} step={step} index={i} fullSize={v.fullSize} />
                     ))}
-                  </div>
-                )}
-                {c.n !== "a" && c.n !== "c" && (
-                  <div className="mt-5">
-                    <Figure label={t.figureLabel} caption={c.figure} />
                   </div>
                 )}
               </article>

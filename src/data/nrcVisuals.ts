@@ -63,9 +63,9 @@ export const nrcVisuals: Record<Locale, NrcVisualText> = {
             ],
           },
           {
-            heading: "UX principles",
+            heading: "No visual hierarchy",
             lines: [
-              { label: "Problem", body: "Overall violations across the screen." },
+              { label: "Problem", body: "Actions and information carry the same weight." },
               { label: "On screen", body: "No hierarchy between CTAs and information. A mobile pattern, the burger menu, on desktop." },
             ],
           },
@@ -135,8 +135,8 @@ export const nrcVisuals: Record<Locale, NrcVisualText> = {
           {
             heading: "Report search",
             lines: [
-              { label: "Problem", body: "Finding a report meant scrolling a long list (audit 1)." },
-              { label: "Solution", body: "A search field above the sections." },
+              { label: "Problem", body: "Even grouped into sections, the report list stays long (audit 1)." },
+              { label: "Solution", body: "The search field from phase 0 stays, above the sections." },
             ],
           },
         ],
@@ -240,9 +240,9 @@ export const nrcVisuals: Record<Locale, NrcVisualText> = {
             ],
           },
           {
-            heading: "Principes UX",
+            heading: "Aucune hiérarchie visuelle",
             lines: [
-              { label: "Problème", body: "Des violations sur tout l'écran." },
+              { label: "Problème", body: "Les actions et l'information ont le même poids." },
               { label: "À l'écran", body: "Aucune hiérarchie entre les CTA et l'information. Un pattern mobile, le menu burger, sur desktop." },
             ],
           },
@@ -312,8 +312,8 @@ export const nrcVisuals: Record<Locale, NrcVisualText> = {
           {
             heading: "Recherche de rapports",
             lines: [
-              { label: "Problème", body: "Trouver un rapport obligeait à faire défiler une longue liste (audit 1)." },
-              { label: "Solution", body: "Un champ de recherche au-dessus des sections." },
+              { label: "Problème", body: "Même regroupée en sections, la liste des rapports reste longue (audit 1)." },
+              { label: "Solution", body: "Le champ de recherche de la phase 0 reste, au-dessus des sections." },
             ],
           },
         ],
@@ -417,9 +417,9 @@ export const nrcVisuals: Record<Locale, NrcVisualText> = {
             ],
           },
           {
-            heading: "Principios de UX",
+            heading: "Ninguna jerarquía visual",
             lines: [
-              { label: "Problema", body: "Infracciones en toda la pantalla." },
+              { label: "Problema", body: "Las acciones y la información tienen el mismo peso." },
               { label: "En pantalla", body: "Ninguna jerarquía entre los CTA y la información. Un patrón móvil, el menú burger, en desktop." },
             ],
           },
@@ -489,8 +489,8 @@ export const nrcVisuals: Record<Locale, NrcVisualText> = {
           {
             heading: "Búsqueda de informes",
             lines: [
-              { label: "Problema", body: "Encontrar un informe obligaba a desplazarse por una lista larga (auditoría 1)." },
-              { label: "Solución", body: "Un campo de búsqueda encima de las secciones." },
+              { label: "Problema", body: "Incluso agrupada en secciones, la lista de informes sigue siendo larga (auditoría 1)." },
+              { label: "Solución", body: "El campo de búsqueda de la fase 0 se mantiene, encima de las secciones." },
             ],
           },
         ],
