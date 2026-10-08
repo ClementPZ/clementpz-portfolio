@@ -75,6 +75,7 @@ export function NrcContent() {
         </p>
 
         {/* 1. L'equipe */}
+        <hr className="section-rule mt-14" />
         <section className="pt-14">
           <SectionTitle title={t.team.title} />
 
@@ -109,6 +110,7 @@ export function NrcContent() {
         </section>
 
         {/* 2. Les cas produit */}
+        <hr className="section-rule mt-14" />
         <section className="pt-14">
           <SectionTitle title={t.cases.title} sub={t.cases.sub} />
           <p className="text-sm max-w-xl -mt-4 mb-7" style={{ color: "var(--text-muted)" }}>
@@ -176,6 +178,7 @@ export function NrcContent() {
         </section>
 
         {/* 3. Le design system */}
+        <hr className="section-rule mt-14" />
         <section className="pt-14">
           <SectionTitle title={t.system.title} sub={t.system.sub} />
           <div className="grid gap-6">
@@ -230,6 +233,7 @@ export function NrcContent() {
         </section>
 
         {/* 4. Analytics */}
+        <hr className="section-rule mt-14" />
         <section className="pt-14">
           <SectionTitle title={t.analytics.title} />
           <p className="text-base leading-relaxed" style={{ color: "var(--text-muted)" }}>
