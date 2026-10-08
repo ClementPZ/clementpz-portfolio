@@ -169,8 +169,8 @@ export function DaysContent() {
           <div className="days-section-head">
             <h2>Simple on purpose.</h2>
             <p>
-              No account, no ads, no tracking. Your counters stay on your phone, and the app
-              never connects to the internet.{" "}
+              No account, no ads, no tracking. Your counters stay on your phone unless you
+              choose to share one through your own iCloud.{" "}
               <Link href="/days/privacy" className="days-link">
                 Read the privacy policy
               </Link>

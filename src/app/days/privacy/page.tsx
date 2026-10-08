@@ -9,8 +9,13 @@ import Link from "next/link";
 //
 // Le contenu decrit l'app telle qu'elle est CODEE, pas telle qu'on l'imagine.
 // A relire si l'un de ces points bouge cote day-counter:
-// - aucun code reseau: pas d'URLSession, pas d'URL http, pas de CloudKit, pas
-//   de SDK tiers (Package.swift absent, project.yml sans dependance externe)
+// - un seul code reseau: CloudKit, et seulement pour un compteur que le
+//   proprietaire partage (App/CloudSync.swift, container
+//   iCloud.com.clementpz.days). Pas d'URLSession, pas d'URL http, pas de SDK
+//   tiers (Package.swift absent, project.yml sans dependance externe)
+// - un compteur partage vit dans la base CloudKit privee du proprietaire, une
+//   zone par compteur, jusqu'a 5 invites par lien, les invites cochent, ajoutent
+//   et suppriment des lignes de la liste, jamais le compteur lui meme
 // - stockage = JSON des compteurs dans les UserDefaults du groupe
 //   group.com.clementpz.days, partage app et widget, Shared/SharedStorage.swift
 // - notes par compteur (lignes de texte, case cochee ou non) dans ce meme JSON,
@@ -32,7 +37,7 @@ export const metadata: Metadata = {
 };
 
 const CONTACT = "clementpicardzivy@gmail.com";
-const UPDATED = "27 September 2026";
+const UPDATED = "8 October 2026";
 
 export default function DaysPrivacyPage() {
   return (
@@ -57,8 +62,9 @@ export default function DaysPrivacyPage() {
           <p className="daysp-meta">Last updated {UPDATED} · Days: Countdown & Count up, for iOS</p>
           <p className="daysp-lede">
             Days is a small app built by one person. It collects nothing. No account, no
-            email, no analytics, no advertising, no tracking, and no code that connects to the
-            internet. Your counters live on your phone and nowhere else.
+            email, no analytics, no advertising, no tracking, and no server of its own. Your
+            counters live on your phone. The only time one leaves it is when you choose to
+            share it, and then it goes to your own iCloud, never to the developer.
           </p>
         </header>
 
@@ -76,9 +82,8 @@ export default function DaysPrivacyPage() {
           <ul className="daysp-list">
             <li>
               <b>Your counters.</b> For each one, the title you typed, its date, its mode
-              (countdown or count up), the options you chose (show the title on the widget,
-              count today as day 1, a milestone every so many days) and the day you created
-              it.
+              (countdown or count up), the options you chose (count today as day 1, a
+              milestone every so many days) and the day you created it.
             </li>
             <li>
               <b>Your notes.</b> The lines you add to a counter’s notes page, and
@@ -106,9 +111,20 @@ export default function DaysPrivacyPage() {
         <section className="daysp-section">
           <h2>What leaves your phone</h2>
           <p>
-            Nothing. The app has no analytics tool, no advertising tool, no crash reporter and
-            no code that makes network requests. There is no server behind Days, so there is
-            nothing to send to and nothing to be breached.
+            Nothing, unless you share a counter. The app has no analytics tool, no advertising
+            tool and no crash reporter. There is no server behind Days, so there is nothing
+            to send to and nothing to be breached.
+          </p>
+          <p>
+            <b>Sharing a counter.</b> When you choose Invite someone, that counter, its date,
+            its options and its notes are stored in your iCloud account, through Apple’s
+            CloudKit, and shared by link with up to five people. Each of them sees the
+            counter and can tick, add, edit and delete its notes, but cannot change or delete
+            the counter. You can remove anyone, or stop sharing, from the same screen. Deleting
+            a shared counter removes it for everyone, and a guest can leave at any time. The
+            counters you do not share never leave your phone. The developer cannot read
+            anything stored in iCloud this way, and sharing needs an iCloud account on both
+            sides.
           </p>
           <p>
             Nothing is sold, rented, or handed to advertisers or data brokers. There is no such
@@ -126,6 +142,11 @@ export default function DaysPrivacyPage() {
               receive anything that identifies you.
             </li>
             <li>
+              <b>iCloud</b> stores a counter only if you share it, under your own account and
+              Apple’s own privacy policy. The people you invite see what you share with them,
+              and Apple shows you who they are in its sharing screen.
+            </li>
+            <li>
               <b>Your device backups.</b> If you back up your phone, for example to iCloud,
               the app’s data can be part of that backup. That is handled by Apple, under your
               own account settings, and Days has no access to it.
@@ -138,8 +159,9 @@ export default function DaysPrivacyPage() {
           <p>
             Delete a counter from inside the app, from its edit screen or by pressing and
             holding it in the list. To remove everything, delete the app: its counters go with
-            it. Because nothing is held anywhere else, there is nothing to request from the
-            developer, and no account to close.
+            it. A counter you shared also stays in your iCloud until you delete it or stop
+            sharing it. Because the developer holds nothing, there is nothing to request from
+            the developer, and no account to close.
           </p>
         </section>
 
