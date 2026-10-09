@@ -8,7 +8,7 @@
 export const profile = {
   name: "Clément Picard-Zivy",
   shortName: "Clément PZ",
-  tagline: "Product Design × AI × Management",
+  tagline: "Design × AI × Management",
   // Photo du hero, a droite des boutons. Vide = pastille placeholder.
   avatar: "/avatar.webp",
   email: "clementpicardzivy@gmail.com",
