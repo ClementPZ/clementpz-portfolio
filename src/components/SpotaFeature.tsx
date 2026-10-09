@@ -4,20 +4,19 @@ import Link from "next/link";
 import { spotaHighlightText } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
 import {
-  SPOT,
-  SELF,
-  SPOT_INK,
+  SPOTA_FONTS,
+  SPOTA_VARS,
   SPOTA_SHARED_CSS,
+  PhoneMock,
   SpotaHeadline,
 } from "./SpotaShared";
 
-// Bloc SpotA de la section Highlights. C'est le hero de /spota rejoue en
-// carte: meme titre qui se tape, meme lede, meme CTA lime, mais un rendu
-// iPhone (ecran SpotA compose dedans) plutot que la coque dessinee en CSS
-// de /spota, cf. iphone-mockup.png. La carte porte l'identite
-// de l'app, noir et lime et violet, comme la carte Builder porte son
-// violet: une couleur de marque est une donnee, pas un token de theme, donc
-// elle ne change pas entre le mode sombre et le mode clair.
+// Bloc SpotA de la section Side projects. C'est le hero de /spota rejoue en
+// carte: meme carte mission qui se tape, meme lede, meme CTA lime, meme rendu
+// d'iPhone incline. La carte porte l'identite de l'app (kit Mix 3, oct. 2026),
+// comme la carte Builder porte son violet: une couleur de marque est une
+// donnee, pas un token de theme, donc elle ne change pas entre le mode sombre
+// et le mode clair.
 // Lien de la fiche App Store, vide tant que l'app n'est pas publiée : le
 // bouton reste affiché mais ne mène nulle part.
 const APP_STORE_URL = "";
@@ -27,12 +26,12 @@ export function SpotaFeature() {
   const t = spotaHighlightText[locale];
 
   return (
-    <div className="spota-feature">
+    <div className={`spota-feature ${SPOTA_FONTS}`}>
       {/* Carte entière cliquable (lien étiré vers /spota), pas d'effet au
           survol hors curseur. Le bouton App Store passe au-dessus. */}
       <Link href="/spota" aria-label="SpotA" className="spota-card-link" />
       <div className="spota-feature-copy">
-        <div className="spota-eyebrow">{t.eyebrow}</div>
+        <div className="spota-label">{t.eyebrow}</div>
         {/* Le titre reste en anglais: "Today, spot ..." fait entrer le nom
             du produit dans la phrase, et les prompts qui defilent sont ceux
             que l'app affiche vraiment. */}
@@ -41,13 +40,9 @@ export function SpotaFeature() {
       </div>
 
       <div className="spota-feature-stage">
-        {/* Rendu iPhone 17 Pro (Apple Design Resources, bezel officiel) avec
-            l'ecran SpotA reel compose dedans, sans main. */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          className="spota-hand-shot"
-          src="/spota/iphone-mockup.png"
-          alt="SpotA on an iPhone: the daily prompt over the back camera, with the front camera inset"
+        <PhoneMock
+          src="/spota/phone-spot.webp"
+          alt="Spot a on an iPhone: a crew member's spot of the day, with their selfie as a tilted thumbnail"
         />
       </div>
 
@@ -69,24 +64,17 @@ export function SpotaFeature() {
       <style>{`
         ${SPOTA_SHARED_CSS}
         .spota-feature {
-          --spot: ${SPOT};
-          --self: ${SELF};
-          --spot-ink: ${SPOT_INK};
+          ${SPOTA_VARS}
           display: grid;
           gap: 32px;
           align-items: center;
           padding: 40px;
-          border-radius: 18px;
+          border-radius: 20px;
           position: relative;
-          /* Aubergine-anthracite plutôt que noir pur : moins dur sur la page,
-             le lime et le violet de l'app restent les accents. */
-          background-color: #1c1625;
-          background-image:
-            radial-gradient(760px 380px at 8% -20%, rgba(153,34,255,0.26), transparent 62%),
-            radial-gradient(560px 320px at 100% 8%, rgba(202,254,0,0.08), transparent 58%),
-            linear-gradient(150deg, #34283f 0%, #1c1625 100%);
-          color: #fff;
-          font-family: var(--font-dm-sans), system-ui, sans-serif;
+          /* Le fond de l'app, noir teinte de violet. */
+          background-color: var(--spota-ground);
+          color: var(--spota-text);
+          font-family: var(--font-space-grotesk), system-ui, sans-serif;
           box-shadow: var(--shadow);
           overflow: hidden;
         }
@@ -95,28 +83,14 @@ export function SpotaFeature() {
              au lieu de coller le bord de la carte. Hauteur mini pour que la
              photo ait la place de se voir grande, pas ratatinee a la
              hauteur du texte. */
-          .spota-feature { grid-template-columns: 1fr 480px; gap: 40px; min-height: 520px; }
+          .spota-feature { grid-template-columns: 1fr 420px; gap: 40px; min-height: 520px; }
         }
 
-        .spota-feature h1 {
-          margin: 0;
-          font-family: var(--font-sora), var(--font-dm-sans), sans-serif;
-          font-size: clamp(30px, 4vw, 44px);
-          font-weight: 800; line-height: 1.02; letter-spacing: -1.2px;
-        }
-        .spota-feature .spota-eyebrow {
-          display: inline-flex; align-items: center; gap: 8px;
-          font-size: 12px; font-weight: 700; letter-spacing: 0.14em;
-          text-transform: uppercase; color: rgba(255,255,255,0.7);
-          margin-bottom: 18px;
-        }
-        .spota-feature .spota-eyebrow::before {
-          content: ""; width: 6px; height: 6px; border-radius: 50%;
-          background: var(--self); box-shadow: 0 0 0 3px rgba(202,254,0,0.18);
-        }
+        .spota-feature h1 { font-size: clamp(30px, 4vw, 46px); }
+        .spota-feature .spota-label { margin-bottom: 22px; }
         .spota-feature .spota-lede {
-          margin: 32px 0 0; max-width: 46ch;
-          font-size: 16px; line-height: 1.55; color: rgba(255,255,255,0.7);
+          margin: 36px 0 0; max-width: 46ch;
+          font-size: 16px; line-height: 1.55; color: var(--spota-text-2);
         }
         .spota-card-link { position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
         .spota-feature-copy, .spota-feature-stage, .spota-feature-ctas { position: relative; z-index: 2; pointer-events: none; }
@@ -124,28 +98,12 @@ export function SpotaFeature() {
         .spota-status {
           position: absolute; top: 24px; right: 28px; z-index: 2; pointer-events: none;
           display: inline-flex; align-items: center; gap: 6px;
-          font-size: 12px; color: rgba(255,255,255,0.7);
+          font-size: 12px; color: var(--spota-text-2);
         }
-        .spota-feature .spota-btn {
-          display: inline-flex; align-items: center; justify-content: center;
-          height: 46px; padding: 0 28px; border-radius: 12px;
-          font-weight: 800; font-size: 16px; text-decoration: none;
-          /* Lime, pas violet: le CTA de l'app est lime, et l'encre sombre sur
-             violet tombe a 3.76:1 en 16px/800, sous le plancher AA. */
-          border: none; cursor: pointer; background: var(--self); color: var(--spot-ink); pointer-events: auto;
-        }
-        .spota-feature .spota-btn:hover { filter: brightness(1.06); }
-        .spota-feature .spota-fine-print { font-size: 12.5px; color: rgba(255,255,255,0.5); }
+        .spota-feature .spota-btn { pointer-events: auto; }
+        .spota-feature .spota-fine-print { font-size: 12.5px; color: var(--spota-text-2); }
         .spota-feature-stage { display: flex; align-items: center; justify-content: center; padding: 12px; }
-        /* Liseré violet d'un pixel qui suit le contour du téléphone : quatre
-           ombres nettes sur la découpe du PNG, puis l'ombre portée. */
-        .spota-hand-shot {
-          width: min(270px, 62vw); height: auto; display: block;
-          filter:
-            drop-shadow(1px 0 0 var(--spot)) drop-shadow(-1px 0 0 var(--spot))
-            drop-shadow(0 1px 0 var(--spot)) drop-shadow(0 -1px 0 var(--spot))
-            drop-shadow(0 24px 40px rgba(0,0,0,0.55));
-        }
+        .spota-feature .spota-phone { width: min(300px, 66vw); }
       `}</style>
     </div>
   );

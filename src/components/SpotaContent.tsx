@@ -6,11 +6,12 @@ import { fireConfetti } from "../lib/confetti";
 import {
   SPOT,
   SELF,
-  SPOT_INK,
+  PINK,
+  SPOTA_FONTS,
+  SPOTA_VARS,
   SPOTA_SHARED_CSS,
   PhoneMock,
   SpotaHeadline,
-  Zigzag,
 } from "./SpotaShared";
 
 // Page /spota, DEROGATION documentee au shell commun du portfolio (voir
@@ -18,16 +19,13 @@ import {
 // lien marketing de la fiche App Store et la carte SpotA du portfolio. Ces
 // deux publics veulent le pitch de l'app, pas le recit de conception, donc
 // mono-theme et English only, alignes sur l'identite de l'app elle-meme
-// (Flutter, ColorScheme.dark uniquement, copie UI 100% anglaise).
+// (Flutter, ColorScheme.dark uniquement).
 //
-// Polices Sora/DM Sans reutilisees telles quelles (regle stricte du layout:
-// ces deux fonts UNIQUEMENT), poussees en poids 800 et tracking serre pour
-// se rapprocher du chunky de TikTok Sans (police de l'app, non embarquable
-// ici) sans ajouter de font au bundle.
-
-// Couleurs de marque, machine a ecrire, coque de telephone et zigzag vivent
-// dans SpotaShared.tsx: le bloc SpotA de la home montre le meme hero, une
-// seule source pour les deux.
+// La page porte le kit Mix 3 de l'app (oct. 2026) : fond noir teinte de
+// violet, titres en Anton, carte mission, stickers, CTA lime a bord noir.
+// Couleurs, polices, machine a ecrire et telephone vivent dans
+// SpotaShared.tsx: le bloc SpotA de la home montre le meme hero, une seule
+// source pour les deux.
 
 const BETA_MAILTO =
   "mailto:clementpicardzivy@gmail.com" +
@@ -62,9 +60,19 @@ function Reveal({ children }: { children: React.ReactNode }) {
   );
 }
 
+// Les ecrans montres sous le hero, captures au simulateur puis montes dans un
+// rendu d'iPhone incline, un qui penche de chaque cote.
+const PHONES = [
+  { src: "/spota/phone-today.webp", alt: "Spot a, the Today screen: today's dare on the mission card, with the Go spot it button" },
+  { src: "/spota/phone-react.webp", alt: "Spot a, a crew member's spot of the day with the five reactions open" },
+];
+
 export function SpotaContent() {
+  const confetti = (e: React.MouseEvent<HTMLAnchorElement>) =>
+    fireConfetti(e.currentTarget, [SPOT, SELF, PINK]);
+
   return (
-    <div className="spota">
+    <div className={`spota ${SPOTA_FONTS}`}>
       <div className="spota-shell">
         <nav className="spota-nav">
           <div className="spota-nav-left">
@@ -72,33 +80,29 @@ export function SpotaContent() {
               ←
             </Link>
             <div className="spota-wordmark">
-              Spot<b>a</b>
+              Spot <b>a</b>
             </div>
           </div>
-          <a className="spota-nav-cta" href={BETA_MAILTO} onClick={(e) => fireConfetti(e.currentTarget, [SPOT, SELF, "#ffffff"])}>
+          <a className="spota-btn spota-nav-cta" href={BETA_MAILTO} onClick={confetti}>
             Get the beta
           </a>
         </nav>
 
         <header className="spota-hero">
-          <div className="spota-eyebrow">A daily dare for you and your crew</div>
-          {/* Tous les prompts sont empiles invisibles dans la meme cellule de
+          <div className="spota-label">A daily dare for you and your crew</div>
+          {/* Tous les defis sont empiles invisibles dans la meme cellule de
               grid (voir SpotaHeadline): la hauteur de la rangee vaut le max de
               tous, donc le titre ne bouge d'un pixel a aucune largeur. */}
           <SpotaHeadline />
           <p className="spota-lede">
-            One prompt a day. Find it in the real world, capture it, back camera for the
+            One dare a day. Find it in the real world, shoot it, back camera for the
             target, front camera for you. Post yours to unlock what your crew spotted.
           </p>
           <p className="spota-slogan">
             <b>One spot a day</b>, keep the doctor away.
           </p>
           <div className="spota-hero-ctas">
-            <a
-              className="spota-btn"
-              href={BETA_MAILTO}
-              onClick={(e) => fireConfetti(e.currentTarget, [SPOT, SELF, "#ffffff"])}
-            >
+            <a className="spota-btn" href={BETA_MAILTO} onClick={confetti}>
               Get the beta
             </a>
             <span className="spota-fine-print">iOS, via TestFlight · ages 13+</span>
@@ -107,7 +111,9 @@ export function SpotaContent() {
 
         <Reveal>
           <div className="spota-stage">
-            <PhoneMock />
+            {PHONES.map((p) => (
+              <PhoneMock key={p.src} src={p.src} alt={p.alt} />
+            ))}
           </div>
         </Reveal>
 
@@ -116,28 +122,26 @@ export function SpotaContent() {
             <div className="spota-section-head">
               <h2>Not a feed. A dare, once a day.</h2>
               <p>
-                No scrolling, no likes to chase, no strangers. Just today&apos;s prompt, your
+                No scrolling, no likes to chase, no strangers. Just today&apos;s dare, your
                 crew, and whether you actually went and found the thing.
               </p>
             </div>
-            <div style={{ marginTop: 24 }}>
-              <Zigzag color={SPOT} />
-            </div>
             <div className="spota-steps">
               <div className="spota-step">
-                <div className="spota-step-mark">01</div>
+                <div className="spota-step-mark">1</div>
                 <div>
-                  <h3>Get today&apos;s prompt</h3>
+                  <h3>Get today&apos;s dare</h3>
                   <p>
-                    One line, written by hand, not generated. Never trivial, never impossible,
-                    like &quot;a yellow door,&quot; or &quot;someone reading a paper book.&quot;
+                    One line, written by hand, not generated. The same one for your whole
+                    crew, like &quot;the weirdest door in town&quot; or &quot;a cloud that
+                    looks like something.&quot;
                   </p>
                 </div>
               </div>
               <div className="spota-step">
-                <div className="spota-step-mark">02</div>
+                <div className="spota-step-mark">2</div>
                 <div>
-                  <h3>Find it, capture it</h3>
+                  <h3>Find it, shoot it</h3>
                   <p>
                     Back camera on the target first, then the front camera flips to you. In
                     the moment, no gallery imports.
@@ -145,7 +149,7 @@ export function SpotaContent() {
                 </div>
               </div>
               <div className="spota-step">
-                <div className="spota-step-mark">03</div>
+                <div className="spota-step-mark">3</div>
                 <div>
                   <h3>Post to unlock the crew</h3>
                   <p>
@@ -165,52 +169,36 @@ export function SpotaContent() {
               <p>Two ways the crew calls out a great spot, both earned, neither bought.</p>
             </div>
             <div className="spota-distinctions">
-              <div className="spota-dcard spota-dcard-first">
-                <div className="spota-dcard-inner">
-                  <span className="spota-dchip">1ST SPOT</span>
-                  <h3>First to spot it</h3>
-                  <p>
-                    Whoever finds today&apos;s prompt first gets the holo border on their
-                    tile. Gone by tomorrow&apos;s prompt.
-                  </p>
-                </div>
+              <div className="spota-dcard">
+                <span className="spota-sticker">1ST SPOT</span>
+                <h3>First to spot it</h3>
+                <p>
+                  Whoever answers today&apos;s dare first wears the lime 1ST SPOT sticker.
+                </p>
               </div>
-              <div className="spota-dcard spota-dcard-top">
-                <div className="spota-dcard-inner">
-                  <span className="spota-dchip">TOP SPOT</span>
-                  <h3>Crew&apos;s favorite</h3>
-                  <p>
-                    Everyone gets one upvote a day. Move it to a better spot and you take it
-                    back from wherever it was.
-                  </p>
-                </div>
+              <div className="spota-dcard">
+                <span className="spota-sticker spota-sticker-top">TOP SPOT</span>
+                <h3>Crew&apos;s favorite</h3>
+                <p>
+                  React with 🔥 😍 😂 💅🏼 🫰🏼, as many as you like. The spot the most people
+                  react to wears TOP SPOT.
+                </p>
               </div>
             </div>
-            <div className="spota-rule">
-              <span>&#10003;</span>
-              <span>
-                Spots also get <b>validated by the crew</b>, a quiet check that keeps the
-                game honest as it grows.
-              </span>
-            </div>
+            <p className="spota-rule">
+              <b>Comment as much as you like</b>, the conversation stays on the spot.
+            </p>
           </section>
         </Reveal>
 
         <Reveal>
           <section className="spota-section spota-cta-band">
-            <div style={{ marginBottom: 24 }}>
-              <Zigzag color={SELF} />
-            </div>
             <h2>Your crew is waiting on you to post first.</h2>
             <p className="spota-lede">
               Testing right now with a small crew. Ask for the beta and you&apos;re in.
             </p>
             <div className="spota-hero-ctas">
-              <a
-                className="spota-btn"
-                href={BETA_MAILTO}
-                onClick={(e) => fireConfetti(e.currentTarget, [SPOT, SELF, "#ffffff"])}
-              >
+              <a className="spota-btn" href={BETA_MAILTO} onClick={confetti}>
                 Get the beta
               </a>
             </div>
@@ -236,20 +224,16 @@ export function SpotaContent() {
       <style>{`
         ${SPOTA_SHARED_CSS}
         .spota {
-          --spot: ${SPOT};
-          --self: ${SELF};
-          --spot-ink: ${SPOT_INK};
-          background: #000;
-          color: #fff;
-          font-family: var(--font-dm-sans), system-ui, sans-serif;
-          background-image:
-            radial-gradient(1200px 600px at 20% -10%, rgba(153,34,255,0.07), transparent 60%),
-            radial-gradient(900px 500px at 100% 10%, rgba(202,254,0,0.05), transparent 55%);
+          ${SPOTA_VARS}
+          background: var(--spota-ground);
+          color: var(--spota-text);
+          font-family: var(--font-space-grotesk), system-ui, sans-serif;
         }
         .spota * { box-sizing: border-box; }
         .spota h1, .spota h2, .spota h3, .spota p { margin: 0; }
-        .spota h1, .spota h2, .spota h3, .spota-wordmark {
-          font-family: var(--font-sora), var(--font-dm-sans), sans-serif;
+        .spota h2, .spota-wordmark {
+          font-family: var(--font-anton), Impact, sans-serif;
+          font-weight: 400; text-transform: uppercase; letter-spacing: 0.01em; color: #fff;
         }
 
         .spota-shell { max-width: 760px; margin: 0 auto; padding: 0 24px; }
@@ -258,117 +242,91 @@ export function SpotaContent() {
         .spota-nav-left { display: flex; align-items: center; gap: 14px; }
         .spota-back-btn {
           display: inline-flex; align-items: center; justify-content: center;
-          width: 36px; height: 36px; border-radius: 50%;
-          border: 1px solid rgba(255,255,255,0.14); color: rgba(255,255,255,0.7);
-          text-decoration: none; transition: border-color .15s ease, color .15s ease;
+          width: 44px; height: 44px; border-radius: 50%;
+          border: 1px solid rgba(255,255,255,0.4); color: #fff;
+          text-decoration: none; transition: border-color .15s ease;
         }
-        .spota-back-btn:hover { border-color: var(--self); color: #fff; }
-        .spota-wordmark { font-weight: 800; font-size: 20px; letter-spacing: -0.3px; }
-        .spota-wordmark b { color: var(--spot); }
-        .spota-nav-cta {
-          font-weight: 700; font-size: 13px; letter-spacing: 0.02em;
-          color: var(--spot-ink); background: var(--self);
-          padding: 9px 16px; border-radius: 12px; text-decoration: none;
-        }
+        .spota-back-btn:hover { border-color: var(--self); }
+        .spota-wordmark { font-size: 24px; }
+        .spota-wordmark b { color: var(--self); font-weight: 400; }
+        .spota-nav-cta { height: 44px; padding: 0 18px; border-radius: 22px; font-size: 13px; }
 
-        .spota-hero { padding: 64px 0 12px; text-align: left; }
-        .spota-eyebrow {
-          display: inline-flex; align-items: center; gap: 8px;
-          font-size: 12px; font-weight: 700; letter-spacing: 0.14em;
-          text-transform: uppercase; color: rgba(255,255,255,0.7);
-          margin-bottom: 18px;
-        }
-        .spota-eyebrow::before {
-          content: ""; width: 6px; height: 6px; border-radius: 50%;
-          background: var(--self); box-shadow: 0 0 0 3px rgba(202,254,0,0.18);
-        }
-        .spota-hero h1 {
-          font-size: clamp(38px, 7.5vw, 60px);
-          font-weight: 800; line-height: 1.02; letter-spacing: -1.6px;
-        }
-        .spota-slogan {
+        .spota-hero { padding: 56px 0 12px; text-align: left; }
+        .spota-hero .spota-label { margin-bottom: 22px; }
+        .spota-hero h1 { font-size: clamp(36px, 7.4vw, 60px); }
+        .spota-hero .spota-slogan {
           margin-top: 18px;
-          font-family: var(--font-sora), var(--font-dm-sans), sans-serif;
-          font-weight: 800; font-size: clamp(17px, 2.7vw, 21px);
-          letter-spacing: -0.4px; color: #fff;
+          font-weight: 700; font-size: clamp(17px, 2.7vw, 21px);
+          letter-spacing: -0.2px; color: #fff;
         }
-        .spota-slogan b { color: var(--spot); font-weight: 800; }
+        .spota-hero .spota-slogan b { color: var(--self); font-weight: 700; }
         /* Porte par le hero: .spota p {margin:0} bat .spota-lede seul. */
-        .spota-hero .spota-lede { margin-top: 32px; }
+        .spota-hero .spota-lede { margin-top: 36px; }
         .spota-lede {
           margin-top: 20px; max-width: 46ch;
-          font-size: 17px; line-height: 1.55; color: rgba(255,255,255,0.7);
+          font-size: 17px; line-height: 1.55; color: var(--spota-text-2);
         }
         .spota-hero-ctas { margin-top: 30px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-        .spota-btn {
-          display: inline-flex; align-items: center; justify-content: center;
-          height: 46px; padding: 0 28px; border-radius: 12px;
-          font-weight: 800; font-size: 16px; text-decoration: none;
-          /* Lime, not violet: the app's own CTA is lime, and dark ink on
-             violet is 3.76:1 at 16px/800, under the AA floor for normal text. */
-          border: none; cursor: pointer; background: var(--self); color: var(--spot-ink);
-        }
-        .spota-btn:hover { filter: brightness(1.06); }
-        .spota-fine-print { font-size: 12.5px; color: rgba(255,255,255,0.38); }
+        .spota-fine-print { font-size: 12.5px; color: var(--spota-text-2); }
 
-        .spota-stage { position: relative; margin: 46px 0 8px; display: flex; justify-content: center; }
-        .spota-section { padding: 58px 0; border-top: 1px solid rgba(255,255,255,0.08); }
+        .spota-stage {
+          margin: 46px 0 8px; display: flex; justify-content: center;
+          align-items: center; gap: 4%;
+        }
+        .spota-stage .spota-phone { width: 44%; max-width: 300px; }
+
+        .spota-section { padding: 58px 0; border-top: 1px solid rgba(139,92,246,0.22); }
         .spota-section-head { max-width: 50ch; }
         .spota-section-head h2 {
-          font-size: clamp(24px, 4.2vw, 32px); font-weight: 800;
-          letter-spacing: -0.8px; line-height: 1.12; text-wrap: balance;
+          font-size: clamp(28px, 5vw, 40px); line-height: 1.08; text-wrap: balance;
         }
-        .spota-section-head p { margin-top: 12px; color: rgba(255,255,255,0.7); font-size: 15.5px; line-height: 1.6; }
+        .spota-section-head p { margin-top: 14px; color: var(--spota-text-2); font-size: 15.5px; line-height: 1.6; }
 
-        .spota-steps { margin-top: 34px; display: grid; gap: 22px; }
-        .spota-step { display: grid; grid-template-columns: 34px 1fr; gap: 14px; }
-        .spota-step-mark { font-size: 13px; font-weight: 800; color: var(--spot); font-variant-numeric: tabular-nums; }
-        .spota-step h3 { font-size: 17px; font-weight: 800; letter-spacing: -0.2px; }
-        .spota-step p { margin-top: 4px; font-size: 14.5px; line-height: 1.55; color: rgba(255,255,255,0.7); }
+        .spota-steps {
+          margin-top: 34px; display: grid; gap: 24px;
+          background: var(--spota-card); border-radius: 20px; padding: 26px 22px;
+        }
+        .spota-step { display: grid; grid-template-columns: 34px 1fr; gap: 16px; align-items: start; }
+        /* Le numero sur un petit sticker violet penche, comme l'ecran Rules de l'app. */
+        .spota-step-mark {
+          width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;
+          font-family: var(--font-anton), Impact, sans-serif; font-size: 16px; color: #fff;
+          background: var(--spot); border: 3px solid var(--spot-ink); border-radius: 10px;
+          transform: rotate(-6deg);
+        }
+        .spota-step:nth-child(even) .spota-step-mark { transform: rotate(5deg); }
+        .spota-step h3 { font-size: 17px; font-weight: 700; color: #fff; }
+        .spota-step p { margin-top: 4px; font-size: 14.5px; line-height: 1.55; color: var(--spota-text-2); }
 
         .spota-distinctions { margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-        .spota-dcard {
-          position: relative; border-radius: 18px; padding: 2.5px;
-          animation: spota-spin 8s linear infinite;
-        }
-        .spota-dcard-first { background: conic-gradient(from var(--spin, 0deg), var(--spot), var(--self), #fff, var(--self), var(--spot)); }
-        .spota-dcard-top {
-          background: conic-gradient(from var(--spin, 0deg), #fff, var(--spot), #fff, var(--spot), #fff);
-          animation-duration: 6.5s; animation-direction: reverse;
-        }
-        .spota-dcard-inner { background: #131313; border-radius: 15.5px; padding: 20px 16px; height: 100%; }
-        .spota-dchip {
-          display: inline-block; font-size: 10.5px; font-weight: 800;
-          letter-spacing: 0.03em; padding: 4px 8px; border-radius: 7px;
-          color: var(--spot-ink); margin-bottom: 12px;
-        }
-        .spota-dcard-first .spota-dchip { background: linear-gradient(120deg, var(--spot), var(--self)); }
-        .spota-dcard-top .spota-dchip { background: linear-gradient(120deg, #fff, var(--spot)); }
-        .spota-dcard h3 { font-size: 15px; font-weight: 800; }
-        .spota-dcard p { margin-top: 6px; font-size: 13.5px; line-height: 1.5; color: rgba(255,255,255,0.7); }
+        .spota-dcard { background: var(--spota-card); border-radius: 20px; padding: 24px 20px; }
+        .spota-dcard .spota-sticker { margin-bottom: 16px; }
+        /* TOP SPOT : texte noir sur rose, comme l'app (le blanc y mesurait 3.3:1). */
+        .spota-sticker-top { background: var(--pink); transform: rotate(5deg); }
+        .spota-dcard h3 { font-size: 16px; font-weight: 700; color: #fff; }
+        .spota-dcard p { margin-top: 6px; font-size: 14px; line-height: 1.5; color: var(--spota-text-2); }
 
-        .spota-rule { margin-top: 22px; display: flex; gap: 10px; align-items: baseline; font-size: 14px; color: rgba(255,255,255,0.7); }
-        .spota-rule b { color: #fff; }
+        .spota-section .spota-rule { margin-top: 22px; font-size: 14.5px; line-height: 1.55; color: var(--spota-text-2); }
+        .spota-section .spota-rule b { color: #fff; font-weight: 700; }
 
-        .spota-cta-band h2 { font-size: clamp(26px, 5vw, 38px); font-weight: 800; letter-spacing: -1px; text-wrap: balance; }
-        .spota-cta-band .spota-lede { margin-top: 12px; }
+        .spota-cta-band h2 { font-size: clamp(30px, 5.6vw, 46px); line-height: 1.06; text-wrap: balance; }
+        .spota-cta-band .spota-lede { margin-top: 14px; }
         .spota-cta-band .spota-hero-ctas { margin-top: 26px; }
 
         .spota-footer { padding-top: 30px; padding-bottom: 56px; display: grid; gap: 18px; }
         .spota-foot-row {
           display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center;
-          justify-content: space-between; font-size: 12.5px; color: rgba(255,255,255,0.38);
+          justify-content: space-between; font-size: 12.5px; color: var(--spota-text-2);
         }
-        .spota-foot-link { color: rgba(255,255,255,0.6); text-decoration: underline; text-underline-offset: 2px; }
+        .spota-foot-link { color: var(--spota-text); text-decoration: underline; text-underline-offset: 2px; }
         .spota-foot-link:hover { color: #fff; }
-        .spota-back { font-size: 13px; color: rgba(255,255,255,0.7); text-decoration: none; }
+        .spota-back { font-size: 13px; color: var(--spota-text-2); text-decoration: none; }
         .spota-back:hover { color: #fff; }
 
         .spota-reveal { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
         .spota-reveal.in { opacity: 1; transform: none; }
 
         @media (prefers-reduced-motion: reduce) {
-          .spota-dcard { animation: none; }
           .spota-reveal { transition: none; opacity: 1; transform: none; }
         }
 

@@ -197,16 +197,10 @@ export type RecentProject = {
 // affichait est retiré : seuls les ids de `sideProjectIds` paraissent sur la
 // home, les autres restent ici en données.
 // Section Side projects de la home, dans l'ordre d'affichage. Les deux premiers
-// ont leur grande carte (Builder, SpotA), puis Music et reMarkable côte à côte
-// (a parts egales), puis Days seul sur sa ligne (voir SideProjects.tsx). L'appartement
-// (interior-design) est retiré de la home, la page /interior et ses données restent.
-export const sideProjectIds: ProjectId[] = [
-  "builder-flow",
-  "spota",
-  "legal-music",
-  "remarkable-calendar-sync",
-  "days",
-];
+// ont leur grande carte (Builder, SpotA), puis Days seul sur sa ligne (voir
+// SideProjects.tsx). L'appartement (interior-design), Music et reMarkable sont
+// retirés de la home, leurs pages et leurs données restent.
+export const sideProjectIds: ProjectId[] = ["builder-flow", "spota", "days"];
 
 export const recentProjects: RecentProject[] = [
   {
