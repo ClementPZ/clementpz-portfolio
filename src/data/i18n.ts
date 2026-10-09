@@ -95,9 +95,9 @@ export const ui: Record<Locale, UI> = {
 
 // Intro localisée (profile.intro).
 export const introText: Record<Locale, string> = {
-  en: "Hello, I'm Clément, product designer with 10+ years across product, business and design systems. I built the design function at Nasdaq-listed NRC Health from scratch, led a team of three and drove product design across the four product suites. Previously, I worked at Episource, later acquired by Optum (UnitedHealth Group), as lead designer, with a team of four. A business and marketing role at Devialet, various entrepreneurial projects, and then founding a coding campus in Mexico City, shaped the business-first instinct that still drives how I lead design today. Open to Senior Product Designer and Design Management roles.",
-  fr: "Bonjour, je suis Clément, Product designer avec plus de 10 ans d'expérience entre produit, business et design systems. J'ai monté la fonction design depuis zéro chez NRC Health, cotée au Nasdaq, dirigé une équipe de trois personnes et piloté le design sur les quatre suites de produits. Précédemment, j'ai travaillé chez Episource, rachetée ensuite par Optum (UnitedHealth Group), comme lead designer, avec une équipe de quatre personnes. Un rôle business et marketing chez Devialet, plusieurs projets entrepreneuriaux, puis la fondation d'un campus de code à Mexico ont forgé l'instinct business-first qui guide ma façon de diriger le design. Ouvert aux postes de Senior Product Designer et de Design Management.",
-  es: "Hola, soy Clément, product designer con más de 10 años de experiencia entre producto, business y design systems. Construí la función de diseño desde cero en NRC Health, cotizada en Nasdaq, lideré un equipo de tres personas y dirigí el diseño de producto en las cuatro suites de producto. Anteriormente, trabajé en Episource, adquirida después por Optum (UnitedHealth Group), como lead designer, con un equipo de cuatro personas. Un puesto de business y marketing en Devialet, varios proyectos de emprendimiento y la fundación de un campus de código en Ciudad de México forjaron el instinto business-first que sigue guiando cómo lidero el diseño hoy. Abierto a puestos de Senior Product Designer y de Design Management.",
+  en: "Hello, I'm Clément, product designer with 10+ years across product, business and design systems. I built the design function at Nasdaq-listed NRC Health from scratch, led a team of three and drove product design across the four product suites. Previously, I worked at Episource, later acquired by Optum (UnitedHealth Group), as lead designer, with a team of four. A business and marketing role at Devialet, various entrepreneurial projects, and then founding a coding campus in Mexico City, shaped the business-first instinct that still drives how I lead design today. Open to Design Engineer, Senior Product Designer and Design Manager roles.",
+  fr: "Bonjour, je suis Clément, Product designer avec plus de 10 ans d'expérience entre produit, business et design systems. J'ai monté la fonction design depuis zéro chez NRC Health, cotée au Nasdaq, dirigé une équipe de trois personnes et piloté le design sur les quatre suites de produits. Précédemment, j'ai travaillé chez Episource, rachetée ensuite par Optum (UnitedHealth Group), comme lead designer, avec une équipe de quatre personnes. Un rôle business et marketing chez Devialet, plusieurs projets entrepreneuriaux, puis la fondation d'un campus de code à Mexico ont forgé l'instinct business-first qui guide ma façon de diriger le design. Ouvert aux postes de Design Engineer, Senior Product Designer et Design Manager.",
+  es: "Hola, soy Clément, product designer con más de 10 años de experiencia entre producto, business y design systems. Construí la función de diseño desde cero en NRC Health, cotizada en Nasdaq, lideré un equipo de tres personas y dirigí el diseño de producto en las cuatro suites de producto. Anteriormente, trabajé en Episource, adquirida después por Optum (UnitedHealth Group), como lead designer, con un equipo de cuatro personas. Un puesto de business y marketing en Devialet, varios proyectos de emprendimiento y la fundación de un campus de código en Ciudad de México forjaron el instinto business-first que sigue guiando cómo lidero el diseño hoy. Abierto a puestos de Design Engineer, Senior Product Designer y Design Manager.",
 };
 
 // Texte localisé des expériences — index aligné sur `work` dans content.ts :
@@ -1419,8 +1419,8 @@ export const nrcText: Record<
           label: "Delivered in two years",
           items: [
             { category: "Design system", title: "Design tokens and Storybook components adopted by three of the four product suites" },
-            { category: "Product design", title: "Market, Customer and Patient Experience redesigns launched, from tokens to design patterns. Patient Experience: phases 0 to 3 shipped, from quick wins to the filter system" },
             { category: "Quick wins", title: "101 listed and prioritized across the products" },
+            { category: "Product design", title: "Market, Customer and Patient Experience redesigns launched, from tokens to design patterns. Patient Experience: phases 0 to 3 shipped, from quick wins to the filter system" },
             { category: "Huey", title: "Three entry points across the suites, three design patterns integrated" },
             { category: "Analytics", title: "Amplitude auto-capture in place, A/B testing on design decisions" },
           ],
@@ -1558,8 +1558,8 @@ export const nrcText: Record<
           label: "Livré en deux ans",
           items: [
             { category: "Design system", title: "Design tokens et composants Storybook adoptés par trois des quatre suites produit" },
-            { category: "Product design", title: "Refontes Market, Customer et Patient Experience lancées, des tokens aux design patterns. Patient Experience : phases 0 à 3 livrées, des quick wins au système de filtres" },
             { category: "Quick wins", title: "101 recensés et priorisés sur l'ensemble des produits" },
+            { category: "Product design", title: "Refontes Market, Customer et Patient Experience lancées, des tokens aux design patterns. Patient Experience : phases 0 à 3 livrées, des quick wins au système de filtres" },
             { category: "Huey", title: "Trois points d'entrée sur l'ensemble des suites, trois design patterns intégrés" },
             { category: "Analytics", title: "Auto-capture Amplitude en place, A/B testing sur les décisions design" },
           ],
@@ -1697,8 +1697,8 @@ export const nrcText: Record<
           label: "Entregado en dos años",
           items: [
             { category: "Design system", title: "Design tokens y componentes de Storybook adoptados por tres de las cuatro suites de producto" },
-            { category: "Product design", title: "Rediseños de Market, Customer y Patient Experience lanzados, de los tokens a los design patterns. Patient Experience: fases 0 a 3 entregadas, de los quick wins al sistema de filtros" },
             { category: "Quick wins", title: "101 identificados y priorizados en todos los productos" },
+            { category: "Product design", title: "Rediseños de Market, Customer y Patient Experience lanzados, de los tokens a los design patterns. Patient Experience: fases 0 a 3 entregadas, de los quick wins al sistema de filtros" },
             { category: "Huey", title: "Tres puntos de entrada en todas las suites, tres design patterns integrados" },
             { category: "Analytics", title: "Auto-capture de Amplitude en marcha, A/B testing en las decisiones de diseño" },
           ],
