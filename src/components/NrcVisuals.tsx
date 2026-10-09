@@ -227,21 +227,29 @@ export function ScreenStep({
   step,
   fullSize,
   index,
+  src = `/nrc/${step.id}.webp`,
+  breakout = true,
 }: {
   step: VisualStep;
   fullSize: string;
-  index: number;
+  // Sans numero, le titre est seul (un ecran unique, hors /nrc).
+  index?: number;
+  // Image hors de public/nrc.
+  src?: string;
+  // false dans une carte de la home, ou la colonne est deja celle du visuel.
+  breakout?: boolean;
 }) {
-  const src = `/nrc/${step.id}.webp`;
   const dlg = useRef<HTMLDialogElement>(null);
   const open = () => dlg.current?.showModal();
   return (
-    <figure className={`m-0 ${BREAKOUT}`}>
+    <figure className={`m-0 ${breakout ? BREAKOUT : ""}`}>
       <div className="flex items-center justify-between gap-3 mb-3">
         <div className="flex items-baseline gap-3">
-          <span className="font-display font-bold text-sm" style={{ color: "var(--accent)" }}>
-            {String(index + 1).padStart(2, "0")}
-          </span>
+          {index !== undefined && (
+            <span className="font-display font-bold text-sm" style={{ color: "var(--accent)" }}>
+              {String(index + 1).padStart(2, "0")}
+            </span>
+          )}
           <h4 className="font-display text-lg font-bold">{step.title}</h4>
         </div>
         <button

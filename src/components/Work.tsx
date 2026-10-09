@@ -4,6 +4,7 @@ import Link from "next/link";
 import { work, recommendations, type Reco, type WorkItem } from "../data/content";
 import { workText, type Locale } from "../data/i18n";
 import { nrcVisuals } from "../data/nrcVisuals";
+import { EPISOURCE_SCREEN, episourceVisual } from "../data/episourceVisual";
 import { useLocale } from "./LocaleProvider";
 import { BeforeAfterSlider } from "./NrcVisuals";
 
@@ -220,21 +221,47 @@ export function LastExperience() {
       </article>
 
       {wide && (
-        <article
-          className="panel p-6 sm:p-10 grid gap-8 md:grid-cols-2 md:gap-12 items-center mt-5"
-          style={{ borderRadius: CARD_RADIUS }}
-        >
-          {wide.photo && (
-            // eslint-disable-next-line @next/next/no-img-element
+        <article className="panel p-6 sm:p-10 mt-5" style={{ borderRadius: CARD_RADIUS }}>
+          <div className="grid gap-8 md:grid-cols-2 md:gap-12 items-center">
+            {wide.photo && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={wide.photo}
+                alt={wide.company}
+                className="w-full object-cover"
+                style={{ aspectRatio: "3 / 2", borderRadius: CARD_RADIUS }}
+              />
+            )}
+            <div className="flex flex-col">
+              <ExperienceText w={wide} lx={workText[locale][wide.id]} />
+            </div>
+          </div>
+
+          <figure className="m-0 mt-8">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={wide.photo}
-              alt={wide.company}
-              className="w-full object-cover"
-              style={{ aspectRatio: "3 / 2", borderRadius: CARD_RADIUS }}
+              src={EPISOURCE_SCREEN}
+              alt={episourceVisual[locale].step.alt}
+              width={1561}
+              height={880}
+              loading="lazy"
+              className="block w-full h-auto"
+              style={{
+                borderRadius: CARD_RADIUS,
+                background: "#ffffff",
+                border: "1px solid var(--border-strong)",
+                boxShadow: "var(--shadow)",
+              }}
             />
-          )}
-          <div className="flex flex-col">
-            <ExperienceText w={wide} lx={workText[locale][wide.id]} />
+            <figcaption className="text-xs mt-2" style={{ color: "var(--text-muted)" }}>
+              {episourceVisual[locale].disclaimer}
+            </figcaption>
+          </figure>
+
+          <div className="mt-6 flex justify-end">
+            <Link href="/click-to-code" className="text-sm font-semibold hover:underline" style={{ color: "var(--text)" }}>
+              {episourceVisual[locale].cta} →
+            </Link>
           </div>
         </article>
       )}
