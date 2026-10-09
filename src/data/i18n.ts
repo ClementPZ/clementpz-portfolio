@@ -41,6 +41,7 @@ type UI = {
   recoTitle: string;
   makingOfWidget: string;
   caseStudy: string;
+  getTheApp: string;
   visualLabel: string;
 };
 
@@ -57,6 +58,7 @@ export const ui: Record<Locale, UI> = {
     recoTitle: "Recommendations",
     makingOfWidget: "How this portfolio was built",
     caseStudy: "Read the case study",
+    getTheApp: "Get the app",
     visualLabel: "Visual to come",
   },
   fr: {
@@ -71,6 +73,7 @@ export const ui: Record<Locale, UI> = {
     recoTitle: "Recommandations",
     makingOfWidget: "Comment ce portfolio a été construit",
     caseStudy: "Lire le case study",
+    getTheApp: "Télécharger l'app",
     visualLabel: "Visuel à venir",
   },
   es: {
@@ -85,15 +88,16 @@ export const ui: Record<Locale, UI> = {
     recoTitle: "Recomendaciones",
     makingOfWidget: "Cómo se construyó este portafolio",
     caseStudy: "Leer el case study",
+    getTheApp: "Descargar la app",
     visualLabel: "Visual pendiente",
   },
 };
 
 // Intro localisée (profile.intro).
 export const introText: Record<Locale, string> = {
-  en: "Hello, I'm Clément, product designer with 10+ years across product, business and design systems. Previously, I built the design function at Nasdaq-listed NRC Health from scratch, led a team of three and drove product design across the four product suites. A business and marketing role at Devialet, various entrepreneurial projects, and then founding a coding campus in Mexico City, shaped the business-first instinct that still drives how I lead design today. Open to Senior Product Designer and Design Management roles.",
-  fr: "Bonjour, je suis Clément, Product designer avec plus de 10 ans d'expérience entre produit, business et design systems. Précédemment, j'ai monté la fonction design depuis zéro chez NRC Health, cotée au Nasdaq, dirigé une équipe de trois personnes et piloté le design sur les quatre suites de produits. Un rôle business et marketing chez Devialet, plusieurs projets entrepreneuriaux, puis la fondation d'un campus de code à Mexico ont forgé l'instinct business-first qui guide ma façon de diriger le design. Ouvert aux postes de Senior Product Designer et de Design Management.",
-  es: "Hola, soy Clément, product designer con más de 10 años de experiencia entre producto, business y design systems. Anteriormente, construí la función de diseño desde cero en NRC Health, cotizada en Nasdaq, lideré un equipo de tres personas y dirigí el diseño de producto en las cuatro suites de producto. Un puesto de business y marketing en Devialet, varios proyectos de emprendimiento y la fundación de un campus de código en Ciudad de México forjaron el instinto business-first que sigue guiando cómo lidero el diseño hoy. Abierto a puestos de Senior Product Designer y de Design Management.",
+  en: "Hello, I'm Clément, product designer with 10+ years across product, business and design systems. I built the design function at Nasdaq-listed NRC Health from scratch, led a team of three and drove product design across the four product suites. Previously, I worked at Episource, later acquired by Optum (UnitedHealth Group), as lead designer, with a team of four. A business and marketing role at Devialet, various entrepreneurial projects, and then founding a coding campus in Mexico City, shaped the business-first instinct that still drives how I lead design today. Open to Senior Product Designer and Design Management roles.",
+  fr: "Bonjour, je suis Clément, Product designer avec plus de 10 ans d'expérience entre produit, business et design systems. J'ai monté la fonction design depuis zéro chez NRC Health, cotée au Nasdaq, dirigé une équipe de trois personnes et piloté le design sur les quatre suites de produits. Précédemment, j'ai travaillé chez Episource, rachetée ensuite par Optum (UnitedHealth Group), comme lead designer, avec une équipe de quatre personnes. Un rôle business et marketing chez Devialet, plusieurs projets entrepreneuriaux, puis la fondation d'un campus de code à Mexico ont forgé l'instinct business-first qui guide ma façon de diriger le design. Ouvert aux postes de Senior Product Designer et de Design Management.",
+  es: "Hola, soy Clément, product designer con más de 10 años de experiencia entre producto, business y design systems. Construí la función de diseño desde cero en NRC Health, cotizada en Nasdaq, lideré un equipo de tres personas y dirigí el diseño de producto en las cuatro suites de producto. Anteriormente, trabajé en Episource, adquirida después por Optum (UnitedHealth Group), como lead designer, con un equipo de cuatro personas. Un puesto de business y marketing en Devialet, varios proyectos de emprendimiento y la fundación de un campus de código en Ciudad de México forjaron el instinto business-first que sigue guiando cómo lidero el diseño hoy. Abierto a puestos de Senior Product Designer y de Design Management.",
 };
 
 // Texte localisé des expériences — index aligné sur `work` dans content.ts :
@@ -107,7 +111,7 @@ export const workText: Record<
       role: "Design Manager",
       bullets: [
         "Recruited and led NRC Health's first design team, two Product Designers and an Analytics Specialist, across all four product suites.",
-        "Created a multi-product design system on Flowbite: design tokens and a semantic layer shared by Angular, Vue and legacy front-ends, adopted by all four suites.",
+        "Created a multi-product design system based on the Flowbite library: design tokens and a semantic layer shared by Angular, Vue and legacy front-ends, with an adoption ramp-up strategy from tokens to design patterns.",
         "Built an AI-assisted design-to-code workflow, so non-technical profiles can propose UX/UI changes that a developer reviews.",
         "Led the design of the company's AI features, including the Huey assistant and an ambient-listening tool that raised nurse-rounding documentation from 55% to 90%.",
         "Set up product analytics with Product, Engineering and the C-suite, and validated design decisions with research and A/B tests: +24% click-through on outreach emails.",
@@ -116,8 +120,10 @@ export const workText: Record<
     episource: {
       role: "Senior → Lead Product Designer · Design System",
       bullets: [
-        "Coordinated user research across several products of the suite. Promoted to Lead Product Designer after 12 months.",
-        "Built the Figma component libraries and integrated design tokens into production for the design-system rollout across the whole product suite (Q4 2021 - Q2 2022). Then owned Provider Direct Messaging, a two-way integration with hospital record systems (EHR), built with UnitedHealthcare and piloted for Q1 2024.",
+        "Coordinated user research across several products of the suite.",
+        "Built the Figma component libraries and integrated design tokens into production for the design-system rollout across the whole product suite (Q4 2021 - Q2 2022).",
+        "Promoted to Lead Product Designer after 12 months.",
+        "Owned Provider Direct Messaging, a two-way integration with hospital record systems (EHR), built with UnitedHealthcare and piloted for Q1 2024.",
         "Led the Click to Code medical autocoding project, an NLP-based AI coding interface, from alpha to production (Q1 2022). A major V2.0 redesign, validated with 897 users, reached 88% acceptance and 80% satisfaction, and became a core part of Episource's autocoding strategy, targeting 500,000-750,000 charts a year.",
       ],
     },
@@ -159,7 +165,7 @@ export const workText: Record<
       role: "Design Manager",
       bullets: [
         "Recrutement et management de la première équipe Design de NRC Health, deux Product Designers et un Analytics Specialist, sur les quatre suites produit.",
-        "Création d'un design system multi-produits sur Flowbite : design tokens et semantic layer partagés par les front-ends Angular, Vue et legacy, adopté par les quatre suites.",
+        "Création d'un design system multi-produits basé sur la bibliothèque Flowbite : design tokens et semantic layer partagés par les front-ends Angular, Vue et legacy, avec une stratégie d'adoption progressive, des tokens aux design patterns.",
         "Mise en place d'un workflow design-to-code assisté par IA, pour que des profils non techniques proposent des changements UX/UI relus par un développeur.",
         "Pilotage du design des fonctionnalités IA de l'entreprise, dont l'assistant Huey et un outil d'ambient listening qui a fait passer la documentation des rondes infirmières de 55 % à 90 %.",
         "Mise en place des analytics produit avec les équipes Produit, Engineering et le C-level, et validation des décisions design par la recherche et l'A/B testing : +24 % de taux de clic sur les emails d'outreach.",
@@ -168,8 +174,10 @@ export const workText: Record<
     episource: {
       role: "Senior → Lead Product Designer · Design System",
       bullets: [
-        "Coordination de la recherche utilisateur sur plusieurs produits de la suite. Promotion au poste de Lead Product Designer après 12 mois.",
-        "Création des bibliothèques de composants Figma et intégration des design tokens en production pour le déploiement du design system sur l'ensemble de la suite produit (Q4 2021 - Q2 2022). Prise en charge par la suite de la conception de Provider Direct Messaging, une intégration bidirectionnelle avec les dossiers médicaux des hôpitaux (EHR), développée avec UnitedHealthcare et déployée en pilote pour Q1 2024.",
+        "Coordination de la recherche utilisateur sur plusieurs produits de la suite.",
+        "Création des bibliothèques de composants Figma et intégration des design tokens en production pour le déploiement du design system sur l'ensemble de la suite produit (Q4 2021 - Q2 2022).",
+        "Promotion au poste de Lead Product Designer après 12 mois.",
+        "Prise en charge de la conception de Provider Direct Messaging, une intégration bidirectionnelle avec les dossiers médicaux des hôpitaux (EHR), développée avec UnitedHealthcare et déployée en pilote pour Q1 2024.",
         "Pilotage du projet d'autocoding médical Click to Code, l'interface de coding assistée par IA reposant sur le NLP, depuis l'alpha jusqu'à la mise en production (Q1 2022). Refonte majeure (V2.0) validée auprès de 897 utilisateurs, atteignant 88 % d'acceptation et 80 % de satisfaction. Cette fonctionnalité est devenue un élément central de la stratégie d'autocoding d'Episource, avec un objectif de traitement de 500 000 à 750 000 dossiers par an.",
       ],
     },
@@ -211,7 +219,7 @@ export const workText: Record<
       role: "Design Manager",
       bullets: [
         "Contraté y lideré el primer equipo de Diseño de NRC Health, dos Product Designers y un Analytics Specialist, en las cuatro suites de producto.",
-        "Creé un design system multi-producto sobre Flowbite: design tokens y una semantic layer compartidos por los front-ends Angular, Vue y legacy, adoptado por las cuatro suites.",
+        "Creé un design system multi-producto basado en la librería Flowbite: design tokens y una semantic layer compartidos por los front-ends Angular, Vue y legacy, con una estrategia de adopción progresiva, de los tokens a los design patterns.",
         "Monté un workflow design-to-code asistido por IA, para que perfiles no técnicos propongan cambios de UX/UI que revisa un desarrollador.",
         "Dirigí el diseño de las funcionalidades de IA de la empresa, entre ellas el asistente Huey y una herramienta de ambient listening que elevó la documentación de las rondas de enfermería del 55 % al 90 %.",
         "Implanté los analytics de producto con Producto, Engineering y el C-level, y validé las decisiones de diseño con investigación y A/B testing: +24 % de tasa de clics en los emails de outreach.",
@@ -220,8 +228,10 @@ export const workText: Record<
     episource: {
       role: "Senior → Lead Product Designer · Design System",
       bullets: [
-        "Coordiné la investigación de usuarios en varios productos de la suite. Fui ascendido a Lead Product Designer tras 12 meses.",
-        "Creé las bibliotecas de componentes en Figma e integré design tokens en producción para el despliegue del design system en toda la suite de producto (Q4 2021 - Q2 2022). Después me hice cargo del diseño de Provider Direct Messaging, una integración bidireccional con las historias clínicas de los hospitales (EHR), desarrollada con UnitedHealthcare y pilotada para Q1 2024.",
+        "Coordiné la investigación de usuarios en varios productos de la suite.",
+        "Creé las bibliotecas de componentes en Figma e integré design tokens en producción para el despliegue del design system en toda la suite de producto (Q4 2021 - Q2 2022).",
+        "Fui ascendido a Lead Product Designer tras 12 meses.",
+        "Me hice cargo del diseño de Provider Direct Messaging, una integración bidireccional con las historias clínicas de los hospitales (EHR), desarrollada con UnitedHealthcare y pilotada para Q1 2024.",
         "Dirigí el proyecto de autocoding médico Click to Code, la interfaz de coding asistida por IA basada en NLP, desde el alpha hasta producción (Q1 2022). Un rediseño mayor (V2.0), validado con 897 usuarios, alcanzó 88 % de aceptación y 80 % de satisfacción, y se volvió una pieza central de la estrategia de autocoding de Episource, con un objetivo de 500 000 a 750 000 historiales al año.",
       ],
     },
@@ -460,32 +470,36 @@ type StatusKey =
   | "concept"
   | "concept-wip"
   | "fail"
-  | "private-live";
+  | "private-live"
+  | "app-store";
 
 export const statusText: Record<Locale, Record<StatusKey, string>> = {
   en: {
-    live: "● Live",
+    live: "Live",
     "in progress": "● In progress",
     concept: "○ Concept",
     "concept-wip": "○ Concept · WIP",
     fail: "● Fail",
-    "private-live": "● Private · Live",
+    "private-live": "Private · Live",
+    "app-store": "Live on App Store",
   },
   fr: {
-    live: "● En ligne",
+    live: "En ligne",
     "in progress": "● En cours",
     concept: "○ Concept",
     "concept-wip": "○ Concept · WIP",
     fail: "● Échec",
-    "private-live": "● Privé · Live",
+    "private-live": "Privé · Live",
+    "app-store": "Disponible sur l'App Store",
   },
   es: {
-    live: "● En vivo",
+    live: "En vivo",
     "in progress": "● En curso",
     concept: "○ Concepto",
     "concept-wip": "○ Concepto · WIP",
     fail: "● Fallido",
-    "private-live": "● Privado · Live",
+    "private-live": "Privado · Live",
+    "app-store": "Disponible en el App Store",
   },
 };
 
@@ -869,8 +883,8 @@ export const highlightText: Record<
     title: "Builder",
     tagline: "A Claude Code plugin",
     blurb:
-      "The Builder plugin lets a PM or designer make front-end changes within the design system. Changes follow the design tokens and are sorted by risk. An engineer reviews and merges the result.",
-    ctaPrimary: "Launch demo",
+      "The Builder plugin allows PMs and designers to make front-end changes. Changes follow design system conventions, with guardrails by level of risk. The code is then reviewed and merged by an engineer.",
+    ctaPrimary: "Relaunch demo",
     ctaSecondary: "See details",
   },
   fr: {
@@ -878,8 +892,8 @@ export const highlightText: Record<
     title: "Builder",
     tagline: "Un plugin Claude Code",
     blurb:
-      "Le plugin Builder permet à un PM ou un designer d'apporter des modifications au front-end dans le cadre du design system. Les changements suivent les design tokens et sont classés par niveau de risque. Un ingénieur relit et merge le résultat.",
-    ctaPrimary: "Lancer la démo",
+      "Le plugin Builder permet aux PM et aux designers d'apporter des modifications au front-end. Les changements suivent les conventions du design system, avec des garde-fous selon le niveau de risque. Le code est ensuite relu et mergé par un ingénieur.",
+    ctaPrimary: "Relancer la démo",
     ctaSecondary: "Voir les détails",
   },
   es: {
@@ -887,8 +901,8 @@ export const highlightText: Record<
     title: "Builder",
     tagline: "Un plugin de Claude Code",
     blurb:
-      "El plugin Builder permite a un PM o un diseñador aportar modificaciones al front-end dentro del design system. Los cambios siguen los design tokens y se clasifican por nivel de riesgo. Un ingeniero revisa y mergea el resultado.",
-    ctaPrimary: "Lanzar la demo",
+      "El plugin Builder permite a PMs y diseñadores hacer cambios en el front-end. Los cambios siguen las convenciones del design system, con límites según el nivel de riesgo. Después, un ingeniero revisa y mergea el código.",
+    ctaPrimary: "Relanzar la demo",
     ctaSecondary: "Ver detalles",
   },
 };
@@ -1349,7 +1363,6 @@ export const nrcText: Record<
       title: string;
       sub: string;
       items: { title: string; body: string }[];
-      builderCta: string;
       teaserCaption: string;
       exploreCta: string;
     };
@@ -1368,7 +1381,6 @@ export const nrcText: Record<
       }[];
     };
     analytics: { title: string; body: string; points: string[] };
-    contactCta: string;
     backHome: string;
   }
 > = {
@@ -1377,7 +1389,7 @@ export const nrcText: Record<
     period: "2024 → 2026",
     title: "Building the design function at NRC Health",
     intro:
-      "NRC Health helps US hospitals and health systems collect, analyze and act on the experience data of their patients and their employees, through four product suites, a business of about $140 million in annual revenue. When I joined in 2024, there was no design team. Two years later: a team of three, a design system adopted by the four suites, four phases shipped on the redesign of the oldest product, nurse-rounding documentation up from 55% to 90%, and a 24% lift in outreach-email click-through.",
+      "NRC Health helps US hospitals and health systems collect, analyze and act on the experience data of their patients and their employees, through four product suites, a business of about $140 million in annual revenue. When I joined in 2024, there was no design team. Two years later: a team of three, a design system adopted by three of the four suites, four phases shipped on the redesign of the oldest product, nurse-rounding documentation up from 55% to 90%, and a 24% lift in outreach-email click-through.",
     stack: ["SaaS", "Healthcare", "Patient Experience", "Employee Experience", "Design to Code", "Management", "AI", "Analytics"],
     figureLabel: "Visual to come",
     team: {
@@ -1406,10 +1418,10 @@ export const nrcText: Record<
         {
           label: "Delivered in two years",
           items: [
-            { category: "Design system", title: "Figma library launched, adopted by all four suites and Huey" },
-            { category: "Product design", title: "Patient Experience redesign: phases 0 to 3 shipped, from quick wins to the filter system" },
-            { category: "Quick wins", title: "101 listed and prioritized across the products, the outreach email first" },
-            { category: "Huey", title: "One assistant for every suite, three entry points, three design principles (inviting, relevant, adaptive)" },
+            { category: "Design system", title: "Design tokens and Storybook components adopted by three of the four product suites" },
+            { category: "Product design", title: "Market, Customer and Patient Experience redesigns launched, from tokens to design patterns. Patient Experience: phases 0 to 3 shipped, from quick wins to the filter system" },
+            { category: "Quick wins", title: "101 listed and prioritized across the products" },
+            { category: "Huey", title: "Three entry points across the suites, three design patterns integrated" },
             { category: "Analytics", title: "Amplitude auto-capture in place, A/B testing on design decisions" },
           ],
         },
@@ -1420,7 +1432,7 @@ export const nrcText: Record<
     },
     system: {
       title: "3. The design system",
-      sub: "Four products, several front-end stacks, one design system. Its Figma library is adopted by all four suites and by Huey.",
+      sub: "Four products, several front-end stacks, one design system. Its Figma library is adopted by three of the four suites and by Huey.",
       items: [
         {
           title: "Build on Flowbite",
@@ -1443,7 +1455,6 @@ export const nrcText: Record<
           body: "A design-to-code workflow that lets non-technical profiles ship changes consistent with the design system, and generates code ready for developer review.",
         },
       ],
-      builderCta: "Read the Builder plugin case study (inspired by the work done at NRC)",
       teaserCaption: "Flowbite, the open-source base of the system, extracted into tokens and 19 live components.",
       exploreCta: "Explore the extracted design system",
     },
@@ -1474,13 +1485,13 @@ export const nrcText: Record<
           problem:
             "These emails had an 8% click-through rate, which is decent, but the email had no reading hierarchy and no clear main action, so it was easy to mistake for spam.",
           moves: [
-            "List 101 quick wins across every product, then prioritize them. This one came out on top: the widest reach for the lowest cost of change.",
+            "List 101 quick wins across every product, then prioritize them. This one combined a wide reach with a low cost of change.",
             "Rebuild the email around a single action, instead of a wall of content.",
             "Ship it straight through the design-to-code pipeline, with no spec in between.",
             "Present the result to the executive committee, before and after side by side.",
           ],
-          result: "Click-through rate from 8% to 9.9%, a 24% lift. On more than 100,000 emails a day, that is about 1,900 more clicks every day.",
-          figure: "The email, before and after",
+          result: "Click-through rate from 8% to 9.9%, a 24% lift. On more than 100,000 emails sent every day, that is 700,000+ more surveys clicked a year, and as many potential data points.",
+          figure: "The outreach email, after the redesign",
         },
         {
           n: "c",
@@ -1495,7 +1506,7 @@ export const nrcText: Record<
           result: "Ambient listening, for example, raised nurse-rounding documentation from 55% to 90%.",
           more: {
             body: "The research behind it distilled into three principles every Huey interaction has to pass: inviting, relevant, adaptive. They became an evaluation test, then a marker and a drawer shared by every product.",
-            cta: "Read the full Huey case",
+            cta: "Explore a workshop session for Huey",
           },
           figure: "Huey, the three entry points",
         },
@@ -1505,12 +1516,11 @@ export const nrcText: Record<
       title: "4. Analytics",
       body: "Product analytics was built with Product, Engineering and the executive committee, so a design decision could be checked against a number. The outreach email above is the example: one hypothesis, one A/B test, a measured 24% lift.",
       points: [
-        "Back every design decision with research and A/B testing, so each change ships with a measurable hypothesis.",
-        "Define KPIs per feature, never per release.",
         "Bring an Analytics Specialist into the design team, so measurement is planned while the feature is designed.",
+        "Back every design decision with research and A/B testing, so each change ships with a measurable hypothesis.",
+        "Workshops and hands-on definition of KPIs and North Stars with PMs and the C-suite.",
       ],
     },
-    contactCta: "Talk about this work",
     backHome: "Back to the portfolio",
   },
   fr: {
@@ -1518,7 +1528,7 @@ export const nrcText: Record<
     period: "2024 → 2026",
     title: "Monter la fonction design chez NRC Health",
     intro:
-      "NRC Health accompagne les hôpitaux et les systèmes de santé américains dans la collecte, l'analyse et l'exploitation des données d'expérience de leurs patients et de leurs collaborateurs, grâce à quatre suites produit, pour un business d'environ 140 millions de dollars de chiffre d'affaires annuel. À mon arrivée en 2024, il n'y avait pas d'équipe design. Deux ans plus tard : une équipe de trois personnes, un design system adopté par les quatre suites, quatre phases livrées sur la refonte du produit le plus ancien, une documentation des rondes infirmières passée de 55 % à 90 %, et +24 % de taux de clic sur les emails d'outreach.",
+      "NRC Health accompagne les hôpitaux et les systèmes de santé américains dans la collecte, l'analyse et l'exploitation des données d'expérience de leurs patients et de leurs collaborateurs, grâce à quatre suites produit, pour un business d'environ 140 millions de dollars de chiffre d'affaires annuel. À mon arrivée en 2024, il n'y avait pas d'équipe design. Deux ans plus tard : une équipe de trois personnes, un design system adopté par trois des quatre suites, quatre phases livrées sur la refonte du produit le plus ancien, une documentation des rondes infirmières passée de 55 % à 90 %, et +24 % de taux de clic sur les emails d'outreach.",
     stack: ["SaaS", "Healthcare", "Patient Experience", "Employee Experience", "Design to Code", "Management", "IA", "Analytics"],
     figureLabel: "Visuel à venir",
     team: {
@@ -1547,10 +1557,10 @@ export const nrcText: Record<
         {
           label: "Livré en deux ans",
           items: [
-            { category: "Design system", title: "Bibliothèque Figma lancée, adoptée par les quatre suites et Huey" },
-            { category: "Product design", title: "Refonte Patient Experience : phases 0 à 3 livrées, des quick wins au système de filtres" },
-            { category: "Quick wins", title: "101 recensés et priorisés sur l'ensemble des produits, l'email d'outreach en premier" },
-            { category: "Huey", title: "Un seul assistant pour toutes les suites, trois points d'entrée, trois principes de design (invitant, pertinent, adaptatif)" },
+            { category: "Design system", title: "Design tokens et composants Storybook adoptés par trois des quatre suites produit" },
+            { category: "Product design", title: "Refontes Market, Customer et Patient Experience lancées, des tokens aux design patterns. Patient Experience : phases 0 à 3 livrées, des quick wins au système de filtres" },
+            { category: "Quick wins", title: "101 recensés et priorisés sur l'ensemble des produits" },
+            { category: "Huey", title: "Trois points d'entrée sur l'ensemble des suites, trois design patterns intégrés" },
             { category: "Analytics", title: "Auto-capture Amplitude en place, A/B testing sur les décisions design" },
           ],
         },
@@ -1561,7 +1571,7 @@ export const nrcText: Record<
     },
     system: {
       title: "3. Le design system",
-      sub: "Quatre produits, plusieurs stacks front, un seul design system. Sa bibliothèque Figma est adoptée par les quatre suites et par Huey.",
+      sub: "Quatre produits, plusieurs stacks front, un seul design system. Sa bibliothèque Figma est adoptée par trois des quatre suites et par Huey.",
       items: [
         {
           title: "S'appuyer sur Flowbite",
@@ -1584,7 +1594,6 @@ export const nrcText: Record<
           body: "Un workflow design-to-code qui permet à des profils non techniques de livrer des changements cohérents avec le design system, et de générer du code prêt pour la review des développeurs.",
         },
       ],
-      builderCta: "Lire le case study sur le plugin Builder (inspiré du travail effectué chez NRC)",
       teaserCaption: "Flowbite, la base open source du système, extraite en tokens et 19 composants vivants.",
       exploreCta: "Explorer le design system extrait",
     },
@@ -1615,13 +1624,13 @@ export const nrcText: Record<
           problem:
             "Ces emails avaient un taux de clic de 8 %, ce qui est correct, mais l'email n'avait ni hiérarchie de lecture ni action principale claire, et se confondait facilement avec du spam.",
           moves: [
-            "Recenser 101 quick wins à travers l'ensemble des produits, puis les prioriser. Celui-ci sort en tête : la portée la plus large pour le coût de changement le plus faible.",
+            "Recenser 101 quick wins à travers l'ensemble des produits, puis les prioriser. Celui-ci combinait une large portée et un faible coût de changement.",
             "Reconstruire l'email autour d'une action unique, au lieu d'un mur de contenu.",
             "Livrer directement via le pipeline design-to-code, sans passer par une spec.",
             "Présenter le résultat au comité de direction, avant et après côte à côte.",
           ],
-          result: "Taux de clic de 8 % à 9,9 %, soit +24 %. Sur plus de 100 000 emails par jour, cela fait environ 1 900 clics de plus chaque jour.",
-          figure: "L'email, avant et après",
+          result: "Taux de clic de 8 % à 9,9 %, soit +24 %. Sur plus de 100 000 emails envoyés chaque jour, cela représente plus de 700 000 enquêtes ouvertes en plus par an, et autant de points de données potentiels.",
+          figure: "L'email d'outreach, après la refonte",
         },
         {
           n: "c",
@@ -1636,7 +1645,7 @@ export const nrcText: Record<
           result: "L'ambient listening, par exemple, a fait passer la documentation des rondes infirmières de 55 % à 90 %.",
           more: {
             body: "La recherche derrière ce choix s'est condensée en trois principes que toute interaction Huey doit passer : invitant, pertinent, adaptatif. Ils sont devenus un test d'évaluation, puis un marqueur et un drawer communs à tous les produits.",
-            cta: "Lire le cas Huey en entier",
+            cta: "Explorer une session de workshop sur Huey",
           },
           figure: "Huey, les trois points d'entrée",
         },
@@ -1646,12 +1655,11 @@ export const nrcText: Record<
       title: "4. Analytics",
       body: "Les analytics produit ont été construits avec les équipes Produit, Engineering et le comité de direction, pour qu'une décision design puisse se vérifier sur un chiffre. L'email d'outreach ci-dessus en est l'exemple : une hypothèse, un A/B test, +24 % mesurés.",
       points: [
-        "Adosser chaque décision design à de la recherche et à de l'A/B testing, pour qu'un changement parte avec une hypothèse mesurable.",
-        "Définir les KPI par fonctionnalité, jamais par release.",
         "Intégrer un Analytics Specialist à l'équipe design, pour que la mesure soit prévue pendant la conception de la fonctionnalité.",
+        "Adosser chaque décision design à de la recherche et à de l'A/B testing, pour qu'un changement parte avec une hypothèse mesurable.",
+        "Workshops et définition, main dans la main, des KPI et des North Stars avec les PM et le C-level.",
       ],
     },
-    contactCta: "Parler de ce travail",
     backHome: "Retour au portfolio",
   },
   es: {
@@ -1659,7 +1667,7 @@ export const nrcText: Record<
     period: "2024 → 2026",
     title: "Construir la función de diseño en NRC Health",
     intro:
-      "NRC Health acompaña a hospitales y sistemas de salud de Estados Unidos en la recopilación, el análisis y el aprovechamiento de los datos de experiencia de sus pacientes y de sus empleados, a través de cuatro suites de producto, un negocio de unos 140 millones de dólares de ingresos anuales. Cuando llegué en 2024, no había equipo de diseño. Dos años después: un equipo de tres personas, un design system adoptado por las cuatro suites, cuatro fases entregadas en el rediseño del producto más antiguo, la documentación de las rondas de enfermería del 55 % al 90 %, y un 24 % más de tasa de clics en los emails de outreach.",
+      "NRC Health acompaña a hospitales y sistemas de salud de Estados Unidos en la recopilación, el análisis y el aprovechamiento de los datos de experiencia de sus pacientes y de sus empleados, a través de cuatro suites de producto, un negocio de unos 140 millones de dólares de ingresos anuales. Cuando llegué en 2024, no había equipo de diseño. Dos años después: un equipo de tres personas, un design system adoptado por tres de las cuatro suites, cuatro fases entregadas en el rediseño del producto más antiguo, la documentación de las rondas de enfermería del 55 % al 90 %, y un 24 % más de tasa de clics en los emails de outreach.",
     stack: ["SaaS", "Healthcare", "Patient Experience", "Employee Experience", "Design to Code", "Management", "IA", "Analytics"],
     figureLabel: "Visual pendiente",
     team: {
@@ -1688,10 +1696,10 @@ export const nrcText: Record<
         {
           label: "Entregado en dos años",
           items: [
-            { category: "Design system", title: "Biblioteca de Figma lanzada, adoptada por las cuatro suites y Huey" },
-            { category: "Product design", title: "Rediseño de Patient Experience: fases 0 a 3 entregadas, de los quick wins al sistema de filtros" },
-            { category: "Quick wins", title: "101 identificados y priorizados en todos los productos, el email de outreach primero" },
-            { category: "Huey", title: "Un solo asistente para todas las suites, tres puntos de entrada, tres principios de diseño (invitante, relevante, adaptativo)" },
+            { category: "Design system", title: "Design tokens y componentes de Storybook adoptados por tres de las cuatro suites de producto" },
+            { category: "Product design", title: "Rediseños de Market, Customer y Patient Experience lanzados, de los tokens a los design patterns. Patient Experience: fases 0 a 3 entregadas, de los quick wins al sistema de filtros" },
+            { category: "Quick wins", title: "101 identificados y priorizados en todos los productos" },
+            { category: "Huey", title: "Tres puntos de entrada en todas las suites, tres design patterns integrados" },
             { category: "Analytics", title: "Auto-capture de Amplitude en marcha, A/B testing en las decisiones de diseño" },
           ],
         },
@@ -1702,7 +1710,7 @@ export const nrcText: Record<
     },
     system: {
       title: "3. El design system",
-      sub: "Cuatro productos, varios stacks de front-end, un solo design system. Su biblioteca de Figma está adoptada por las cuatro suites y por Huey.",
+      sub: "Cuatro productos, varios stacks de front-end, un solo design system. Su biblioteca de Figma está adoptada por tres de las cuatro suites y por Huey.",
       items: [
         {
           title: "Apoyarse en Flowbite",
@@ -1725,7 +1733,6 @@ export const nrcText: Record<
           body: "Un workflow design-to-code que permite a perfiles no técnicos entregar cambios coherentes con el design system y generar código listo para la review de los desarrolladores.",
         },
       ],
-      builderCta: "Leer el case study del plugin Builder (inspirado en el trabajo realizado en NRC)",
       teaserCaption: "Flowbite, la base de código abierto del sistema, extraída en tokens y 19 componentes vivos.",
       exploreCta: "Explorar el design system extraído",
     },
@@ -1756,13 +1763,13 @@ export const nrcText: Record<
           problem:
             "Estos emails tenían una tasa de clics del 8%, una cifra correcta, pero el email no tenía jerarquía de lectura ni una acción principal clara, y se confundía fácilmente con spam.",
           moves: [
-            "Identificar 101 quick wins en todos los productos y priorizarlos. Este quedó primero: el mayor alcance con el menor coste de cambio.",
+            "Identificar 101 quick wins en todos los productos y priorizarlos. Este combinaba un gran alcance con un bajo coste de cambio.",
             "Reconstruir el email en torno a una única acción, en lugar de un muro de contenido.",
             "Entregarlo directamente a través del pipeline design-to-code, sin pasar por una spec.",
             "Presentar el resultado al comité de dirección, con el antes y el después lado a lado.",
           ],
-          result: "Tasa de clics del 8% al 9,9%, un 24% más. Con más de 100 000 emails al día, son unos 1900 clics más cada día.",
-          figure: "El email, antes y después",
+          result: "Tasa de clics del 8% al 9,9%, un 24% más. Con más de 100 000 emails enviados cada día, son más de 700 000 encuestas abiertas más al año, y otros tantos puntos de datos potenciales.",
+          figure: "El email de outreach, después del rediseño",
         },
         {
           n: "c",
@@ -1777,7 +1784,7 @@ export const nrcText: Record<
           result: "El ambient listening, por ejemplo, elevó la documentación de las rondas de enfermería del 55 % al 90 %.",
           more: {
             body: "La investigación detrás de esta decisión se condensó en tres principios que toda interacción con Huey debe superar: invitante, relevante, adaptable. Se convirtieron en un test de evaluación y luego en un marcador y un drawer comunes a todos los productos.",
-            cta: "Leer el caso Huey completo",
+            cta: "Explorar una sesión de workshop sobre Huey",
           },
           figure: "Huey, los tres puntos de entrada",
         },
@@ -1787,19 +1794,18 @@ export const nrcText: Record<
       title: "4. Analytics",
       body: "Los analytics de producto se construyeron con Producto, Engineering y el comité de dirección, para que una decisión de diseño pudiera comprobarse con una cifra. El email de contacto de arriba es el ejemplo: una hipótesis, un A/B test, un 24 % medido.",
       points: [
-        "Respaldar cada decisión de diseño con investigación y A/B testing, para que cada cambio salga con una hipótesis medible.",
-        "Definir los KPI por funcionalidad, nunca por release.",
         "Integrar un Analytics Specialist en el equipo de diseño, para que la medición se prevea mientras se diseña la funcionalidad.",
+        "Respaldar cada decisión de diseño con investigación y A/B testing, para que cada cambio salga con una hipótesis medible.",
+        "Workshops y definición, mano a mano, de los KPI y las North Stars con los PM y el C-level.",
       ],
     },
-    contactCta: "Hablar de este trabajo",
     backHome: "Volver al portafolio",
   },
 };
 
 // ============================================================================
 // spotaHighlightText — le bloc SpotA de la section Highlights (home).
-// Le titre "Today: spot a ..." n'est pas ici : c'est le nom du produit joué
+// Le titre "Today, spot ..." n'est pas ici : c'est le nom du produit joué
 // dans la phrase, le traduire casserait le jeu de mots. Les prompts qui
 // défilent restent en anglais aussi, ce sont les prompts réels de l'app.
 // La page /spota, elle, reste entièrement hors i18n (English only).
@@ -1812,19 +1818,19 @@ export const spotaHighlightText: Record<
   en: {
     eyebrow: "A daily photo game for friend groups",
     lede: "One prompt a day. Find it in the real world, capture it, back camera for the target, front camera for you. Post yours to unlock what your crew spotted.",
-    cta: "Request the beta",
+    cta: "Get the app",
     finePrint: "iOS · ages 13+",
   },
   fr: {
     eyebrow: "Un jeu photo quotidien pour les groupes d'amis",
     lede: "Un prompt par jour. Trouve-le dans la vraie vie, capture-le, caméra arrière pour la cible, caméra avant pour toi. Publie le tien pour découvrir ce que ta bande a repéré.",
-    cta: "Demander la bêta",
+    cta: "Télécharger l'app",
     finePrint: "iOS · 13 ans et plus",
   },
   es: {
     eyebrow: "Un juego de fotos diario para grupos de amigos",
     lede: "Un prompt al día. Encuéntralo en la vida real, captúralo, cámara trasera para el objetivo, cámara frontal para ti. Publica el tuyo para ver lo que encontró tu grupo.",
-    cta: "Pedir la beta",
+    cta: "Descargar la app",
     finePrint: "iOS · 13 años o más",
   },
 };
@@ -2030,16 +2036,15 @@ export const nrcHueyText: Record<
       annotations: { label: string; body: string }[];
     };
     outcome: { title: string; body: string };
-    contactCta: string;
     backCase: string;
   }
 > = {
   en: {
     kicker: "NRC Health",
     period: "Research · Design principles · AI experience",
-    title: "Huey: one AI presence across a whole platform",
+    title: "Huey workshop: how AI is integrated into our products",
     intro:
-      "Huey is NRC Health's AI assistant. As it spread across products, each team was inventing its own way to surface AI. The goal: unify how users meet and use AI across the whole platform.",
+      "As AI spread across products, each team was inventing its own way to surface it. The goal: unify how users meet and use AI across the whole platform.",
     meta: [
       { label: "Role", value: "Design Manager" },
       { label: "Team", value: "2 product designers, 1 analytics specialist" },
@@ -2148,15 +2153,14 @@ export const nrcHueyText: Record<
       title: "Outcome",
       body: "The three principles served as the grid for evaluating Huey markers, features and interactions, and the drawer gives every product the same structure for talking to the AI. Within Huey, ambient listening raised nurse documentation from 55% to 90%.",
     },
-    contactCta: "Talk about this work",
     backCase: "Back to the NRC case study",
   },
   fr: {
     kicker: "NRC Health",
     period: "Recherche · Principes de design · Expérience IA",
-    title: "Huey : une seule présence IA sur toute une plateforme",
+    title: "Workshop Huey : comment l'IA s'intègre à nos produits",
     intro:
-      "Huey est l'assistant IA de NRC Health. En se diffusant dans les produits, chaque équipe inventait sa propre façon de faire apparaître l'IA. L'objectif : unifier la manière dont les utilisateurs rencontrent et utilisent l'IA sur toute la plateforme.",
+      "À mesure que l'IA se diffusait dans les produits, chaque équipe inventait sa propre façon de la faire apparaître. L'objectif : unifier la manière dont les utilisateurs rencontrent et utilisent l'IA sur toute la plateforme.",
     meta: [
       { label: "Rôle", value: "Design Manager" },
       { label: "Équipe", value: "2 product designers, 1 analytics specialist" },
@@ -2270,15 +2274,14 @@ export const nrcHueyText: Record<
       title: "Résultat",
       body: "Les trois principes ont servi de grille pour évaluer les marqueurs, features et interactions de Huey, et le drawer donne à chaque produit la même structure pour dialoguer avec l'IA. Au sein de Huey, l'ambient listening a fait passer la documentation des infirmières de 55 % à 90 %.",
     },
-    contactCta: "Parler de ce travail",
     backCase: "Retour au case study NRC",
   },
   es: {
     kicker: "NRC Health",
     period: "Investigación · Principios de diseño · Experiencia IA",
-    title: "Huey: una sola presencia de IA en toda una plataforma",
+    title: "Workshop Huey: cómo se integra la IA en nuestros productos",
     intro:
-      "Huey es el asistente de IA de NRC Health. Al extenderse por los productos, cada equipo inventaba su propia forma de mostrar la IA. El objetivo: unificar cómo los usuarios encuentran y usan la IA en toda la plataforma.",
+      "A medida que la IA se extendía por los productos, cada equipo inventaba su propia forma de mostrarla. El objetivo: unificar cómo los usuarios encuentran y usan la IA en toda la plataforma.",
     meta: [
       { label: "Rol", value: "Design Manager" },
       { label: "Equipo", value: "2 product designers, 1 analytics specialist" },
@@ -2392,7 +2395,6 @@ export const nrcHueyText: Record<
       title: "Resultado",
       body: "Los tres principios sirvieron de criterio para evaluar los marcadores, features e interacciones de Huey, y el drawer da a cada producto la misma estructura para conversar con la IA. Dentro de Huey, el ambient listening elevó la documentación de enfermería del 55% al 90%.",
     },
-    contactCta: "Hablar de este trabajo",
     backCase: "Volver al case study NRC",
   },
 };

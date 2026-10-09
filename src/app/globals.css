@@ -26,6 +26,7 @@
   --tag-bg: rgba(194, 160, 203, 0.14);
   --tag-text: #d3bcd9;
   --btn-accent-bg: #c2a0cb;
+  --live: #4ade80;
   --btn-accent-text: #14060f;
   --border: rgba(245, 239, 246, 0.09);
   --border-strong: rgba(245, 239, 246, 0.2);
@@ -54,6 +55,7 @@
   --tag-bg: rgba(84, 37, 90, 0.08);
   --tag-text: #54255a;
   --btn-accent-bg: #54255a;
+  --live: #16a34a;
   --btn-accent-text: #ffffff;
   --border: rgba(84, 37, 90, 0.12);
   --border-strong: rgba(84, 37, 90, 0.24);
@@ -833,4 +835,48 @@ a {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Pastille verte des projets en ligne (cartes Side projects, carte SpotA). */
+.live-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--live);
+}
+
+/* Photo du hero : un rond de la hauteur du bouton principal, au liseré des
+   boutons secondaires. Au survol il s'ouvre en carré de 400 px au rayon des
+   cartes, sans pousser la mise en page (image hors flux, ancrée en bas à droite). */
+.hero-avatar {
+  --size: calc(0.95rem * 1.5 + 24px); /* hauteur de .btn-accent */
+  position: relative;
+  flex-shrink: 0;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  outline: none;
+}
+.hero-avatar img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: var(--size);
+  height: var(--size);
+  max-width: none;
+  box-sizing: border-box;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 30;
+  transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1), height 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    border-radius 0.3s ease, box-shadow 0.3s ease;
+}
+.hero-avatar:hover img,
+.hero-avatar:focus img {
+  width: min(400px, 80vw);
+  height: min(400px, 80vw);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
 }

@@ -8,7 +8,9 @@
 export const profile = {
   name: "Clément Picard-Zivy",
   shortName: "Clément PZ",
-  tagline: "Design Management × Product × AI",
+  tagline: "Product Design × AI × Management",
+  // Photo du hero, a droite des boutons. Vide = pastille placeholder.
+  avatar: "/avatar.webp",
   email: "clementpicardzivy@gmail.com",
   links: {
     linkedin: "https://www.linkedin.com/in/clément-picard-zivy-b6930155/",
@@ -150,7 +152,8 @@ export type ProjectStatus =
   | "concept"
   | "concept-wip"
   | "fail"
-  | "private-live";
+  | "private-live"
+  | "app-store";
 
 // Identifiants des projets du carrousel. Même règle que WorkId : chaque id doit
 // avoir son texte dans i18n.ts, en EN, FR et ES.
@@ -176,6 +179,7 @@ export type RecentProject = {
   accent: string;
   accent2: string;
   link?: string;
+  appStore?: string; // fiche App Store, rendue en bouton secondaire de la carte
   image?: string; // photo de fond de carte (sinon gradient accent/accent2)
   motif?: "zigzag"; // signe graphique du projet, dessine sur le degrade
   // Habillage de carte quand la marque du projet impose sa propre hiérarchie
@@ -194,7 +198,7 @@ export type RecentProject = {
 // home, les autres restent ici en données.
 // Section Side projects de la home, dans l'ordre d'affichage. Les deux premiers
 // ont leur grande carte (Builder, SpotA), puis Music et reMarkable côte à côte
-// (1/3, 2/3), puis Days seul sur sa ligne (voir SideProjects.tsx). L'appartement
+// (a parts egales), puis Days seul sur sa ligne (voir SideProjects.tsx). L'appartement
 // (interior-design) est retiré de la home, la page /interior et ses données restent.
 export const sideProjectIds: ProjectId[] = [
   "builder-flow",
@@ -282,7 +286,7 @@ export const recentProjects: RecentProject[] = [
     id: "legal-music",
     name: "Music Quality Upgrader",
     status: "private-live",
-    tags: ["Automation", "Audio", "Pipeline"],
+    tags: ["Automation", "Audio quality", "Pipeline"],
     accent: "#059669",
     accent2: "#022c22",
     link: "/music-quality-upgrader",
@@ -311,11 +315,12 @@ export const recentProjects: RecentProject[] = [
   {
     id: "days",
     name: "Days",
-    status: "live",
+    status: "app-store",
     tags: ["Swift", "SwiftUI", "WidgetKit"],
     accent: "#4f52e6",
     accent2: "#0b0e17",
     link: "/days",
+    appStore: "https://apps.apple.com/app/id6816046229",
   },
 ];
 
