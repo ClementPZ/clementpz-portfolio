@@ -4,7 +4,7 @@ import Link from "next/link";
 import { work, recommendations, type Reco, type WorkItem } from "../data/content";
 import { workText, type Locale } from "../data/i18n";
 import { nrcVisuals } from "../data/nrcVisuals";
-import { EPISOURCE_SCREEN, episourceVisual } from "../data/episourceVisual";
+import { EPISOURCE_SCREEN_CLEAN, episourceVisual } from "../data/episourceVisual";
 import { useLocale } from "./LocaleProvider";
 import { BeforeAfterSlider } from "./NrcVisuals";
 
@@ -77,7 +77,7 @@ function Avatar({ company, image }: { company: string; image?: string }) {
 
 // Rayon des cartes d'expérience et de leurs visuels, 8px au plus.
 const CARD_RADIUS = 8;
-// Carte pleine largeur posée juste sous NRC, photo à gauche : les deux
+// Carte pleine largeur posée juste sous NRC, écran Click to Code sous le titre : les deux
 // expériences santé se lisent avant les side projects.
 const WIDE_ID = "episource";
 
@@ -221,48 +221,42 @@ export function LastExperience() {
       </article>
 
       {wide && (
-        <article className="panel p-6 sm:p-10 mt-5" style={{ borderRadius: CARD_RADIUS }}>
-          <div className="grid gap-8 md:grid-cols-2 md:gap-12 items-center">
-            {wide.photo && (
-              // eslint-disable-next-line @next/next/no-img-element
+        <article className="panel p-6 sm:p-10 flex flex-col mt-5" style={{ borderRadius: CARD_RADIUS }}>
+          <ExperienceText
+            w={wide}
+            lx={workText[locale][wide.id]}
+            columns
+            action={
+              <Link
+                href="/click-to-code"
+                className="text-sm font-semibold whitespace-nowrap hover:underline"
+                style={{ color: "var(--text)" }}
+              >
+                {episourceVisual[locale].cta} →
+              </Link>
+            }
+          >
+            <figure className="m-0 mb-6">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={wide.photo}
-                alt={wide.company}
-                className="w-full object-cover"
-                style={{ aspectRatio: "3 / 2", borderRadius: CARD_RADIUS }}
+                src={EPISOURCE_SCREEN_CLEAN}
+                alt={episourceVisual[locale].step.alt}
+                width={1561}
+                height={880}
+                loading="lazy"
+                className="block w-full h-auto"
+                style={{
+                  borderRadius: CARD_RADIUS,
+                  background: "#ffffff",
+                  border: "1px solid var(--border-strong)",
+                  boxShadow: "var(--shadow)",
+                }}
               />
-            )}
-            <div className="flex flex-col">
-              <ExperienceText w={wide} lx={workText[locale][wide.id]} />
-            </div>
-          </div>
-
-          <figure className="m-0 mt-8">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={EPISOURCE_SCREEN}
-              alt={episourceVisual[locale].step.alt}
-              width={1561}
-              height={880}
-              loading="lazy"
-              className="block w-full h-auto"
-              style={{
-                borderRadius: CARD_RADIUS,
-                background: "#ffffff",
-                border: "1px solid var(--border-strong)",
-                boxShadow: "var(--shadow)",
-              }}
-            />
-            <figcaption className="text-xs mt-2" style={{ color: "var(--text-muted)" }}>
-              {episourceVisual[locale].disclaimer}
-            </figcaption>
-          </figure>
-
-          <div className="mt-6 flex justify-end">
-            <Link href="/click-to-code" className="text-sm font-semibold hover:underline" style={{ color: "var(--text)" }}>
-              {episourceVisual[locale].cta} →
-            </Link>
-          </div>
+              <figcaption className="text-xs mt-2" style={{ color: "var(--text-muted)" }}>
+                {episourceVisual[locale].disclaimer}
+              </figcaption>
+            </figure>
+          </ExperienceText>
         </article>
       )}
 

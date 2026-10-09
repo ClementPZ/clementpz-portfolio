@@ -7,6 +7,8 @@ import type { VisualStep } from "./nrcVisuals";
 // correspond au marqueur de l'image. Aucun produit ni donnee reels.
 
 export const EPISOURCE_SCREEN = "/episource/click-to-code.webp";
+// Meme ecran sans les marqueurs numerotes, pour la carte de la home.
+export const EPISOURCE_SCREEN_CLEAN = "/episource/click-to-code-clean.webp";
 
 export type EpisourceVisualText = {
   disclaimer: string;
