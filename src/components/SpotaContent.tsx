@@ -61,7 +61,7 @@ function Reveal({ children }: { children: React.ReactNode }) {
 }
 
 // Les ecrans montres sous le hero, captures au simulateur puis montes dans un
-// rendu d'iPhone incline, un qui penche de chaque cote.
+// rendu d'iPhone de face.
 const PHONES = [
   { src: "/spota/phone-today.webp", alt: "Spot a, the Today screen: today's dare on the mission card, with the Go spot it button" },
   { src: "/spota/phone-react.webp", alt: "Spot a, a crew member's spot of the day with the five reactions open" },
@@ -273,7 +273,7 @@ export function SpotaContent() {
           margin: 46px 0 8px; display: flex; justify-content: center;
           align-items: center; gap: 4%;
         }
-        .spota-stage .spota-phone { width: 44%; max-width: 300px; }
+        .spota-stage .spota-phone { width: 40%; max-width: 270px; }
 
         .spota-section { padding: 58px 0; border-top: 1px solid rgba(139,92,246,0.22); }
         .spota-section-head { max-width: 50ch; }
