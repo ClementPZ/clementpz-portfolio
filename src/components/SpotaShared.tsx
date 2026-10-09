@@ -60,7 +60,7 @@ export const PROMPT_WORDS = [
 ];
 
 // Un ecran de l'app capture au simulateur, monte dans un rendu d'iPhone
-// incline. L'image porte deja le telephone, il n'y a plus de cadre dessine en
+// de face ou penche. L'image porte deja le telephone, il n'y a plus de cadre dessine en
 // CSS. A REFAIRE a chaque refonte d'ecran, voir src/app/spota/NOTES.md.
 export function PhoneMock({ src, alt }: { src: string; alt: string }) {
   return (

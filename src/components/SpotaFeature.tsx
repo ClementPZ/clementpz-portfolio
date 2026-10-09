@@ -13,7 +13,7 @@ import {
 
 // Bloc SpotA de la section Side projects. C'est le hero de /spota rejoue en
 // carte: meme carte mission qui se tape, meme lede, meme CTA lime, meme rendu
-// d'iPhone incline. La carte porte l'identite de l'app (kit Mix 3, oct. 2026),
+// d'iPhone penche. La carte porte l'identite de l'app (kit Mix 3, oct. 2026),
 // comme la carte Builder porte son violet: une couleur de marque est une
 // donnee, pas un token de theme, donc elle ne change pas entre le mode sombre
 // et le mode clair.
