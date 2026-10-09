@@ -6,15 +6,6 @@ import { workText, type Locale } from "../data/i18n";
 import { nrcVisuals } from "../data/nrcVisuals";
 import { EPISOURCE_SCREEN_CLEAN, episourceVisual } from "../data/episourceVisual";
 import { useLocale } from "./LocaleProvider";
-import { BeforeAfterSlider } from "./NrcVisuals";
-
-// Monogramme placeholder (remplacé par un logo via w.image plus tard).
-function initials(company: string): string {
-  const words = company.replace(/[^\p{L}\s]/gu, " ").split(/\s+/).filter(Boolean);
-  if (words.length === 0) return "•";
-  if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
-  return (words[0][0] + words[1][0]).toUpperCase();
-}
 
 function Quote({ r }: { r: Reco }) {
   return (
@@ -43,35 +34,6 @@ function Quote({ r }: { r: Reco }) {
         </a>
       </footer>
     </blockquote>
-  );
-}
-
-function Avatar({ company, image }: { company: string; image?: string }) {
-  if (image) {
-    return (
-      // eslint-disable-next-line @next/next/no-img-element
-      <img
-        src={image}
-        alt={company}
-        className="shrink-0 rounded-lg object-cover"
-        style={{ width: 52, height: 52 }}
-      />
-    );
-  }
-  return (
-    <div
-      className="shrink-0 rounded-lg flex items-center justify-center font-display font-bold"
-      style={{
-        width: 52,
-        height: 52,
-        fontSize: "0.95rem",
-        background: "var(--accent-subtle)",
-        color: "var(--accent)",
-      }}
-      aria-hidden
-    >
-      {initials(company)}
-    </div>
   );
 }
 
@@ -104,14 +66,11 @@ function ExperienceText({
   const impact = lx?.impact;
   return (
     <>
-      <header className="flex items-center gap-3 mb-3">
-        <Avatar company={w.company} image={w.image} />
-        <div className="flex-1 flex items-baseline justify-between gap-4">
-          <h3 className="font-display text-xl font-bold">{w.company}</h3>
-          <span className="text-xs whitespace-nowrap" style={{ color: "var(--text-muted)" }}>
-            {w.period}
-          </span>
-        </div>
+      <header className="flex items-baseline justify-between gap-4 mb-3">
+        <h3 className="font-display text-xl font-bold">{w.company}</h3>
+        <span className="text-xs whitespace-nowrap" style={{ color: "var(--text-muted)" }}>
+          {w.period}
+        </span>
       </header>
       <p className="text-sm font-medium mb-1" style={{ color: "var(--accent)" }}>
         {lx?.role}
@@ -171,8 +130,7 @@ function CardLink({ w }: { w: WorkItem }) {
 }
 
 // Dernière expérience seule, pleine largeur, puis les deux recommandations en
-// conclusion. Le comparateur avant/après de /nrc se pose entre l'entête et les
-// puces, au-dessus du lien étiré de la carte (z-20) pour rester glissable.
+// conclusion. L'écran "après" de /nrc se pose entre l'entête et les puces.
 export function LastExperience() {
   const { locale, t } = useLocale();
   const w = work.find((x) => x.id === "nrc");
@@ -211,12 +169,25 @@ export function LastExperience() {
             )
           }
         >
-          <div className="relative z-20 mb-6">
-            <BeforeAfterSlider text={nrcVisuals[locale].slider} breakout={false} />
-            <p className="text-xs mt-2" style={{ color: "var(--text-muted)" }}>
+          <figure className="m-0 mb-6">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/nrc/after.webp"
+              alt={nrcVisuals[locale].slider.alt}
+              width={3090}
+              height={1760}
+              loading="lazy"
+              className="block w-full h-auto"
+              style={{
+                borderRadius: CARD_RADIUS,
+                border: "1px solid var(--border-strong)",
+                boxShadow: "var(--shadow)",
+              }}
+            />
+            <figcaption className="text-xs mt-2" style={{ color: "var(--text-muted)" }}>
               {nrcVisuals[locale].disclaimer}
-            </p>
-          </div>
+            </figcaption>
+          </figure>
         </ExperienceText>
       </article>
 

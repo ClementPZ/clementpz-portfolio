@@ -19,11 +19,12 @@ export const SELF = "#cafe00"; // bratLime, lib/theme.dart
 export const SPOT_INK = "#0a0d00";
 
 export const PROMPT_WORDS = [
-  "yellow door",
-  "reflection",
-  "stranger reading",
-  "shadow you like",
-  "green thing",
+  "the oldest thing you carry with you",
+  "what's under your bed",
+  "your reflection on something",
+  "something you can hide behind",
+  "the highest thing you can reach",
+  "something you like to touch",
 ];
 
 export const ZIGZAG_POINTS =
@@ -132,7 +133,7 @@ export function WordRotator() {
 export function SpotaHeadline() {
   return (
     <h1>
-      <span className="spota-h1-lead">Today: spot a</span>
+      <span className="spota-h1-lead">Today, spot</span>
       <span className="spota-h1-slot">
         {PROMPT_WORDS.map((w) => (
           <span className="spota-h1-ghost" aria-hidden="true" key={w}>

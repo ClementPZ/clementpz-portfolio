@@ -6,13 +6,11 @@ import { Footer } from "./Footer";
 import { BackHome } from "./BackHome";
 import { NrcOrgChart } from "./NrcOrgChart";
 import { NrcRoadmap } from "./NrcRoadmap";
-import { profile } from "../data/content";
 import { nrcText } from "../data/i18n";
 import { nrcVisuals } from "../data/nrcVisuals";
 import { BeforeAfterSlider, ScreenStep } from "./NrcVisuals";
 import { flowbite, flowbiteGround } from "../data/flowbiteSystem";
 import { useLocale } from "./LocaleProvider";
-import { fireConfetti } from "../lib/confetti";
 
 // Case study NRC Health. Meme coquille que /music-quality-upgrader : Nav, BackHome,
 // pilule de periode, Footer, largeur max-w-3xl.
@@ -128,6 +126,11 @@ export function NrcContent() {
                   </span>
                   <h3 className="font-display text-lg font-bold">{c.name}</h3>
                 </div>
+                {c.n === "a" && (
+                  <div className="mt-6 mb-8">
+                    <BeforeAfterSlider text={v.slider} />
+                  </div>
+                )}
                 <p className="text-base leading-relaxed" style={{ color: "var(--text-muted)" }}>
                   {c.problem}
                 </p>
@@ -151,15 +154,33 @@ export function NrcContent() {
                   </p>
                 )}
                 {c.more && (
-                  // Pas de lien vers /nrc/huey pour l'instant : la page reste en ligne
-                  // mais n'est joignable que par son URL (decision du 8 oct).
                   <p className="mt-4 text-base leading-relaxed" style={{ color: "var(--text-muted)" }}>
                     {c.more.body}
                   </p>
                 )}
+                {c.n === "b" && (
+                  <figure className="m-0 mt-6" style={{ maxWidth: 480 }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/nrc/outreach-email-after.webp"
+                      alt={c.figure}
+                      width={1280}
+                      height={1800}
+                      loading="lazy"
+                      className="block w-full h-auto"
+                      style={{
+                        borderRadius: "var(--radius)",
+                        border: "1px solid var(--border-strong)",
+                        boxShadow: "var(--shadow)",
+                      }}
+                    />
+                    <figcaption className="text-xs mt-2" style={{ color: "var(--text-muted)" }}>
+                      {c.figure}
+                    </figcaption>
+                  </figure>
+                )}
                 {c.n === "a" && (
                   <div className="mt-6 grid gap-12">
-                    <BeforeAfterSlider text={v.slider} />
                     {v.steps.map((step, i) => (
                       <ScreenStep key={step.id} step={step} index={i} fullSize={v.fullSize} />
                     ))}
@@ -170,6 +191,13 @@ export function NrcContent() {
                     {v.huey.map((step, i) => (
                       <ScreenStep key={step.id} step={step} index={i} fullSize={v.fullSize} />
                     ))}
+                  </div>
+                )}
+                {c.more && (
+                  <div className="mt-8 flex justify-end">
+                    <Link href="/nrc/huey" className="hover:underline" style={{ color: "var(--accent)" }}>
+                      {c.more.cta} →
+                    </Link>
                   </div>
                 )}
               </article>
@@ -226,9 +254,11 @@ export function NrcContent() {
             <p className="text-sm mt-4" style={{ color: "var(--text-muted)" }}>
               {t.system.teaserCaption}
             </p>
-            <Link href="/nrc/design-system" className="btn-accent mt-4">
-              {t.system.exploreCta} →
-            </Link>
+            <div className="mt-4 flex justify-end">
+              <Link href="/nrc/design-system" className="btn-ghost">
+                {t.system.exploreCta} →
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -255,21 +285,6 @@ export function NrcContent() {
             ))}
           </div>
         </section>
-
-        {/* CTAs de fin de page : liens sobres, pas de boutons */}
-        <div className="mt-16 flex flex-col gap-3 items-start">
-          <Link href="/builder" className="hover:underline" style={{ color: "var(--accent)" }}>
-            {t.system.builderCta}
-          </Link>
-          <a
-            href={`mailto:${profile.email}`}
-            onClick={(e) => fireConfetti(e.currentTarget)}
-            className="hover:underline"
-            style={{ color: "var(--accent)" }}
-          >
-            {t.contactCta}
-          </a>
-        </div>
 
         <div className="mt-10">
           <Link href="/" className="btn-ghost">

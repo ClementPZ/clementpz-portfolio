@@ -7,8 +7,8 @@ import { useEffect, useState } from "react";
 // séquentiel via un compteur persistant : 1er pull → 1er message, etc.
 const MESSAGES = [
   "Hello You 😊",
-  "You look great today ☺️",
-  "You can stop reloading 🫶🏼",
+  "You look great today",
+  "You can stop reloading 🙋🏼‍♂️",
 ];
 
 const MAX_PULL = 92;

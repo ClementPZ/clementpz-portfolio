@@ -33,17 +33,11 @@ export function SpotaFeature() {
       <Link href="/spota" aria-label="SpotA" className="spota-card-link" />
       <div className="spota-feature-copy">
         <div className="spota-eyebrow">{t.eyebrow}</div>
-        {/* Le titre reste en anglais: "Today: spot a ..." fait entrer le nom
+        {/* Le titre reste en anglais: "Today, spot ..." fait entrer le nom
             du produit dans la phrase, et les prompts qui defilent sont ceux
             que l'app affiche vraiment. */}
         <SpotaHeadline />
         <p className="spota-lede">{t.lede}</p>
-        <div className="spota-feature-ctas">
-          <a className="spota-btn" href={APP_STORE_URL || undefined}>
-            {t.cta}
-          </a>
-          <span className="spota-fine-print">{t.finePrint}</span>
-        </div>
       </div>
 
       <div className="spota-feature-stage">
@@ -56,6 +50,21 @@ export function SpotaFeature() {
           alt="SpotA on an iPhone: the daily prompt over the back camera, with the front camera inset"
         />
       </div>
+
+      {/* Le CTA ferme la carte, en bas à droite, comme sur les autres cartes. */}
+      <div className="spota-feature-ctas">
+        <span className="spota-fine-print">{t.finePrint}</span>
+        <a className="spota-btn" href={APP_STORE_URL || undefined}>
+          {t.cta}
+        </a>
+      </div>
+
+      {/* Etat de l'app, en haut à droite. Libellé gardé en anglais dans les
+          trois langues. */}
+      <span className="spota-status">
+        <span aria-hidden className="live-dot" />
+        Beta · Live
+      </span>
 
       <style>{`
         ${SPOTA_SHARED_CSS}
@@ -110,8 +119,13 @@ export function SpotaFeature() {
           font-size: 16px; line-height: 1.55; color: rgba(255,255,255,0.7);
         }
         .spota-card-link { position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
-        .spota-feature-copy, .spota-feature-stage { position: relative; z-index: 2; pointer-events: none; }
-        .spota-feature-ctas { margin-top: 26px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+        .spota-feature-copy, .spota-feature-stage, .spota-feature-ctas { position: relative; z-index: 2; pointer-events: none; }
+        .spota-feature-ctas { grid-column: 1 / -1; display: flex; align-items: center; justify-content: flex-end; gap: 16px; flex-wrap: wrap; }
+        .spota-status {
+          position: absolute; top: 24px; right: 28px; z-index: 2; pointer-events: none;
+          display: inline-flex; align-items: center; gap: 6px;
+          font-size: 12px; color: rgba(255,255,255,0.7);
+        }
         .spota-feature .spota-btn {
           display: inline-flex; align-items: center; justify-content: center;
           height: 46px; padding: 0 28px; border-radius: 12px;
@@ -123,7 +137,15 @@ export function SpotaFeature() {
         .spota-feature .spota-btn:hover { filter: brightness(1.06); }
         .spota-feature .spota-fine-print { font-size: 12.5px; color: rgba(255,255,255,0.5); }
         .spota-feature-stage { display: flex; align-items: center; justify-content: center; padding: 12px; }
-        .spota-hand-shot { width: min(270px, 62vw); height: auto; display: block; filter: drop-shadow(0 24px 40px rgba(0,0,0,0.55)); }
+        /* Liseré violet d'un pixel qui suit le contour du téléphone : quatre
+           ombres nettes sur la découpe du PNG, puis l'ombre portée. */
+        .spota-hand-shot {
+          width: min(270px, 62vw); height: auto; display: block;
+          filter:
+            drop-shadow(1px 0 0 var(--spot)) drop-shadow(-1px 0 0 var(--spot))
+            drop-shadow(0 1px 0 var(--spot)) drop-shadow(0 -1px 0 var(--spot))
+            drop-shadow(0 24px 40px rgba(0,0,0,0.55));
+        }
       `}</style>
     </div>
   );

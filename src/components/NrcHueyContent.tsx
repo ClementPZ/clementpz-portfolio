@@ -5,10 +5,8 @@ import type { CSSProperties, ReactNode } from "react";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { BackHome } from "./BackHome";
-import { profile } from "../data/content";
-import { nrcHueyText, accessMailtoHref } from "../data/i18n";
+import { nrcHueyText } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
-import { fireConfetti } from "../lib/confetti";
 
 // Cas Huey, sous /nrc. Meme coquille que /nrc/design-system : Nav, BackHome
 // (vers /nrc), pilule, Footer, max-w-3xl. Rejoue le canvas de design en
@@ -395,17 +393,6 @@ export function NrcHueyContent() {
         {/* 06 Outcome */}
         <Section n="06" title={t.outcome.title} body={t.outcome.body} />
 
-        {/* CTAs de fin de page */}
-        <div className="mt-16 flex flex-col gap-3 items-start">
-          <a
-            href={accessMailtoHref(profile.email, locale)}
-            onClick={(e) => fireConfetti(e.currentTarget)}
-            className="hover:underline"
-            style={{ color: ACCENT }}
-          >
-            {t.contactCta}
-          </a>
-        </div>
         <div className="mt-10">
           <Link href="/nrc" className="btn-ghost">
             {t.backCase}

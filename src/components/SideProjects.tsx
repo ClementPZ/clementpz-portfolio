@@ -124,24 +124,17 @@ function CardVisual({ p, ratio }: { p: RecentProject; ratio: string }) {
 // Carte projet : visuel, nom (avec un point à ses couleurs), état, une phrase,
 // la description, tags en texte discret. "wide" : pleine ligne, visuel à gauche
 // et texte à droite (comme la carte Episource), empilés sur mobile.
-function ProjectCard({
-  p,
-  wide = false,
-  className = "",
-}: {
-  p: RecentProject;
-  wide?: boolean;
-  className?: string;
-}) {
-  const { locale } = useLocale();
+function ProjectCard({ p, wide = false }: { p: RecentProject; wide?: boolean }) {
+  const { locale, t } = useLocale();
   const lx = projectText[locale][p.id];
   const status = statusText[locale][p.status];
+  const live = p.status === "live" || p.status === "private-live" || p.status === "app-store";
 
   return (
     <article
       className={`panel p-4 sm:p-5 ${
         wide ? "grid gap-6 md:grid-cols-2 md:gap-10 items-center" : "flex flex-col"
-      }${p.link ? " card-link relative" : ""} ${className}`}
+      }${p.link ? " card-link relative" : ""}`}
     >
       {p.link && (
         <Link href={p.link} aria-label={p.name} className="absolute inset-0 z-10 rounded-[inherit]" />
@@ -161,7 +154,11 @@ function ProjectCard({
             />
             {p.name}
           </h3>
-          <span className="text-xs whitespace-nowrap" style={{ color: "var(--text-muted)" }}>
+          <span
+            className="text-xs whitespace-nowrap inline-flex items-center gap-1.5"
+            style={{ color: "var(--text-muted)" }}
+          >
+            {live && <span aria-hidden className="live-dot" />}
             {status}
           </span>
         </div>
@@ -169,9 +166,21 @@ function ProjectCard({
         <p className="text-sm leading-relaxed mt-2" style={{ color: "var(--text-muted)" }}>
           {lx?.description}
         </p>
-        <p className="mt-auto pt-4 text-xs" style={{ color: "var(--text-muted)" }}>
-          {p.tags.join(" · ")}
-        </p>
+        <div className="mt-auto pt-4 flex items-end justify-between gap-4">
+          <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+            {p.tags.join(" · ")}
+          </p>
+          {p.appStore && (
+            <a
+              href={p.appStore}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost relative z-20 shrink-0 whitespace-nowrap"
+            >
+              {t.getTheApp}
+            </a>
+          )}
+        </div>
       </div>
     </article>
   );
@@ -179,7 +188,7 @@ function ProjectCard({
 
 // Section Side projects de la home. Ordre dans `sideProjectIds` : les deux
 // premiers ont leur grande carte (Builder, SpotA), puis une ligne à deux
-// cartes (1/3, 2/3), puis une dernière carte seule sur sa ligne.
+// cartes à parts égales, puis une dernière carte seule sur sa ligne.
 export function SideProjects() {
   const { locale } = useLocale();
   const title = highlightText[locale].sectionTitle;
@@ -201,9 +210,9 @@ export function SideProjects() {
         <SpotaFeature />
       </div>
 
-      <div className="grid gap-5 md:grid-cols-3 mt-6">
-        {pair.map((p, i) => (
-          <ProjectCard key={p.id} p={p} className={i === 1 ? "md:col-span-2" : ""} />
+      <div className="grid gap-5 md:grid-cols-2 mt-6">
+        {pair.map((p) => (
+          <ProjectCard key={p.id} p={p} />
         ))}
       </div>
 

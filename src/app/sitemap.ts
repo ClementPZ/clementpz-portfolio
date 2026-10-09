@@ -2,11 +2,11 @@ import type { MetadataRoute } from "next";
 
 const base = "https://clementpz.com";
 
-// /nrc/huey est volontairement absente : en ligne, mais sans lien d'entrée.
 const paths = [
   "",
   "/nrc",
   "/nrc/design-system",
+  "/nrc/huey",
   "/click-to-code",
   "/builder",
   "/music-quality-upgrader",
