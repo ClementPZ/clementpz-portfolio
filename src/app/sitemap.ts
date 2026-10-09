@@ -7,6 +7,7 @@ const paths = [
   "",
   "/nrc",
   "/nrc/design-system",
+  "/click-to-code",
   "/builder",
   "/music-quality-upgrader",
   "/interior",
