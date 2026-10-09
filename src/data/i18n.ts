@@ -95,9 +95,9 @@ export const ui: Record<Locale, UI> = {
 
 // Intro localisée (profile.intro).
 export const introText: Record<Locale, string> = {
-  en: "Hello, I'm Clément, product designer with 10+ years across product, business and design systems. I built the design function at Nasdaq-listed NRC Health from scratch, led a team of three and drove product design across the four product suites. Previously, I worked at Episource, later acquired by Optum (UnitedHealth Group), as lead designer, with a team of four. A business and marketing role at Devialet, various entrepreneurial projects, and then founding a coding campus in Mexico City, shaped the business-first instinct that still drives how I lead design today. Open to Design Engineer, Senior Product Designer and Design Manager roles.",
-  fr: "Bonjour, je suis Clément, Product designer avec plus de 10 ans d'expérience entre produit, business et design systems. J'ai monté la fonction design depuis zéro chez NRC Health, cotée au Nasdaq, dirigé une équipe de trois personnes et piloté le design sur les quatre suites de produits. Précédemment, j'ai travaillé chez Episource, rachetée ensuite par Optum (UnitedHealth Group), comme lead designer, avec une équipe de quatre personnes. Un rôle business et marketing chez Devialet, plusieurs projets entrepreneuriaux, puis la fondation d'un campus de code à Mexico ont forgé l'instinct business-first qui guide ma façon de diriger le design. Ouvert aux postes de Design Engineer, Senior Product Designer et Design Manager.",
-  es: "Hola, soy Clément, product designer con más de 10 años de experiencia entre producto, business y design systems. Construí la función de diseño desde cero en NRC Health, cotizada en Nasdaq, lideré un equipo de tres personas y dirigí el diseño de producto en las cuatro suites de producto. Anteriormente, trabajé en Episource, adquirida después por Optum (UnitedHealth Group), como lead designer, con un equipo de cuatro personas. Un puesto de business y marketing en Devialet, varios proyectos de emprendimiento y la fundación de un campus de código en Ciudad de México forjaron el instinto business-first que sigue guiando cómo lidero el diseño hoy. Abierto a puestos de Design Engineer, Senior Product Designer y Design Manager.",
+  en: "Hello, I'm Clément, product designer with 10+ years across product, business and design systems. I built the design function at Nasdaq-listed NRC Health from scratch: a first team of three and a design system adopted by three of the four product suites. Before that, lead designer at Episource (now Optum), where I took an AI medical-coding interface from alpha to production. Open to Design Engineer, Senior Product Designer and Design Manager roles.",
+  fr: "Bonjour, je suis Clément, Product designer avec plus de 10 ans d'expérience entre produit, business et design systems. J'ai monté la fonction design depuis zéro chez NRC Health, cotée au Nasdaq : une première équipe de trois personnes et un design system adopté par trois des quatre suites produit. Avant cela, lead designer chez Episource (aujourd'hui Optum), où j'ai mené une interface de coding médical par IA de l'alpha à la production. Ouvert aux postes de Design Engineer, Senior Product Designer et Design Manager.",
+  es: "Hola, soy Clément, product designer con más de 10 años de experiencia entre producto, business y design systems. Construí la función de diseño desde cero en NRC Health, cotizada en Nasdaq: un primer equipo de tres personas y un design system adoptado por tres de las cuatro suites de producto. Antes, lead designer en Episource (hoy Optum), donde llevé una interfaz de codificación médica con IA del alpha a producción. Abierto a puestos de Design Engineer, Senior Product Designer y Design Manager.",
 };
 
 // Texte localisé des expériences — index aligné sur `work` dans content.ts :
@@ -113,7 +113,7 @@ export const workText: Record<
         "Recruited and led NRC Health's first design team, two Product Designers and an Analytics Specialist, across all four product suites.",
         "Created a multi-product design system based on the Flowbite library: design tokens and a semantic layer shared by Angular, Vue and legacy front-ends, with an adoption ramp-up strategy from tokens to design patterns.",
         "Built an AI-assisted design-to-code workflow, so non-technical profiles can propose UX/UI changes that a developer reviews.",
-        "Led the design of the company's AI features, including the Huey assistant and an ambient-listening tool that raised nurse-rounding documentation from 55% to 90%.",
+        "Led the design of the company's AI features, including the Huey assistant and an ambient-listening tool that raised nurse-rounding documentation from 55% to 90% in a one-month test.",
         "Set up product analytics with Product, Engineering and the C-suite, and validated design decisions with research and A/B tests: +24% click-through on outreach emails.",
       ],
     },
@@ -167,7 +167,7 @@ export const workText: Record<
         "Recrutement et management de la première équipe Design de NRC Health, deux Product Designers et un Analytics Specialist, sur les quatre suites produit.",
         "Création d'un design system multi-produits basé sur la bibliothèque Flowbite : design tokens et semantic layer partagés par les front-ends Angular, Vue et legacy, avec une stratégie d'adoption progressive, des tokens aux design patterns.",
         "Mise en place d'un workflow design-to-code assisté par IA, pour que des profils non techniques proposent des changements UX/UI relus par un développeur.",
-        "Pilotage du design des fonctionnalités IA de l'entreprise, dont l'assistant Huey et un outil d'ambient listening qui a fait passer la documentation des rondes infirmières de 55 % à 90 %.",
+        "Pilotage du design des fonctionnalités IA de l'entreprise, dont l'assistant Huey et un outil d'ambient listening qui a fait passer la documentation des rondes infirmières de 55 % à 90 % sur un test d'un mois.",
         "Mise en place des analytics produit avec les équipes Produit, Engineering et le C-level, et validation des décisions design par la recherche et l'A/B testing : +24 % de taux de clic sur les emails d'outreach.",
       ],
     },
@@ -221,7 +221,7 @@ export const workText: Record<
         "Contraté y lideré el primer equipo de Diseño de NRC Health, dos Product Designers y un Analytics Specialist, en las cuatro suites de producto.",
         "Creé un design system multi-producto basado en la librería Flowbite: design tokens y una semantic layer compartidos por los front-ends Angular, Vue y legacy, con una estrategia de adopción progresiva, de los tokens a los design patterns.",
         "Monté un workflow design-to-code asistido por IA, para que perfiles no técnicos propongan cambios de UX/UI que revisa un desarrollador.",
-        "Dirigí el diseño de las funcionalidades de IA de la empresa, entre ellas el asistente Huey y una herramienta de ambient listening que elevó la documentación de las rondas de enfermería del 55 % al 90 %.",
+        "Dirigí el diseño de las funcionalidades de IA de la empresa, entre ellas el asistente Huey y una herramienta de ambient listening que elevó la documentación de las rondas de enfermería del 55 % al 90 % en una prueba de un mes.",
         "Implanté los analytics de producto con Producto, Engineering y el C-level, y validé las decisiones de diseño con investigación y A/B testing: +24 % de tasa de clics en los emails de outreach.",
       ],
     },
@@ -314,7 +314,7 @@ export const projectText: Record<
     spota: {
       tagline: "Spot a ___, every day",
       description:
-        "A social game for friend groups. One prompt a day: spot a ___. Find it in the real world, shoot it with both cameras at once (the target and your face), and post. You only see your friends' spots once you have posted yours.",
+        "A social game for friend groups. One dare a day: spot a ___. Find it in the real world, shoot it with both cameras (the target, then your face), and post. You only see your friends' spots once you have posted yours.",
     },
     days: {
       tagline: "Count days down or up",
@@ -376,7 +376,7 @@ export const projectText: Record<
     spota: {
       tagline: "Repérez un ___, chaque jour",
       description:
-        "Un jeu social entre potes. Un défi par jour : repérez un ___. Trouvez-le dans la vraie vie, capturez-le avec les deux caméras à la fois (la cible et votre visage), et postez. Vous ne voyez les spots des autres qu'une fois le vôtre posté.",
+        "Un jeu social entre potes. Un défi par jour : repérez un ___. Trouvez-le dans la vraie vie, capturez-le avec les deux caméras (la cible, puis votre visage), et postez. Vous ne voyez les spots des autres qu'une fois le vôtre posté.",
     },
     days: {
       tagline: "Compte à rebours et jours écoulés",
@@ -438,7 +438,7 @@ export const projectText: Record<
     spota: {
       tagline: "Encuentre un ___, cada día",
       description:
-        "Un juego social entre amigos. Un reto al día: encuentre un ___. Búsquelo en la vida real, captúrelo con las dos cámaras a la vez (el objetivo y su cara), y publíquelo. Solo ve los spots de los demás cuando ya ha publicado el suyo.",
+        "Un juego social entre amigos. Un reto al día: encuentre un ___. Búsquelo en la vida real, captúrelo con las dos cámaras (el objetivo y después su cara), y publíquelo. Solo ve los spots de los demás cuando ya ha publicado el suyo.",
     },
     days: {
       tagline: "Cuenta atrás y días transcurridos",
@@ -1389,7 +1389,7 @@ export const nrcText: Record<
     period: "2024 → 2026",
     title: "Building the design function at NRC Health",
     intro:
-      "NRC Health helps US hospitals and health systems collect, analyze and act on the experience data of their patients and their employees, through four product suites, a business of about $140 million in annual revenue. When I joined in 2024, there was no design team. Two years later: a team of three, a design system adopted by three of the four suites, four phases shipped on the redesign of the oldest product, nurse-rounding documentation up from 55% to 90%, and a 24% lift in outreach-email click-through.",
+      "NRC Health helps US hospitals and health systems collect, analyze and act on the experience data of their patients and their employees, through four product suites, a business of about $140 million in annual revenue. When I joined in 2024, there was no design team. Two years later: a team of three, a design system adopted by three of the four suites, four phases shipped on the redesign of the oldest product, and a 24% lift in outreach-email click-through.",
     stack: ["SaaS", "Healthcare", "Patient Experience", "Employee Experience", "Design to Code", "Management", "AI", "Analytics"],
     figureLabel: "Visual to come",
     team: {
@@ -1490,7 +1490,7 @@ export const nrcText: Record<
             "Ship it straight through the design-to-code pipeline, with no spec in between.",
             "Present the result to the executive committee, before and after side by side.",
           ],
-          result: "Click-through rate from 8% to 9.9%, a 24% lift. On more than 100,000 emails sent every day, that is 700,000+ more surveys clicked a year, and as many potential data points.",
+          result: "Click-through rate from 8% to 9.9% in an A/B test, a 24% lift.",
           figure: "The outreach email, after the redesign",
         },
         {
@@ -1503,7 +1503,7 @@ export const nrcText: Record<
             "Settle on three entry points and no more: an agent to query the data directly, a widget component that pushes information (summaries, insights, next logical actions...), and features embedded in the products where the work already happens (writing assistant, incident handling, ambient listening...).",
             "Make the entry point a product decision, rather than a choice revisited from scratch with every feature.",
           ],
-          result: "Ambient listening, for example, raised nurse-rounding documentation from 55% to 90%.",
+          result: "Ambient listening, for example, raised nurse-rounding documentation from 55% to 90% in a one-month test.",
           more: {
             body: "The research behind it distilled into three principles every Huey interaction has to pass: inviting, relevant, adaptive. They became an evaluation test, then a marker and a drawer shared by every product.",
             cta: "Explore a workshop session for Huey",
@@ -1528,7 +1528,7 @@ export const nrcText: Record<
     period: "2024 → 2026",
     title: "Monter la fonction design chez NRC Health",
     intro:
-      "NRC Health accompagne les hôpitaux et les systèmes de santé américains dans la collecte, l'analyse et l'exploitation des données d'expérience de leurs patients et de leurs collaborateurs, grâce à quatre suites produit, pour un business d'environ 140 millions de dollars de chiffre d'affaires annuel. À mon arrivée en 2024, il n'y avait pas d'équipe design. Deux ans plus tard : une équipe de trois personnes, un design system adopté par trois des quatre suites, quatre phases livrées sur la refonte du produit le plus ancien, une documentation des rondes infirmières passée de 55 % à 90 %, et +24 % de taux de clic sur les emails d'outreach.",
+      "NRC Health accompagne les hôpitaux et les systèmes de santé américains dans la collecte, l'analyse et l'exploitation des données d'expérience de leurs patients et de leurs collaborateurs, grâce à quatre suites produit, pour un business d'environ 140 millions de dollars de chiffre d'affaires annuel. À mon arrivée en 2024, il n'y avait pas d'équipe design. Deux ans plus tard : une équipe de trois personnes, un design system adopté par trois des quatre suites, quatre phases livrées sur la refonte du produit le plus ancien, et +24 % de taux de clic sur les emails d'outreach.",
     stack: ["SaaS", "Healthcare", "Patient Experience", "Employee Experience", "Design to Code", "Management", "IA", "Analytics"],
     figureLabel: "Visuel à venir",
     team: {
@@ -1629,7 +1629,7 @@ export const nrcText: Record<
             "Livrer directement via le pipeline design-to-code, sans passer par une spec.",
             "Présenter le résultat au comité de direction, avant et après côte à côte.",
           ],
-          result: "Taux de clic de 8 % à 9,9 %, soit +24 %. Sur plus de 100 000 emails envoyés chaque jour, cela représente plus de 700 000 enquêtes ouvertes en plus par an, et autant de points de données potentiels.",
+          result: "Taux de clic de 8 % à 9,9 % en A/B test, soit +24 %.",
           figure: "L'email d'outreach, après la refonte",
         },
         {
@@ -1642,7 +1642,7 @@ export const nrcText: Record<
             "Arbitrer trois points d'entrée et pas davantage : un agent d'interrogation directe des données, un composant widget qui pousse de l'information (résumés, insights, prochaines actions logiques...), et des fonctionnalités intégrées aux produits là où le travail se fait déjà (assistant de rédaction, traitement des incidents, ambient listening...).",
             "Faire du point d'entrée une décision produit, et non un choix repris à zéro à chaque fonctionnalité.",
           ],
-          result: "L'ambient listening, par exemple, a fait passer la documentation des rondes infirmières de 55 % à 90 %.",
+          result: "L'ambient listening, par exemple, a fait passer la documentation des rondes infirmières de 55 % à 90 % sur un test d'un mois.",
           more: {
             body: "La recherche derrière ce choix s'est condensée en trois principes que toute interaction Huey doit passer : invitant, pertinent, adaptatif. Ils sont devenus un test d'évaluation, puis un marqueur et un drawer communs à tous les produits.",
             cta: "Explorer une session de workshop sur Huey",
@@ -1667,7 +1667,7 @@ export const nrcText: Record<
     period: "2024 → 2026",
     title: "Construir la función de diseño en NRC Health",
     intro:
-      "NRC Health acompaña a hospitales y sistemas de salud de Estados Unidos en la recopilación, el análisis y el aprovechamiento de los datos de experiencia de sus pacientes y de sus empleados, a través de cuatro suites de producto, un negocio de unos 140 millones de dólares de ingresos anuales. Cuando llegué en 2024, no había equipo de diseño. Dos años después: un equipo de tres personas, un design system adoptado por tres de las cuatro suites, cuatro fases entregadas en el rediseño del producto más antiguo, la documentación de las rondas de enfermería del 55 % al 90 %, y un 24 % más de tasa de clics en los emails de outreach.",
+      "NRC Health acompaña a hospitales y sistemas de salud de Estados Unidos en la recopilación, el análisis y el aprovechamiento de los datos de experiencia de sus pacientes y de sus empleados, a través de cuatro suites de producto, un negocio de unos 140 millones de dólares de ingresos anuales. Cuando llegué en 2024, no había equipo de diseño. Dos años después: un equipo de tres personas, un design system adoptado por tres de las cuatro suites, cuatro fases entregadas en el rediseño del producto más antiguo, y un 24 % más de tasa de clics en los emails de outreach.",
     stack: ["SaaS", "Healthcare", "Patient Experience", "Employee Experience", "Design to Code", "Management", "IA", "Analytics"],
     figureLabel: "Visual pendiente",
     team: {
@@ -1768,7 +1768,7 @@ export const nrcText: Record<
             "Entregarlo directamente a través del pipeline design-to-code, sin pasar por una spec.",
             "Presentar el resultado al comité de dirección, con el antes y el después lado a lado.",
           ],
-          result: "Tasa de clics del 8% al 9,9%, un 24% más. Con más de 100 000 emails enviados cada día, son más de 700 000 encuestas abiertas más al año, y otros tantos puntos de datos potenciales.",
+          result: "Tasa de clics del 8% al 9,9% en un A/B test, un 24% más.",
           figure: "El email de outreach, después del rediseño",
         },
         {
@@ -1781,7 +1781,7 @@ export const nrcText: Record<
             "Fijar tres puntos de entrada, ni uno más: un agente para consultar los datos directamente, un componente widget que empuja información (resúmenes, insights, próximas acciones lógicas...) y funcionalidades integradas en los productos allí donde ya se trabaja (asistente de redacción, gestión de incidencias, ambient listening...).",
             "Hacer del punto de entrada una decisión de producto, y no una elección que se replantea desde cero con cada funcionalidad.",
           ],
-          result: "El ambient listening, por ejemplo, elevó la documentación de las rondas de enfermería del 55 % al 90 %.",
+          result: "El ambient listening, por ejemplo, elevó la documentación de las rondas de enfermería del 55 % al 90 % en una prueba de un mes.",
           more: {
             body: "La investigación detrás de esta decisión se condensó en tres principios que toda interacción con Huey debe superar: invitante, relevante, adaptable. Se convirtieron en un test de evaluación y luego en un marcador y un drawer comunes a todos los productos.",
             cta: "Explorar una sesión de workshop sobre Huey",
@@ -1807,7 +1807,7 @@ export const nrcText: Record<
 // spotaHighlightText — le bloc SpotA de la section Highlights (home).
 // Le titre "Today, spot ..." n'est pas ici : c'est le nom du produit joué
 // dans la phrase, le traduire casserait le jeu de mots. Les prompts qui
-// défilent restent en anglais aussi, ce sont les prompts réels de l'app.
+// défilent restent en anglais aussi, ce sont les défis réels de l'app.
 // La page /spota, elle, reste entièrement hors i18n (English only).
 // ============================================================================
 
@@ -1817,19 +1817,19 @@ export const spotaHighlightText: Record<
 > = {
   en: {
     eyebrow: "A daily photo game for friend groups",
-    lede: "One prompt a day. Find it in the real world, capture it, back camera for the target, front camera for you. Post yours to unlock what your crew spotted.",
+    lede: "One dare a day. Find it in the real world, shoot it, back camera for the target, front camera for you. Post yours to unlock what your crew spotted.",
     cta: "Get the app",
     finePrint: "iOS · ages 13+",
   },
   fr: {
     eyebrow: "Un jeu photo quotidien pour les groupes d'amis",
-    lede: "Un prompt par jour. Trouve-le dans la vraie vie, capture-le, caméra arrière pour la cible, caméra avant pour toi. Publie le tien pour découvrir ce que ta bande a repéré.",
+    lede: "Un défi par jour. Trouve-le dans la vraie vie, capture-le, caméra arrière pour la cible, caméra avant pour toi. Publie le tien pour découvrir ce que ton crew a repéré.",
     cta: "Télécharger l'app",
     finePrint: "iOS · 13 ans et plus",
   },
   es: {
     eyebrow: "Un juego de fotos diario para grupos de amigos",
-    lede: "Un prompt al día. Encuéntralo en la vida real, captúralo, cámara trasera para el objetivo, cámara frontal para ti. Publica el tuyo para ver lo que encontró tu grupo.",
+    lede: "Un reto al día. Encuéntralo en la vida real, captúralo, cámara trasera para el objetivo, cámara frontal para ti. Publica el tuyo para ver lo que encontró tu grupo.",
     cta: "Descargar la app",
     finePrint: "iOS · 13 años o más",
   },
@@ -2151,7 +2151,7 @@ export const nrcHueyText: Record<
     },
     outcome: {
       title: "Outcome",
-      body: "The three principles served as the grid for evaluating Huey markers, features and interactions, and the drawer gives every product the same structure for talking to the AI. Within Huey, ambient listening raised nurse documentation from 55% to 90%.",
+      body: "The three principles served as the grid for evaluating Huey markers, features and interactions, and the drawer gives every product the same structure for talking to the AI.",
     },
     backCase: "Back to the NRC case study",
   },
@@ -2272,7 +2272,7 @@ export const nrcHueyText: Record<
     },
     outcome: {
       title: "Résultat",
-      body: "Les trois principes ont servi de grille pour évaluer les marqueurs, features et interactions de Huey, et le drawer donne à chaque produit la même structure pour dialoguer avec l'IA. Au sein de Huey, l'ambient listening a fait passer la documentation des infirmières de 55 % à 90 %.",
+      body: "Les trois principes ont servi de grille pour évaluer les marqueurs, features et interactions de Huey, et le drawer donne à chaque produit la même structure pour dialoguer avec l'IA.",
     },
     backCase: "Retour au case study NRC",
   },
@@ -2393,7 +2393,7 @@ export const nrcHueyText: Record<
     },
     outcome: {
       title: "Resultado",
-      body: "Los tres principios sirvieron de criterio para evaluar los marcadores, features e interacciones de Huey, y el drawer da a cada producto la misma estructura para conversar con la IA. Dentro de Huey, el ambient listening elevó la documentación de enfermería del 55% al 90%.",
+      body: "Los tres principios sirvieron de criterio para evaluar los marcadores, features e interacciones de Huey, y el drawer da a cada producto la misma estructura para conversar con la IA.",
     },
     backCase: "Volver al case study NRC",
   },

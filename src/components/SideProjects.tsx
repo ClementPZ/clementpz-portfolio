@@ -188,7 +188,7 @@ function ProjectCard({ p, wide = false }: { p: RecentProject; wide?: boolean }) 
 
 // Section Side projects de la home. Ordre dans `sideProjectIds` : les deux
 // premiers ont leur grande carte (Builder, SpotA), puis une ligne à deux
-// cartes à parts égales, puis une dernière carte seule sur sa ligne.
+// cartes à parts égales s'il en reste au moins trois, le reste seul sur sa ligne.
 export function SideProjects() {
   const { locale } = useLocale();
   const title = highlightText[locale].sectionTitle;
@@ -196,8 +196,8 @@ export function SideProjects() {
     .slice(2)
     .map((id) => recentProjects.find((p) => p.id === id))
     .filter((p): p is RecentProject => Boolean(p));
-  const pair = cards.slice(0, 2);
-  const last = cards.slice(2);
+  const pair = cards.length >= 3 ? cards.slice(0, 2) : [];
+  const last = cards.slice(pair.length);
 
   return (
     <section id="featured" className="max-w-6xl mx-auto px-6 py-12 sm:py-16">
@@ -210,14 +210,16 @@ export function SideProjects() {
         <SpotaFeature />
       </div>
 
-      <div className="grid gap-5 md:grid-cols-2 mt-6">
-        {pair.map((p) => (
-          <ProjectCard key={p.id} p={p} />
-        ))}
-      </div>
+      {pair.length > 0 && (
+        <div className="grid gap-5 md:grid-cols-2 mt-6">
+          {pair.map((p) => (
+            <ProjectCard key={p.id} p={p} />
+          ))}
+        </div>
+      )}
 
       {last.map((p) => (
-        <div key={p.id} className="mt-5">
+        <div key={p.id} className="mt-6">
           <ProjectCard p={p} wide />
         </div>
       ))}

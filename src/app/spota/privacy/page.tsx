@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 const SPOT = "#cafe00";
 const SPOT_INK = "#0a0d00";
 const CONTACT = "clementpicardzivy@gmail.com";
-const UPDATED = "6 August 2026";
+const UPDATED = "10 October 2026";
 
 export default function SpotaPrivacyPage() {
   return (
@@ -95,8 +95,8 @@ export default function SpotaPrivacyPage() {
               location, and it never asks for location permission.
             </li>
             <li>
-              <b>What you did in the game.</b> Which crew you belong to, which prompt
-              a spot answers, your favourites, your upvotes, your validations, and the
+              <b>What you did in the game.</b> Which crew you belong to, which dare
+              a spot answers, your favourites, your reactions, the comments you write, and the
               time each of these happened.
             </li>
             <li>
@@ -106,7 +106,8 @@ export default function SpotaPrivacyPage() {
           </ul>
           <p className="spotap-note">
             The app has no analytics SDK, no advertising SDK, no crash reporter, and no
-            push notifications. Nothing you do inside it is measured for any purpose
+            push notifications. The daily reminders are scheduled on your phone itself,
+            no server sends them. Nothing you do inside it is measured for any purpose
             other than running the game.
           </p>
         </section>
@@ -115,7 +116,7 @@ export default function SpotaPrivacyPage() {
           <h2>Who can see your spots</h2>
           <p>
             Only the members of your crew, and only once they have posted their own
-            spot for that prompt. That gate is the game. Photos live in a private
+            spot for that dare. That gate is the game. Photos live in a private
             store, they are never public, and they are served through links that
             expire after an hour, so a copied link stops working on its own.
           </p>
