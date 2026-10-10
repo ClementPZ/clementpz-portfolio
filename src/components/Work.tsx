@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { work, recommendations, type Reco, type WorkId, type WorkItem } from "../data/content";
-import { workText, type Locale } from "../data/i18n";
+import { workCardCaption, workText, type Locale } from "../data/i18n";
 import { nrcVisuals } from "../data/nrcVisuals";
 import { EPISOURCE_SCREEN_CLEAN, episourceVisual } from "../data/episourceVisual";
 import { useLocale } from "./LocaleProvider";
@@ -134,7 +134,7 @@ function cardVisual(id: WorkId, locale: Locale) {
       alt: nrcVisuals[locale].slider.alt,
       width: 3090,
       height: 1760,
-      disclaimer: nrcVisuals[locale].disclaimer,
+      disclaimer: workCardCaption[locale].nrc,
       white: false,
     };
   }
@@ -144,7 +144,7 @@ function cardVisual(id: WorkId, locale: Locale) {
       alt: episourceVisual[locale].step.alt,
       width: 1561,
       height: 880,
-      disclaimer: episourceVisual[locale].disclaimer,
+      disclaimer: workCardCaption[locale].episource,
       white: true,
     };
   }
@@ -174,11 +174,18 @@ export function LastExperience() {
         <h2 className="font-display text-2xl sm:text-3xl font-bold">{t.workTitle}</h2>
       </div>
 
-      <div className="grid gap-x-8 gap-y-8 lg:grid-flow-col lg:grid-cols-2 lg:grid-rows-[auto_1fr]">
-        {featured.flatMap((w) => {
+      <div className="grid gap-x-12 gap-y-6 lg:gap-y-8 lg:grid-flow-col relative lg:grid-cols-2 lg:grid-rows-[auto_1fr]">
+        <div
+          aria-hidden
+          className="work-rule hidden lg:block absolute top-0 bottom-0 left-1/2 w-px"
+        />
+        {featured.flatMap((w, i) => {
           const visual = cardVisual(w.id, locale);
           const quote = pinnedByWork.get(w.id);
           return [
+            ...(i > 0
+              ? [<div key={`${w.id}-rule`} aria-hidden className="work-rule lg:hidden h-px" />]
+              : []),
             <article
               key={w.id}
               className={`panel${w.id === "nrc" ? " card-featured" : ""} p-6 sm:p-8 flex flex-col${

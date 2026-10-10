@@ -93,6 +93,22 @@ export const ui: Record<Locale, UI> = {
   },
 };
 
+// Mention sous l'ecran des cartes NRC et Episource de la home (courte).
+export const workCardCaption: Record<Locale, { nrc: string; episource: string }> = {
+  en: {
+    nrc: "Patient experience redesign (fictional recreation)",
+    episource: "Click to Code (fictional recreation)",
+  },
+  fr: {
+    nrc: "Refonte de l'expérience patient (recréation fictive)",
+    episource: "Click to Code (recréation fictive)",
+  },
+  es: {
+    nrc: "Rediseño de la experiencia del paciente (recreación ficticia)",
+    episource: "Click to Code (recreación ficticia)",
+  },
+};
+
 // Intro localisée (profile.intro).
 export const introText: Record<Locale, string> = {
   en: "Hello, I'm Clément, product designer with 10+ years across product, business and design systems. I built the design function at Nasdaq-listed NRC Health from scratch: a first team of three and a design system adopted by three of the four product suites. Before that, lead designer at Episource (now Optum), where I took an AI medical-coding interface from alpha to production. Open to Design Engineer, Senior Product Designer and Design Manager roles.",
