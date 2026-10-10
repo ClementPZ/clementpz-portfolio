@@ -618,14 +618,6 @@ a {
   background: var(--card-feature);
 }
 
-.panel.card-link:hover {
-  background: color-mix(in oklab, var(--bg-elev) 88%, var(--text));
-}
-
-.panel.card-featured.card-link:hover {
-  background: color-mix(in oklab, var(--card-feature) 88%, white);
-}
-
 .pill {
   display: inline-flex;
   align-items: center;
@@ -790,19 +782,16 @@ a {
   background: color-mix(in oklab, var(--text) 14%, transparent);
 }
 
-/* Carte entierement cliquable (lien etire). Le seul retour au survol est une
-   bordure qui s'eclaircit : la carte featured est aubergine foncee dans les
-   deux themes, donc c'est le meme geste en clair et en sombre. */
+/* Carte entierement cliquable (lien etire). Aucun retour visuel au survol,
+   seul le curseur change (le lien etire le fait de lui-meme sur desktop). */
 .card-link {
-  transition: border-color 0.2s ease;
+  cursor: pointer;
 }
 
-.card-link:hover {
-  border-color: var(--border-strong);
-}
-
-.card-featured.card-link:hover {
-  border-color: rgba(255, 255, 255, 0.34);
+/* Filet entre les deux cartes du dernier poste : vertical entre les colonnes
+   sur desktop, horizontal entre les cartes empilees sur mobile. */
+.work-rule {
+  background: var(--border);
 }
 
 /* ============================================================================
