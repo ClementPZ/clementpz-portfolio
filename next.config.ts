@@ -15,6 +15,12 @@ const nextConfig: NextConfig = {
         destination: "/music-quality-upgrader",
         permanent: true,
       },
+      // Le detail de Click to Code est devenu le cas d'usage de /episource.
+      {
+        source: "/click-to-code",
+        destination: "/episource#click-to-code",
+        permanent: true,
+      },
     ];
   },
 };

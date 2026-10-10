@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { work, recommendations, type Reco, type WorkItem } from "../data/content";
+import { work, recommendations, type Reco, type WorkId, type WorkItem } from "../data/content";
 import { workText, type Locale } from "../data/i18n";
 import { nrcVisuals } from "../data/nrcVisuals";
 import { EPISOURCE_SCREEN_CLEAN, episourceVisual } from "../data/episourceVisual";
@@ -39,27 +39,26 @@ function Quote({ r }: { r: Reco }) {
 
 // Rayon des cartes d'expérience et de leurs visuels, 8px au plus.
 const CARD_RADIUS = 8;
-// Carte pleine largeur posée juste sous NRC, écran Click to Code sous le titre : les deux
-// expériences santé se lisent avant les side projects.
-const WIDE_ID = "episource";
+// Les deux expériences santé ouvrent la home, côte à côte, chacune avec sa
+// citation dessous. Les autres passent dans PastExperiences.
+const FEATURED_IDS: WorkId[] = ["nrc", "episource"];
 
 type LocalizedWork = (typeof workText)[Locale][WorkItem["id"]];
 
 // Corps commun d'une carte d'expérience : entête, rôle, lieu, puis `children`
-// (le visuel quand il s'empile), puces, impact et tags. `columns` met les
-// puces sur deux colonnes, `action` se pose à droite de la ligne des tags.
+// (le visuel quand il s'empile), puces, impact et tags. `compact` retire les
+// puces et l'impact : la carte de la home ne garde que l'entête, l'écran et
+// les tags, le détail vit sur la page de l'expérience.
 function ExperienceText({
   w,
   lx,
   children,
-  columns = false,
-  action,
+  compact = false,
 }: {
   w: WorkItem;
   lx: LocalizedWork | undefined;
   children?: React.ReactNode;
-  columns?: boolean;
-  action?: React.ReactNode;
+  compact?: boolean;
 }) {
   const { t } = useLocale();
   const bullets = lx?.bullets ?? [];
@@ -81,18 +80,15 @@ function ExperienceText({
 
       {children}
 
-      <ul
-        className={`text-sm leading-relaxed mb-4 pl-4 ${
-          columns ? "md:columns-2 md:gap-x-12 [&>li]:mb-2 [&>li]:break-inside-avoid" : "space-y-2"
-        }`}
-        style={{ listStyle: "disc" }}
-      >
-        {bullets.map((b) => (
-          <li key={b}>{b}</li>
-        ))}
-      </ul>
+      {!compact && (
+        <ul className="text-sm leading-relaxed mb-4 pl-4 space-y-2" style={{ listStyle: "disc" }}>
+          {bullets.map((b) => (
+            <li key={b}>{b}</li>
+          ))}
+        </ul>
+      )}
 
-      {impact && impact.length > 0 && (
+      {!compact && impact && impact.length > 0 && (
         <div className="mb-4">
           <p className="text-sm mb-1.5 font-semibold" style={{ color: "var(--accent)" }}>
             {t.impactLabel}
@@ -105,17 +101,16 @@ function ExperienceText({
         </div>
       )}
 
-      <div className="mt-auto pt-2 flex items-end justify-between gap-4">
+      <div className="mt-auto pt-2">
         <p className="text-xs" style={{ color: "var(--text-muted)" }}>
           {w.tags.join(" · ")}
         </p>
-        {action}
       </div>
     </>
   );
 }
 
-// Lien étiré : la carte entière mène au case study. Rien d'autre n'est
+// Lien étiré : la carte entière mène à sa page. Rien d'autre n'est
 // cliquable dedans, pas de lien imbriqué.
 function CardLink({ w }: { w: WorkItem }) {
   const { t } = useLocale();
@@ -129,22 +124,49 @@ function CardLink({ w }: { w: WorkItem }) {
   );
 }
 
-// Dernière expérience seule, pleine largeur, puis les deux recommandations en
-// conclusion. L'écran "après" de /nrc se pose entre l'entête et les puces.
+// Écran posé entre l'entête et les tags : "après" de /nrc pour NRC, écran
+// Click to Code sans marqueurs pour Episource. Les deux sont des recréations
+// illustratives, leur mention reste sous l'image.
+function cardVisual(id: WorkId, locale: Locale) {
+  if (id === "nrc") {
+    return {
+      src: "/nrc/after.webp",
+      alt: nrcVisuals[locale].slider.alt,
+      width: 3090,
+      height: 1760,
+      disclaimer: nrcVisuals[locale].disclaimer,
+      white: false,
+    };
+  }
+  if (id === "episource") {
+    return {
+      src: EPISOURCE_SCREEN_CLEAN,
+      alt: episourceVisual[locale].step.alt,
+      width: 1561,
+      height: 880,
+      disclaimer: episourceVisual[locale].disclaimer,
+      white: true,
+    };
+  }
+  return null;
+}
+
+// Les deux dernières expériences côte à côte sur desktop, chaque carte entière
+// cliquable vers sa page, sa citation dessous. La grille se remplit par colonne
+// (carte, citation, carte, citation) : en une colonne l'ordre est le même, sur
+// desktop les cartes partagent la même hauteur de ligne et les citations aussi.
 export function LastExperience() {
   const { locale, t } = useLocale();
-  const w = work.find((x) => x.id === "nrc");
-  const wide = work.find((x) => x.id === WIDE_ID);
-  const lx = workText[locale].nrc;
-  // Ordre des cartes : la citation épinglée à NRC d'abord, puis les autres.
+  const featured = FEATURED_IDS.map((id) => work.find((x) => x.id === id)).filter(
+    (x): x is WorkItem => Boolean(x)
+  );
   const pinnedByWork = new Map(
     recommendations.filter((r) => r.quote && r.pinnedTo).map((r) => [r.pinnedTo, r])
   );
-  const quotes = [
-    ...work.map((x) => pinnedByWork.get(x.id)).filter((r): r is Reco => Boolean(r)),
-    ...recommendations.filter((r) => r.quote && !r.pinnedTo),
-  ];
-  if (!w) return null;
+  // Citations sans carte à laquelle s'épingler : en bloc dessous.
+  const loose = recommendations.filter(
+    (r) => r.quote && !(r.pinnedTo && FEATURED_IDS.includes(r.pinnedTo))
+  );
 
   return (
     <section id="work" className="max-w-6xl mx-auto px-6 py-12 sm:py-16">
@@ -152,88 +174,52 @@ export function LastExperience() {
         <h2 className="font-display text-2xl sm:text-3xl font-bold">{t.workTitle}</h2>
       </div>
 
-      <article
-        className={`panel card-featured p-6 sm:p-10 flex flex-col${w.link ? " relative" : ""}`}
-        style={{ borderRadius: CARD_RADIUS }}
-      >
-        <CardLink w={w} />
-        <ExperienceText
-          w={w}
-          lx={lx}
-          columns
-          action={
-            w.link && (
-              <p className="text-sm font-semibold whitespace-nowrap" style={{ color: "var(--text)" }}>
-                {t.caseStudy} →
-              </p>
-            )
-          }
-        >
-          <figure className="m-0 mb-6">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/nrc/after.webp"
-              alt={nrcVisuals[locale].slider.alt}
-              width={3090}
-              height={1760}
-              loading="lazy"
-              className="block w-full h-auto"
-              style={{
-                borderRadius: CARD_RADIUS,
-                border: "1px solid var(--border-strong)",
-                boxShadow: "var(--shadow)",
-              }}
-            />
-            <figcaption className="text-xs mt-2" style={{ color: "var(--text-muted)" }}>
-              {nrcVisuals[locale].disclaimer}
-            </figcaption>
-          </figure>
-        </ExperienceText>
-      </article>
+      <div className="grid gap-x-8 gap-y-8 lg:grid-flow-col lg:grid-cols-2 lg:grid-rows-[auto_1fr]">
+        {featured.flatMap((w) => {
+          const visual = cardVisual(w.id, locale);
+          const quote = pinnedByWork.get(w.id);
+          return [
+            <article
+              key={w.id}
+              className={`panel${w.id === "nrc" ? " card-featured" : ""} p-6 sm:p-8 flex flex-col${
+                w.link ? " relative card-link" : ""
+              }`}
+              style={{ borderRadius: CARD_RADIUS }}
+            >
+              <CardLink w={w} />
+              <ExperienceText w={w} lx={workText[locale][w.id]} compact>
+                {visual && (
+                  <figure className="m-0 mb-5">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={visual.src}
+                      alt={visual.alt}
+                      width={visual.width}
+                      height={visual.height}
+                      loading="lazy"
+                      className="block w-full h-auto"
+                      style={{
+                        borderRadius: CARD_RADIUS,
+                        ...(visual.white ? { background: "#ffffff" } : null),
+                        border: "1px solid var(--border-strong)",
+                        boxShadow: "var(--shadow)",
+                      }}
+                    />
+                    <figcaption className="text-xs mt-2" style={{ color: "var(--text-muted)" }}>
+                      {visual.disclaimer}
+                    </figcaption>
+                  </figure>
+                )}
+              </ExperienceText>
+            </article>,
+            <div key={`${w.id}-quote`}>{quote && <Quote r={quote} />}</div>,
+          ];
+        })}
+      </div>
 
-      {wide && (
-        <article className="panel p-6 sm:p-10 flex flex-col mt-5" style={{ borderRadius: CARD_RADIUS }}>
-          <ExperienceText
-            w={wide}
-            lx={workText[locale][wide.id]}
-            columns
-            action={
-              <Link
-                href="/click-to-code"
-                className="text-sm font-semibold whitespace-nowrap hover:underline"
-                style={{ color: "var(--text)" }}
-              >
-                {episourceVisual[locale].cta} →
-              </Link>
-            }
-          >
-            <figure className="m-0 mb-6">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={EPISOURCE_SCREEN_CLEAN}
-                alt={episourceVisual[locale].step.alt}
-                width={1561}
-                height={880}
-                loading="lazy"
-                className="block w-full h-auto"
-                style={{
-                  borderRadius: CARD_RADIUS,
-                  background: "#ffffff",
-                  border: "1px solid var(--border-strong)",
-                  boxShadow: "var(--shadow)",
-                }}
-              />
-              <figcaption className="text-xs mt-2" style={{ color: "var(--text-muted)" }}>
-                {episourceVisual[locale].disclaimer}
-              </figcaption>
-            </figure>
-          </ExperienceText>
-        </article>
-      )}
-
-      {quotes.length > 0 && (
+      {loose.length > 0 && (
         <div className="grid gap-10 sm:grid-cols-2 mt-14">
-          {quotes.map((r) => (
+          {loose.map((r) => (
             <Quote key={r.author} r={r} />
           ))}
         </div>
@@ -245,7 +231,7 @@ export function LastExperience() {
 export function PastExperiences() {
   const { locale, t } = useLocale();
   const localized = workText[locale];
-  const past = work.filter((x) => x.id !== "nrc" && x.id !== WIDE_ID);
+  const past = work.filter((x) => !FEATURED_IDS.includes(x.id));
 
   return (
     <section id="past" className="max-w-6xl mx-auto px-6 py-12 sm:py-16">

@@ -64,7 +64,7 @@ function Reveal({ children }: { children: React.ReactNode }) {
 // rendu d'iPhone de face.
 const PHONES = [
   { src: "/spota/phone-today.webp", alt: "Spot a, the Today screen: today's dare on the mission card, with the Go spot it button" },
-  { src: "/spota/phone-react.webp", alt: "Spot a, a crew member's spot of the day with the five reactions open" },
+  { src: "/spota/phone-react.webp", alt: "Spot a, a crew member's spot of the day, a car, with the five reactions open" },
 ];
 
 export function SpotaContent() {

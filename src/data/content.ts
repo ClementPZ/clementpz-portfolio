@@ -76,6 +76,7 @@ export const work: WorkItem[] = [
     period: "2021 - 2024",
     location: "Los Angeles, Remote",
     tags: ["Healthcare", "AI", "Design System", "Enterprise", "NLP"],
+    link: "/episource",
   },
   {
     id: "lewagon",

@@ -42,7 +42,7 @@ export function SpotaFeature() {
       <div className="spota-feature-stage">
         <PhoneMock
           src="/spota/phone-spot.webp"
-          alt="Spot a on an iPhone: a crew member's spot of the day, with their selfie as a tilted thumbnail"
+          alt="Spot a on an iPhone: the crew page of a day, each member's spot as a tile with its reactions"
         />
       </div>
 
