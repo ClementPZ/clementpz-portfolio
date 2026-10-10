@@ -2398,3 +2398,73 @@ export const nrcHueyText: Record<
     backCase: "Volver al case study NRC",
   },
 };
+
+// ============================================================================
+// Page /episource : la carte de la home ne garde que l'entete et l'ecran, le
+// detail vit ici. Les paragraphes sont les puces de `workText.episource`, dans
+// le meme ordre (un titre par puce, pas de second texte a tenir a jour). Ne
+// publie que ce que la carte portait deja.
+// ============================================================================
+
+export const episourceText: Record<
+  Locale,
+  {
+    kicker: string;
+    intro: string;
+    // Un titre par puce de workText.episource, dans l'ordre.
+    sectionTitles: string[];
+    useCase: { title: string; intro: string };
+  }
+> = {
+  en: {
+    kicker: "Episource · Optum",
+    intro:
+      "Senior, then Lead Product Designer at Episource, now part of Optum, from 2021 to 2024. User research across the suite, a design system, an integration with hospital record systems and an AI medical-coding interface taken from alpha to production.",
+    sectionTitles: [
+      "User research across the suite",
+      "A design system for the whole suite",
+      "Promoted to Lead after 12 months",
+      "Provider Direct Messaging",
+      "Click to Code, from alpha to production",
+    ],
+    useCase: {
+      title: "Use case: Click to Code",
+      intro:
+        "One screen to show the work: a coder reviewing an encounter in Click to Code, with the evidence in the note, the confidence on each code and the guidance beside the decision.",
+    },
+  },
+  fr: {
+    kicker: "Episource · Optum",
+    intro:
+      "Product designer senior puis lead chez Episource, aujourd'hui Optum, de 2021 à 2024. Recherche utilisateur sur toute la suite, un design system, une intégration avec les dossiers médicaux des hôpitaux et une interface de coding médical par IA menée de l'alpha à la production.",
+    sectionTitles: [
+      "La recherche utilisateur sur toute la suite",
+      "Un design system pour toute la suite",
+      "Lead Product Designer après 12 mois",
+      "Provider Direct Messaging",
+      "Click to Code, de l'alpha à la production",
+    ],
+    useCase: {
+      title: "Cas d'usage : Click to Code",
+      intro:
+        "Un écran pour montrer le travail : un codeur qui relit une consultation dans Click to Code, avec la preuve dans la note, la confiance sur chaque code et les règles à côté de la décision.",
+    },
+  },
+  es: {
+    kicker: "Episource · Optum",
+    intro:
+      "Product designer senior y luego lead en Episource, hoy parte de Optum, de 2021 a 2024. Investigación de usuarios en toda la suite, un design system, una integración con las historias clínicas de los hospitales y una interfaz de codificación médica con IA llevada del alpha a producción.",
+    sectionTitles: [
+      "La investigación de usuarios en toda la suite",
+      "Un design system para toda la suite",
+      "Lead Product Designer tras 12 meses",
+      "Provider Direct Messaging",
+      "Click to Code, del alpha a producción",
+    ],
+    useCase: {
+      title: "Caso de uso: Click to Code",
+      intro:
+        "Una pantalla para mostrar el trabajo: un codificador revisa una consulta en Click to Code, con la evidencia en la nota, la confianza en cada código y las guías junto a la decisión.",
+    },
+  },
+};
