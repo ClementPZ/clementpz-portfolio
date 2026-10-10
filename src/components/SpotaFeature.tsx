@@ -103,7 +103,7 @@ export function SpotaFeature() {
         .spota-feature .spota-btn { pointer-events: auto; }
         .spota-feature .spota-fine-print { font-size: 12.5px; color: var(--spota-text-2); }
         .spota-feature-stage { display: flex; align-items: center; justify-content: center; padding: 12px; }
-        .spota-feature .spota-phone { width: min(300px, 66vw); }
+        .spota-feature .spota-phone { width: min(272px, 66vw); }
       `}</style>
     </div>
   );

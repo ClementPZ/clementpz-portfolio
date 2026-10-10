@@ -270,8 +270,8 @@ export function SpotaContent() {
         .spota-fine-print { font-size: 12.5px; color: var(--spota-text-2); }
 
         .spota-stage {
-          margin: 46px 0 8px; display: flex; justify-content: center;
-          align-items: center; gap: 4%;
+          margin: 46px 0 8px; display: flex; justify-content: space-around;
+          align-items: center;
         }
         .spota-stage .spota-phone { width: 40%; max-width: 270px; }
 
