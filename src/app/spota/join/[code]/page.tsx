@@ -11,9 +11,24 @@ import { notFound } from "next/navigation";
 //
 // Meme derogation que /spota (voir CLAUDE.md, "Exception /spota"): English
 // only, mono-theme, hors shell commun. Not indexed, a code is not content.
+// The preview image is opengraph-image.tsx beside this file. Next drops the
+// layout's openGraph object as soon as a page sets its own (pageMeta.ts), so
+// the title and description are repeated here, otherwise an invite would be
+// shared under the portfolio's own title.
+const TITLE = "Spot with me on Spot a";
+const DESCRIPTION = "One dare a day, shot with both cameras. Join my crew.";
+
 export const metadata: Metadata = {
   title: "Join a friend on Spot a",
+  description: DESCRIPTION,
   robots: { index: false, follow: false },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    type: "website",
+    siteName: "Spot a",
+  },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
 };
 
 const SPOT = "#cafe00";
