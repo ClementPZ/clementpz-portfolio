@@ -9,7 +9,10 @@ import Link from "next/link";
 //
 // Le contenu decrit l'app telle qu'elle est CODEE, pas telle qu'on l'imagine.
 // A relire si l'un de ces points bouge cote SpotA:
-// - auth anonyme (pas d'email ni de mot de passe), main.dart
+// - comptes (depuis le 11 oct 2026): Sign in with Apple ou code par email, pas
+//   de mot de passe, account.dart; amis par lien d'invitation, pas de groupe;
+//   notification quand un ami poste; blocage et signalement; suppression du
+//   compte dans l'app (fonction delete-account), 16 ans et plus
 // - localisation = texte libre tape a la main, capture.dart _editLocation,
 //   il n'y a AUCUNE permission de geolocalisation dans Info.plist
 // - bucket prive + URLs signees 1h, feed.dart
@@ -28,7 +31,7 @@ export const metadata: Metadata = {
 const SPOT = "#cafe00";
 const SPOT_INK = "#0a0d00";
 const CONTACT = "clementpicardzivy@gmail.com";
-const UPDATED = "10 October 2026";
+const UPDATED = "11 October 2026";
 
 export default function SpotaPrivacyPage() {
   return (
@@ -56,8 +59,10 @@ export default function SpotaPrivacyPage() {
           </p>
           <p className="spotap-lede">
             Spot a is a small game built by one person. It collects the least it can
-            get away with: no email, no password, no phone number, no address book,
-            no advertising, no analytics, no tracking across other apps or websites.
+            get away with: no password, no phone number, no address book, no
+            advertising, no analytics, no tracking across other apps or websites. You
+            sign in with Apple or with an email address, and that is the only
+            personal detail the app can hold.
           </p>
         </header>
 
@@ -84,9 +89,11 @@ export default function SpotaPrivacyPage() {
               to be your real name.
             </li>
             <li>
-              <b>An anonymous account id.</b> A random identifier created on first
-              launch so your spots stay yours. It is not linked to an email, a phone
-              number, a password or your Apple ID.
+              <b>Your sign in.</b> Either the identifier Apple gives the app when you
+              use Sign in with Apple, which may be a relay address if you chose to
+              hide your email, or the email address you typed. There is no password:
+              Apple confirms who you are, or a six digit code is sent to your email.
+              It is what lets you get your account back on a new phone.
             </li>
             <li>
               <b>An optional place name.</b>{" "}
@@ -95,30 +102,39 @@ export default function SpotaPrivacyPage() {
               location, and it never asks for location permission.
             </li>
             <li>
-              <b>What you did in the game.</b> Which crew you belong to, which dare
-              a spot answers, your favourites, your reactions, the comments you write, and the
-              time each of these happened.
+              <b>What you did in the game.</b> Who is in your crew, which dare a spot
+              answers, your reactions, the comments you write, the players you
+              blocked, the spots you reported, and the time each of these happened.
             </li>
             <li>
-              <b>Your self-declared age check.</b> The fact that you confirmed being 13
+              <b>A notification token.</b> If you allow notifications, a code Apple
+              gives your phone so the app can tell you when a friend has posted. It is
+              removed when you delete your account.
+            </li>
+            <li>
+              <b>Your self-declared age check.</b> The fact that you confirmed being 16
               or older. No date of birth is stored.
             </li>
           </ul>
           <p className="spotap-note">
-            The app has no analytics SDK, no advertising SDK, no crash reporter, and no
-            push notifications. The daily reminders are scheduled on your phone itself,
-            no server sends them. Nothing you do inside it is measured for any purpose
-            other than running the game.
+            The app has no analytics SDK, no advertising SDK and no crash reporter. The
+            two daily reminders are scheduled on your phone itself. The one
+            notification a server sends is the one that tells you a friend has
+            posted. Nothing you do inside the app is measured for any purpose other
+            than running the game.
           </p>
         </section>
 
         <section className="spotap-section">
           <h2>Who can see your spots</h2>
           <p>
-            Only the members of your crew, and only once they have posted their own
-            spot for that dare. That gate is the game. Photos live in a private
-            store, they are never public, and they are served through links that
-            expire after an hour, so a copied link stops working on its own.
+            Only the friends in your crew, and only once they have posted their own
+            spot for that dare. That gate is the game. Your crew is the people who
+            opened your invite link, or whose link you opened, one friend per link.
+            There is no search, no public profile and no list of suggested people, so
+            nobody can find you without your link. Photos live in a private store,
+            they are never public, and they are served through links that expire after
+            an hour, so a copied link stops working on its own.
           </p>
           <p>
             Nothing is posted anywhere else on your behalf. Sharing an invite goes
@@ -131,14 +147,14 @@ export default function SpotaPrivacyPage() {
           <ul className="spotap-list">
             <li>
               <b>Supabase</b>{" "}
-              hosts the database, the file storage and the anonymous
-              accounts. It processes this data on Spot a&apos;s behalf and for no other
-              purpose.
+              hosts the database, the file storage and the accounts, and sends the
+              sign in code by email. It processes this data on Spot a&apos;s behalf and
+              for no other purpose.
             </li>
             <li>
               <b>Apple</b>{" "}
-              distributes the beta through TestFlight, and sees the fact
-              that you installed and used a beta build. That is Apple&apos;s
+              distributes the beta through TestFlight, provides Sign in with Apple, and
+              delivers the notification when a friend posts. That is Apple&apos;s
               relationship with you, under Apple&apos;s own privacy policy.
             </li>
             <li>
@@ -169,16 +185,18 @@ export default function SpotaPrivacyPage() {
         <section className="spotap-section">
           <h2>Deleting your data</h2>
           <p>
-            You can delete any of your own spots from inside the app. To have
-            everything removed, the account included, email{" "}
-            <a href={`mailto:${CONTACT}`}>{CONTACT}</a> from any address and say so.
-            Deletion is done by hand and confirmed back to you.
+            You can delete any of your own spots from inside the app. You can also
+            delete your whole account there, from your profile: your spots and their
+            photos, your reactions, your comments and your place in every crew are
+            erased at once and cannot be brought back. No email is needed. If you
+            cannot get into the app, write to{" "}
+            <a href={`mailto:${CONTACT}`}>{CONTACT}</a> from the address you signed in
+            with and say so, and it is done by hand and confirmed back to you.
           </p>
           <p>
-            One consequence of anonymous accounts, and it cuts both ways: there is
-            nothing to prove an account is yours other than being on the device that
-            created it. So please write in from the phone you play on, and mention your
-            display name and crew.
+            You can also take a friend out of your crew, block a player, or report a
+            spot, from the spot itself. A report reaches the person who runs the
+            game, who reads it by hand.
           </p>
           <p>
             Depending on where you live you may also have the right to ask what is held
@@ -190,10 +208,10 @@ export default function SpotaPrivacyPage() {
         <section className="spotap-section">
           <h2>Age</h2>
           <p>
-            Spot a is for people aged 13 and over, and it asks you to confirm that when
-            you join. It is not aimed at children under 13 and it does not knowingly
-            keep their data. If you are a parent or guardian and believe a child under
-            13 is using it, write to{" "}
+            Spot a is for people aged 16 and over, and it asks you to confirm that when
+            you sign in. It is not aimed at younger people and it does not knowingly
+            keep their data. If you are a parent or guardian and believe someone under
+            16 is using it, write to{" "}
             <a href={`mailto:${CONTACT}`}>{CONTACT}</a> and the account will be removed.
           </p>
         </section>
@@ -218,7 +236,7 @@ export default function SpotaPrivacyPage() {
         </section>
 
         <footer className="spotap-footer">
-          <span>Spot a · 2026 · Ages 13+</span>
+          <span>Spot a · 2026 · Ages 16+</span>
           <Link href="/spota" className="spotap-nav-back">
             ← Back to Spot a
           </Link>
