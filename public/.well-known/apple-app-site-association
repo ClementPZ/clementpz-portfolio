@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["CD5YW9T737.com.spota.spota"],
+        "components": [
+          { "/": "/spota/join/*", "comment": "A friend's invite link opens Spot a" }
+        ]
+      }
+    ]
+  }
+}

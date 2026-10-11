@@ -105,7 +105,7 @@ export function SpotaContent() {
             <a className="spota-btn" href={BETA_MAILTO} onClick={confetti}>
               Get the beta
             </a>
-            <span className="spota-fine-print">iOS, via TestFlight · ages 13+</span>
+            <span className="spota-fine-print">iOS, via TestFlight · ages 16+</span>
           </div>
         </header>
 
@@ -209,7 +209,7 @@ export function SpotaContent() {
           <div className="spota-foot-row">
             <span>Spot a · 2026</span>
             <span>
-              Ages 13+ ·{" "}
+              Ages 16+ ·{" "}
               <Link href="/spota/privacy" className="spota-foot-link">
                 Privacy policy
               </Link>
