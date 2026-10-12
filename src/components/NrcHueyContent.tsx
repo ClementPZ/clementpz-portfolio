@@ -5,7 +5,7 @@ import type { CSSProperties, ReactNode } from "react";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { BackHome } from "./BackHome";
-import { nrcHueyText } from "../data/i18n";
+import { nrcHueyText, visualsNotice } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
 
 // Cas Huey, sous /nrc. Meme coquille que /nrc/design-system : Nav, BackHome
@@ -239,6 +239,9 @@ export function NrcHueyContent() {
         </h1>
         <p className="text-lg leading-relaxed max-w-2xl" style={MUTED}>
           {t.intro}
+        </p>
+        <p className="mt-4 text-xs max-w-xl leading-relaxed" style={MUTED}>
+          {visualsNotice[locale]}
         </p>
         <dl className="mt-8 grid gap-x-6 gap-y-4 sm:grid-cols-2">
           {t.meta.map((m) => (
