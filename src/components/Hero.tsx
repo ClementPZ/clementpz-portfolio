@@ -1,23 +1,50 @@
 "use client";
 
+import { useState } from "react";
 import { profile } from "../data/content";
-import { introText } from "../data/i18n";
+import { introCut, introText } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
 import { fireConfetti } from "../lib/confetti";
 
 export function Hero() {
   const { locale, t } = useLocale();
+  const [open, setOpen] = useState(false);
+
+  // Mobile : l'intro s'arrête après introCut, un "…" affiche la suite. Dès sm
+  // le texte est entier. Expression introuvable : pas de coupure.
+  const full = introText[locale];
+  const at = full.indexOf(introCut[locale]);
+  const cut = at === -1 ? full.length : at + introCut[locale].length;
+  const head = full.slice(0, cut);
+  const tail = full.slice(cut);
+
   return (
     <section id="top" className="max-w-6xl mx-auto px-6 pt-20 pb-12 sm:pt-32 sm:pb-16">
-      <h1 className="font-display font-extrabold text-5xl sm:text-7xl md:text-8xl hero-tagline">
-        {profile.tagline}
-      </h1>
-      <p
-        className="mt-8 text-lg sm:text-xl leading-relaxed"
-        style={{ color: "var(--text-muted)" }}
-      >
-        {introText[locale]}
-      </p>
+      {/* Titre et intro dans un même bloc : dès sm, l'intro prend la largeur du
+          titre (voir .hero-block dans globals.css). */}
+      <div className="hero-block">
+        <h1 className="font-display font-extrabold text-5xl sm:text-7xl md:text-8xl hero-tagline">
+          {profile.tagline}
+        </h1>
+        <p
+          className="mt-8 text-lg sm:text-xl leading-relaxed"
+          style={{ color: "var(--text-muted)" }}
+        >
+          {head}
+          {tail && !open && (
+            <button
+              type="button"
+              className="hero-more"
+              aria-expanded={false}
+              aria-label={t.readMore}
+              onClick={() => setOpen(true)}
+            >
+              …
+            </button>
+          )}
+          {tail && <span className={open ? undefined : "hidden sm:inline"}>{tail}</span>}
+        </p>
+      </div>
       <div className="mt-10 flex items-center justify-between gap-4">
         <div className="flex flex-wrap gap-3">
           <a
