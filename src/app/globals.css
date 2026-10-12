@@ -788,8 +788,8 @@ a {
   cursor: pointer;
 }
 
-/* Filet entre les deux cartes du dernier poste : vertical entre les colonnes
-   sur desktop, horizontal entre les cartes empilees sur mobile. */
+/* Filet entre les deux cartes du dernier poste, empilees sur mobile seulement :
+   plus de filet vertical entre les colonnes sur desktop (retire le 12 oct). */
 .work-rule {
   background: var(--border);
 }

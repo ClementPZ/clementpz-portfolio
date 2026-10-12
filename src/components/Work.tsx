@@ -175,10 +175,6 @@ export function LastExperience() {
       </div>
 
       <div className="grid gap-x-12 gap-y-6 lg:gap-y-8 lg:grid-flow-col relative lg:grid-cols-2 lg:grid-rows-[auto_1fr]">
-        <div
-          aria-hidden
-          className="work-rule hidden lg:block absolute top-0 bottom-0 left-1/2 w-px"
-        />
         {featured.flatMap((w, i) => {
           const visual = cardVisual(w.id, locale);
           const quote = pinnedByWork.get(w.id);
