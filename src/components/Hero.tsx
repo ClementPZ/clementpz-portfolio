@@ -4,7 +4,6 @@ import { useState } from "react";
 import { profile } from "../data/content";
 import { introCut, introText } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
-import { fireConfetti } from "../lib/confetti";
 
 export function Hero() {
   const { locale, t } = useLocale();
@@ -51,7 +50,6 @@ export function Hero() {
             id="cta-getintouch"
             href={`mailto:${profile.email}`}
             className="btn-ghost"
-            onClick={(e) => fireConfetti(e.currentTarget)}
           >
             {t.getInTouch}
           </a>

@@ -6,7 +6,7 @@ import { Footer } from "./Footer";
 import { BackHome } from "./BackHome";
 import { NrcOrgChart } from "./NrcOrgChart";
 import { NrcRoadmap } from "./NrcRoadmap";
-import { nrcText } from "../data/i18n";
+import { nrcText, visualsNotice } from "../data/i18n";
 import { nrcVisuals } from "../data/nrcVisuals";
 import { BeforeAfterSlider, ScreenStep } from "./NrcVisuals";
 import { flowbite, flowbiteGround } from "../data/flowbiteSystem";
@@ -70,6 +70,9 @@ export function NrcContent() {
         </p>
         <p className="mt-6 text-sm" style={{ color: "var(--text-muted)" }}>
           {t.stack.join(" · ")}
+        </p>
+        <p className="mt-4 text-xs max-w-xl leading-relaxed" style={{ color: "var(--text-muted)" }}>
+          {visualsNotice[locale]}
         </p>
 
         {/* 1. L'equipe */}

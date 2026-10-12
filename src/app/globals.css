@@ -873,7 +873,8 @@ a {
 /* Hero : le titre et l'intro forment un bloc. Dès sm, la largeur du bloc est
    celle de la ligne la plus longue du titre ("Management"), mesurée en em de la
    taille du titre (--hero-fs suit text-7xl puis text-8xl), pour que l'intro
-   s'aligne sous lui. Sur mobile le bloc reste pleine largeur. */
+   s'aligne sous lui. Sur mobile le bloc reste pleine largeur. "Management"
+   mesure 6.52 em à 96 px, d'où 6.55 : à re-mesurer si la police du titre change. */
 .hero-block {
   --hero-fs: 4.5rem;
   --hero-title-em: 6.55; /* "Management" fait 6.52 em, mesuré à 96 px */

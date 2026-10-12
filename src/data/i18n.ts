@@ -17,19 +17,6 @@ export const locales: { id: Locale; label: string; short: string }[] = [
 
 export const defaultLocale: Locale = "en";
 
-// Détection de la langue navigateur → fallback English.
-export function detectLocale(): Locale {
-  if (typeof navigator === "undefined") return defaultLocale;
-  const langs = [navigator.language, ...(navigator.languages || [])];
-  for (const l of langs) {
-    const code = l.slice(0, 2).toLowerCase();
-    if (code === "fr") return "fr";
-    if (code === "es") return "es";
-    if (code === "en") return "en";
-  }
-  return defaultLocale;
-}
-
 type UI = {
   getInTouch: string;
   stackTitle: string;
@@ -97,20 +84,29 @@ export const ui: Record<Locale, UI> = {
   },
 };
 
-// Mention sous l'ecran des cartes NRC et Episource de la home (courte).
+// Legende sous l'ecran des cartes NRC et Episource de la home (courte). La
+// mention sur la nature des visuels est sur les pages dediees (visualsNotice).
 export const workCardCaption: Record<Locale, { nrc: string; episource: string }> = {
   en: {
-    nrc: "Patient experience redesign (fictional recreation)",
-    episource: "Click to Code (fictional recreation)",
+    nrc: "Patient experience redesign",
+    episource: "Click to Code",
   },
   fr: {
-    nrc: "Refonte de l'expérience patient (recréation fictive)",
-    episource: "Click to Code (recréation fictive)",
+    nrc: "Refonte de l'expérience patient",
+    episource: "Click to Code",
   },
   es: {
-    nrc: "Rediseño de la experiencia del paciente (recreación ficticia)",
-    episource: "Click to Code (recreación ficticia)",
+    nrc: "Rediseño de la experiencia del paciente",
+    episource: "Click to Code",
   },
+};
+
+// Sous l'intro des pages dediees NRC et Episource : les visuels sont des
+// reproductions volontairement non conformes, pas les vrais produits.
+export const visualsNotice: Record<Locale, string> = {
+  en: "The visuals on this page are simplified reproductions, deliberately different from the real products and built with royalty-free elements. They show how the product is used, they are not the actual software, out of respect for intellectual property.",
+  fr: "Les visuels de cette page sont des reproductions simplifiées, volontairement différentes des produits réels et réalisées avec des éléments libres de droits. Ils montrent les usages, ce ne sont pas les vrais logiciels, par respect de la propriété intellectuelle.",
+  es: "Las imágenes de esta página son reproducciones simplificadas, deliberadamente distintas de los productos reales y hechas con elementos libres de derechos. Muestran los usos, no son el software real, por respeto a la propiedad intelectual.",
 };
 
 // Sur mobile, l'intro s'arrête après cette expression (présente dans introText)

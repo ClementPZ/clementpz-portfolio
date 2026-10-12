@@ -5,7 +5,7 @@ import { Footer } from "./Footer";
 import { BackHome } from "./BackHome";
 import { ScreenStep } from "./NrcVisuals";
 import { work } from "../data/content";
-import { episourceText, workText } from "../data/i18n";
+import { episourceText, visualsNotice, workText } from "../data/i18n";
 import { EPISOURCE_SCREEN, episourceVisual } from "../data/episourceVisual";
 import { useLocale } from "./LocaleProvider";
 
@@ -47,6 +47,9 @@ export function EpisourceContent() {
             {w.tags.join(" · ")}
           </p>
         )}
+        <p className="mt-4 text-xs max-w-xl leading-relaxed" style={{ color: "var(--text-muted)" }}>
+          {visualsNotice[locale]}
+        </p>
 
         <hr className="section-rule mt-14" />
         <section className="pt-14">

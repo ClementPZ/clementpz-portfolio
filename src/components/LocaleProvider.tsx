@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
-import { defaultLocale, detectLocale, ui, type Locale } from "../data/i18n";
+import { defaultLocale, locales, ui, type Locale } from "../data/i18n";
 
 type Ctx = {
   locale: Locale;
@@ -14,15 +14,14 @@ const LocaleCtx = createContext<Ctx | null>(null);
 export function LocaleProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>(defaultLocale);
 
-  // Au mount : préférence stockée, sinon langue du navigateur, sinon EN.
+  // Au mount : langue choisie par le visiteur (stockée), sinon EN. La langue du
+  // navigateur n'est pas lue : l'anglais est la langue par défaut du site.
   useEffect(() => {
     let next: Locale = defaultLocale;
     try {
-      const stored = window.localStorage.getItem("locale") as Locale | null;
-      next = stored ?? detectLocale();
-    } catch {
-      next = detectLocale();
-    }
+      const stored = window.localStorage.getItem("locale");
+      if (locales.some((l) => l.id === stored)) next = stored as Locale;
+    } catch {}
     // Lecture client-only (langue stockée ou navigateur) au mount : setState
     // intentionnel post-hydratation.
     // eslint-disable-next-line react-hooks/set-state-in-effect
