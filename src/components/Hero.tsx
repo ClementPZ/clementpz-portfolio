@@ -2,20 +2,25 @@
 
 import { useState } from "react";
 import { profile } from "../data/content";
-import { introCut, introText } from "../data/i18n";
+import { introCut, introDesktopCut, introText } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
 
 export function Hero() {
   const { locale, t } = useLocale();
   const [open, setOpen] = useState(false);
 
-  // Mobile : l'intro s'arrête après introCut, un "…" affiche la suite. Dès sm
-  // le texte est entier. Expression introuvable : pas de coupure.
+  // Trois segments. Mobile : l'intro s'arrête après introCut, un "…" affiche la
+  // suite. Dès sm, elle s'arrête après introDesktopCut, un second "…" prend le
+  // relais. Expression introuvable : pas de coupure à cet endroit.
   const full = introText[locale];
-  const at = full.indexOf(introCut[locale]);
-  const cut = at === -1 ? full.length : at + introCut[locale].length;
-  const head = full.slice(0, cut);
-  const tail = full.slice(cut);
+  const mobileAt = full.indexOf(introCut[locale]);
+  const mobileCut = mobileAt === -1 ? full.length : mobileAt + introCut[locale].length;
+  const desktopKey = introDesktopCut[locale];
+  const desktopAt = desktopKey ? full.indexOf(desktopKey) : -1;
+  const desktopCut = desktopAt === -1 ? full.length : desktopAt + desktopKey!.length;
+  const head = full.slice(0, mobileCut);
+  const middle = full.slice(mobileCut, desktopCut);
+  const tail = full.slice(desktopCut);
 
   return (
     <section id="top" className="max-w-6xl mx-auto px-6 pt-20 pb-12 sm:pt-32 sm:pb-16">
@@ -30,7 +35,7 @@ export function Hero() {
           style={{ color: "var(--text-muted)" }}
         >
           {head}
-          {tail && !open && (
+          {!open && mobileCut < full.length && (
             <button
               type="button"
               className="hero-more"
@@ -41,7 +46,20 @@ export function Hero() {
               …
             </button>
           )}
-          {tail && <span className={open ? undefined : "hidden sm:inline"}>{tail}</span>}
+          {middle && <span className={open ? undefined : "hidden sm:inline"}>{middle}</span>}
+          {!open && desktopCut < full.length && <span className="hidden sm:inline"> </span>}
+          {!open && desktopCut < full.length && (
+            <button
+              type="button"
+              className="hero-more-desk"
+              aria-expanded={false}
+              aria-label={t.readMore}
+              onClick={() => setOpen(true)}
+            >
+              …
+            </button>
+          )}
+          {open && tail}
         </p>
       </div>
       <div className="mt-10 flex items-center justify-between gap-4">

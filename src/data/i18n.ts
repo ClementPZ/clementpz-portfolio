@@ -117,11 +117,19 @@ export const introCut: Record<Locale, string> = {
   es: "un primer equipo de tres personas",
 };
 
+// Sur bureau (dès sm), l'intro s'arrête après cette expression, un "…" affiche
+// la suite. Absente pour une langue : l'intro reste entière sur bureau.
+export const introDesktopCut: Partial<Record<Locale, string>> = {
+  en: "AI features and flows",
+  fr: "ainsi qu'un workflow design to code",
+  es: "design to code flows",
+};
+
 // Intro localisée (profile.intro).
 export const introText: Record<Locale, string> = {
-  en: "Hello, I'm Clément, product designer with 10+ years across product, business and design systems. I built the design function at Nasdaq-listed NRC Health from scratch: a first team of three, a centralized design system, AI features and flows... Before that, I was lead designer at Episource (now Optum-UnitedHealth Group), where, among others, I took an AI medical-coding interface from alpha to production. Open to Design Engineer, Design Manager, and Senior Product Designer roles.",
-  fr: "Bonjour, je suis Clément, Product designer avec plus de 10 ans d'expérience entre produit, business et design systems. J'ai monté la fonction design depuis zéro chez NRC Health, une entreprise SaaS cotée au Nasdaq. Recruter et leader une première équipe de trois personnes, créé un design system et inégrer des fonctionnalités IA ainsi qu'un workflow design to code. Avant cela, j'étais lead designer chez Episource (aujourd'hui Optum-UnitedHealth Group), où j'ai mené la migration d'une interface de coding médical via IA de l'alpha à la production. Je suis ouvert aux postes de Design Engineer, Design Manager et Senior Product Designer.",
-  es: "Hola, soy Clément, product designer con más de 10 años de experiencia entre producto, business y design systems. Construí la función de diseño desde cero en NRC Health, cotizada en Nasdaq: un primer equipo de tres personas y un design system adoptado por tres de las cuatro suites de producto. Antes, lead designer en Episource (hoy Optum), donde llevé una interfaz de codificación médica con IA del alpha a producción. Abierto a puestos de Design Engineer, Design Manager y Senior Product Designer.",
+  en: "Hello, I'm Clément, product designer with 10+ years across product, business and design systems. I built the design function at Nasdaq-listed NRC Health from scratch: a first team of three, a centralized design system, analytics strategy, AI features and flows... Before that, I was lead designer at Episource (now Optum-UnitedHealth Group), where, among others, I took an AI medical-coding interface from alpha to production. Open to Design Engineer, Design Manager, and Senior Product Designer roles.",
+  fr: "Bonjour, je suis Clément, Product designer avec plus de 10 ans d'expérience entre produit, business et design systems. J'ai monté la fonction design depuis zéro chez NRC Health, une entreprise SaaS cotée au Nasdaq. Recruter et leader une première équipe de trois personnes, créé le design system, intégrer les analytics et des fonctionnalités IA ainsi qu'un workflow design to code. Avant cela, j'étais lead designer chez Episource (aujourd'hui Optum-UnitedHealth Group), où j'ai mené la migration d'une interface de coding médical via IA de l'alpha à la production. Je suis ouvert aux postes de Design Engineer, Design Manager et Senior Product Designer.",
+  es: "Hola, soy Clément, product designer con más de 10 años de experiencia entre producto, business y design systems. Construí la función de diseño desde cero en NRC Health (Nasdaq): un primer equipo de tres personas, un design system adoptado por tres de las cuatro suites de producto, analytics,AI features and design to code flows. Antes, lead designer en Episource (hoy Optum), donde llevé una interfaz de codificación médica con IA del alpha a producción. Abierto a puestos de Design Engineer, Design Manager y Senior Product Designer.",
 };
 
 // Texte localisé des expériences — index aligné sur `work` dans content.ts :

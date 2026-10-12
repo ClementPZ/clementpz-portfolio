@@ -892,18 +892,29 @@ a {
 
 /* "…" qui déplie la suite de l'intro sur mobile : zone de tap élargie sans
    bouger le texte. */
-.hero-more {
+.hero-more,
+.hero-more-desk {
   display: inline;
   margin: -0.5rem -0.35rem;
   padding: 0.5rem 0.35rem;
   color: var(--accent);
   font: inherit;
+  font-size: 1.25em;
   cursor: pointer;
 }
 /* Écrit ici et non en classe sm:hidden : une règle hors couche l'emporte sur
-   les utilitaires Tailwind. */
+   les utilitaires Tailwind. Le "…" mobile disparaît dès sm, celui de bureau
+   n'apparaît qu'à partir de sm. */
 @media (min-width: 640px) {
   .hero-more {
     display: none;
+  }
+}
+.hero-more-desk {
+  display: none;
+}
+@media (min-width: 640px) {
+  .hero-more-desk {
+    display: inline;
   }
 }
