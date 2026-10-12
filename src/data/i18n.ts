@@ -43,6 +43,7 @@ type UI = {
   caseStudy: string;
   getTheApp: string;
   visualLabel: string;
+  readMore: string;
 };
 
 export const ui: Record<Locale, UI> = {
@@ -60,6 +61,7 @@ export const ui: Record<Locale, UI> = {
     caseStudy: "Read the case study",
     getTheApp: "Get the app",
     visualLabel: "Visual to come",
+    readMore: "Read the rest",
   },
   fr: {
     getInTouch: "Me contacter",
@@ -75,6 +77,7 @@ export const ui: Record<Locale, UI> = {
     caseStudy: "Lire le case study",
     getTheApp: "Télécharger l'app",
     visualLabel: "Visuel à venir",
+    readMore: "Lire la suite",
   },
   es: {
     getInTouch: "Contactarme",
@@ -90,6 +93,7 @@ export const ui: Record<Locale, UI> = {
     caseStudy: "Leer el case study",
     getTheApp: "Descargar la app",
     visualLabel: "Visual pendiente",
+    readMore: "Leer el resto",
   },
 };
 
@@ -107,6 +111,14 @@ export const workCardCaption: Record<Locale, { nrc: string; episource: string }>
     nrc: "Rediseño de la experiencia del paciente (recreación ficticia)",
     episource: "Click to Code (recreación ficticia)",
   },
+};
+
+// Sur mobile, l'intro s'arrête après cette expression (présente dans introText)
+// et un "…" cliquable affiche la suite. Absente du texte : l'intro reste entière.
+export const introCut: Record<Locale, string> = {
+  en: "a first team of three",
+  fr: "une première équipe de trois personnes",
+  es: "un primer equipo de tres personas",
 };
 
 // Intro localisée (profile.intro).

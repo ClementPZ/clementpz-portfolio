@@ -869,3 +869,40 @@ a {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
 }
+
+/* Hero : le titre et l'intro forment un bloc. Dès sm, la largeur du bloc est
+   celle de la ligne la plus longue du titre ("Management"), mesurée en em de la
+   taille du titre (--hero-fs suit text-7xl puis text-8xl), pour que l'intro
+   s'aligne sous lui. Sur mobile le bloc reste pleine largeur. */
+.hero-block {
+  --hero-fs: 4.5rem;
+  --hero-title-em: 6.55; /* "Management" fait 6.52 em, mesuré à 96 px */
+}
+@media (min-width: 640px) {
+  .hero-block {
+    max-width: calc(var(--hero-fs) * var(--hero-title-em));
+  }
+}
+@media (min-width: 768px) {
+  .hero-block {
+    --hero-fs: 6rem;
+  }
+}
+
+/* "…" qui déplie la suite de l'intro sur mobile : zone de tap élargie sans
+   bouger le texte. */
+.hero-more {
+  display: inline;
+  margin: -0.5rem -0.35rem;
+  padding: 0.5rem 0.35rem;
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+}
+/* Écrit ici et non en classe sm:hidden : une règle hors couche l'emporte sur
+   les utilitaires Tailwind. */
+@media (min-width: 640px) {
+  .hero-more {
+    display: none;
+  }
+}
