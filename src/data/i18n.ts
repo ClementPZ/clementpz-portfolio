@@ -553,31 +553,27 @@ export const makingOfText: Record<
     kicker: "Very meta",
     title: "The making of this portfolio",
     intro:
-      "A first portfolio after ten years without one, built with Claude Code: over 200 commits since late May, more than 60 of them in October alone, and what the process taught me.",
+      "My first portfolio in ten years, built with Claude Code between May and October. This is how the work ran and what went wrong, in case it is useful to someone.",
     sections: [
       {
-        heading: "Why now, after 10 years without one",
-        body: "Ten years of product design, no portfolio. Work and referrals did the job. Two things changed: I wanted to look around, and to test one idea, how far a designer gets solo when design, code and AI share the same flow.",
+        heading: "Why now",
+        body: "I had no portfolio for ten years, work and referrals were enough. This year I wanted to look around, and to see how far I could get alone when design, code and AI share one flow.",
       },
       {
-        heading: "How a change travels",
-        body: "I describe it in my own words and approve the exact edit before it is written. Claude writes it. Types, lint and the build run before every commit, and a missing translation fails the build. One script commits, pushes, then waits until the live page serves the new version. A short note records where things stand, so the next session starts from it, not from memory.",
+        heading: "How a change goes through",
+        body: "I describe the change in my own words and approve the exact edit before Claude writes it. Types, lint and the build run before every commit, and a missing translation stops the build. One script commits, pushes, and waits until the live page shows the new version. At the end of a session Claude writes down where things stand, and the next session starts from that note.",
       },
       {
-        heading: "What the machine enforces",
-        body: "A rule in a prompt is a suggestion, so the ones that matter are checks. Content lives in two files. Every visible text exists in three languages or the build stops. Colors are tokens that work in both themes. A dash in the copy fails the lint. A session that searches the project before reading its guide is refused once. A fresh session installs its own dependencies.",
+        heading: "What a check does better than a reminder",
+        body: "Rules I only wrote down got forgotten, so I moved the important ones into checks. Every visible text needs its three languages. A dash in the copy fails the lint. Colors are tokens, so both themes work. A session that searches the project before reading its guide is stopped once.",
       },
       {
-        heading: "What went wrong, and what changed",
-        body: "The French came out as English structure three times, each corrected by me. The French is now mine and final, the English and Spanish are adapted, never word for word. A tap control was called fixed after looking at it, not after tapping it, so a control is checked by using it. A note on file was overruled by an older one, so the latest instruction wins and a contradiction is raised. A phone mockup shipped as a flat frame, so it is now judged at zoom, facing checked against the layout.",
+        heading: "What went wrong",
+        body: "The French came out as English with French words, three times, and I corrected it each time. I now proofread the French, and the English and Spanish are adapted from it, never word for word. Twice a control was called fixed after looking at it, not after trying it: a reaction button, and a phone mockup that was sharp but flat. Controls are now tested by using them, and mockups judged zoomed in.",
       },
       {
         heading: "Four themes, then two",
-        body: "The first version shipped with four brand themes: Spotify, Wise, Apple and Airbnb. They are archived, out of the bundle. What stayed is one signature look, dark and light, because a portfolio is judged on its work, not on a theme switcher.",
-      },
-      {
-        heading: "Still moving",
-        body: "Real cases for NRC and Episource, the SpotA and Days landing pages, the Builder plugin explained. It keeps changing, that is the point.",
+        body: "The first version had four brand themes: Spotify, Wise, Apple and Airbnb. I kept one look, in dark and light, and archived the others.",
       },
     ],
     backHome: "Back to the portfolio",
