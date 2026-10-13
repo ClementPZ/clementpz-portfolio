@@ -536,6 +536,7 @@ export const statusText: Record<Locale, Record<StatusKey, string>> = {
 
 // ============================================================================
 // Page /making-of — le portfolio expliqué comme projet du portfolio (méta).
+// Chaque affirmation vient du dépôt : commits, scripts, hooks, notes de session.
 // ============================================================================
 
 export const makingOfText: Record<
@@ -552,23 +553,31 @@ export const makingOfText: Record<
     kicker: "Very meta",
     title: "The making of this portfolio",
     intro:
-      "A first portfolio, built as a portfolio piece: why now, and how far design, code and AI can be pushed in a single flow.",
+      "A first portfolio after ten years without one, built with Claude Code: over 200 commits since late May, more than 60 of them in October alone, and what the process taught me.",
     sections: [
       {
         heading: "Why now, after 10 years without one",
         body: "Ten years of product design, no portfolio. Work and referrals did the job. Two things changed: I wanted to look around, and to test one idea, how far a designer gets solo when design, code and AI share the same flow.",
       },
       {
-        heading: "Hackathon, not monument",
-        body: "Ship a live V1 in days, keep it public while it improves, let visitors watch it being built. One theme, one content file, a disclaimer instead of a coming-soon page. Momentum over polish, on purpose.",
+        heading: "How a change travels",
+        body: "I describe it in my own words and approve the exact edit before it is written. Claude writes it. Types, lint and the build run before every commit, and a missing translation fails the build. One script commits, pushes, then waits until the live page serves the new version. A short note records where things stand, so the next session starts from it, not from memory.",
       },
       {
-        heading: "How it is built",
-        body: "Next.js, React, TypeScript and Tailwind, shipped to Vercel on every push. Colors are CSS tokens, dark and light. Three languages from one source. Written with Claude Code, down to the easter eggs: live cursors, pull-to-refresh, a real visitor counter.",
+        heading: "What the machine enforces",
+        body: "A rule in a prompt is a suggestion, so the ones that matter are checks. Content lives in two files. Every visible text exists in three languages or the build stops. Colors are tokens that work in both themes. A dash in the copy fails the lint. A session that searches the project before reading its guide is refused once. A fresh session installs its own dependencies.",
       },
       {
-        heading: "Still cooking",
-        body: "Per-project deep dives, real NRC and Episource cases, an interior page with community votes, a Figma file generated from the code. It keeps changing, that is the point.",
+        heading: "What went wrong, and what changed",
+        body: "The French came out as English structure three times, each corrected by me. The French is now mine and final, the English and Spanish are adapted, never word for word. A tap control was called fixed after looking at it, not after tapping it, so a control is checked by using it. A note on file was overruled by an older one, so the latest instruction wins and a contradiction is raised. A phone mockup shipped as a flat frame, so it is now judged at zoom, facing checked against the layout.",
+      },
+      {
+        heading: "Four themes, then two",
+        body: "The first version shipped with four brand themes: Spotify, Wise, Apple and Airbnb. They are archived, out of the bundle. What stayed is one signature look, dark and light, because a portfolio is judged on its work, not on a theme switcher.",
+      },
+      {
+        heading: "Still moving",
+        body: "Real cases for NRC and Episource, the SpotA and Days landing pages, the Builder plugin explained. It keeps changing, that is the point.",
       },
     ],
     backHome: "Back to the portfolio",
@@ -577,23 +586,31 @@ export const makingOfText: Record<
     kicker: "Très méta",
     title: "Le making of de ce portfolio",
     intro:
-      "Un premier portfolio, conçu comme une pièce du portfolio : pourquoi maintenant, et jusqu'où peut on pousser design, code et IA dans un seul flow.",
+      "Un premier portfolio après dix ans sans, construit avec Claude Code : plus de 200 commits depuis fin mai, dont plus de 60 rien qu'en octobre, et ce que le process m'a appris.",
     sections: [
       {
         heading: "Pourquoi maintenant, après 10 ans sans",
         body: "Dix ans de product design, aucun portfolio. Le travail et les recommandations suffisaient. Deux choses ont changé : l'envie de regarder ailleurs, et de tester une idée, jusqu'où un designer va seul quand design, code et IA partagent le même flow.",
       },
       {
-        heading: "Hackathon, pas monument",
-        body: "Livrer une V1 en ligne en quelques jours, la garder publique pendant qu'elle progresse, laisser les visiteurs voir le chantier. Un thème, un fichier de contenu, un disclaimer plutôt qu'une page coming soon. L'élan avant le poli, volontairement.",
+        heading: "Le chemin d'une modification",
+        body: "Je la décris avec mes mots et j'approuve la modification exacte avant qu'elle soit écrite. Claude l'écrit. Types, lint et build tournent avant chaque commit, et une traduction manquante fait échouer le build. Un seul script commit, pousse, puis attend que la page en ligne serve la nouvelle version. Une courte note garde l'état du chantier : la session suivante repart de là, pas de la mémoire.",
       },
       {
-        heading: "Comment c'est construit",
-        body: "Next.js, React, TypeScript et Tailwind, déployé sur Vercel à chaque push. Les couleurs sont des tokens CSS, dark et light. Trois langues depuis une seule source. Écrit avec Claude Code, jusqu'aux easter eggs : curseurs live, pull-to-refresh, vrai compteur de visites.",
+        heading: "Ce que la machine impose",
+        body: "Une règle dans un prompt est une suggestion, donc celles qui comptent sont des contrôles. Le contenu vit dans deux fichiers. Chaque texte visible existe en trois langues, sinon le build s'arrête. Les couleurs sont des tokens qui tiennent dans les deux thèmes. Un tiret cadratin dans le texte fait échouer le lint. Une session qui fouille le projet avant d'en lire le guide est refusée une fois. Une session neuve installe seule ses dépendances.",
       },
       {
-        heading: "Encore en cuisine",
-        body: "Des pages dédiées par projet, de vrais cas NRC et Episource, une page d'intérieur avec votes, un fichier Figma généré depuis le code. Ça bouge encore, c'est le principe.",
+        heading: "Ce qui a raté, et ce qui a changé",
+        body: "Le français est sorti trois fois en structure anglaise, corrigé à chaque fois par moi. Le français est désormais le mien et définitif, l'anglais et l'espagnol sont adaptés, jamais mot à mot. Un contrôle tactile a été déclaré réparé après l'avoir regardé, pas après l'avoir touché : un contrôle se vérifie en l'utilisant. Une note en vigueur a été écrasée par une plus ancienne : la dernière consigne gagne et la contradiction est signalée. Un mockup de téléphone est parti en cadre plat : il se juge maintenant en zoom, l'orientation vérifiée contre la mise en page.",
+      },
+      {
+        heading: "Quatre thèmes, puis deux",
+        body: "La première version avait quatre thèmes de marque : Spotify, Wise, Apple et Airbnb. Ils sont archivés, hors du bundle. Il reste un seul style signature, en dark et light, parce qu'un portfolio se juge sur le travail, pas sur un sélecteur de thème.",
+      },
+      {
+        heading: "Toujours en mouvement",
+        body: "De vrais cas pour NRC et Episource, les pages SpotA et Days, le plugin Builder expliqué. Ça bouge encore, c'est le principe.",
       },
     ],
     backHome: "Retour au portfolio",
@@ -602,23 +619,31 @@ export const makingOfText: Record<
     kicker: "Muy meta",
     title: "El making of de este portafolio",
     intro:
-      "Un primer portafolio, hecho como una pieza del portafolio: por qué ahora, y hasta dónde se puede llevar el design, el código y la IA en un solo flow.",
+      "Un primer portafolio tras diez años sin uno, construido con Claude Code: más de 200 commits desde finales de mayo, más de 60 solo en octubre, y lo que el proceso me enseñó.",
     sections: [
       {
         heading: "Por qué ahora, tras 10 años sin uno",
         body: "Diez años de product design, sin portafolio. El trabajo y las recomendaciones bastaban. Dos cosas cambiaron: quería mirar alrededor, y probar una idea, hasta dónde llega un diseñador solo cuando design, código e IA comparten el mismo flow.",
       },
       {
-        heading: "Hackathon, no monumento",
-        body: "Lanzar una V1 en línea en días, mantenerla pública mientras mejora, dejar que los visitantes vean la obra. Un tema, un archivo de contenido, un disclaimer en vez de una página de coming soon. Impulso antes que pulido, a propósito.",
+        heading: "El camino de un cambio",
+        body: "Lo describo con mis palabras y apruebo el cambio exacto antes de que se escriba. Claude lo escribe. Tipos, lint y build corren antes de cada commit, y una traducción que falta hace fallar el build. Un solo script hace el commit, el push y espera a que la página en línea sirva la nueva versión. Una nota corta guarda el estado de la obra: la siguiente sesión parte de ahí, no de la memoria.",
       },
       {
-        heading: "Cómo está construido",
-        body: "Next.js, React, TypeScript y Tailwind, desplegado en Vercel con cada push. Los colores son tokens CSS, dark y light. Tres idiomas desde una sola fuente. Escrito con Claude Code, hasta los easter eggs: cursores live, pull-to-refresh, contador real de visitas.",
+        heading: "Lo que impone la máquina",
+        body: "Una regla en un prompt es una sugerencia, así que las que importan son controles. El contenido vive en dos archivos. Cada texto visible existe en tres idiomas, o el build se detiene. Los colores son tokens que funcionan en los dos temas. Una raya larga en el texto hace fallar el lint. Una sesión que busca en el proyecto antes de leer su guía es rechazada una vez. Una sesión nueva instala sola sus dependencias.",
       },
       {
-        heading: "Aún en la cocina",
-        body: "Páginas dedicadas por proyecto, casos reales de NRC y Episource, una página de interior con votos, un archivo Figma generado desde el código. Sigue cambiando, ese es el punto.",
+        heading: "Qué salió mal, y qué cambió",
+        body: "El francés salió tres veces con estructura inglesa, y las tres lo corregí yo. Ahora el francés es mío y definitivo, el inglés y el español se adaptan, nunca palabra por palabra. Un control táctil se dio por arreglado tras mirarlo, no tras tocarlo: un control se verifica usándolo. Una nota vigente fue pisada por otra más antigua: gana la última instrucción y la contradicción se avisa. Un mockup de teléfono salió como marco plano: ahora se juzga con zoom, y la orientación se comprueba contra el diseño.",
+      },
+      {
+        heading: "Cuatro temas, luego dos",
+        body: "La primera versión tenía cuatro temas de marca: Spotify, Wise, Apple y Airbnb. Están archivados, fuera del bundle. Quedó un solo estilo propio, en dark y light, porque un portafolio se juzga por el trabajo, no por un selector de temas.",
+      },
+      {
+        heading: "Sigue en movimiento",
+        body: "Casos reales de NRC y Episource, las páginas de SpotA y Days, el plugin Builder explicado. Sigue cambiando, ese es el punto.",
       },
     ],
     backHome: "Volver al portafolio",
