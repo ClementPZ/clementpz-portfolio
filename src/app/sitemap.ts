@@ -9,6 +9,7 @@ const paths = [
   "/nrc/huey",
   "/episource",
   "/builder",
+  "/making-of",
   "/music-quality-upgrader",
   "/interior",
   "/remarkable-calendar-sync",

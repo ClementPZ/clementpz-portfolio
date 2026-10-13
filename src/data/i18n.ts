@@ -536,7 +536,7 @@ export const statusText: Record<Locale, Record<StatusKey, string>> = {
 };
 
 // ============================================================================
-// Page /making-of — le portfolio expliqué comme projet du portfolio (méta).
+// Page /making-of — cas d'usage : un portfolio construit de bout en bout avec Claude.
 // ============================================================================
 
 export const makingOfText: Record<
@@ -545,81 +545,170 @@ export const makingOfText: Record<
     kicker: string;
     title: string;
     intro: string;
+    flowTitle: string;
+    meLabel: string;
+    claudeLabel: string;
+    steps: { title: string; me: string; claude: string }[];
+    loopNote: string;
     sections: { heading: string; body: string }[];
     backHome: string;
   }
 > = {
   en: {
-    kicker: "Very meta",
-    title: "The making of this portfolio",
+    kicker: "Use case",
+    title: "How this portfolio was built",
     intro:
-      "A first portfolio, built as a portfolio piece: why now, and how far design, code and AI can be pushed in a single flow.",
+      "A first portfolio built with Claude, from the idea to the live site and the many iterations.",
+    flowTitle: "From idea to live site",
+    meLabel: "I decide",
+    claudeLabel: "Claude writes",
+    steps: [
+      {
+        title: "Idea",
+        me: "I write it down in my own words.",
+        claude: "Saves the note with its date.",
+      },
+      {
+        title: "Rules",
+        me: "I set what must always hold: content in one place, three languages, colors as tokens.",
+        claude: "Asks me questions until nothing is assumed, then writes the rules file it reads at the start of each session.",
+      },
+      {
+        title: "Build",
+        me: "I approve the exact change before it is written.",
+        claude: "Writes the pages, the three languages and both themes.",
+      },
+      {
+        title: "Checks",
+        me: "I read the result.",
+        claude: "Types, lint and build run before each commit. A missing translation fails the build.",
+      },
+      {
+        title: "Ship",
+        me: "I say go.",
+        claude: "One command runs the checks, commits, pushes, then waits until the live page serves the new version.",
+      },
+      {
+        title: "Hand off",
+        me: "I close the session.",
+        claude: "Writes down where things stand. The next session starts from it.",
+      },
+    ],
+    loopNote: "Each session starts from what the previous one wrote down.",
     sections: [
       {
-        heading: "Why now, after 10 years without one",
-        body: "Ten years of product design, no portfolio. Work and referrals did the job. Two things changed: I wanted to look around, and to test one idea, how far a designer gets solo when design, code and AI share the same flow.",
+        heading: "What Claude wrote here",
+        body: "The pages, the three languages, the dark and light themes, the checks and this diagram. I decide, read and correct.",
       },
       {
-        heading: "Hackathon, not monument",
-        body: "Ship a live V1 in days, keep it public while it improves, let visitors watch it being built. One theme, one content file, a disclaimer instead of a coming-soon page. Momentum over polish, on purpose.",
-      },
-      {
-        heading: "How it is built",
-        body: "Next.js, React, TypeScript and Tailwind, shipped to Vercel on every push. Colors are CSS tokens, dark and light. Three languages from one source. Written with Claude Code, down to the easter eggs: live cursors, pull-to-refresh, a real visitor counter.",
-      },
-      {
-        heading: "Still cooking",
-        body: "Per-project deep dives, real NRC and Episource cases, an interior page with community votes, a Figma file generated from the code. It keeps changing, that is the point.",
+        heading: "Why this order",
+        body: "Each step covers one way to go wrong. The rules keep the work on target, the approval blocks a wrong change, the checks block a broken release, the hand off keeps what was learned. A rule that must always hold is a check, not a prompt.",
       },
     ],
     backHome: "Back to the portfolio",
   },
   fr: {
-    kicker: "Très méta",
-    title: "Le making of de ce portfolio",
+    kicker: "Cas d'usage",
+    title: "Comment ce portfolio a été construit",
     intro:
-      "Un premier portfolio, conçu comme une pièce du portfolio : pourquoi maintenant, et jusqu'où peut on pousser design, code et IA dans un seul flow.",
+      "Un premier portfolio construit avec Claude, de l'idée à la mise en ligne et les nombreuses itérations.",
+    flowTitle: "De l'idée au site en ligne",
+    meLabel: "Je décide",
+    claudeLabel: "Claude écrit",
+    steps: [
+      {
+        title: "Idée",
+        me: "Je l'écris avec mes mots.",
+        claude: "Enregistre la note avec sa date.",
+      },
+      {
+        title: "Règles",
+        me: "Je fixe ce qui doit toujours tenir : le contenu à un seul endroit, trois langues, des couleurs en tokens.",
+        claude: "Me pose des questions jusqu'à ce que plus rien ne soit supposé, puis écrit le fichier de règles qu'il relit au début de chaque session.",
+      },
+      {
+        title: "Build",
+        me: "J'approuve le changement exact avant qu'il soit écrit.",
+        claude: "Écrit les pages, les trois langues et les deux thèmes.",
+      },
+      {
+        title: "Checks",
+        me: "Je relis le résultat.",
+        claude: "Types, lint et build tournent avant chaque commit. Une traduction manquante fait échouer le build.",
+      },
+      {
+        title: "Mise en ligne",
+        me: "Je dis go.",
+        claude: "Une commande lance les checks, commit, push, puis attend que la page en ligne serve la nouvelle version.",
+      },
+      {
+        title: "Passation",
+        me: "Je ferme la session.",
+        claude: "Note où en sont les choses. La session suivante repart de là.",
+      },
+    ],
+    loopNote: "Chaque session repart de ce que la précédente a noté.",
     sections: [
       {
-        heading: "Pourquoi maintenant, après 10 ans sans",
-        body: "Dix ans de product design, aucun portfolio. Le travail et les recommandations suffisaient. Deux choses ont changé : l'envie de regarder ailleurs, et de tester une idée, jusqu'où un designer va seul quand design, code et IA partagent le même flow.",
+        heading: "Ce que Claude a écrit ici",
+        body: "Les pages, les trois langues, les thèmes dark et light, les checks et ce schéma. Je décide, je relis et je corrige.",
       },
       {
-        heading: "Hackathon, pas monument",
-        body: "Livrer une V1 en ligne en quelques jours, la garder publique pendant qu'elle progresse, laisser les visiteurs voir le chantier. Un thème, un fichier de contenu, un disclaimer plutôt qu'une page coming soon. L'élan avant le poli, volontairement.",
-      },
-      {
-        heading: "Comment c'est construit",
-        body: "Next.js, React, TypeScript et Tailwind, déployé sur Vercel à chaque push. Les couleurs sont des tokens CSS, dark et light. Trois langues depuis une seule source. Écrit avec Claude Code, jusqu'aux easter eggs : curseurs live, pull-to-refresh, vrai compteur de visites.",
-      },
-      {
-        heading: "Encore en cuisine",
-        body: "Des pages dédiées par projet, de vrais cas NRC et Episource, une page d'intérieur avec votes, un fichier Figma généré depuis le code. Ça bouge encore, c'est le principe.",
+        heading: "Pourquoi cet ordre",
+        body: "Chaque étape couvre une façon de se tromper. Les règles gardent le travail sur la cible, l'approbation bloque un mauvais changement, les checks bloquent une mise en ligne cassée, la passation garde ce qui a été appris. Une règle qui doit toujours tenir est un check, pas un prompt.",
       },
     ],
     backHome: "Retour au portfolio",
   },
   es: {
-    kicker: "Muy meta",
-    title: "El making of de este portafolio",
+    kicker: "Caso de uso",
+    title: "Cómo se construyó este portafolio",
     intro:
-      "Un primer portafolio, hecho como una pieza del portafolio: por qué ahora, y hasta dónde se puede llevar el design, el código y la IA en un solo flow.",
+      "Un primer portafolio construido con Claude, de la idea a la publicación y las numerosas iteraciones.",
+    flowTitle: "De la idea al sitio en línea",
+    meLabel: "Yo decido",
+    claudeLabel: "Claude escribe",
+    steps: [
+      {
+        title: "Idea",
+        me: "La escribo con mis palabras.",
+        claude: "Guarda la nota con su fecha.",
+      },
+      {
+        title: "Reglas",
+        me: "Fijo lo que siempre debe cumplirse: el contenido en un solo lugar, tres idiomas, colores como tokens.",
+        claude: "Me hace preguntas hasta que no se asuma nada, luego escribe el archivo de reglas que lee al inicio de cada sesión.",
+      },
+      {
+        title: "Build",
+        me: "Apruebo el cambio exacto antes de que se escriba.",
+        claude: "Escribe las páginas, los tres idiomas y los dos temas.",
+      },
+      {
+        title: "Checks",
+        me: "Reviso el resultado.",
+        claude: "Tipos, lint y build corren antes de cada commit. Una traducción que falta hace fallar el build.",
+      },
+      {
+        title: "Publicación",
+        me: "Digo go.",
+        claude: "Un comando lanza los checks, hace commit, push, y espera a que la página en línea sirva la nueva versión.",
+      },
+      {
+        title: "Traspaso",
+        me: "Cierro la sesión.",
+        claude: "Anota cómo van las cosas. La siguiente sesión parte de ahí.",
+      },
+    ],
+    loopNote: "Cada sesión parte de lo que anotó la anterior.",
     sections: [
       {
-        heading: "Por qué ahora, tras 10 años sin uno",
-        body: "Diez años de product design, sin portafolio. El trabajo y las recomendaciones bastaban. Dos cosas cambiaron: quería mirar alrededor, y probar una idea, hasta dónde llega un diseñador solo cuando design, código e IA comparten el mismo flow.",
+        heading: "Lo que Claude escribió aquí",
+        body: "Las páginas, los tres idiomas, los temas dark y light, los checks y este esquema. Yo decido, reviso y corrijo.",
       },
       {
-        heading: "Hackathon, no monumento",
-        body: "Lanzar una V1 en línea en días, mantenerla pública mientras mejora, dejar que los visitantes vean la obra. Un tema, un archivo de contenido, un disclaimer en vez de una página de coming soon. Impulso antes que pulido, a propósito.",
-      },
-      {
-        heading: "Cómo está construido",
-        body: "Next.js, React, TypeScript y Tailwind, desplegado en Vercel con cada push. Los colores son tokens CSS, dark y light. Tres idiomas desde una sola fuente. Escrito con Claude Code, hasta los easter eggs: cursores live, pull-to-refresh, contador real de visitas.",
-      },
-      {
-        heading: "Aún en la cocina",
-        body: "Páginas dedicadas por proyecto, casos reales de NRC y Episource, una página de interior con votos, un archivo Figma generado desde el código. Sigue cambiando, ese es el punto.",
+        heading: "Por qué este orden",
+        body: "Cada paso cubre una forma de equivocarse. Las reglas mantienen el trabajo en el objetivo, la aprobación bloquea un cambio erróneo, los checks bloquean una publicación rota, el traspaso conserva lo aprendido. Una regla que siempre debe cumplirse es un check, no un prompt.",
       },
     ],
     backHome: "Volver al portafolio",

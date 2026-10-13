@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { pageMeta } from "../../lib/pageMeta";
+import { MakingOfContent } from "../../components/MakingOfContent";
 
-export const metadata: Metadata = {
-  title: "The making of this portfolio · Clément PZ",
-  description:
-    "Why a first portfolio after 10 years without one, and how far design, code and AI can go in hackathon mode.",
-};
+export const metadata: Metadata = pageMeta(
+  "/making-of",
+  "How this portfolio was built · Clément PZ",
+  "A use case: building a portfolio end to end with Claude, from the idea to the live site, and the flow that proved the most efficient.",
+);
 
-// Page masquée pour l'instant (décision du 2026-10-08). Le composant
-// MakingOfContent et les textes (makingOfText) restent intacts : pour la
-// rouvrir, réimporter MakingOfContent et le rendre ici à la place de notFound().
 export default function MakingOfPage() {
-  notFound();
+  return <MakingOfContent />;
 }

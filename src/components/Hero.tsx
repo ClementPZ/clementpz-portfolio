@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { profile } from "../data/content";
 import { introCut, introDesktopCut, introText } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
@@ -71,6 +72,9 @@ export function Hero() {
           >
             {t.getInTouch}
           </a>
+          <Link href="/making-of" className="btn-ghost">
+            {t.makingOfWidget}
+          </Link>
         </div>
         {/* Photo de profil, à l'opposé des boutons : ronde, elle s'agrandit à
             400 px au survol (ou au focus), ancrée en bas à droite. Tant que
