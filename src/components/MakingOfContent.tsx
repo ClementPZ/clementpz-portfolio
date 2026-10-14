@@ -80,13 +80,6 @@ export function MakingOfContent() {
           </ol>
         </div>
 
-        <p
-          className="mt-12 text-lg leading-relaxed"
-          style={{ color: "var(--text)" }}
-        >
-          {t.pattern}
-        </p>
-
         <div className="mt-16">
           <Link href="/" className="btn-ghost">
             {t.backHome}

@@ -552,7 +552,6 @@ type MakingOfCopy = {
     whyLabel: string;
     why: string;
   }[];
-  pattern: string;
   backHome: string;
 };
 
@@ -612,8 +611,6 @@ export const makingOfText: { en: MakingOfCopy } & Partial<Record<Locale, MakingO
         why: "I measured a session start: about 61,700 tokens, of which my own files are about 2,700. The waste was wandering, not file size.",
       },
     ],
-    pattern:
-      "A rule written in a file got ignored, a script did not. At least eight times, the same instruction had to be repeated before I stopped writing it down and started enforcing it.",
     backHome: "Back to the portfolio",
   },
   fr: {
@@ -671,8 +668,6 @@ export const makingOfText: { en: MakingOfCopy } & Partial<Record<Locale, MakingO
         why: "J'ai mesuré le démarrage d'une session : environ 61 700 tokens (les unités de texte que Claude lit), dont 2 700 seulement viennent de mes propres fichiers. Ce qui coûtait cher, c'était de chercher sans savoir où, pas la taille de mes fichiers.",
       },
     ],
-    pattern:
-      "Au moins huit fois, j'ai dû répéter à Claude la même consigne. Écrite dans un fichier, elle finissait par être ignorée ; contrôlée par un script, elle ne l'est pas. J'ai donc arrêté de l'écrire pour la faire appliquer.",
     backHome: "Retour au portfolio",
   },
   es: {
@@ -730,8 +725,6 @@ export const makingOfText: { en: MakingOfCopy } & Partial<Record<Locale, MakingO
         why: "Medí el arranque de una sesión: unos 61 700 tokens, de los cuales mis propios archivos son unos 2 700. El desperdicio era divagar, no el tamaño de los archivos.",
       },
     ],
-    pattern:
-      "Una regla escrita en un archivo fue ignorada, un script no. Al menos ocho veces hubo que repetir la misma instrucción antes de que dejara de escribirla y empezara a hacerla cumplir.",
     backHome: "Volver al portafolio",
   },
 };
