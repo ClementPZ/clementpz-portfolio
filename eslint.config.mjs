@@ -28,6 +28,16 @@ const eslintConfig = defineConfig([
           message:
             "Tiret cadratin interdit dans le contenu. Point median (·) pour un titre, tiret court (-) pour un intervalle.",
         },
+        {
+          selector: "Literal[value=/note de reprise|automatisme|that is the point|in case it is useful|a une définition/i]",
+          message:
+            "Mot inventé ou slogan banni dans le contenu. Les mots de métier restent en anglais (hook, skill, handoff), cf. Traduction dans CLAUDE.md.",
+        },
+        {
+          selector: "TemplateElement[value.raw=/note de reprise|automatisme|that is the point|in case it is useful|a une définition/i]",
+          message:
+            "Mot inventé ou slogan banni dans le contenu. Les mots de métier restent en anglais (hook, skill, handoff), cf. Traduction dans CLAUDE.md.",
+        },
       ],
     },
   },
