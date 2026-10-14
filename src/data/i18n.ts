@@ -535,114 +535,106 @@ export const statusText: Record<Locale, Record<StatusKey, string>> = {
 };
 
 // ============================================================================
-// Page /making-of — le portfolio expliqué comme projet du portfolio (méta).
-// Chaque affirmation vient du dépôt : commits, scripts, hooks, notes de session.
+// Page /making-of — le pipeline réel autour du portfolio : skills, hooks, scripts.
+// Chaque ligne décrit un mécanisme qui existe dans le dépôt ou dans le vault.
+// FR et ES absents tant que l'anglais n'est pas validé : la page retombe sur EN.
 // ============================================================================
 
-export const makingOfText: Record<
-  Locale,
-  {
-    kicker: string;
-    title: string;
-    intro: string;
-    sections: { heading: string; body: string }[];
-    backHome: string;
-  }
-> = {
+type MakingOfCopy = {
+  kicker: string;
+  title: string;
+  intro: string;
+  stages: { title: string; items: { kind: string; text: string }[] }[];
+  handoffTitle: string;
+  handoffBody: string;
+  backHome: string;
+};
+
+export const makingOfText: { en: MakingOfCopy } & Partial<Record<Locale, MakingOfCopy>> = {
   en: {
-    kicker: "Very meta",
+    kicker: "Process",
     title: "The making of this portfolio",
     intro:
-      "My first portfolio in ten years, built with Claude Code between May and October. This is how the work ran and what went wrong, in case it is useful to someone.",
-    sections: [
+      "My portfolio, built with Claude Code. Around it sits a small pipeline of skills, hooks and scripts. This is what runs at each step.",
+    stages: [
       {
-        heading: "Why now",
-        body: "I had no portfolio for ten years, work and referrals were enough. This year I wanted to look around, and to see how far I could get alone when design, code and AI share one flow.",
+        title: "Open",
+        items: [
+          {
+            kind: "Skill",
+            text: "Reads the handoff and the README, then reports anything that no longer matches the disk.",
+          },
+          {
+            kind: "Hook",
+            text: "After a context clear, puts the handoff back in, so the session resumes without me saying hello.",
+          },
+        ],
       },
       {
-        heading: "How a change goes through",
-        body: "I describe the change in my own words and approve the exact edit before Claude writes it. Types, lint and the build run before every commit, and a missing translation stops the build. One script commits, pushes, and waits until the live page shows the new version. At the end of a session Claude writes down where things stand, and the next session starts from that note.",
+        title: "Work",
+        items: [
+          {
+            kind: "Hook",
+            text: "Refuses a search inside the project before its guide has been read, once.",
+          },
+          {
+            kind: "Rule",
+            text: "Secret files cannot be read. A push, or a write to my lessons file, waits for my yes.",
+          },
+          {
+            kind: "Skill",
+            text: "Adds a project card and its page together, asking for each field.",
+          },
+        ],
       },
       {
-        heading: "What a check does better than a reminder",
-        body: "Rules I only wrote down got forgotten, so I moved the important ones into checks. Every visible text needs its three languages. A dash in the copy fails the lint. Colors are tokens, so both themes work. A session that searches the project before reading its guide is stopped once.",
+        title: "Check",
+        items: [
+          {
+            kind: "Hook",
+            text: "Notes which project a turn touched.",
+          },
+          {
+            kind: "Hook",
+            text: "At the end of the turn, runs that project's own check, types and lint, and keeps the turn open until it passes.",
+          },
+          {
+            kind: "Build",
+            text: "A missing translation fails the build.",
+          },
+        ],
       },
       {
-        heading: "What went wrong",
-        body: "The French came out as English with French words, three times, and I corrected it each time. I now proofread the French, and the English and Spanish are adapted from it, never word for word. Twice a control was called fixed after looking at it, not after trying it: a reaction button, and a phone mockup that was sharp but flat. Controls are now tested by using them, and mockups judged zoomed in.",
+        title: "Ship",
+        items: [
+          {
+            kind: "Command",
+            text: "Types, lint and build, then commit, push, and wait until the live page serves the new version.",
+          },
+        ],
       },
       {
-        heading: "Four themes, then two",
-        body: "The first version had four brand themes: Spotify, Wise, Apple and Airbnb. I kept one look, in dark and light, and archived the others.",
+        title: "Close",
+        items: [
+          {
+            kind: "Skill",
+            text: "Reads the git state first, rewrites the handoff against the real state of the disk, commits and pushes.",
+          },
+          {
+            kind: "Hook",
+            text: "The handoff stays at 60 lines. Past that, the write is handed back.",
+          },
+          {
+            kind: "Hook",
+            text: "At 200k tokens of context, a warning forces a close, and the next session starts from the handoff.",
+          },
+        ],
       },
     ],
+    handoffTitle: "The handoff",
+    handoffBody:
+      "It holds the state, the next step, the traps and the reasons behind decisions. No history, git has that. Sixty lines forces a choice about what a cold session needs.",
     backHome: "Back to the portfolio",
-  },
-  fr: {
-    kicker: "Très méta",
-    title: "Le making of de ce portfolio",
-    intro:
-      "Un premier portfolio après dix ans sans, construit avec Claude Code : plus de 200 commits depuis fin mai, dont plus de 60 rien qu'en octobre, et ce que le process m'a appris.",
-    sections: [
-      {
-        heading: "Pourquoi maintenant, après 10 ans sans",
-        body: "Dix ans de product design, aucun portfolio. Le travail et les recommandations suffisaient. Deux choses ont changé : l'envie de regarder ailleurs, et de tester une idée, jusqu'où un designer va seul quand design, code et IA partagent le même flow.",
-      },
-      {
-        heading: "Le chemin d'une modification",
-        body: "Je la décris avec mes mots et j'approuve la modification exacte avant qu'elle soit écrite. Claude l'écrit. Types, lint et build tournent avant chaque commit, et une traduction manquante fait échouer le build. Un seul script commit, pousse, puis attend que la page en ligne serve la nouvelle version. Une courte note garde l'état du chantier : la session suivante repart de là, pas de la mémoire.",
-      },
-      {
-        heading: "Ce que la machine impose",
-        body: "Une règle dans un prompt est une suggestion, donc celles qui comptent sont des contrôles. Le contenu vit dans deux fichiers. Chaque texte visible existe en trois langues, sinon le build s'arrête. Les couleurs sont des tokens qui tiennent dans les deux thèmes. Un tiret cadratin dans le texte fait échouer le lint. Une session qui fouille le projet avant d'en lire le guide est refusée une fois. Une session neuve installe seule ses dépendances.",
-      },
-      {
-        heading: "Ce qui a raté, et ce qui a changé",
-        body: "Le français est sorti trois fois en structure anglaise, corrigé à chaque fois par moi. Le français est désormais le mien et définitif, l'anglais et l'espagnol sont adaptés, jamais mot à mot. Un contrôle tactile a été déclaré réparé après l'avoir regardé, pas après l'avoir touché : un contrôle se vérifie en l'utilisant. Une note en vigueur a été écrasée par une plus ancienne : la dernière consigne gagne et la contradiction est signalée. Un mockup de téléphone est parti en cadre plat : il se juge maintenant en zoom, l'orientation vérifiée contre la mise en page.",
-      },
-      {
-        heading: "Quatre thèmes, puis deux",
-        body: "La première version avait quatre thèmes de marque : Spotify, Wise, Apple et Airbnb. Ils sont archivés, hors du bundle. Il reste un seul style signature, en dark et light, parce qu'un portfolio se juge sur le travail, pas sur un sélecteur de thème.",
-      },
-      {
-        heading: "Toujours en mouvement",
-        body: "De vrais cas pour NRC et Episource, les pages SpotA et Days, le plugin Builder expliqué. Ça bouge encore, c'est le principe.",
-      },
-    ],
-    backHome: "Retour au portfolio",
-  },
-  es: {
-    kicker: "Muy meta",
-    title: "El making of de este portafolio",
-    intro:
-      "Un primer portafolio tras diez años sin uno, construido con Claude Code: más de 200 commits desde finales de mayo, más de 60 solo en octubre, y lo que el proceso me enseñó.",
-    sections: [
-      {
-        heading: "Por qué ahora, tras 10 años sin uno",
-        body: "Diez años de product design, sin portafolio. El trabajo y las recomendaciones bastaban. Dos cosas cambiaron: quería mirar alrededor, y probar una idea, hasta dónde llega un diseñador solo cuando design, código e IA comparten el mismo flow.",
-      },
-      {
-        heading: "El camino de un cambio",
-        body: "Lo describo con mis palabras y apruebo el cambio exacto antes de que se escriba. Claude lo escribe. Tipos, lint y build corren antes de cada commit, y una traducción que falta hace fallar el build. Un solo script hace el commit, el push y espera a que la página en línea sirva la nueva versión. Una nota corta guarda el estado de la obra: la siguiente sesión parte de ahí, no de la memoria.",
-      },
-      {
-        heading: "Lo que impone la máquina",
-        body: "Una regla en un prompt es una sugerencia, así que las que importan son controles. El contenido vive en dos archivos. Cada texto visible existe en tres idiomas, o el build se detiene. Los colores son tokens que funcionan en los dos temas. Una raya larga en el texto hace fallar el lint. Una sesión que busca en el proyecto antes de leer su guía es rechazada una vez. Una sesión nueva instala sola sus dependencias.",
-      },
-      {
-        heading: "Qué salió mal, y qué cambió",
-        body: "El francés salió tres veces con estructura inglesa, y las tres lo corregí yo. Ahora el francés es mío y definitivo, el inglés y el español se adaptan, nunca palabra por palabra. Un control táctil se dio por arreglado tras mirarlo, no tras tocarlo: un control se verifica usándolo. Una nota vigente fue pisada por otra más antigua: gana la última instrucción y la contradicción se avisa. Un mockup de teléfono salió como marco plano: ahora se juzga con zoom, y la orientación se comprueba contra el diseño.",
-      },
-      {
-        heading: "Cuatro temas, luego dos",
-        body: "La primera versión tenía cuatro temas de marca: Spotify, Wise, Apple y Airbnb. Están archivados, fuera del bundle. Quedó un solo estilo propio, en dark y light, porque un portafolio se juzga por el trabajo, no por un selector de temas.",
-      },
-      {
-        heading: "Sigue en movimiento",
-        body: "Casos reales de NRC y Episource, las páginas de SpotA y Days, el plugin Builder explicado. Sigue cambiando, ese es el punto.",
-      },
-    ],
-    backHome: "Volver al portafolio",
   },
 };
 
