@@ -7,8 +7,8 @@ import { BackHome } from "./BackHome";
 import { makingOfText } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
 
-// Le pipeline en cinq étapes, lu de gauche à droite sur bureau, de haut en bas
-// sur mobile. Une seule hiérarchie : la taille, pas de bordure ni de pastille.
+// Frise des hooks et skills, dans l'ordre où ils sont nés. La date est à gauche
+// sur bureau, au-dessus sur mobile. Une seule hiérarchie : la taille, pas de bordure.
 export function MakingOfContent() {
   const { locale } = useLocale();
   const t = makingOfText[locale] ?? makingOfText.en;
@@ -16,7 +16,7 @@ export function MakingOfContent() {
     // id="top" : cible du logo de la Nav (href="#top"), comme sur la home.
     <div id="top">
       <Nav />
-      <main className="max-w-5xl mx-auto px-6 pt-10 pb-24 sm:pt-14">
+      <main className="max-w-3xl mx-auto px-6 pt-10 pb-24 sm:pt-14">
         <div className="mb-10">
           <BackHome />
         </div>
@@ -30,56 +30,62 @@ export function MakingOfContent() {
           {t.title}
         </h1>
         <p
-          className="text-lg sm:text-xl leading-relaxed mb-14 max-w-3xl"
+          className="text-lg sm:text-xl leading-relaxed mb-14"
           style={{ color: "var(--text-muted)" }}
         >
           {t.intro}
         </p>
 
         <div className="panel p-5 sm:p-8">
-          <ol className="grid gap-8 lg:grid-cols-5 lg:gap-6">
-            {t.stages.map((stage, i) => (
-              <li key={stage.title}>
-                <div className="flex items-baseline gap-3 mb-4">
-                  <span
-                    className="font-display font-bold text-lg"
-                    style={{ color: "var(--accent)" }}
-                  >
-                    {i + 1}
-                  </span>
-                  <h2 className="font-display font-bold text-xl">{stage.title}</h2>
-                </div>
-                <ul className="space-y-4">
-                  {stage.items.map((item) => (
-                    <li
-                      key={item.text}
-                      className="text-sm leading-relaxed"
+          <ol className="space-y-10">
+            {t.entries.map((e) => (
+              <li
+                key={e.date + e.title}
+                className="grid gap-x-8 gap-y-2 sm:grid-cols-[5rem_1fr]"
+              >
+                <p
+                  className="font-display font-bold text-base"
+                  style={{ color: "var(--accent)" }}
+                >
+                  {e.date}
+                </p>
+                <div>
+                  <h2 className="font-display font-bold text-xl mb-2">
+                    {e.title}
+                    <span
+                      className="ml-3 text-sm font-semibold"
                       style={{ color: "var(--text-muted)" }}
                     >
-                      <span className="font-semibold" style={{ color: "var(--text)" }}>
-                        {item.kind}
-                      </span>
-                      {" · "}
-                      {item.text}
-                    </li>
-                  ))}
-                </ul>
+                      {e.kind}
+                    </span>
+                  </h2>
+                  <p
+                    className="text-base leading-relaxed"
+                    style={{ color: "var(--text-muted)" }}
+                  >
+                    {e.text}
+                  </p>
+                  <p
+                    className="mt-3 text-sm leading-relaxed"
+                    style={{ color: "var(--text-muted)" }}
+                  >
+                    <span className="font-semibold" style={{ color: "var(--text)" }}>
+                      {e.whyLabel}
+                    </span>{" "}
+                    {e.why}
+                  </p>
+                </div>
               </li>
             ))}
           </ol>
         </div>
 
-        <section className="mt-14 max-w-3xl">
-          <h2 className="font-display text-xl sm:text-2xl font-bold mb-3">
-            {t.handoffTitle}
-          </h2>
-          <p
-            className="text-base leading-relaxed"
-            style={{ color: "var(--text-muted)" }}
-          >
-            {t.handoffBody}
-          </p>
-        </section>
+        <p
+          className="mt-12 text-lg leading-relaxed"
+          style={{ color: "var(--text)" }}
+        >
+          {t.pattern}
+        </p>
 
         <div className="mt-16">
           <Link href="/" className="btn-ghost">

@@ -535,18 +535,24 @@ export const statusText: Record<Locale, Record<StatusKey, string>> = {
 };
 
 // ============================================================================
-// Page /making-of — le pipeline réel autour du portfolio : skills, hooks, scripts.
-// Chaque ligne décrit un mécanisme qui existe dans le dépôt ou dans le vault.
-// FR et ES absents tant que l'anglais n'est pas validé : la page retombe sur EN.
+// Page /making-of — la frise des hooks et skills construits pendant le chantier.
+// Dates : commits du vault. Raisons : en-têtes de scripts, journal des
+// réexplications, mesures du handoff. L'anglais est la source, FR et ES adaptés.
 // ============================================================================
 
 type MakingOfCopy = {
   kicker: string;
   title: string;
   intro: string;
-  stages: { title: string; items: { kind: string; text: string }[] }[];
-  handoffTitle: string;
-  handoffBody: string;
+  entries: {
+    date: string;
+    kind: string;
+    title: string;
+    text: string;
+    whyLabel: string;
+    why: string;
+  }[];
+  pattern: string;
   backHome: string;
 };
 
@@ -555,86 +561,178 @@ export const makingOfText: { en: MakingOfCopy } & Partial<Record<Locale, MakingO
     kicker: "Process",
     title: "The making of this portfolio",
     intro:
-      "My portfolio, built with Claude Code. Around it sits a small pipeline of skills, hooks and scripts. This is what runs at each step.",
-    stages: [
+      "Along the way, Claude and I built hooks and skills, listed below. My rule: nothing gets built until the same thing has had to be explained twice. Most of them started with a mistake.",
+    entries: [
       {
-        title: "Open",
-        items: [
-          {
-            kind: "Skill",
-            text: "Reads the handoff and the README, then reports anything that no longer matches the disk.",
-          },
-          {
-            kind: "Hook",
-            text: "After a context clear, puts the handoff back in, so the session resumes without me saying hello.",
-          },
-        ],
+        date: "3 Sep",
+        kind: "Hook",
+        title: "The handoff cap",
+        text: "The handoff note, a short file saying where the project stands, kept growing. A hook (a script that runs on its own, here after every file write) now sends back any handoff over 60 lines.",
+        whyLabel: "Why 60?",
+        why: "The number is not calculated, it is fixed on purpose. A cap limits size, not content, so every time I hit it I have to judge what a new session really needs: the state, not the history, and delete what the last commits made false.",
       },
       {
-        title: "Work",
-        items: [
-          {
-            kind: "Hook",
-            text: "Refuses a search inside the project before its guide has been read, once.",
-          },
-          {
-            kind: "Rule",
-            text: "Secret files cannot be read. A push, or a write to my lessons file, waits for my yes.",
-          },
-          {
-            kind: "Skill",
-            text: "Adds a project card and its page together, asking for each field.",
-          },
-        ],
-      },
-      {
-        title: "Check",
-        items: [
-          {
-            kind: "Hook",
-            text: "Notes which project a turn touched.",
-          },
-          {
-            kind: "Hook",
-            text: "At the end of the turn, runs that project's own check, types and lint, and keeps the turn open until it passes.",
-          },
-          {
-            kind: "Build",
-            text: "A missing translation fails the build.",
-          },
-        ],
-      },
-      {
+        date: "7 Sep",
+        kind: "Command",
         title: "Ship",
-        items: [
-          {
-            kind: "Command",
-            text: "Types, lint and build, then commit, push, and wait until the live page serves the new version.",
-          },
-        ],
+        text: "Vercel builds whatever is pushed, so a broken push is a broken site. One command runs the checks and the build before saving anything, pushes, then waits until the live page really changes.",
+        whyLabel: "Why wait?",
+        why: "A page that answers only proves the site is up. A page whose version changed proves my change arrived.",
       },
       {
-        title: "Close",
-        items: [
-          {
-            kind: "Skill",
-            text: "Reads the git state first, rewrites the handoff against the real state of the disk, commits and pushes.",
-          },
-          {
-            kind: "Hook",
-            text: "The handoff stays at 60 lines. Past that, the write is handed back.",
-          },
-          {
-            kind: "Hook",
-            text: "At 200k tokens of context, a warning forces a close, and the next session starts from the handoff.",
-          },
-        ],
+        date: "9 Sep",
+        kind: "Hook",
+        title: "Done has a definition",
+        text: "After any edit in the project, Claude cannot end its turn until types and lint pass.",
+        whyLabel: "Why at the end of the turn?",
+        why: "A change often spans several files, and the middle of it is allowed to be broken. The check runs once, when Claude says it is finished.",
+      },
+      {
+        date: "9 Sep",
+        kind: "Skills",
+        title: "Open and close",
+        text: "The opening and closing routines were text loaded into every session, used or not. They became two skills (procedures loaded only when I ask). One reads the handoff and reports what no longer matches. The other updates it against the real files, then saves and publishes.",
+        whyLabel: "Why read the files first?",
+        why: "Several sessions run in parallel. A rewrite from an old read would erase another session's work.",
+      },
+      {
+        date: "11 Sep",
+        kind: "Rule",
+        title: "Memory",
+        text: "Claude saved a note to its own memory without being asked, in the wrong file and shape. Writing there now needs my yes, and so does a push to GitHub.",
+        whyLabel: "Why a permission, not a sentence?",
+        why: "The sentence already existed, and a stronger habit had beaten it once.",
+      },
+      {
+        date: "15 Sep",
+        kind: "Hook",
+        title: "Blind search",
+        text: "The rule said to read a project's guide before searching it. A session searched blindly anyway. Now the first search is refused until something has been read.",
+        whyLabel: "Why?",
+        why: "I measured a session start: about 61,700 tokens, of which my own files are about 2,700. The waste was wandering, not file size.",
       },
     ],
-    handoffTitle: "The handoff",
-    handoffBody:
-      "It holds the state, the next step, the traps and the reasons behind decisions. No history, git has that. Sixty lines forces a choice about what a cold session needs.",
+    pattern:
+      "A rule written in a file got ignored, a script did not. At least eight times, the same instruction had to be repeated before I stopped writing it down and started enforcing it.",
     backHome: "Back to the portfolio",
+  },
+  fr: {
+    kicker: "Process",
+    title: "Le making of de ce portfolio",
+    intro:
+      "En chemin, Claude et moi avons construit des hooks et des skills, listés ci-dessous. Ma règle : rien n'est construit tant que la même chose n'a pas dû être expliquée deux fois. La plupart sont nés d'une erreur.",
+    entries: [
+      {
+        date: "3 sept",
+        kind: "Hook",
+        title: "Le plafond du handoff",
+        text: "Le handoff, un court fichier qui dit où en est le projet, ne cessait de grossir. Un hook (un script qui tourne tout seul, ici après chaque écriture de fichier) renvoie désormais tout handoff de plus de 60 lignes.",
+        whyLabel: "Pourquoi 60 ?",
+        why: "Le chiffre n'est pas calculé, il est fixé exprès. Un plafond limite la taille, pas le contenu : chaque fois que je l'atteins, je dois juger ce dont une nouvelle session a vraiment besoin, l'état et non l'historique, et supprimer ce que les derniers commits ont rendu faux.",
+      },
+      {
+        date: "7 sept",
+        kind: "Commande",
+        title: "Ship",
+        text: "Vercel construit tout ce qui est poussé : un push cassé, c'est un site cassé. Une seule commande lance les checks et le build avant de sauvegarder quoi que ce soit, pousse, puis attend que la page en ligne change vraiment.",
+        whyLabel: "Pourquoi attendre ?",
+        why: "Une page qui répond prouve seulement que le site est up. Une page dont la version a changé prouve que ma modification est arrivée.",
+      },
+      {
+        date: "9 sept",
+        kind: "Hook",
+        title: "« Terminé » a une définition",
+        text: "Après toute modification dans le projet, Claude ne peut pas terminer son tour tant que les types et le lint ne passent pas.",
+        whyLabel: "Pourquoi en fin de tour ?",
+        why: "Un changement touche souvent plusieurs fichiers, et le milieu a le droit d'être cassé. Le check tourne une seule fois, quand Claude dit avoir fini.",
+      },
+      {
+        date: "9 sept",
+        kind: "Skills",
+        title: "Ouvrir et clore",
+        text: "Les routines d'ouverture et de clôture étaient du texte chargé dans chaque session, utilisé ou non. Elles sont devenues deux skills (des procédures chargées seulement quand je les demande). L'une lit le handoff et signale ce qui ne correspond plus. L'autre le met à jour d'après les vrais fichiers, puis sauvegarde et publie.",
+        whyLabel: "Pourquoi lire les fichiers d'abord ?",
+        why: "Plusieurs sessions tournent en parallèle. Une réécriture à partir d'une vieille lecture effacerait le travail d'une autre session.",
+      },
+      {
+        date: "11 sept",
+        kind: "Règle",
+        title: "Mémoire",
+        text: "Claude a enregistré une note dans sa propre mémoire sans que je le demande, dans le mauvais fichier et la mauvaise forme. Écrire là demande désormais mon accord, et un push vers GitHub aussi.",
+        whyLabel: "Pourquoi une permission plutôt qu'une phrase ?",
+        why: "La phrase existait déjà, et une habitude plus forte l'avait déjà battue une fois.",
+      },
+      {
+        date: "15 sept",
+        kind: "Hook",
+        title: "Recherche à l'aveugle",
+        text: "La règle disait de lire le guide d'un projet avant d'y chercher. Une session a cherché à l'aveugle quand même. Maintenant, la première recherche est refusée tant que rien n'a été lu.",
+        whyLabel: "Pourquoi ?",
+        why: "J'ai mesuré un démarrage de session : environ 61 700 tokens, dont environ 2 700 pour mes propres fichiers. Le gaspillage, c'était l'errance, pas la taille des fichiers.",
+      },
+    ],
+    pattern:
+      "Une règle écrite dans un fichier a été ignorée, un script non. Au moins huit fois, il a fallu répéter la même consigne avant que j'arrête de l'écrire et que je commence à la faire respecter.",
+    backHome: "Retour au portfolio",
+  },
+  es: {
+    kicker: "Process",
+    title: "El making of de este portafolio",
+    intro:
+      "Por el camino, Claude y yo construimos hooks y skills, listados abajo. Mi regla: no se construye nada hasta que la misma cosa haya tenido que explicarse dos veces. La mayoría nació de un error.",
+    entries: [
+      {
+        date: "3 sep",
+        kind: "Hook",
+        title: "El tope del handoff",
+        text: "El handoff, un archivo corto que dice cómo va el proyecto, no paraba de crecer. Un hook (un script que corre solo, aquí después de cada escritura de archivo) devuelve ahora cualquier handoff de más de 60 líneas.",
+        whyLabel: "¿Por qué 60?",
+        why: "El número no está calculado, está fijado a propósito. Un tope limita el tamaño, no el contenido: cada vez que lo alcanzo tengo que juzgar qué necesita de verdad una sesión nueva, el estado y no el historial, y borrar lo que los últimos commits dejaron falso.",
+      },
+      {
+        date: "7 sep",
+        kind: "Comando",
+        title: "Ship",
+        text: "Vercel construye todo lo que se sube, así que un push roto es un sitio roto. Un solo comando ejecuta los checks y el build antes de guardar nada, hace el push y espera a que la página en línea cambie de verdad.",
+        whyLabel: "¿Por qué esperar?",
+        why: "Una página que responde solo prueba que el sitio está arriba. Una página cuya versión cambió prueba que mi cambio llegó.",
+      },
+      {
+        date: "9 sep",
+        kind: "Hook",
+        title: "«Terminado» tiene una definición",
+        text: "Tras cualquier edición en el proyecto, Claude no puede terminar su turno hasta que pasen los tipos y el lint.",
+        whyLabel: "¿Por qué al final del turno?",
+        why: "Un cambio suele abarcar varios archivos, y a la mitad puede estar roto. El check corre una sola vez, cuando Claude dice que terminó.",
+      },
+      {
+        date: "9 sep",
+        kind: "Skills",
+        title: "Abrir y cerrar",
+        text: "Las rutinas de apertura y cierre eran texto cargado en cada sesión, se usara o no. Pasaron a ser dos skills (procedimientos que se cargan solo cuando los pido). Una lee el handoff e indica lo que ya no coincide. La otra lo actualiza según los archivos reales, y luego guarda y publica.",
+        whyLabel: "¿Por qué leer primero los archivos?",
+        why: "Varias sesiones corren en paralelo. Reescribir a partir de una lectura vieja borraría el trabajo de otra sesión.",
+      },
+      {
+        date: "11 sep",
+        kind: "Regla",
+        title: "Memoria",
+        text: "Claude guardó una nota en su propia memoria sin que se lo pidiera, en el archivo equivocado y con la forma equivocada. Escribir ahí ahora requiere mi visto bueno, y un push a GitHub también.",
+        whyLabel: "¿Por qué un permiso y no una frase?",
+        why: "La frase ya existía, y un hábito más fuerte ya la había vencido una vez.",
+      },
+      {
+        date: "15 sep",
+        kind: "Hook",
+        title: "Búsqueda a ciegas",
+        text: "La regla decía leer la guía de un proyecto antes de buscar en él. Una sesión buscó a ciegas igual. Ahora la primera búsqueda se rechaza hasta que se haya leído algo.",
+        whyLabel: "¿Por qué?",
+        why: "Medí el arranque de una sesión: unos 61 700 tokens, de los cuales mis propios archivos son unos 2 700. El desperdicio era divagar, no el tamaño de los archivos.",
+      },
+    ],
+    pattern:
+      "Una regla escrita en un archivo fue ignorada, un script no. Al menos ocho veces hubo que repetir la misma instrucción antes de que dejara de escribirla y empezara a hacerla cumplir.",
+    backHome: "Volver al portafolio",
   },
 };
 

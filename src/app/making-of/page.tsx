@@ -5,7 +5,7 @@ import { MakingOfContent } from "../../components/MakingOfContent";
 export const metadata: Metadata = pageMeta(
   "/making-of",
   "The making of this portfolio · Clément PZ",
-  "The skills, hooks and scripts around each step of building this portfolio, from opening a session to closing it.",
+  "The hooks and skills built along the way, each with the mistake that started it and the reason it works that way.",
 );
 
 export default function MakingOfPage() {
