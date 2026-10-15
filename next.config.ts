@@ -3,6 +3,17 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   async headers() {
     return [
+      // Baseline security headers, every route. SAMEORIGIN and not DENY: the
+      // /nrc pages frame their own /flowbite components.
+      {
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+        ],
+      },
       // Apple fetches this file with no extension and wants it as JSON, to let
       // the Spot a app open https://clementpz.com/spota/join/<code> itself.
       {

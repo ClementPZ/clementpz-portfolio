@@ -142,7 +142,7 @@ export const workText: Record<
       role: "Design Manager",
       bullets: [
         "Recruited and led NRC Health's first design team, two Product Designers and an Analytics Specialist, across all four product suites.",
-        "Created a multi-product design system based on the Flowbite library: design tokens and a semantic layer shared by Angular, Vue and legacy front-ends, with an adoption ramp-up strategy from tokens to design patterns.",
+        "Created a multi-product design system based on the Flowbite library: design tokens and a semantic layer shared by Angular, React, .NET and legacy front-ends, with an adoption ramp-up strategy from tokens to design patterns.",
         "Built an AI-assisted design-to-code workflow, so non-technical profiles can propose UX/UI changes that a developer reviews.",
         "Led the design of the company's AI features, including the Huey assistant and an ambient-listening tool that raised nurse-rounding documentation from 55% to 90% in a one-month test.",
         "Set up product analytics with Product, Engineering and the C-suite, and validated design decisions with research and A/B tests: +24% click-through on outreach emails.",
@@ -151,11 +151,11 @@ export const workText: Record<
     episource: {
       role: "Senior → Lead Product Designer · Design System",
       bullets: [
-        "Coordinated user research across several products of the suite.",
+        "Led user research across several products of the suite.",
         "Built the Figma component libraries and integrated design tokens into production for the design-system rollout across the whole product suite (Q4 2021 - Q2 2022).",
         "Promoted to Lead Product Designer after 12 months.",
         "Owned Provider Direct Messaging, a two-way integration with hospital record systems (EHR), built with UnitedHealthcare and piloted for Q1 2024.",
-        "Led the Click to Code medical autocoding project, an NLP-based AI coding interface, from alpha to production (Q1 2022). A major V2.0 redesign, validated with 897 users, reached 88% acceptance and 80% satisfaction, and became a core part of Episource's autocoding strategy, targeting 500,000-750,000 charts a year.",
+        "Led the Click to Code medical autocoding project, an NLP-based AI coding interface, from alpha to production (Q1 2022). A major V2.0 redesign, validated with 897 users, reached 88% of suggested medical codes accepted and 80% of users rating it 8 to 10 on NPS, and became a core part of Episource's autocoding strategy, targeting 500,000-750,000 charts a year.",
       ],
     },
     seif: {
@@ -196,7 +196,7 @@ export const workText: Record<
       role: "Design Manager",
       bullets: [
         "Recrutement et management de la première équipe Design de NRC Health, deux Product Designers et un Analytics Specialist, sur les quatre suites produit.",
-        "Création d'un design system multi-produits basé sur la bibliothèque Flowbite : design tokens et semantic layer partagés par les front-ends Angular, Vue et legacy, avec une stratégie d'adoption progressive, des tokens aux design patterns.",
+        "Création d'un design system multi-produits basé sur la bibliothèque Flowbite : design tokens et semantic layer partagés par les front-ends Angular, React, .NET et legacy, avec une stratégie d'adoption progressive, des tokens aux design patterns.",
         "Mise en place d'un workflow design-to-code assisté par IA, pour que des profils non techniques proposent des changements UX/UI relus par un développeur.",
         "Pilotage du design des fonctionnalités IA de l'entreprise, dont l'assistant Huey et un outil d'ambient listening qui a fait passer la documentation des rondes infirmières de 55 % à 90 % sur un test d'un mois.",
         "Mise en place des analytics produit avec les équipes Produit, Engineering et le C-level, et validation des décisions design par la recherche et l'A/B testing : +24 % de taux de clic sur les emails d'outreach.",
@@ -205,11 +205,11 @@ export const workText: Record<
     episource: {
       role: "Senior → Lead Product Designer · Design System",
       bullets: [
-        "Coordination de la recherche utilisateur sur plusieurs produits de la suite.",
+        "Pilotage de la recherche utilisateur sur plusieurs produits de la suite.",
         "Création des bibliothèques de composants Figma et intégration des design tokens en production pour le déploiement du design system sur l'ensemble de la suite produit (Q4 2021 - Q2 2022).",
         "Promotion au poste de Lead Product Designer après 12 mois.",
         "Prise en charge de la conception de Provider Direct Messaging, une intégration bidirectionnelle avec les dossiers médicaux des hôpitaux (EHR), développée avec UnitedHealthcare et déployée en pilote pour Q1 2024.",
-        "Pilotage du projet d'autocoding médical Click to Code, l'interface de coding assistée par IA reposant sur le NLP, depuis l'alpha jusqu'à la mise en production (Q1 2022). Refonte majeure (V2.0) validée auprès de 897 utilisateurs, atteignant 88 % d'acceptation et 80 % de satisfaction. Cette fonctionnalité est devenue un élément central de la stratégie d'autocoding d'Episource, avec un objectif de traitement de 500 000 à 750 000 dossiers par an.",
+        "Pilotage du projet d'autocoding médical Click to Code, l'interface de coding assistée par IA reposant sur le NLP, depuis l'alpha jusqu'à la mise en production (Q1 2022). Refonte majeure (V2.0) validée auprès de 897 utilisateurs, atteignant 88 % des codes médicaux suggérés acceptés et 80 % des utilisateurs le notant de 8 à 10 au NPS. Cette fonctionnalité est devenue un élément central de la stratégie d'autocoding d'Episource, avec un objectif de traitement de 500 000 à 750 000 dossiers par an.",
       ],
     },
     seif: {
@@ -250,7 +250,7 @@ export const workText: Record<
       role: "Design Manager",
       bullets: [
         "Contraté y lideré el primer equipo de Diseño de NRC Health, dos Product Designers y un Analytics Specialist, en las cuatro suites de producto.",
-        "Creé un design system multi-producto basado en la librería Flowbite: design tokens y una semantic layer compartidos por los front-ends Angular, Vue y legacy, con una estrategia de adopción progresiva, de los tokens a los design patterns.",
+        "Creé un design system multi-producto basado en la librería Flowbite: design tokens y una semantic layer compartidos por los front-ends Angular, React, .NET y legacy, con una estrategia de adopción progresiva, de los tokens a los design patterns.",
         "Monté un workflow design-to-code asistido por IA, para que perfiles no técnicos propongan cambios de UX/UI que revisa un desarrollador.",
         "Dirigí el diseño de las funcionalidades de IA de la empresa, entre ellas el asistente Huey y una herramienta de ambient listening que elevó la documentación de las rondas de enfermería del 55 % al 90 % en una prueba de un mes.",
         "Implanté los analytics de producto con Producto, Engineering y el C-level, y validé las decisiones de diseño con investigación y A/B testing: +24 % de tasa de clics en los emails de outreach.",
@@ -259,11 +259,11 @@ export const workText: Record<
     episource: {
       role: "Senior → Lead Product Designer · Design System",
       bullets: [
-        "Coordiné la investigación de usuarios en varios productos de la suite.",
+        "Dirigí la investigación de usuarios en varios productos de la suite.",
         "Creé las bibliotecas de componentes en Figma e integré design tokens en producción para el despliegue del design system en toda la suite de producto (Q4 2021 - Q2 2022).",
         "Fui ascendido a Lead Product Designer tras 12 meses.",
         "Me hice cargo del diseño de Provider Direct Messaging, una integración bidireccional con las historias clínicas de los hospitales (EHR), desarrollada con UnitedHealthcare y pilotada para Q1 2024.",
-        "Dirigí el proyecto de autocoding médico Click to Code, la interfaz de coding asistida por IA basada en NLP, desde el alpha hasta producción (Q1 2022). Un rediseño mayor (V2.0), validado con 897 usuarios, alcanzó 88 % de aceptación y 80 % de satisfacción, y se volvió una pieza central de la estrategia de autocoding de Episource, con un objetivo de 500 000 a 750 000 historiales al año.",
+        "Dirigí el proyecto de autocoding médico Click to Code, la interfaz de coding asistida por IA basada en NLP, desde el alpha hasta producción (Q1 2022). Un rediseño mayor (V2.0), validado con 897 usuarios, alcanzó 88 % de los códigos médicos sugeridos aceptados y 80 % de usuarios que lo calificaron de 8 a 10 en el NPS, y se volvió una pieza central de la estrategia de autocoding de Episource, con un objetivo de 500 000 a 750 000 historiales al año.",
       ],
     },
     seif: {
@@ -1575,7 +1575,7 @@ export const nrcText: Record<
         },
         {
           title: "Make design tokens stack-agnostic",
-          body: "To cover heterogeneous environments: Angular, Vue and legacy code all consume the same tokens.",
+          body: "To cover heterogeneous environments: Angular, React, .NET and legacy code all consume the same tokens.",
         },
         {
           title: "Share patterns across products",
@@ -1714,7 +1714,7 @@ export const nrcText: Record<
         },
         {
           title: "Rendre les design tokens agnostiques de la stack",
-          body: "Pour couvrir des environnements hétérogènes : Angular, Vue et le code legacy consomment les mêmes tokens.",
+          body: "Pour couvrir des environnements hétérogènes : Angular, React, .NET et le code legacy consomment les mêmes tokens.",
         },
         {
           title: "Mutualiser les patterns",
@@ -1853,7 +1853,7 @@ export const nrcText: Record<
         },
         {
           title: "Hacer los design tokens agnósticos",
-          body: "Para cubrir entornos heterogéneos: Angular, Vue y el código legacy consumen los mismos tokens.",
+          body: "Para cubrir entornos heterogéneos: Angular, React, .NET y el código legacy consumen los mismos tokens.",
         },
         {
           title: "Compartir los patrones",
