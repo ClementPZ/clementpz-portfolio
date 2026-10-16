@@ -178,7 +178,7 @@ export const workText: Record<
     welcomhere: {
       role: "Co-founder · Product & Business Development",
       bullets: [
-        "Co-founded a relocation platform for migrants.",
+        "Co-founded a relocation platform for immigrants.",
         "Led product definition, pitches, fundraising, and partnerships.",
       ],
     },
@@ -232,7 +232,7 @@ export const workText: Record<
     welcomhere: {
       role: "Co-fondateur · Product & Business Development",
       bullets: [
-        "Co-fondation d'une plateforme de relocation pour migrants.",
+        "Co-fondation d'une plateforme de relocation pour immigrants.",
         "Prise en charge de la définition produit, des pitchs, de la levée de fonds et des partenariats.",
       ],
     },
@@ -286,7 +286,7 @@ export const workText: Record<
     welcomhere: {
       role: "Cofundador · Product & Business Development",
       bullets: [
-        "Cofundé una plataforma de relocation para migrantes.",
+        "Cofundé una plataforma de relocation para inmigrantes.",
         "Dirigí la definición de producto, pitches, recaudación de fondos y alianzas.",
       ],
     },
