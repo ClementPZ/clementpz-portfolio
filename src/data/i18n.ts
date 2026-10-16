@@ -152,7 +152,7 @@ export const workText: Record<
       role: "Senior → Lead Product Designer · Design System",
       bullets: [
         "Led user research across several products of the suite.",
-        "Built the Figma component libraries and integrated design tokens into production for the design-system rollout across the whole product suite (Q4 2021 - Q2 2022).",
+        "Built the Figma component libraries and integrated design tokens into production for the design-system rollout across the whole product suite (Q4 2021 - Q2 2022). With the design system developer, it then grew from Angular to a multi-stack library (React, Angular, Vue) built on Stencil JS web components, on top of Google Material 2. I owned the Figma side, the developer the code.",
         "Promoted to Lead Product Designer after 12 months.",
         "Owned Provider Direct Messaging, a two-way integration with hospital record systems (EHR), built with UnitedHealthcare, with a pilot targeted for Q1 2024.",
         "Led the Click to Code medical autocoding project, an NLP-based AI coding interface, from alpha to production (Q1 2022). A major V2.0 redesign, validated with 897 users, reached 88% of suggested medical codes accepted and 80% of users rating it 8 to 10 on NPS, and became a core part of Episource's autocoding strategy, targeting 500,000-750,000 charts a year.",
@@ -206,7 +206,7 @@ export const workText: Record<
       role: "Senior → Lead Product Designer · Design System",
       bullets: [
         "Pilotage de la recherche utilisateur sur plusieurs produits de la suite.",
-        "Création des bibliothèques de composants Figma et intégration des design tokens en production pour le déploiement du design system sur l'ensemble de la suite produit (Q4 2021 - Q2 2022).",
+        "Création des bibliothèques de composants Figma et intégration des design tokens en production pour le déploiement du design system sur l'ensemble de la suite produit (Q4 2021 - Q2 2022). Avec le développeur du design system, il est ensuite passé d'Angular à une bibliothèque multi-stack (React, Angular, Vue) bâtie sur des web components Stencil JS, à partir de Google Material 2. J'ai tenu le côté Figma, le développeur le code.",
         "Promotion au poste de Lead Product Designer après 12 mois.",
         "Prise en charge de la conception de Provider Direct Messaging, une intégration bidirectionnelle avec les dossiers médicaux des hôpitaux (EHR), développée avec UnitedHealthcare, avec un pilote visé pour Q1 2024.",
         "Pilotage du projet d'autocoding médical Click to Code, l'interface de coding assistée par IA reposant sur le NLP, depuis l'alpha jusqu'à la mise en production (Q1 2022). Refonte majeure (V2.0) validée auprès de 897 utilisateurs, atteignant 88 % des codes médicaux suggérés acceptés et 80 % des utilisateurs le notant de 8 à 10 au NPS. Cette fonctionnalité est devenue un élément central de la stratégie d'autocoding d'Episource, avec un objectif de traitement de 500 000 à 750 000 dossiers par an.",
@@ -260,7 +260,7 @@ export const workText: Record<
       role: "Senior → Lead Product Designer · Design System",
       bullets: [
         "Dirigí la investigación de usuarios en varios productos de la suite.",
-        "Creé las bibliotecas de componentes en Figma e integré design tokens en producción para el despliegue del design system en toda la suite de producto (Q4 2021 - Q2 2022).",
+        "Creé las bibliotecas de componentes en Figma e integré design tokens en producción para el despliegue del design system en toda la suite de producto (Q4 2021 - Q2 2022). Junto al desarrollador del design system, pasó después de Angular a una biblioteca multi-stack (React, Angular, Vue) construida con web components de Stencil JS, sobre Google Material 2. Yo me ocupé del lado Figma y el desarrollador del código.",
         "Fui ascendido a Lead Product Designer tras 12 meses.",
         "Me hice cargo del diseño de Provider Direct Messaging, una integración bidireccional con las historias clínicas de los hospitales (EHR), desarrollada con UnitedHealthcare, con un piloto previsto para Q1 2024.",
         "Dirigí el proyecto de autocoding médico Click to Code, la interfaz de coding asistida por IA basada en NLP, desde el alpha hasta producción (Q1 2022). Un rediseño mayor (V2.0), validado con 897 usuarios, alcanzó 88 % de los códigos médicos sugeridos aceptados y 80 % de usuarios que lo calificaron de 8 a 10 en el NPS, y se volvió una pieza central de la estrategia de autocoding de Episource, con un objetivo de 500 000 a 750 000 historiales al año.",
