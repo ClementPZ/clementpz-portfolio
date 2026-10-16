@@ -66,7 +66,7 @@ export const work: WorkItem[] = [
     company: "NRC Health (Nasdaq: NRC)",
     period: "2024 - 2026",
     location: "Lincoln, USA · Paris",
-    tags: ["Healthcare", "SaaS", "Design System", "Lead", "AI"],
+    tags: ["Healthcare", "SaaS", "Design System", "AI"],
     photo: "/work/nrc.jpg",
     link: "/nrc",
   },
@@ -79,6 +79,13 @@ export const work: WorkItem[] = [
     link: "/episource",
   },
   {
+    id: "seif",
+    company: "SEIF",
+    period: "2020 - 2021",
+    location: "Mexico City, Remote",
+    tags: ["Fintech", "Blockchain", "Mobile", "Design System"],
+  },
+  {
     id: "lewagon",
     company: "Le Wagon",
     period: "2017 - 2021",
@@ -87,26 +94,19 @@ export const work: WorkItem[] = [
     photo: "/work/lewagon.jpg",
   },
   {
+    id: "welcomhere",
+    company: "Welcomhere",
+    period: "2015 - 2017",
+    location: "Paris",
+    tags: ["Founder", "Social Impact", "Product", "NGO"],
+  },
+  {
     id: "devialet",
     company: "Devialet",
     period: "2011 - 2015",
     location: "Paris · Europe",
     tags: ["Retail", "Luxury", "Operations", "Europe"],
     photo: "/work/devialet.jpg",
-  },
-  {
-    id: "seif",
-    company: "SEIF",
-    period: "2020 - 2021",
-    location: "Mexico City, Remote",
-    tags: ["Fintech", "Blockchain", "Mobile", "Design System"],
-  },
-  {
-    id: "welcomhere",
-    company: "Welcomhere",
-    period: "2015 - 2017",
-    location: "Paris",
-    tags: ["Founder", "Social Impact", "Product", "NGO"],
   },
 ];
 

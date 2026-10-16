@@ -127,8 +127,8 @@ export const introDesktopCut: Partial<Record<Locale, string>> = {
 // Intro localisée (profile.intro).
 export const introText: Record<Locale, string> = {
   en: "Hello, I'm Clément, product designer with 10+ years across product, business and design systems. I built the design function at Nasdaq-listed NRC Health from scratch: a first team of three, a centralized design system, analytics strategy, AI features and design to code flows... Before that, I was lead designer at Episource (now Optum-UnitedHealth Group), where, among others, I took an AI medical-coding interface from alpha to production. Open to Design Engineer, Design Manager, and Senior Product Designer roles.",
-  fr: "Bonjour, je suis Clément, Product designer avec plus de 10 ans d'expérience entre produit, business et design systems. J'ai monté la fonction design depuis zéro chez NRC Health, une entreprise SaaS cotée au Nasdaq. Recruter et leader une première équipe de trois personnes, créé le design system, intégrer les analytics et des fonctionnalités IA ainsi qu'un workflow design to code. Avant cela, j'étais lead designer chez Episource (aujourd'hui Optum-UnitedHealth Group), où j'ai mené la migration d'une interface de coding médical via IA de l'alpha à la production. Je suis ouvert aux postes de Design Engineer, Design Manager et Senior Product Designer.",
-  es: "Hola, soy Clément, product designer con más de 10 años de experiencia entre producto, business y design systems. Construí la función de diseño desde cero en NRC Health (Nasdaq): un primer equipo de tres personas, un design system adoptado por tres de las cuatro suites de producto, analytics,AI features and design to code flows. Antes, lead designer en Episource (hoy Optum), donde llevé una interfaz de codificación médica con IA del alpha a producción. Abierto a puestos de Design Engineer, Design Manager y Senior Product Designer.",
+  fr: "Bonjour, je suis Clément, Product designer avec plus de 10 ans d'expérience entre produit, business et design systems. J'ai monté la fonction design depuis zéro chez NRC Health, une entreprise SaaS cotée au Nasdaq : j'ai recruté et managé une première équipe de trois personnes, créé le design system, intégré les analytics et des fonctionnalités IA ainsi qu'un workflow design to code. Avant cela, j'étais lead designer chez Episource (aujourd'hui Optum-UnitedHealth Group), où, entre autres, j'ai mené une interface de coding médical via IA de l'alpha à la production. Je suis ouvert aux postes de Design Engineer, Design Manager et Senior Product Designer.",
+  es: "Hola, soy Clément, product designer con más de 10 años de experiencia entre producto, business y design systems. Construí la función de diseño desde cero en NRC Health (Nasdaq): un primer equipo de tres personas, un design system adoptado por tres de las cuatro suites de producto, analytics, funcionalidades de IA y flujos design to code. Antes fui lead designer en Episource (hoy Optum-UnitedHealth Group), donde, entre otras cosas, llevé una interfaz de codificación médica con IA del alpha a producción. Abierto a puestos de Design Engineer, Design Manager y Senior Product Designer.",
 };
 
 // Texte localisé des expériences — index aligné sur `work` dans content.ts :
@@ -141,10 +141,10 @@ export const workText: Record<
     nrc: {
       role: "Design Manager",
       bullets: [
-        "Recruited and led NRC Health's first design team, two Product Designers and an Analytics Specialist, across all four product suites.",
+        "Recruited and led NRC Health's first design team, a Senior Product Designer, a Product Designer and an Analytics Specialist, across all four product suites.",
         "Created a multi-product design system based on the Flowbite library: design tokens and a semantic layer shared by Angular, React, .NET and legacy front-ends, with an adoption ramp-up strategy from tokens to design patterns.",
         "Built an AI-assisted design-to-code workflow, so non-technical profiles can propose UX/UI changes that a developer reviews.",
-        "Led the design of the company's AI features, including the Huey assistant and an ambient-listening tool that raised nurse-rounding documentation from 55% to 90% in a one-month test.",
+        "Led the design of the company's AI features, including the Huey assistant and an ambient-listening tool that raised nurse-rounding documentation from 55% to 90% in a three-month test.",
         "Set up product analytics with Product, Engineering and the C-suite, and validated design decisions with research and A/B tests: +24% click-through on outreach emails.",
       ],
     },
@@ -154,7 +154,7 @@ export const workText: Record<
         "Led user research across several products of the suite.",
         "Built the Figma component libraries and integrated design tokens into production for the design-system rollout across the whole product suite (Q4 2021 - Q2 2022).",
         "Promoted to Lead Product Designer after 12 months.",
-        "Owned Provider Direct Messaging, a two-way integration with hospital record systems (EHR), built with UnitedHealthcare and piloted for Q1 2024.",
+        "Owned Provider Direct Messaging, a two-way integration with hospital record systems (EHR), built with UnitedHealthcare, with a pilot targeted for Q1 2024.",
         "Led the Click to Code medical autocoding project, an NLP-based AI coding interface, from alpha to production (Q1 2022). A major V2.0 redesign, validated with 897 users, reached 88% of suggested medical codes accepted and 80% of users rating it 8 to 10 on NPS, and became a core part of Episource's autocoding strategy, targeting 500,000-750,000 charts a year.",
       ],
     },
@@ -169,8 +169,8 @@ export const workText: Record<
     lewagon: {
       role: "Founder · Product Design Teacher · Business Development",
       bullets: [
-        "Launched Le Wagon's Mexico City campus, the first in Latin America.",
-        "Secured 15 commercial partners (ITAM, Start-Up Mexico, Numa).",
+        "Launched Le Wagon's Mexico City campus.",
+        "Secured 10 commercial partners (ITAM, Start-Up Mexico, Numa).",
         "Taught UI/UX fundamentals across 5 batches.",
       ],
       impact: ["5 batches · 61 students · 15 web products shipped"],
@@ -195,10 +195,10 @@ export const workText: Record<
     nrc: {
       role: "Design Manager",
       bullets: [
-        "Recrutement et management de la première équipe Design de NRC Health, deux Product Designers et un Analytics Specialist, sur les quatre suites produit.",
+        "Recrutement et management de la première équipe Design de NRC Health, un Senior Product Designer, un Product Designer et un Analytics Specialist, sur les quatre suites produit.",
         "Création d'un design system multi-produits basé sur la bibliothèque Flowbite : design tokens et semantic layer partagés par les front-ends Angular, React, .NET et legacy, avec une stratégie d'adoption progressive, des tokens aux design patterns.",
         "Mise en place d'un workflow design-to-code assisté par IA, pour que des profils non techniques proposent des changements UX/UI relus par un développeur.",
-        "Pilotage du design des fonctionnalités IA de l'entreprise, dont l'assistant Huey et un outil d'ambient listening qui a fait passer la documentation des rondes infirmières de 55 % à 90 % sur un test d'un mois.",
+        "Pilotage du design des fonctionnalités IA de l'entreprise, dont l'assistant Huey et un outil d'ambient listening qui a fait passer la documentation des rondes infirmières de 55 % à 90 % sur un test de trois mois.",
         "Mise en place des analytics produit avec les équipes Produit, Engineering et le C-level, et validation des décisions design par la recherche et l'A/B testing : +24 % de taux de clic sur les emails d'outreach.",
       ],
     },
@@ -208,7 +208,7 @@ export const workText: Record<
         "Pilotage de la recherche utilisateur sur plusieurs produits de la suite.",
         "Création des bibliothèques de composants Figma et intégration des design tokens en production pour le déploiement du design system sur l'ensemble de la suite produit (Q4 2021 - Q2 2022).",
         "Promotion au poste de Lead Product Designer après 12 mois.",
-        "Prise en charge de la conception de Provider Direct Messaging, une intégration bidirectionnelle avec les dossiers médicaux des hôpitaux (EHR), développée avec UnitedHealthcare et déployée en pilote pour Q1 2024.",
+        "Prise en charge de la conception de Provider Direct Messaging, une intégration bidirectionnelle avec les dossiers médicaux des hôpitaux (EHR), développée avec UnitedHealthcare, avec un pilote visé pour Q1 2024.",
         "Pilotage du projet d'autocoding médical Click to Code, l'interface de coding assistée par IA reposant sur le NLP, depuis l'alpha jusqu'à la mise en production (Q1 2022). Refonte majeure (V2.0) validée auprès de 897 utilisateurs, atteignant 88 % des codes médicaux suggérés acceptés et 80 % des utilisateurs le notant de 8 à 10 au NPS. Cette fonctionnalité est devenue un élément central de la stratégie d'autocoding d'Episource, avec un objectif de traitement de 500 000 à 750 000 dossiers par an.",
       ],
     },
@@ -223,8 +223,8 @@ export const workText: Record<
     lewagon: {
       role: "Fondateur · Enseignant Product Design · Business Development",
       bullets: [
-        "Lancement du campus Le Wagon de Mexico, le premier d'Amérique latine.",
-        "Signature de 15 partenaires commerciaux, dont ITAM, Start-Up Mexico et Numa.",
+        "Lancement du campus Le Wagon de Mexico.",
+        "Signature de 10 partenaires commerciaux, dont ITAM, Start-Up Mexico et Numa.",
         "Enseignement des fondamentaux UI/UX sur 5 promotions.",
       ],
       impact: ["5 promotions · 61 étudiants · 15 produits web livrés"],
@@ -249,10 +249,10 @@ export const workText: Record<
     nrc: {
       role: "Design Manager",
       bullets: [
-        "Contraté y lideré el primer equipo de Diseño de NRC Health, dos Product Designers y un Analytics Specialist, en las cuatro suites de producto.",
+        "Contraté y lideré el primer equipo de Diseño de NRC Health, un Senior Product Designer, un Product Designer y un Analytics Specialist, en las cuatro suites de producto.",
         "Creé un design system multi-producto basado en la librería Flowbite: design tokens y una semantic layer compartidos por los front-ends Angular, React, .NET y legacy, con una estrategia de adopción progresiva, de los tokens a los design patterns.",
         "Monté un workflow design-to-code asistido por IA, para que perfiles no técnicos propongan cambios de UX/UI que revisa un desarrollador.",
-        "Dirigí el diseño de las funcionalidades de IA de la empresa, entre ellas el asistente Huey y una herramienta de ambient listening que elevó la documentación de las rondas de enfermería del 55 % al 90 % en una prueba de un mes.",
+        "Dirigí el diseño de las funcionalidades de IA de la empresa, entre ellas el asistente Huey y una herramienta de ambient listening que elevó la documentación de las rondas de enfermería del 55 % al 90 % en una prueba de tres meses.",
         "Implanté los analytics de producto con Producto, Engineering y el C-level, y validé las decisiones de diseño con investigación y A/B testing: +24 % de tasa de clics en los emails de outreach.",
       ],
     },
@@ -262,7 +262,7 @@ export const workText: Record<
         "Dirigí la investigación de usuarios en varios productos de la suite.",
         "Creé las bibliotecas de componentes en Figma e integré design tokens en producción para el despliegue del design system en toda la suite de producto (Q4 2021 - Q2 2022).",
         "Fui ascendido a Lead Product Designer tras 12 meses.",
-        "Me hice cargo del diseño de Provider Direct Messaging, una integración bidireccional con las historias clínicas de los hospitales (EHR), desarrollada con UnitedHealthcare y pilotada para Q1 2024.",
+        "Me hice cargo del diseño de Provider Direct Messaging, una integración bidireccional con las historias clínicas de los hospitales (EHR), desarrollada con UnitedHealthcare, con un piloto previsto para Q1 2024.",
         "Dirigí el proyecto de autocoding médico Click to Code, la interfaz de coding asistida por IA basada en NLP, desde el alpha hasta producción (Q1 2022). Un rediseño mayor (V2.0), validado con 897 usuarios, alcanzó 88 % de los códigos médicos sugeridos aceptados y 80 % de usuarios que lo calificaron de 8 a 10 en el NPS, y se volvió una pieza central de la estrategia de autocoding de Episource, con un objetivo de 500 000 a 750 000 historiales al año.",
       ],
     },
@@ -277,8 +277,8 @@ export const workText: Record<
     lewagon: {
       role: "Fundador · Profesor de Product Design · Business Development",
       bullets: [
-        "Lancé el campus de Le Wagon en Ciudad de México, el primero de América Latina.",
-        "Aseguré 15 socios comerciales (ITAM, Start-Up Mexico, Numa).",
+        "Lancé el campus de Le Wagon en Ciudad de México.",
+        "Aseguré 10 socios comerciales (ITAM, Start-Up Mexico, Numa).",
         "Enseñé fundamentos de UI/UX en 5 promociones.",
       ],
       impact: ["5 promociones · 61 estudiantes · 15 productos web entregados"],
@@ -1553,7 +1553,7 @@ export const nrcText: Record<
         {
           label: "Delivered in two years",
           items: [
-            { category: "Design system", title: "Design tokens and Storybook components adopted by three of the four product suites" },
+            { category: "Design system", title: "Design system adopted by three of the four product suites, and by the AI features" },
             { category: "Quick wins", title: "101 listed and prioritized across the products" },
             { category: "Product design", title: "Market, Customer and Patient Experience redesigns launched, from tokens to design patterns. Patient Experience: phases 0 to 3 shipped, from quick wins to the filter system" },
             { category: "Huey", title: "Three entry points across the suites, three design patterns integrated" },
@@ -1567,7 +1567,7 @@ export const nrcText: Record<
     },
     system: {
       title: "3. The design system",
-      sub: "Four products, several front-end stacks, one design system. Its Figma library is adopted by three of the four suites and by Huey.",
+      sub: "Four products, several front-end stacks, one design system. It is adopted by three of the four suites and by the AI features.",
       items: [
         {
           title: "Build on Flowbite",
@@ -1595,7 +1595,7 @@ export const nrcText: Record<
     },
     cases: {
       title: "2. Three product cases",
-      sub: "Three problems of a different nature: redesigning the company's most profitable product, lifting conversion on a major data-collection channel, and a strategic call on AI.",
+      sub: "Three problems of a different nature: redesigning the company's oldest product, lifting conversion on a major data-collection channel, and a strategic call on AI.",
       items: [
         {
           n: "a",
@@ -1605,7 +1605,7 @@ export const nrcText: Record<
           moves: [
             "Tackle the suite in phases rather than as one single project, each with its own scope and success criteria.",
             "Open each phase with a round of user research, to confirm in finer detail the problems identified upstream.",
-            "Pair with a dedicated front-end developer squad based in Vietnam, which shortens the path from a design decision to production.",
+            "Pair with a dedicated offshore front-end developer squad, which shortens the path from a design decision to production.",
             "Keep the product usable at every step, so the work could pause or be reordered without leaving a half-redesigned suite behind.",
           ],
           status: {
@@ -1622,7 +1622,7 @@ export const nrcText: Record<
           moves: [
             "List 101 quick wins across every product, then prioritize them. This one combined a wide reach with a low cost of change.",
             "Rebuild the email around a single action, instead of a wall of content.",
-            "Ship it straight through the design-to-code pipeline, with no spec in between.",
+            "Ship it in part through the design-to-code pipeline, with no spec in between.",
             "Present the result to the executive committee, before and after side by side.",
           ],
           result: "Click-through rate from 8% to 9.9% in an A/B test, a 24% lift.",
@@ -1638,7 +1638,7 @@ export const nrcText: Record<
             "Settle on three entry points and no more: an agent to query the data directly, a widget component that pushes information (summaries, insights, next logical actions...), and features embedded in the products where the work already happens (writing assistant, incident handling, ambient listening...).",
             "Make the entry point a product decision, rather than a choice revisited from scratch with every feature.",
           ],
-          result: "Ambient listening, for example, raised nurse-rounding documentation from 55% to 90% in a one-month test.",
+          result: "Ambient listening, for example, raised nurse-rounding documentation from 55% to 90% in a three-month test.",
           more: {
             body: "The research behind it distilled into three principles every Huey interaction has to pass: inviting, relevant, adaptive. They became an evaluation test, then a marker and a drawer shared by every product.",
             cta: "Explore a workshop session for Huey",
@@ -1692,7 +1692,7 @@ export const nrcText: Record<
         {
           label: "Livré en deux ans",
           items: [
-            { category: "Design system", title: "Design tokens et composants Storybook adoptés par trois des quatre suites produit" },
+            { category: "Design system", title: "Design system adopté par trois des quatre suites produit, et par les fonctionnalités IA" },
             { category: "Quick wins", title: "101 recensés et priorisés sur l'ensemble des produits" },
             { category: "Product design", title: "Refontes Market, Customer et Patient Experience lancées, des tokens aux design patterns. Patient Experience : phases 0 à 3 livrées, des quick wins au système de filtres" },
             { category: "Huey", title: "Trois points d'entrée sur l'ensemble des suites, trois design patterns intégrés" },
@@ -1706,7 +1706,7 @@ export const nrcText: Record<
     },
     system: {
       title: "3. Le design system",
-      sub: "Quatre produits, plusieurs stacks front, un seul design system. Sa bibliothèque Figma est adoptée par trois des quatre suites et par Huey.",
+      sub: "Quatre produits, plusieurs stacks front, un seul design system. Il est adopté par trois des quatre suites et par les fonctionnalités IA.",
       items: [
         {
           title: "S'appuyer sur Flowbite",
@@ -1734,7 +1734,7 @@ export const nrcText: Record<
     },
     cases: {
       title: "2. Trois cas produit",
-      sub: "Trois sujets de nature différente : la refonte du produit le plus rentable de l'entreprise, la conversion d'un canal majeur d'acquisition de données, et un arbitrage stratégique sur l'IA.",
+      sub: "Trois sujets de nature différente : la refonte du plus ancien produit de l'entreprise, la conversion d'un canal majeur d'acquisition de données, et un arbitrage stratégique sur l'IA.",
       items: [
         {
           n: "a",
@@ -1744,7 +1744,7 @@ export const nrcText: Record<
           moves: [
             "Traiter la suite par phases plutôt qu'en un chantier unique, chacune avec son périmètre et ses critères de réussite.",
             "Ouvrir chaque phase par une séquence de recherche utilisateur, pour confirmer plus finement les problèmes découverts en amont.",
-            "Travailler en binôme avec une squad de développeurs front-end dédiée, basée au Vietnam, ce qui raccourcit le trajet entre une décision de design et sa mise en production.",
+            "Travailler en binôme avec une squad de développeurs front-end dédiée, en offshore, ce qui raccourcit le trajet entre une décision de design et sa mise en production.",
             "Laisser le produit utilisable à chaque palier, de sorte que le chantier puisse s'interrompre ou se réordonner sans laisser une suite à moitié refondue.",
           ],
           status: {
@@ -1761,7 +1761,7 @@ export const nrcText: Record<
           moves: [
             "Recenser 101 quick wins à travers l'ensemble des produits, puis les prioriser. Celui-ci combinait une large portée et un faible coût de changement.",
             "Reconstruire l'email autour d'une action unique, au lieu d'un mur de contenu.",
-            "Livrer directement via le pipeline design-to-code, sans passer par une spec.",
+            "Livrer en partie via le pipeline design-to-code, sans passer par une spec.",
             "Présenter le résultat au comité de direction, avant et après côte à côte.",
           ],
           result: "Taux de clic de 8 % à 9,9 % en A/B test, soit +24 %.",
@@ -1777,7 +1777,7 @@ export const nrcText: Record<
             "Arbitrer trois points d'entrée et pas davantage : un agent d'interrogation directe des données, un composant widget qui pousse de l'information (résumés, insights, prochaines actions logiques...), et des fonctionnalités intégrées aux produits là où le travail se fait déjà (assistant de rédaction, traitement des incidents, ambient listening...).",
             "Faire du point d'entrée une décision produit, et non un choix repris à zéro à chaque fonctionnalité.",
           ],
-          result: "L'ambient listening, par exemple, a fait passer la documentation des rondes infirmières de 55 % à 90 % sur un test d'un mois.",
+          result: "L'ambient listening, par exemple, a fait passer la documentation des rondes infirmières de 55 % à 90 % sur un test de trois mois.",
           more: {
             body: "La recherche derrière ce choix s'est condensée en trois principes que toute interaction Huey doit passer : invitant, pertinent, adaptatif. Ils sont devenus un test d'évaluation, puis un marqueur et un drawer communs à tous les produits.",
             cta: "Explorer une session de workshop sur Huey",
@@ -1831,7 +1831,7 @@ export const nrcText: Record<
         {
           label: "Entregado en dos años",
           items: [
-            { category: "Design system", title: "Design tokens y componentes de Storybook adoptados por tres de las cuatro suites de producto" },
+            { category: "Design system", title: "Design system adoptado por tres de las cuatro suites de producto, y por las funcionalidades de IA" },
             { category: "Quick wins", title: "101 identificados y priorizados en todos los productos" },
             { category: "Product design", title: "Rediseños de Market, Customer y Patient Experience lanzados, de los tokens a los design patterns. Patient Experience: fases 0 a 3 entregadas, de los quick wins al sistema de filtros" },
             { category: "Huey", title: "Tres puntos de entrada en todas las suites, tres design patterns integrados" },
@@ -1845,7 +1845,7 @@ export const nrcText: Record<
     },
     system: {
       title: "3. El design system",
-      sub: "Cuatro productos, varios stacks de front-end, un solo design system. Su biblioteca de Figma está adoptada por tres de las cuatro suites y por Huey.",
+      sub: "Cuatro productos, varios stacks de front-end, un solo design system. Está adoptado por tres de las cuatro suites y por las funcionalidades de IA.",
       items: [
         {
           title: "Apoyarse en Flowbite",
@@ -1873,7 +1873,7 @@ export const nrcText: Record<
     },
     cases: {
       title: "2. Tres casos de producto",
-      sub: "Tres temas de naturaleza distinta: el rediseño del producto más rentable de la empresa, la conversión de un canal clave de captación de datos y una decisión estratégica sobre la IA.",
+      sub: "Tres temas de naturaleza distinta: el rediseño del producto más antiguo de la empresa, la conversión de un canal clave de captación de datos y una decisión estratégica sobre la IA.",
       items: [
         {
           n: "a",
@@ -1883,7 +1883,7 @@ export const nrcText: Record<
           moves: [
             "Abordar la suite por fases y no como un único proyecto, cada una con su alcance y sus criterios de éxito.",
             "Abrir cada fase con una ronda de investigación de usuarios, para confirmar con más detalle los problemas detectados previamente.",
-            "Trabajar en tándem con una squad de desarrolladores front-end dedicada, con base en Vietnam, lo que acorta el camino entre una decisión de diseño y su puesta en producción.",
+            "Trabajar en tándem con una squad de desarrolladores front-end dedicada, en offshore, lo que acorta el camino entre una decisión de diseño y su puesta en producción.",
             "Mantener el producto utilizable en cada etapa, para que el proyecto pudiera pausarse o reordenarse sin dejar una suite a medio rediseñar.",
           ],
           status: {
@@ -1900,7 +1900,7 @@ export const nrcText: Record<
           moves: [
             "Identificar 101 quick wins en todos los productos y priorizarlos. Este combinaba un gran alcance con un bajo coste de cambio.",
             "Reconstruir el email en torno a una única acción, en lugar de un muro de contenido.",
-            "Entregarlo directamente a través del pipeline design-to-code, sin pasar por una spec.",
+            "Entregarlo en parte a través del pipeline design-to-code, sin pasar por una spec.",
             "Presentar el resultado al comité de dirección, con el antes y el después lado a lado.",
           ],
           result: "Tasa de clics del 8% al 9,9% en un A/B test, un 24% más.",
@@ -1916,7 +1916,7 @@ export const nrcText: Record<
             "Fijar tres puntos de entrada, ni uno más: un agente para consultar los datos directamente, un componente widget que empuja información (resúmenes, insights, próximas acciones lógicas...) y funcionalidades integradas en los productos allí donde ya se trabaja (asistente de redacción, gestión de incidencias, ambient listening...).",
             "Hacer del punto de entrada una decisión de producto, y no una elección que se replantea desde cero con cada funcionalidad.",
           ],
-          result: "El ambient listening, por ejemplo, elevó la documentación de las rondas de enfermería del 55 % al 90 % en una prueba de un mes.",
+          result: "El ambient listening, por ejemplo, elevó la documentación de las rondas de enfermería del 55 % al 90 % en una prueba de tres meses.",
           more: {
             body: "La investigación detrás de esta decisión se condensó en tres principios que toda interacción con Huey debe superar: invitante, relevante, adaptable. Se convirtieron en un test de evaluación y luego en un marcador y un drawer comunes a todos los productos.",
             cta: "Explorar una sesión de workshop sobre Huey",
@@ -2182,7 +2182,7 @@ export const nrcHueyText: Record<
       "As AI spread across products, each team was inventing its own way to surface it. The goal: unify how users meet and use AI across the whole platform.",
     meta: [
       { label: "Role", value: "Design Manager" },
-      { label: "Team", value: "2 product designers, 1 analytics specialist" },
+      { label: "Team", value: "1 senior product designer, 1 product designer, 1 analytics specialist" },
       {
         label: "Products",
         value: "Results dashboard, engagement tracking, rating scorecards, regulatory surveys, feedback management",
@@ -2298,7 +2298,7 @@ export const nrcHueyText: Record<
       "À mesure que l'IA se diffusait dans les produits, chaque équipe inventait sa propre façon de la faire apparaître. L'objectif : unifier la manière dont les utilisateurs rencontrent et utilisent l'IA sur toute la plateforme.",
     meta: [
       { label: "Rôle", value: "Design Manager" },
-      { label: "Équipe", value: "2 product designers, 1 analytics specialist" },
+      { label: "Équipe", value: "1 senior product designer, 1 product designer, 1 analytics specialist" },
       {
         label: "Produits",
         value: "Tableau de bord de résultats, suivi d'engagement, tableaux de scores, enquêtes réglementaires, gestion du feedback",
@@ -2419,7 +2419,7 @@ export const nrcHueyText: Record<
       "A medida que la IA se extendía por los productos, cada equipo inventaba su propia forma de mostrarla. El objetivo: unificar cómo los usuarios encuentran y usan la IA en toda la plataforma.",
     meta: [
       { label: "Rol", value: "Design Manager" },
-      { label: "Equipo", value: "2 product designers, 1 analytics specialist" },
+      { label: "Equipo", value: "1 senior product designer, 1 product designer, 1 analytics specialist" },
       {
         label: "Productos",
         value: "Panel de resultados, seguimiento del compromiso, tableros de puntuación, encuestas regulatorias, gestión del feedback",
