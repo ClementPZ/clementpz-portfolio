@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import CopyAnchor from "./CopyAnchor";
+
 // /spota/join/<code>, the page a friend's invite link lands on.
 //
 // On a phone with Spot a installed the app opens by itself from this address
@@ -46,6 +48,8 @@ export default async function SpotaJoinPage({
   // The same shape the app accepts, eight letters and digits in practice.
   if (!/^[A-Z0-9]{6,12}$/.test(code)) notFound();
 
+  const link = `https://clementpz.com/spota/join/${code}`;
+
   return (
     <div className="spotj">
       <div className="spotj-shell">
@@ -57,9 +61,13 @@ export default async function SpotaJoinPage({
           One dare a day, shot with both cameras, shared with the friends you let in.
           Open the app to join their crew.
         </p>
-        <a className="spotj-btn" href={`spota://join/${code}`}>
+        <CopyAnchor
+          className="spotj-btn"
+          href={`spota://join/${code}`}
+          copy={link}
+        >
           Open Spot a
-        </a>
+        </CopyAnchor>
         <p className="spotj-small">
           If the app does not open, type this code in it, on the crew page, long press
           the title:
@@ -67,7 +75,10 @@ export default async function SpotaJoinPage({
         <div className="spotj-code">{code}</div>
         <p className="spotj-small">
           Do not have Spot a yet? It is in closed beta on iOS, for people aged 16 and
-          over. <a href={BETA_MAILTO}>Ask for the beta</a>.
+          over. <CopyAnchor href={BETA_MAILTO} copy={link}>
+            Ask for the beta
+          </CopyAnchor>
+          . Your invite is kept: the app picks it up the first time it opens.
         </p>
       </div>
 

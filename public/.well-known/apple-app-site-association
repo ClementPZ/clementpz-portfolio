@@ -4,7 +4,8 @@
       {
         "appIDs": ["CD5YW9T737.com.spota.spota"],
         "components": [
-          { "/": "/spota/join/*", "comment": "A friend's invite link opens Spot a" }
+          { "/": "/spota/join/*", "comment": "A friend's invite link opens Spot a" },
+          { "/": "/spota", "comment": "The wake up link a crew shares opens Spot a" }
         ]
       }
     ]
