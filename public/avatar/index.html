@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ton visage. Tes règles. Ton contenu.</title>
+<meta name="description" content="Crée du contenu IA où tu es la star, sur ton propre ordinateur, avec une identité que toi seul peux utiliser.">
+<meta name="robots" content="noindex, nofollow">
+<style>
+  /* Self-hosted, latin subset, both SIL OFL 1.1 (licences beside the files). Absolute paths: the page is served at /avatar. */
+  @font-face { font-family: "Instrument Serif"; font-style: normal; font-weight: 400; font-display: swap; src: url("/avatar/fonts/instrument-serif-400.woff2") format("woff2"); }
+  @font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("/avatar/fonts/space-grotesk-latin.woff2") format("woff2"); }
+
+  :root {
+    --paper: #FBFAF7;
+    --ink: #121212;
+    --muted: #5d5b57;
+    --muted-dark: #a8a6a0;
+    --accent: #D7FF37;
+    --line: #e4e1da;
+    --line-dark: #2b2b2b;
+    --serif: "Instrument Serif", "Times New Roman", serif;
+    --sans: "Space Grotesk", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 18px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+  /* nav */
+  .nav { position: absolute; top: 0; left: 0; right: 0; z-index: 2; }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .mark { font-family: var(--serif); font-size: 28px; letter-spacing: -0.01em; text-decoration: none; color: inherit; }
+  .lang { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
+  .lang button { font: inherit; font-size: 14px; border: 0; background: transparent; color: var(--muted); padding: 5px 12px; border-radius: 999px; cursor: pointer; }
+  .lang button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+
+  /* buttons */
+  .btn { display: inline-block; font: inherit; font-weight: 500; font-size: 17px; text-decoration: none; color: var(--ink); background: var(--accent); border-radius: 999px; padding: 15px 30px; transition: transform .15s ease; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn:focus-visible, .lang button:focus-visible, summary:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+  /* hero */
+  .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 120px 0 80px; }
+  .tag { display: inline-block; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; color: var(--muted); margin-bottom: 28px; }
+  h1, h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -0.025em; line-height: 1.02; margin: 0; }
+  h1 { font-size: clamp(48px, 9vw, 112px); margin: 0 auto 28px; }
+  .sub { max-width: 52ch; margin: 0 auto 36px; color: var(--muted); font-size: clamp(17px, 2vw, 20px); }
+  .light-line { margin-top: 22px; color: var(--muted); font-size: 15px; }
+
+  /* sections */
+  section { padding: clamp(72px, 10vw, 132px) 0; }
+  h2 { font-size: clamp(38px, 6vw, 72px); margin-bottom: 48px; max-width: 16ch; }
+  .dark { background: var(--ink); color: var(--paper); }
+  .dark .muted { color: var(--muted-dark); }
+
+  /* cards */
+  .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .card { border: 1px solid var(--line-dark); border-radius: 28px; padding: 32px; background: #181818; }
+  .card .n { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 999px; background: var(--accent); color: var(--ink); font-weight: 700; font-size: 16px; margin-bottom: 40px; }
+  .card h3 { font-family: var(--serif); font-weight: 400; font-size: 34px; line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 14px; }
+  .card p { margin: 0; color: var(--muted-dark); }
+
+  /* steps */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; counter-reset: s; }
+  .step { border-top: 1px solid var(--ink); padding-top: 20px; }
+  .step b { display: block; font-family: var(--serif); font-weight: 400; font-size: 36px; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 10px; }
+  .step p { margin: 0; color: var(--muted); }
+
+  /* faq */
+  .faq { max-width: 760px; }
+  details { border-top: 1px solid var(--line-dark); }
+  details:last-child { border-bottom: 1px solid var(--line-dark); }
+  summary { list-style: none; cursor: pointer; padding: 22px 48px 22px 0; font-size: 20px; font-weight: 500; position: relative; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; position: absolute; right: 4px; top: 50%; transform: translateY(-50%); font-size: 28px; color: var(--accent); transition: transform .2s ease; }
+  details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+  details p { margin: 0 0 24px; color: var(--muted-dark); max-width: 60ch; }
+
+  /* closing */
+  .closing { background: var(--accent); color: var(--ink); text-align: center; }
+  .closing h2 { margin: 0 auto 36px; max-width: 14ch; }
+  .closing .btn { background: var(--ink); color: var(--paper); }
+
+  footer { padding: 28px 0; font-size: 14px; color: var(--muted); }
+
+  @media (max-width: 760px) {
+    .wrap { padding: 0 16px; }
+    .cards, .steps { grid-template-columns: 1fr; }
+    .steps { gap: 28px; }
+    .card { padding: 26px; }
+    .card .n { margin-bottom: 28px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn, summary::after { transition: none; } }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="mark" href="#top">avatar</a>
+    <div class="lang" role="group" aria-label="Langue / Language">
+      <button type="button" data-set="fr" aria-pressed="true">FR</button>
+      <button type="button" data-set="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <span class="tag" data-en="In preparation">En préparation</span>
+      <h1 data-en="Your face.<br>Your rules.<br>Your content.">Ton visage.<br>Tes règles.<br>Ton contenu.</h1>
+      <p class="sub" data-en="Make AI content starring you, on your own computer, with an identity only you can use. Every file labelled, nothing sent to anyone's model.">Crée du contenu IA où tu es la star, sur ton propre ordinateur, avec une identité que toi seul peux utiliser. Chaque fichier est étiqueté, rien n'est envoyé au modèle de qui que ce soit.</p>
+      <a class="btn" href="#acces" data-en="Get early access">Accès anticipé</a>
+      <p class="light-line" data-en="Don't borrow the trend. Star in it.">Ne copie pas la tendance. Joue dedans.</p>
+    </div>
+  </div>
+
+  <section class="dark">
+    <div class="wrap">
+      <div class="cards">
+        <article class="card">
+          <span class="n">1</span>
+          <h3 data-en="Take your image back">Reprends ton image</h3>
+          <p data-en="You decide what is done with your face. Enrol once, with an identity check and proof you are really there, and the tool will only ever create you.">Tu décides de ce qu'on fait de ton visage. Inscris-toi une fois, avec une vérification d'identité et une preuve de vie, et l'outil ne créera jamais que toi.</p>
+        </article>
+        <article class="card">
+          <span class="n">2</span>
+          <h3 data-en="Create under your control">Crée sous ton contrôle</h3>
+          <p data-en="A documentary on the fall of Pompeii. A vlog from the day the dinosaurs went. A spy-movie parody. Pick a trend, drop yourself in. Your content, your call, never someone else's face.">Un documentaire sur la chute de Pompéi. Un vlog du jour où les dinosaures ont disparu. Une parodie de film d'espionnage. Choisis une tendance, mets-toi dedans. Ton contenu, ton choix, jamais le visage de quelqu'un d'autre.</p>
+        </article>
+        <article class="card">
+          <span class="n">3</span>
+          <h3 data-en="Earn from your own image">Gagne de l'argent avec ta propre image</h3>
+          <p data-en="Post it, sell it, license it. The income comes from you, not from a lookalike somebody else made.">Publie, vends, licencie. Le revenu vient de toi, pas d'un sosie fabriqué par quelqu'un d'autre.</p>
+        </article>
+        <article class="card">
+          <span class="n">4</span>
+          <h3 data-en="Feed no one's model">Ne nourris le modèle de personne</h3>
+          <p data-en="Hosted tools take your photos to their servers. Here the models run and learn on your machine. We never see your images.">Les outils hébergés emportent tes photos sur leurs serveurs. Ici, les modèles tournent et apprennent sur ta machine. Nous ne voyons jamais tes images.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 data-en="How it works">Comment ça marche</h2>
+      <div class="steps">
+        <div class="step">
+          <b data-en="Enrol">Inscris-toi</b>
+          <p data-en="An identity check and proof of life, once.">Une vérification d'identité et une preuve de vie, une seule fois.</p>
+        </div>
+        <div class="step">
+          <b data-en="Create">Crée</b>
+          <p data-en="Photos first, video next.">Des photos d'abord, de la vidéo ensuite.</p>
+        </div>
+        <div class="step">
+          <b data-en="Share">Partage</b>
+          <p data-en="Every export carries a signed AI label, so you stay straight with your audience and platforms can read it.">Chaque export porte une étiquette IA signée, tu restes franc avec ton public et les plateformes peuvent la lire.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="wrap">
+      <h2 data-en="Questions">Questions fréquentes</h2>
+      <div class="faq">
+        <details>
+          <summary data-en="Is it really local?">C'est vraiment en local ?</summary>
+          <p data-en="Generation and training run on your computer. The one step with a third party is the identity check, and we will say who does it.">La génération et l'entraînement tournent sur ton ordinateur. La seule étape avec un tiers est la vérification d'identité, et nous dirons qui la fait.</p>
+        </details>
+        <details>
+          <summary data-en="What can I make?">Que puis-je créer ?</summary>
+          <p data-en="Anything legal about you. Never another person's face, never anything that sexualises minors. The rest is your call.">Tout ce qui est légal sur toi. Jamais le visage d'une autre personne, jamais rien qui sexualise des mineurs. Le reste, c'est ton choix.</p>
+        </details>
+        <details>
+          <summary data-en="Will it run on my computer?">Ça tournera sur mon ordinateur ?</summary>
+          <p data-en="Photos need a recent machine with enough memory, and we tell you before you start. Video comes later and needs a stronger one.">Les photos demandent une machine récente avec assez de mémoire, et nous te le disons avant de commencer. La vidéo viendra plus tard et demande une machine plus puissante.</p>
+        </details>
+        <details>
+          <summary data-en="Who owns what I make?">À qui appartient ce que je crée ?</summary>
+          <p data-en="You decide what you do with your image. What the law says about copyright on AI images is still moving, and we will not promise more than that.">Tu décides de ce que tu fais de ton image. Ce que dit la loi sur le droit d'auteur des images IA évolue encore, nous ne promettrons rien de plus.</p>
+        </details>
+        <details>
+          <summary data-en="Is it labelled as AI?">C'est étiqueté IA ?</summary>
+          <p data-en="Yes, every export.">Oui, chaque export.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing" id="acces">
+    <div class="wrap">
+      <h2 data-en="Be the only one who can make you.">Sois le seul à pouvoir te créer.</h2>
+      <a class="btn" href="#acces" data-en="Get early access">Accès anticipé</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap" data-en="Early access page. The product is not available yet.">Page d'accès anticipé. Le produit n'est pas encore disponible.</div>
+</footer>
+
+<script>
+  // French is the markup, English lives in data-en. First switch stores the French markup in data-fr.
+  // innerHTML is safe here, every string is written in this file.
+  var buttons = document.querySelectorAll('.lang button');
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-en]').forEach(function (el) {
+      if (!el.hasAttribute('data-fr')) el.setAttribute('data-fr', el.innerHTML);
+      el.innerHTML = el.getAttribute('data-' + lang);
+    });
+    document.title = lang === 'en' ? 'Your face. Your rules. Your content.' : 'Ton visage. Tes règles. Ton contenu.';
+    buttons.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.set === lang ? 'true' : 'false'); });
+  }
+  buttons.forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.set); }); });
+</script>
+</body>
+</html>

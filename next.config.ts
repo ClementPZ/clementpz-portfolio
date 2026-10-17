@@ -20,6 +20,17 @@ const nextConfig: NextConfig = {
         source: "/.well-known/apple-app-site-association",
         headers: [{ key: "Content-Type", value: "application/json" }],
       },
+      // Unlisted early access page: no sitemap entry, no link from the site.
+      {
+        source: "/avatar/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
+    ];
+  },
+  async rewrites() {
+    return [
+      // Static page in public/avatar, served at /avatar.
+      { source: "/avatar", destination: "/avatar/index.html" },
     ];
   },
   async redirects() {
