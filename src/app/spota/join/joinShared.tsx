@@ -184,8 +184,11 @@ export async function renderJoinCard(name?: string): Promise<ImageResponse> {
 
 const SPOT = "#cafe00";
 const SPOT_INK = "#0a0d00";
-const BETA_MAILTO =
-  "mailto:clementpicardzivy@gmail.com?subject=Spot%20a%20beta";
+// The public TestFlight link of the external group `Friends`, enabled 21 Aug,
+// 20 testers at most (App Store Connect, the group's public link). There is no
+// App Store page yet, so this is how somebody without the app gets it. It needs
+// iOS 16 or later, TestFlight's own floor.
+const BETA_LINK = "https://testflight.apple.com/join/RvAnbmHY";
 
 // On an iPhone with Spot a installed the app opens by itself from this address
 // (universal link, public/.well-known/apple-app-site-association) and this page
@@ -219,23 +222,30 @@ export function JoinView({ code, name }: { code: string; name?: string }) {
         <p className="spotj-lede spotj-phone">
           Open the app to join {name ? `${name}'s` : "their"} team.
         </p>
-        <CopyAnchor
-          className="spotj-btn spotj-phone"
-          href={`spota://join/${code}`}
-          copy={link}
-        >
-          Open Spot a
-        </CopyAnchor>
         <p className="spotj-lede spotj-desk">
           Spot a is an iPhone app. Open this link on your phone to join{" "}
           {name ? `${name}'s` : "their"} team.
         </p>
+        <div className="spotj-actions">
+          <CopyAnchor
+            className="spotj-btn spotj-phone"
+            href={`spota://join/${code}`}
+            copy={link}
+          >
+            Open Spot a
+          </CopyAnchor>
+          {/* Copies the invite link too: after the TestFlight install the app
+              finds it on the clipboard at its first launch. */}
+          <CopyAnchor className="spotj-btn spotj-btn-alt" href={BETA_LINK} copy={link}>
+            Get the beta
+          </CopyAnchor>
+        </div>
         <p className="spotj-small">
-          Do not have Spot a yet? It is in closed beta on iOS, for people aged 16 and
-          over. <CopyAnchor href={BETA_MAILTO} copy={link}>Ask for the beta</CopyAnchor>.
+          Spot a is in beta on iOS 16 or later, for people aged 16 and over.
           <span className="spotj-phone">
             {" "}
-            Your invite is kept: the app picks it up the first time it opens.
+            Get the beta with TestFlight and your invite is kept: the app picks it up
+            the first time it opens.
           </span>
         </p>
       </div>
@@ -273,6 +283,12 @@ export function JoinView({ code, name }: { code: string; name?: string }) {
           background: var(--spot); color: ${SPOT_INK}; font-weight: 800;
           font-size: 15px; text-decoration: none; border: 3px solid ${SPOT_INK};
           box-shadow: 0 0 0 1px rgba(202,254,0,0.4);
+        }
+        .spotj-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+        .spotj-actions .spotj-btn { margin-top: 0; }
+        .spotj-btn.spotj-btn-alt {
+          background: transparent; color: var(--spot);
+          border: 2px solid var(--spot); box-shadow: none;
         }
         .spotj .spotj-small {
           margin-top: 28px; font-size: 14px; line-height: 1.6;
