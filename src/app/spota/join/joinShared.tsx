@@ -6,8 +6,8 @@ import { ImageResponse } from "next/og";
 // image a messaging app draws under the link, and the text the app sends read
 // the same. Copy settled 19 Oct 2026 with Clement:
 //   kicker  "<NAME> INVITED YOU"          ("A FRIEND INVITED YOU" without a name)
-//   big     "ONE POST A DAY KEEPS THE DOCTOR AWAY"
-//   foot    "JOIN ME ON SPOT A"
+//   big     "ONE POST A DAY," over "KEEP THE DOCTOR AWAY", Clement's wording
+//   foot    "JOIN ME ON SPOT A", bottom right
 //
 // The inviter's name is NOT read from Spot a's base, which only answers a code
 // to signed in players on purpose. The app puts it in the link itself,
@@ -17,7 +17,7 @@ import { ImageResponse } from "next/og";
 
 export const OG_SIZE = { width: 1200, height: 630 };
 
-const DESCRIPTION = "One post a day keeps the doctor away. Join me on Spot a.";
+const DESCRIPTION = "One post a day, keep the doctor away. Join me on Spot a.";
 
 export function cleanName(raw: string | undefined): string | undefined {
   if (!raw) return undefined;
@@ -67,7 +67,7 @@ const PINK = "#ff3ea5";
 const LIME = "#cafe00";
 const INK = "#0a0a0a";
 
-const LINES = ["ONE POST A DAY", "KEEPS THE", "DOCTOR AWAY"];
+const LINES = ["ONE POST A DAY,", "KEEP THE DOCTOR AWAY"];
 const FOOT = "JOIN ME ON SPOT A";
 
 async function loadAnton(extra: string): Promise<ArrayBuffer | null> {
@@ -132,7 +132,7 @@ export async function renderJoinCard(name?: string): Promise<ImageResponse> {
             padding: "0 90px",
           }}
         >
-          <div style={{ fontSize: 40, letterSpacing: 4, color: PINK, marginBottom: 26 }}>
+          <div style={{ fontSize: 40, letterSpacing: 4, color: VIOLET, marginBottom: 26 }}>
             {kicker}
           </div>
           <div
@@ -146,17 +146,28 @@ export async function renderJoinCard(name?: string): Promise<ImageResponse> {
               borderRadius: 28,
               padding: "22px 40px 26px",
               transform: "rotate(-2.5deg)",
-              fontSize: 104,
+              fontSize: 98,
               lineHeight: 1.02,
             }}
           >
             {LINES.map((line) => (
-              <div key={line}>{line}</div>
+              <div key={line} style={{ whiteSpace: "nowrap" }}>
+                {line}
+              </div>
             ))}
           </div>
-          <div style={{ fontSize: 40, letterSpacing: 4, color: "#ffffff", marginTop: 34 }}>
-            {FOOT}
-          </div>
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            right: 70,
+            bottom: 52,
+            fontSize: 40,
+            letterSpacing: 4,
+            color: "#ffffff",
+          }}
+        >
+          {FOOT}
         </div>
       </div>
     ),
@@ -190,7 +201,7 @@ export function JoinView({ code, name }: { code: string; name?: string }) {
         </Link>
         <h1>{joinTitle(name)}</h1>
         <p className="spotj-lede">
-          One post a day keeps the doctor away. Join me on Spot a. Open the app to join{" "}
+          One post a day, keep the doctor away. Join me on Spot a. Open the app to join{" "}
           {name ? `${name}'s` : "their"} team.
         </p>
         <a className="spotj-btn" href={`spota://join/${code}`}>
