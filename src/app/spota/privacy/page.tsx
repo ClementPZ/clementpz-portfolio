@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 const SPOT = "#cafe00";
 const SPOT_INK = "#0a0d00";
 const CONTACT = "clementpicardzivy@gmail.com";
-const UPDATED = "11 October 2026";
+const UPDATED = "19 October 2026";
 
 export default function SpotaPrivacyPage() {
   return (
@@ -80,9 +80,11 @@ export default function SpotaPrivacyPage() {
           <h2>What the app collects</h2>
           <ul className="spotap-list">
             <li>
-              <b>Your photos.</b> Each spot is two pictures taken inside the app, the
-              rear camera on the target and the front camera on you. They can only be
-              taken live, there is no import from your gallery.
+              <b>Your photos.</b> Each spot is two pictures. The picture of the target
+              comes from the rear camera or, if you prefer, from your photo library
+              through the system picker: the app never asks for access to your library,
+              it only receives the one picture you choose. The picture of you comes from
+              the front camera and can only be taken live.
             </li>
             <li>
               <b>A display name.</b> Whatever you type when you join. It does not have
