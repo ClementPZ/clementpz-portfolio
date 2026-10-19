@@ -187,10 +187,15 @@ const SPOT_INK = "#0a0d00";
 const BETA_MAILTO =
   "mailto:clementpicardzivy@gmail.com?subject=Spot%20a%20beta";
 
-// On a phone with Spot a installed the app opens by itself from this address
+// On an iPhone with Spot a installed the app opens by itself from this address
 // (universal link, public/.well-known/apple-app-site-association) and this page
-// is never seen. It is what everyone else gets: a button that opens the app on
-// its own scheme, the code to type by hand, and where to get the beta.
+// is never seen. It is what everyone else gets. On an iPhone without the app it
+// is the page in Safari, there is no App Store page to send them to yet, only
+// the closed beta. On a computer it says so: Spot a is an iPhone app, open the
+// link on the phone. The "Open Spot a" button is for the phone alone, the
+// `spota://` address it uses means nothing on a computer (Safari answers "the
+// address is invalid"). There is no code to type, no build asks for one: the
+// friend arrives through the link, or through the clipboard (CopyAnchor).
 //
 // Meme derogation que /spota (voir CLAUDE.md, "Exception /spota"): English
 // only, mono-theme, hors shell commun. Not indexed, a code is not content.
@@ -209,21 +214,29 @@ export function JoinView({ code, name }: { code: string; name?: string }) {
         </Link>
         <h1>{joinTitle(name)}</h1>
         <p className="spotj-lede">
-          One post a day, keep the doctor away. Join me on Spot a. Open the app to join{" "}
-          {name ? `${name}'s` : "their"} team.
+          One post a day, keep the doctor away. Join me on Spot a.
         </p>
-        <CopyAnchor className="spotj-btn" href={`spota://join/${code}`} copy={link}>
+        <p className="spotj-lede spotj-phone">
+          Open the app to join {name ? `${name}'s` : "their"} team.
+        </p>
+        <CopyAnchor
+          className="spotj-btn spotj-phone"
+          href={`spota://join/${code}`}
+          copy={link}
+        >
           Open Spot a
         </CopyAnchor>
-        <p className="spotj-small">
-          If the app does not open, type this code in it, on the crew page, long press
-          the title:
+        <p className="spotj-lede spotj-desk">
+          Spot a is an iPhone app. Open this link on your phone to join{" "}
+          {name ? `${name}'s` : "their"} team.
         </p>
-        <div className="spotj-code">{code}</div>
         <p className="spotj-small">
           Do not have Spot a yet? It is in closed beta on iOS, for people aged 16 and
-          over. <CopyAnchor href={BETA_MAILTO} copy={link}>Ask for the beta</CopyAnchor>
-          . Your invite is kept: the app picks it up the first time it opens.
+          over. <CopyAnchor href={BETA_MAILTO} copy={link}>Ask for the beta</CopyAnchor>.
+          <span className="spotj-phone">
+            {" "}
+            Your invite is kept: the app picks it up the first time it opens.
+          </span>
         </p>
       </div>
 
@@ -267,11 +280,11 @@ export function JoinView({ code, name }: { code: string; name?: string }) {
         }
         .spotj .spotj-small a { color: var(--spot); text-decoration: none; }
         .spotj .spotj-small a:hover { text-decoration: underline; }
-        .spotj-code {
-          margin-top: 10px; display: inline-block; padding: 12px 18px;
-          border-radius: 14px; border: 1px solid rgba(255,255,255,0.14);
-          font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-          font-size: 22px; letter-spacing: 0.18em; color: #fff;
+        /* A computer has a mouse. The phone parts go, the computer note comes. */
+        .spotj .spotj-desk { display: none; }
+        @media (hover: hover) and (pointer: fine) {
+          .spotj .spotj-phone { display: none; }
+          .spotj .spotj-desk { display: block; }
         }
       `}</style>
     </div>
