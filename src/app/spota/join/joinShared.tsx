@@ -245,7 +245,7 @@ export function JoinView({ code, name }: { code: string; name?: string }) {
           <span className="spotj-phone">
             {" "}
             Get the beta with TestFlight and your invite is kept: the app picks it up
-            the first time it opens.
+            the first time it opens. Nothing came up? Come back here and tap Open Spot a.
           </span>
         </p>
       </div>
