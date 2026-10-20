@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { BackHome } from "./BackHome";
+import { MakingOfFlow } from "./MakingOfFlow";
 import { makingOfText } from "../data/i18n";
 import { useLocale } from "./LocaleProvider";
 
@@ -35,6 +36,10 @@ export function MakingOfContent() {
         >
           {t.intro}
         </p>
+
+        <div className="panel p-5 sm:p-8 mb-10">
+          <MakingOfFlow />
+        </div>
 
         <div className="panel p-5 sm:p-8">
           <ol className="space-y-10">
